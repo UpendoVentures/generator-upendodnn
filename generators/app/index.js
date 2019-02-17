@@ -107,6 +107,7 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'dnnRoot',
         message: 'What is the local path to the root of your DNN site? (currently only used by SPA templates)',
+		default: process.cwd(),
         store: true,
         validate: str => {
           return str.length > 0;
