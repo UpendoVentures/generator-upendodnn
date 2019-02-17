@@ -1,10 +1,11 @@
 ﻿
-using System;
 using DotNetNuke.Services.Exceptions;
+using System;
+using <%= fullNamespace %>.Components;
 
 namespace <%= fullNamespace %>
 {
-    public partial class View : SkinObjectModuleBase
+    public partial class View : <%= moduleName %>ModuleBase
     {
 
         protected void Page_Load(object sender, EventArgs e)

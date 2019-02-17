@@ -1,6 +1,6 @@
 ﻿using DotNetNuke.UI.Skins; 
 
-namespace <%= fullNamespace %>  
+namespace <%= fullNamespace %>.Components
 {
     public class <%= moduleName %>ModuleBase : SkinObjectBase 
 	{

@@ -55,7 +55,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="DotNetNuke.WebUtility">
-      <HintPath>$(HccReferencePath)\DotNetNuke.WebUtility.dll</HintPath>
+      <HintPath>$(DnnReferencePath)\DotNetNuke.WebUtility.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -94,7 +94,7 @@
     <Content Include="View.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Example.Skin.Object.dnn" />
+    <Content Include="<%= moduleName %>.dnn" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SkinObject.Build" />

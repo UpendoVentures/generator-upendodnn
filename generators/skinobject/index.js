@@ -72,6 +72,8 @@ module.exports = class extends DnnGeneratorBase {
       props.extensionType = "SkinObjects";
       props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.moduleName;
       props.guid = this._generateGuid();
+      props.openDirective = "%@";
+      props.closeDirective = "%";
 
       this.props = props;
     });
@@ -102,12 +104,14 @@ module.exports = class extends DnnGeneratorBase {
       parentMenu: this.props.parentMenu,
       extensionType: this.props.extensionType,
       fullNamespace: this.props.fullNamespace,
-      guid: this.props.guid
+      guid: this.props.guid,
+      openDirective: this.props.openDirective,
+      closeDirective: this.props.closeDirective
     };
 
     this.fs.copyTpl(
-      this.templatePath('../../common/csproj/NuGet.config'),
-      this.destinationPath(moduleName + '/NuGet.config'),
+      this.templatePath('../../common/packaging/**'),
+      this.destinationPath(moduleName + '/'),
       template
     );
 
@@ -118,111 +122,57 @@ module.exports = class extends DnnGeneratorBase {
     );
 
     this.fs.copyTpl(
-      this.templatePath('../../common/csproj/Providers/**'),
-      this.destinationPath(moduleName + '/Providers'),
-      template
-    );
-
-    this.fs.copyTpl(
       this.templatePath('Images/**'),
       this.destinationPath(moduleName + '/Images/'),
       template
     );
 
     this.fs.copyTpl(
-      this.templatePath('Properties/AssemblyInfo.cs'),
+      this.templatePath('Properties/**'),
       this.destinationPath(moduleName + '/Properties/'),
       template
     );
 
     this.fs.copyTpl(
-      this.templatePath('License.txt'),
-      this.destinationPath(moduleName + '/License.txt'),
-      {
-        namespace: namespace,
-        moduleName: moduleName,
-        moduleFriendlyName: this.props.name,
-        description: this.props.description,
-        companyUrl: this.props.companyUrl,
-        emailAddy: this.props.emailAddy,
-        fullNamespace: this.props.fullNamespace,
-        guid: this.props.guid
-      }
-    );
-
-    this.fs.copyTpl(
       this.templatePath('manifest.dnn'),
       this.destinationPath(moduleName + '/' + moduleName + '.dnn'),
-      {
-        namespace: namespace,
-        moduleName: moduleName,
-        moduleFriendlyName: this.props.name,
-        description: this.props.description,
-        companyUrl: this.props.companyUrl,
-        emailAddy: this.props.emailAddy,
-        fullNamespace: this.props.fullNamespace,
-        guid: this.props.guid
-      }
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('ReleaseNotes.txt'),
-      this.destinationPath(moduleName + '/ReleaseNotes.txt'),
-      {
-        namespace: namespace,
-        moduleName: moduleName,
-        moduleFriendlyName: this.props.name,
-        description: this.props.description,
-        companyUrl: this.props.companyUrl,
-        emailAddy: this.props.emailAddy,
-        fullNamespace: this.props.fullNamespace,
-        guid: this.props.guid
-      }
+      template
     );
 
     this.fs.copyTpl(
       this.templatePath('SkinObject.build'),
       this.destinationPath(moduleName + '/SkinObject.build'),
-      {
-        namespace: namespace,
-        moduleName: moduleName,
-        moduleFriendlyName: this.props.name,
-        description: this.props.description,
-        companyUrl: this.props.companyUrl,
-        emailAddy: this.props.emailAddy,
-        fullNamespace: this.props.fullNamespace,
-        guid: this.props.guid
-      }
+      template
     );
 
     this.fs.copyTpl(
       this.templatePath('SkinObject.csproj'),
-      this.destinationPath(moduleName + '/' + moduleName + '.csproj'),
-      {
-        namespace: namespace,
-        moduleName: moduleName,
-        moduleFriendlyName: this.props.name,
-        description: this.props.description,
-        companyUrl: this.props.companyUrl,
-        emailAddy: this.props.emailAddy,
-        fullNamespace: this.props.fullNamespace,
-        guid: this.props.guid
-      }
+      this.destinationPath(moduleName + '/' + fullNamespace + '.csproj'),
+      template
     );
 
     this.fs.copyTpl(
       this.templatePath('SkinObject.sln'),
-      this.destinationPath(moduleName + '/' + moduleName + '.sln'),
-      {
-        namespace: namespace,
-        moduleName: moduleName,
-        moduleFriendlyName: this.props.name,
-        description: this.props.description,
-        companyUrl: this.props.companyUrl,
-        emailAddy: this.props.emailAddy,
-        fullNamespace: this.props.fullNamespace,
-        guid: this.props.guid
-      }
+      this.destinationPath(moduleName + '/' + fullNamespace + '.sln'),
+      template
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('View.ascx'),
+      this.destinationPath(moduleName + '/View.ascx'),
+      template
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('View.ascx.cs'),
+      this.destinationPath(moduleName + '/View.ascx.cs'),
+      template
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('View.ascx.designer.cs'),
+      this.destinationPath(moduleName + '/View.ascx.designer.cs'),
+      template
     );
 
     this.fs.copyTpl(
@@ -251,14 +201,10 @@ module.exports = class extends DnnGeneratorBase {
     this.fs.extendJSON(this.destinationPath(moduleName + '/package.json'), pkgJson);
   }
 
-  install() {
-    this._defaultInstall();
-  }
+  install() {}
 
   end() {
     this.log(chalk.white('Installed Skin Object npm Dependencies.'));
-    this.log(chalk.white('Running dotnet restore.'));
-    this.spawnCommand('dotnet', ['restore']);
     process.chdir('../');
     this.log(chalk.white('All Ready!'));
   }
