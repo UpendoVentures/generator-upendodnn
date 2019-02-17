@@ -8,9 +8,18 @@
     "email": "solutions@upendoventures.com",
     "url": "https://upendoventures.com"
   },
-  "files": ["generators"],
+  "files": [
+    "generators"
+  ],
   "main": "generators/index.js",
-  "keywords": ["yeoman-generator", "dnn", "dotnetnuke", "dnncms", "evoq", "upendo"],
+  "keywords": [
+    "yeoman-generator",
+    "dnn",
+    "dotnetnuke",
+    "dnncms",
+    "evoq",
+    "upendo"
+  ],
   "devDependencies": {
     "eslint": "^5.12.0",
     "eslint-config-prettier": "^3.3.0",
@@ -43,7 +52,10 @@
     "postversion": "git push && git push --tags"
   },
   "eslintConfig": {
-    "extends": ["xo", "prettier"],
+    "extends": [
+      "xo",
+      "prettier"
+    ],
     "env": {
       "jest": true,
       "node": true
@@ -58,7 +70,9 @@
         }
       ]
     },
-    "plugins": ["prettier"]
+    "plugins": [
+      "prettier"
+    ]
   },
   "repository": {
     "type": "git",
