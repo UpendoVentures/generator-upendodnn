@@ -1,0 +1,17 @@
+﻿/*
+
+UNINSTALL SQL PROVIDER SCRIPT
+
+<%= moduleName %>  Module
+
+*/
+
+IF NOT OBJECT_ID('{databaseOwner}[{objectQualifier}<%= objectPrefix %>_Example]') IS NULL
+    DROP TABLE {databaseOwner}[{objectQualifier}<%= objectPrefix %>_Example];
+GO
+
+/*
+
+END OF FILE
+
+*/

@@ -1,0 +1,71 @@
+{
+  "name": "generator-upendodnn",
+  "version": "1.0.0",
+  "description": "Scaffolds DNN extensions, including Modules (Webforms, SPA, and MVC), Persona Bar, Skin Object, Library, Scheduler, and Hotcakes Commerce projects (based on the generator built by Matt Rutledge).",
+  "homepage": "https://github.com/UpendoVentures/generator-upendodnn#readme",
+  "author": {
+    "name": "Will Strohl of Upendo Ventures",
+    "email": "solutions@upendoventures.com",
+    "url": "https://upendoventures.com"
+  },
+  "files": ["generators"],
+  "main": "generators/index.js",
+  "keywords": ["yeoman-generator", "dnn", "dotnetnuke", "dnncms", "evoq", "upendo"],
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-xo": "^0.25.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "nsp": "^3.2.1",
+    "prettier": "^1.15.3",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^1.9.1",
+    "yo": "^2.0.5"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "dotnet-solution": "^0.2.0",
+    "pascal-case": "^2.0.1",
+    "update-notifier": "^2.5.0",
+    "uuid-v4": "^0.1.0",
+    "which": "^1.3.1",
+    "yeoman-generator": "^3.2.0",
+    "yosay": "^2.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "test": "jest",
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags"
+  },
+  "eslintConfig": {
+    "extends": ["xo", "prettier"],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "linebreak-style": 0,
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 90
+        }
+      ]
+    },
+    "plugins": ["prettier"]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UpendoVentures/generator-upendodnn.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UpendoVentures/generator-upendodnn/issues"
+  }
+}

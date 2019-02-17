@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Files", "Build Files", "{F84D698C-3163-472D-95E9-EC36712D597B}"
+	ProjectSection(SolutionItems) = preProject
+		Build\HccViewsetPackage.targets = Build\HccViewsetPackage.targets
+		Build\LibraryPackage.targets = Build\LibraryPackage.targets
+		Build\ModulePackage.targets = Build\ModulePackage.targets
+		Build\SkinPackage.targets = Build\SkinPackage.targets
+		Build\SolutionReferences.targets = Build\SolutionReferences.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration Files", "Configuration Files", "{B51AA4AF-EE33-49E1-B621-DF1BCD22A28C}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Website\DotNetNuke.log4net.config = Website\DotNetNuke.log4net.config
+		README.md = README.md
+		Website\web.config = Website\web.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{1F828F98-2015-4EAD-8296-EABDD9EA4880}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{70FB7EDF-2E12-405F-B9CD-8A437E96FB11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Skin Objects", "Skin Objects", "{7722B241-C88C-4BBA-973F-32D755BE9C08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Skins", "Skins", "{EAE79EDB-A03E-445B-AF45-8508AB5CB551}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Viewsets", "Viewsets", "{C5228275-B3D3-4550-A755-98F70CDCEA69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {<%= solutionGuid %>}
+	EndGlobalSection
+EndGlobal
