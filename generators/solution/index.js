@@ -45,7 +45,7 @@ module.exports = class extends Generator {
 
     this.fs.copy(this.templatePath('References/**'), this.destinationPath('References/'));
 
-    this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
+    this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
 
     this.fs.copy(
       this.templatePath('DotNetNuke.log4net.config'),
