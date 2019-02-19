@@ -16,7 +16,7 @@ Then generate your new project:
 ```bash
 mkdir my-project-name
 cd my-project-name
-yo dnn
+yo upendodnn
 ```
 
 [More verbose instructions on how to use this.](http://www.dnnsoftware.com/community-blog/cid/155574/create-a-dnn-module-in-less-than-2-minutes)  
