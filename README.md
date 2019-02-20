@@ -6,8 +6,21 @@
 
 First, install [Yeoman](http://yeoman.io) and generator-upendodnn using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).  
 
+Warning: You may need to [add the user path to your Environmental Variables](https://superuser.com/questions/949560/how-do-i-set-system-environment-variables-in-windows-10).  Here is an example from Windows 10 (you'd replace your username):
+
+`C:\Users\yourUsername\AppData\Roaming\npm`
+
+You also need to install the latest version of MSBuild if you don't already have it installed.
+
+* [Build tools for Visual Studio 2017](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2017)  
+* [Build tools for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48159)  
+* [Build tools for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=40760)  
+
+Now, simply run the following commands:
+
 ```bash
 npm install -g yo
+npm install -g yarn
 npm install -g generator-upendodnn
 ```
 
@@ -18,6 +31,8 @@ mkdir my-project-name
 cd my-project-name
 yo upendodnn
 ```
+
+You're intended to first create the `Solution Structure` if you haven't yet done so in this directory.
 
 [More verbose instructions on how to use this.](http://www.dnnsoftware.com/community-blog/cid/155574/create-a-dnn-module-in-less-than-2-minutes)  
 

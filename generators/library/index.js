@@ -157,6 +157,6 @@ module.exports = class extends DnnGeneratorBase {
 
   end() {
     process.chdir('../');
-    this.log(chalk.white('All Ready!'));
+    this.log(chalk.green('All Ready!'));
   }
 };
