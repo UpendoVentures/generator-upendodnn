@@ -22,9 +22,8 @@
       <Images Include="Images/**/*.*" />
       <JsFiles Include="js/**/*.*" />
       <Styles Include="Styles/**/*.*" />
-      <Libraries Include="bin/*.dll;bin/*.pdb" />
       <DataProvider Include="Providers/DataProviders/SqlDataProvider/*.SqlDataProvider" />
-      <Resources Include="@(Manifest);@(TextFiles);@(SourceFiles);@(Views);@(ResourceFiles);@(Images);@(JsFiles);@(Styles);@(Libraries);@(DataProvider)" />
+      <Resources Include="@(Manifest);@(TextFiles);@(SourceFiles);@(Views);@(ResourceFiles);@(Images);@(JsFiles);@(Styles);@(DataProvider)" />
     </ItemGroup>
   </Target>
   <ItemGroup>
@@ -33,13 +32,13 @@
     <SymbolsInclude Include="ReleaseNotes.txt" />
   </ItemGroup>
   <ItemGroup>
-    <BinSourceInclude Include="$(MSBuildProjectDirectory)\bin\*.dll" />
-    <BinSourceInclude Include="$(MSBuildProjectDirectory)\bin\*.pdb" />
-  </ItemGroup>
-  <ItemGroup>
     <BinInstallInclude Include="$(MSBuildProjectDirectory)\bin\*.dll" />
   </ItemGroup>
   <Target Name="CopyBin">
+    <ItemGroup>
+      <BinSourceInclude Include="$(MSBuildProjectDirectory)\bin\*.dll" />
+      <BinSourceInclude Include="$(MSBuildProjectDirectory)\bin\*.pdb" />
+    </ItemGroup>
     <Copy SourceFiles="@(BinSourceInclude)" DestinationFolder="$(WebsitePath)\bin" />
   </Target>
   <Target Name="DebugProject" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -51,7 +50,6 @@
     <Copy SourceFiles="@(Images)" DestinationFolder="$(FullModulePath)\Images\%(RecursiveDir)" />
     <Copy SourceFiles="@(JsFiles)" DestinationFolder="$(FullModulePath)\Scripts\%(RecursiveDir)" />
     <Copy SourceFiles="@(Styles)" DestinationFolder="$(FullModulePath)\Styles\%(RecursiveDir)" />
-    <Copy SourceFiles="@(Libraries)" DestinationFolder="$(WebsitePath)\bin" />
     <Copy SourceFiles="@(DataProvider)" DestinationFolder="$(FullModulePath)\Providers\DataProviders\SqlDataProvider" />
   </Target>
 </Project>

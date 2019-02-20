@@ -24,13 +24,13 @@
     <SymbolsInclude Include="ReleaseNotes.txt" />
   </ItemGroup>
   <ItemGroup>
-    <BinSourceInclude Include="$(MSBuildProjectDirectory)\bin\*.dll" />
-    <BinSourceInclude Include="$(MSBuildProjectDirectory)\bin\*.pdb" />
-  </ItemGroup>
-  <ItemGroup>
     <BinInstallInclude Include="$(MSBuildProjectDirectory)\bin\*.dll" />
   </ItemGroup>
   <Target Name="CopyBin">
+    <ItemGroup>
+      <BinSourceInclude Include="$(MSBuildProjectDirectory)\bin\*.dll" />
+      <BinSourceInclude Include="$(MSBuildProjectDirectory)\bin\*.pdb" />
+    </ItemGroup>
     <Copy SourceFiles="@(BinSourceInclude)" DestinationFolder="$(WebsitePath)/bin" />
   </Target>
 </Project>
