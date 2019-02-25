@@ -1,0 +1,36 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ModulePath><%= extensionName %></ModulePath>
+    <DNNFileName><%= extensionName %></DNNFileName>
+    <PackageName><%= namespace %>.<%= extensionName %></PackageName>
+    <Extension>zip</Extension>
+    <BuildScriptsPath>$(MSBuildProjectDirectory)\..\..\Build</BuildScriptsPath>
+    <WebsitePath>$(MSBuildProjectDirectory)\..\..\Website</WebsitePath>
+    <WebsiteInstallPath>$(WebsitePath)\Install\Library</WebsiteInstallPath>
+    <FullModulePath>$(WebsitePath)\Bin</FullModulePath>
+  </PropertyGroup>
+  <Import Project="$(BuildScriptsPath)\LibraryPackage.Targets" />
+  <Target Name="AfterBuild" DependsOnTargets="CopyBin;GetFiles;PackageModule">
+  </Target>
+  <Target Name="GetFiles">
+    <ItemGroup>
+      <Manifest Include="*.dnn;*.dnn5;*.dnn6" Exclude="*_Symbols.dnn" />
+      <Resources Include="@(Manifest)" />
+    </ItemGroup>
+  </Target>
+  <ItemGroup>
+	<SymbolsInclude Include="$(DNNFileName)_Symbols.dnn" />
+    <SymbolsInclude Include="License.txt" />
+    <SymbolsInclude Include="ReleaseNotes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BinInstallInclude Include="$(MSBuildProjectDirectory)\bin\*.dll" />
+  </ItemGroup>
+  <Target Name="CopyBin">
+    <ItemGroup>
+      <BinSourceInclude Include="$(MSBuildProjectDirectory)\bin\*.dll" />
+      <BinSourceInclude Include="$(MSBuildProjectDirectory)\bin\*.pdb" />
+    </ItemGroup>
+    <Copy SourceFiles="@(BinSourceInclude)" DestinationFolder="$(WebsitePath)/bin" />
+  </Target>
+</Project>

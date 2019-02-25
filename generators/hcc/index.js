@@ -10,7 +10,7 @@ module.exports = class extends DnnGeneratorBase {
         when: !this.options.hccType,
         type: 'list',
         name: 'hccType',
-        message: 'Which Hotcakes Commerce extenion point do you want to build?',
+        message: 'Which Hotcakes Commerce extension point do you want to build?',
         choices: [
           { name: 'Order Workflow', value: 'workflow' },
           {
@@ -131,6 +131,7 @@ module.exports = class extends DnnGeneratorBase {
     let extensionName = this.props.extensionName;
     let currentDate = this.props.currentDate;
     let fullNamespace = this.props.fullNamespace;
+    let hccType = this.props.hccType;
     let guid = this.props.guid;
 
     let template = {
@@ -156,55 +157,51 @@ module.exports = class extends DnnGeneratorBase {
     );
 
     this.fs.copyTpl(
-      this.templatePath('../../common/src-library/**'),
+      this.templatePath('../../common/src-library-hcc/**'),
       this.destinationPath(extensionName + '/'),
       template
     );
 
-    this.fs.copyTpl(
-      this.templatePath('Properties/**'),
-      this.destinationPath(extensionName + '/Properties/'),
-      template
-    );
+    if (hccType == "workflow"){
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/Tasks/**'),
+        this.destinationPath(extensionName + '/Tasks/'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/MyWorkflow.cs'),
+        this.destinationPath(extensionName + '/MyWorkflow.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/ReadMe.txt'),
+        this.destinationPath(extensionName + '/ReadMe.txt'),
+        template
+      );
+    }
 
     this.fs.copyTpl(
-      this.templatePath('Tasks/**'),
-      this.destinationPath(extensionName + '/Tasks/'),
-      template
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('extension.csproj'),
+      this.templatePath(hccType + '/extension.csproj'),
       this.destinationPath(extensionName + '/' + fullNamespace + '.csproj'),
       template
     );
 
     this.fs.copyTpl(
-      this.templatePath('extension.sln'),
+      this.templatePath(hccType + '/extension.sln'),
       this.destinationPath(extensionName + '/' + fullNamespace + '.sln'),
       template
     );
 
     this.fs.copyTpl(
-      this.templatePath('manifest.dnn'),
+      this.templatePath(hccType + '/manifest.dnn'),
       this.destinationPath(extensionName + '/' + extensionName + '.dnn'),
       template
     );
 
     this.fs.copyTpl(
-      this.templatePath('MyWorkflow.cs'),
-      this.destinationPath(extensionName + '/MyWorkflow.cs'),
-      template
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('ReadMe.txt'),
-      this.destinationPath(extensionName + '/ReadMe.txt'),
-      template
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('symbols.dnn'),
+      this.templatePath(hccType + '/symbols.dnn'),
       this.destinationPath(extensionName + '/' + extensionName + '_Symbols.dnn'),
       template
     );
