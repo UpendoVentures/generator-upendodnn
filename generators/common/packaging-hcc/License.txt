@@ -1,0 +1,3 @@
+﻿<p><%= extensionName %> Hotcakes Commerce Extension for DNN</p>
+<p><%= namespace %> <a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a></p>
+<p>Your License Here</p>

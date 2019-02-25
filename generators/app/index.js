@@ -74,21 +74,7 @@ module.exports = class extends Generator {
           { name: 'Skin Object', value: 'skinobject' },
           { name: 'Library', value: 'library' },
           { name: 'Library: Scheduled Job', value: 'library-scheduledjob' },
-          {
-            name: chalk.gray('Library: Hotcakes Commerce Workflow'),
-            value: 'library-hccworkflow',
-            disabled: chalk.gray('Coming Soon')
-          },
-          {
-            name: chalk.gray('Library: Hotcakes Commerce Action Delegate'),
-            value: 'library-hccdelegate',
-            disabled: chalk.gray('Coming Soon')
-          },
-          {
-            name: chalk.gray('Hotcakes Commerce Viewset'),
-            value: 'viewset',
-            disabled: chalk.gray('Coming Soon')
-          }
+          { name: 'Hotcakes Commerce Extension', value: 'hcc' }
         ]
       },
       {
