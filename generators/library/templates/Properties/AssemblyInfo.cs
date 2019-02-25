@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("<%= description %>")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("<%= namespace %>")]
-[assembly: AssemblyProduct("<%= companyUrl %>")]
-[assembly: AssemblyCopyright("Copyright 2019 <%= namespace %>")]
+[assembly: AssemblyProduct("<%= libraryName %> Library for DNN")]
+[assembly: AssemblyCopyright("Copyright <%= currentYear %> <%= namespace %>")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
