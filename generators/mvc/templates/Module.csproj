@@ -156,8 +156,8 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\Item\Index.cshtml" />
-    <Content Include="Views\Item\Edit.cshtml" />
+    <Content Include="Views\Example\Index.cshtml" />
+    <Content Include="Views\Example\Edit.cshtml" />
     <Content Include="Views\Settings\Settings.cshtml" />
   </ItemGroup>
   <PropertyGroup>
