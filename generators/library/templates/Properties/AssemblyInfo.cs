@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("<%= namespace %>")]
 [assembly: AssemblyProduct("<%= libraryName %> Library for DNN")]
-[assembly: AssemblyCopyright("Copyright <%= currentYear %> <%= namespace %>")]
+[assembly: AssemblyCopyright("Copyright © <%= currentYear %> <%= namespace %>")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
