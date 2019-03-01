@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("<%= namespace %>")]
 [assembly: AssemblyProduct("<%= companyUrl %>")]
-[assembly: AssemblyCopyright("Copyright 2019 <%= namespace %>")]
+[assembly: AssemblyCopyright("Copyright <%= currentYear %> <%= namespace %>")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

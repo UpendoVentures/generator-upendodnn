@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("<%= libraryName %> Library for DNN")]
+[assembly: AssemblyTitle("<%= extensionName %> Hotcakes Commerce Extension for DNN")]
 [assembly: AssemblyDescription("<%= description %>")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("<%= namespace %>")]
-[assembly: AssemblyProduct("<%= libraryName %> Library for DNN")]
-[assembly: AssemblyCopyright("Copyright <%= currentYear %> <%= namespace %>")]
+[assembly: AssemblyProduct("<%= extensionName %> Hotcakes Commerce Extension for DNN")]
+[assembly: AssemblyCopyright("Copyright © <%= currentYear %> <%= namespace %>")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

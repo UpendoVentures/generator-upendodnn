@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dotnetnuke type="Package" version="6.0">
+  <packages>
+    <package name="<%= fullNamespace %>" type="Library" version="01.00.00">
+      <friendlyName><%= extensionName %> Hotcakes Commerce Workflow</friendlyName>
+      <description>
+        <![CDATA[<p><%= description %></p>]]>
+      </description>
+      <owner>
+        <name><%= namespace %></name>
+        <organization><%= namespace %></organization>
+        <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
+        <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
+      </owner>
+      <license src="License.txt" />
+      <releaseNotes src="ReleaseNotes.txt" />
+      <azureCompatible>True</azureCompatible>
+      <dependencies>
+        <dependency type="CoreVersion">08.00.03</dependency>
+      </dependencies>
+      <components>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath></basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

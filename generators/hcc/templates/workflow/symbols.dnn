@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dotnetnuke type="Package" version="6.0">
+  <packages>
+    <package name="<%= fullNamespace %>" type="Library" version="01.00.00">
+      <friendlyName><%= extensionName %> Hotcakes Commerce Workflow Symbols</friendlyName>
+      <description><![CDATA[<%= description %>]]></description>
+      <owner>
+        <name><%= namespace %></name>
+        <organization><%= namespace %></organization>
+        <url><%= companyUrl %></url>
+        <email><%= emailAddy %></email>
+      </owner>
+      <license src="License.txt" />
+      <releaseNotes src="ReleaseNotes.txt" />
+      <azureCompatible>True</azureCompatible>
+      <components>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath></basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>
