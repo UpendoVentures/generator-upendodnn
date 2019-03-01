@@ -13,11 +13,7 @@ module.exports = class extends DnnGeneratorBase {
         message: 'Which Hotcakes Commerce extension point do you want to build?',
         choices: [
           { name: 'Order Workflow', value: 'workflow' },
-          {
-            name: chalk.gray('Action Delegate Integration'),
-            value: 'actiondelegate',
-            disabled: chalk.gray('Coming Soon')
-          },
+          { name: 'Action Delegate Integration', value: 'actiondelegate' },
           {
             name: chalk.gray('Credit Card Gateway'),
             value: 'creditcardgateway',
@@ -181,13 +177,34 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(extensionName + '/MyWorkflow.cs'),
         template
       );
+    }
 
+    if (hccType == "actiondelegate"){
       this.fs.copyTpl(
-        this.templatePath(hccType + '/ReadMe.txt'),
-        this.destinationPath(extensionName + '/ReadMe.txt'),
+        this.templatePath(hccType + '/MyCartIntegration.cs'),
+        this.destinationPath(extensionName + '/MyCartIntegration.cs'),
+        template
+      );
+      
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/MyCheckoutIntegration.cs'),
+        this.destinationPath(extensionName + '/MyCheckoutIntegration.cs'),
+        template
+      );
+      
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/MyProductIntegration.cs'),
+        this.destinationPath(extensionName + '/MyProductIntegration.cs'),
         template
       );
     }
+
+    // used by workflow & action delegate so far
+    this.fs.copyTpl(
+      this.templatePath(hccType + '/ReadMe.txt'),
+      this.destinationPath(extensionName + '/ReadMe.txt'),
+      template
+    );
 
     this.fs.copyTpl(
       this.templatePath(hccType + '/extension.csproj'),
