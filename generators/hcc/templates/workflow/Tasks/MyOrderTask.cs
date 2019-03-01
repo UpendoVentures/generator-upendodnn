@@ -44,7 +44,7 @@ namespace <%= fullNamespace %>.MyWorkflow.Tasks
         public override string TaskId()
         {
 			// TODO: change this GUID to be a unique value
-            return "{<%= guid %>}";
+            return "{<%= task2Guid %>}";
         }
 
         public override string TaskName()

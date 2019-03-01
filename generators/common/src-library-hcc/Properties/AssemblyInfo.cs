@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("<%= namespace %>")]
 [assembly: AssemblyProduct("<%= extensionName %> Hotcakes Commerce Extension for DNN")]
-[assembly: AssemblyCopyright("Copyright © 2016 Hotcakes Commerce, LLC")]
+[assembly: AssemblyCopyright("Copyright © <%= currentYear %> <%= namespace %>")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

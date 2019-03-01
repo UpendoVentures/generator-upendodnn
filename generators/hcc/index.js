@@ -113,10 +113,18 @@ module.exports = class extends DnnGeneratorBase {
     this.log(
       chalk.white("Creating Hotcakes Commerce extension point.")
     );
+
+    let namespace = this.props.namespace;
+    let extensionName = this.props.extensionName;
+    let currentDate = this.props.currentDate;
+    let fullNamespace = this.props.fullNamespace;
+    let hccType = this.props.hccType;
+    let guid = this.props.guid;
 	
     // mod: this follows the Upendo development/solution pattern
-    switch (this.props.extensionType) {
-      case "workflow", "actiondelegate":
+    switch (hccType) {
+      case "workflow":
+      case "actiondelegate":
         this.destinationRoot("Libraries/");
         break;
       case "viewset":
@@ -126,13 +134,6 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationRoot("Hotcakes/");
         break;
     }
-
-    let namespace = this.props.namespace;
-    let extensionName = this.props.extensionName;
-    let currentDate = this.props.currentDate;
-    let fullNamespace = this.props.fullNamespace;
-    let hccType = this.props.hccType;
-    let guid = this.props.guid;
 
     let template = {
       namespace: namespace,
@@ -163,6 +164,12 @@ module.exports = class extends DnnGeneratorBase {
     );
 
     if (hccType == "workflow"){
+      let task1Guid = this._generateGuid();
+      let task2Guid = this._generateGuid();
+
+      template.task1Guid = task1Guid;
+      template.task2Guid = task2Guid;
+
       this.fs.copyTpl(
         this.templatePath(hccType + '/Tasks/**'),
         this.destinationPath(extensionName + '/Tasks/'),
