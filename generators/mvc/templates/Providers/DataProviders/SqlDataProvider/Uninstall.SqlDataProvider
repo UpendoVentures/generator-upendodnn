@@ -2,7 +2,7 @@
 
 UNINSTALL SQL PROVIDER SCRIPT
 
-<%= moduleName %>  Module
+<%= extensionName %> Extension for DNN
 
 */
 

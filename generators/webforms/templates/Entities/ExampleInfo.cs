@@ -5,13 +5,13 @@ using DotNetNuke.ComponentModel.DataAnnotations;
 
 namespace <%= fullNamespace %>.Entities
 {
-    [TableName("<%= objectPrefix %>_Example")]
-    [PrimaryKey("ExampleId", AutoIncrement = true)]
-    [Cacheable("ExampleInfo", CacheItemPriority.Default, 20)]
+    [TableName("<%= objectPrefix %>_<%= extensionName %>")]
+    [PrimaryKey("ItemId", AutoIncrement = true)]
+    [Cacheable("<%= extensionName %>Info", CacheItemPriority.Default, 20)]
     [Scope("ModuleId")]
-    public class ExampleInfo : IExampleInfo
+    public class <%= extensionName %>Info : I<%= extensionName %>Info
     {
-        public int ExampleId { get; set; }
+        public int ItemId { get; set; }
 
         public int ModuleId { get; set; }
 

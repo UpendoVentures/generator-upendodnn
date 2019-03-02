@@ -83,9 +83,9 @@ module.exports = class extends DnnGeneratorBase {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date();
       props.namespace = this._pascalCaseName(props.company);
-      props.moduleName = this._pascalCaseName(props.name);
+      props.extensionName = this._pascalCaseName(props.name);
 	    props.extensionType = "Modules";
-      props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.moduleName;
+      props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.extensionName;
       props.guid = this._generateGuid();
       props.msBuildVersion = msBuildVersion;
 
@@ -100,13 +100,13 @@ module.exports = class extends DnnGeneratorBase {
 	this.destinationRoot("Modules/");
 
     let namespace = this.props.namespace;
-    let moduleName = this.props.moduleName;
+    let extensionName = this.props.extensionName;
     let currentDate = this.props.currentDate;
     let fullNamespace = this.props.fullNamespace;
 
     let template = {
       namespace: namespace,
-      moduleName: moduleName,
+      extensionName: extensionName,
       moduleFriendlyName: this.props.name,
       description: this.props.description,
       companyUrl: this.props.companyUrl,
@@ -124,121 +124,121 @@ module.exports = class extends DnnGeneratorBase {
 
     this.fs.copyTpl(
       this.templatePath('../../common/csproj/NuGet.config'),
-      this.destinationPath(moduleName + '/NuGet.config'),
+      this.destinationPath(extensionName + '/NuGet.config'),
+      template
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('../../common/branding/**'),
+      this.destinationPath(extensionName + '/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('../../common/packaging/**'),
-      this.destinationPath(moduleName + '/'),
+      this.destinationPath(extensionName + '/'),
+      template
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('../../common/properties/**'),
+      this.destinationPath(extensionName + '/Properties/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('App_LocalResources/**'),
-      this.destinationPath(moduleName + '/App_LocalResources/'),
+      this.destinationPath(extensionName + '/App_LocalResources/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Components/**'),
-      this.destinationPath(moduleName + '/Components/'),
+      this.destinationPath(extensionName + '/Components/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Controllers/**'),
-      this.destinationPath(moduleName + '/Controllers/'),
+      this.destinationPath(extensionName + '/Controllers/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Data/**'),
-      this.destinationPath(moduleName + '/Data/'),
-      template
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('Images/**'),
-      this.destinationPath(moduleName + '/Images/'),
+      this.destinationPath(extensionName + '/Data/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Models/**'),
-      this.destinationPath(moduleName + '/Models/'),
-      template
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('Properties/**'),
-      this.destinationPath(moduleName + '/Properties/'),
+      this.destinationPath(extensionName + '/Models/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Providers/**'),
-      this.destinationPath(moduleName + '/Providers/'),
+      this.destinationPath(extensionName + '/Providers/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Views/**'),
-      this.destinationPath(moduleName + '/Views/'),
+      this.destinationPath(extensionName + '/Views/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('manifest.dnn'),
-      this.destinationPath(moduleName + '/' + moduleName + '.dnn'),
+      this.destinationPath(extensionName + '/' + extensionName + '.dnn'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Module.build'),
-      this.destinationPath(moduleName + '/Module.build'),
+      this.destinationPath(extensionName + '/Module.build'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Module.csproj'),
-      this.destinationPath(moduleName + '/' + fullNamespace + '.csproj'),
+      this.destinationPath(extensionName + '/' + fullNamespace + '.csproj'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Module.css'),
-      this.destinationPath(moduleName + '/Module.css'),
+      this.destinationPath(extensionName + '/Module.css'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Module.sln'),
-      this.destinationPath(moduleName + '/' + fullNamespace + '.sln'),
+      this.destinationPath(extensionName + '/' + fullNamespace + '.sln'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('packages.config'),
-      this.destinationPath(moduleName + '/packages.config'),
+      this.destinationPath(extensionName + '/packages.config'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('symbols.dnn'),
-      this.destinationPath(moduleName + '/' + moduleName + '_Symbols.dnn'),
+      this.destinationPath(extensionName + '/' + extensionName + '_Symbols.dnn'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('web.config'),
-      this.destinationPath(moduleName + '/web.config'),
+      this.destinationPath(extensionName + '/web.config'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('package.json'),
-      this.destinationPath(moduleName + '/package.json'),
+      this.destinationPath(extensionName + '/package.json'),
       template
     );
 
@@ -259,7 +259,7 @@ module.exports = class extends DnnGeneratorBase {
     };
 
     // Extend package.json file in destination path
-    this.fs.extendJSON(this.destinationPath(moduleName + '/package.json'), pkgJson);
+    this.fs.extendJSON(this.destinationPath(extensionName + '/package.json'), pkgJson);
   }
 
   install() {

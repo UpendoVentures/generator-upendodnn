@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Upendo.Modules.SalesforceW2L
+namespace <%= fullNamespace %>
 {
 
 

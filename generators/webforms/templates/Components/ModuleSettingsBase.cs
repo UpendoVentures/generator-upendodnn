@@ -6,7 +6,7 @@ using System;
 
 namespace <%= fullNamespace %>.Components
 {
-    public abstract class <%= moduleName %>ModuleSettingsBase : ModuleSettingsBase
+    public abstract class <%= extensionName %>ModuleSettingsBase : ModuleSettingsBase
     {
         #region Localization
 

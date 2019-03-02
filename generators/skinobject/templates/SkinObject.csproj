@@ -94,7 +94,7 @@
     <Content Include="View.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="<%= moduleName %>.dnn" />
+    <Content Include="<%= extensionName %>.dnn" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SkinObject.Build" />

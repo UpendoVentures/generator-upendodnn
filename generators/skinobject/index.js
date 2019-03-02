@@ -74,9 +74,9 @@ module.exports = class extends DnnGeneratorBase {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date();
       props.namespace = this._pascalCaseName(props.company);
-      props.moduleName = this._pascalCaseName(props.name);
+      props.extensionName = this._pascalCaseName(props.name);
       props.extensionType = "SkinObjects";
-      props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.moduleName;
+      props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.extensionName;
       props.guid = this._generateGuid();
       props.openDirective = "%@";
       props.closeDirective = "%";
@@ -93,14 +93,14 @@ module.exports = class extends DnnGeneratorBase {
 	this.destinationRoot("SkinObjects/");
 
     let namespace = this.props.namespace;
-    let moduleName = this.props.moduleName;
+    let extensionName = this.props.extensionName;
     let currentDate = this.props.currentDate;
     let fullNamespace = this.props.fullNamespace;
     let guid = this.props.guid;
 
     let template = {
       namespace: namespace,
-      moduleName: moduleName,
+      extensionName: extensionName,
       moduleFriendlyName: this.props.name,
       description: this.props.description,
       companyUrl: this.props.companyUrl,
@@ -118,74 +118,74 @@ module.exports = class extends DnnGeneratorBase {
     };
 
     this.fs.copyTpl(
+      this.templatePath('../../common/branding/**'),
+      this.destinationPath(extensionName + '/'),
+      template
+    );
+
+    this.fs.copyTpl(
       this.templatePath('../../common/packaging/**'),
-      this.destinationPath(moduleName + '/'),
+      this.destinationPath(extensionName + '/'),
+      template
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('../../common/properties/**'),
+      this.destinationPath(extensionName + '/Properties/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Components/**'),
-      this.destinationPath(moduleName + '/Components/'),
-      template
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('Images/**'),
-      this.destinationPath(moduleName + '/Images/'),
-      template
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('Properties/**'),
-      this.destinationPath(moduleName + '/Properties/'),
+      this.destinationPath(extensionName + '/Components/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('manifest.dnn'),
-      this.destinationPath(moduleName + '/' + moduleName + '.dnn'),
+      this.destinationPath(extensionName + '/' + extensionName + '.dnn'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('SkinObject.build'),
-      this.destinationPath(moduleName + '/SkinObject.build'),
+      this.destinationPath(extensionName + '/SkinObject.build'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('SkinObject.csproj'),
-      this.destinationPath(moduleName + '/' + fullNamespace + '.csproj'),
+      this.destinationPath(extensionName + '/' + fullNamespace + '.csproj'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('SkinObject.sln'),
-      this.destinationPath(moduleName + '/' + fullNamespace + '.sln'),
+      this.destinationPath(extensionName + '/' + fullNamespace + '.sln'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('View.ascx'),
-      this.destinationPath(moduleName + '/View.ascx'),
+      this.destinationPath(extensionName + '/View.ascx'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('View.ascx.cs'),
-      this.destinationPath(moduleName + '/View.ascx.cs'),
+      this.destinationPath(extensionName + '/View.ascx.cs'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('View.ascx.designer.cs'),
-      this.destinationPath(moduleName + '/View.ascx.designer.cs'),
+      this.destinationPath(extensionName + '/View.ascx.designer.cs'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('package.json'),
-      this.destinationPath(moduleName + '/package.json'),
+      this.destinationPath(extensionName + '/package.json'),
       template
     );
 
@@ -206,7 +206,7 @@ module.exports = class extends DnnGeneratorBase {
     };
 
     // Extend package.json file in destination path
-    this.fs.extendJSON(this.destinationPath(moduleName + '/package.json'), pkgJson);
+    this.fs.extendJSON(this.destinationPath(extensionName + '/package.json'), pkgJson);
   }
 
   install() {}

@@ -2,7 +2,7 @@
 
 namespace <%= fullNamespace %>.Components
 {
-    public class <%= moduleName %>ModuleBase : SkinObjectBase 
+    public class <%= extensionName %>ModuleBase : SkinObjectBase 
 	{
         public string ControlPath 
 		{

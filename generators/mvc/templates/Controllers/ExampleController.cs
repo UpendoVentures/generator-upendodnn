@@ -16,7 +16,7 @@ namespace <%= fullNamespace %>.Controllers
 
         public ActionResult Delete(int itemId)
         {
-            ExampleRepository.Instance.DeleteItem(itemId, ModuleContext.ModuleId);
+            ExampleInfoRepository.Instance.DeleteItem(itemId, ModuleContext.ModuleId);
             return RedirectToDefaultRoute();
         }
 
@@ -26,7 +26,7 @@ namespace <%= fullNamespace %>.Controllers
 
             var item = (itemId == -1)
                  ? new ExampleInfo { ModuleId = ModuleContext.ModuleId }
-                 : ExampleRepository.Instance.GetItem(itemId, ModuleContext.ModuleId);
+                 : ExampleInfoRepository.Instance.GetItem(itemId, ModuleContext.ModuleId);
 
             return View(item);
         }
@@ -42,17 +42,17 @@ namespace <%= fullNamespace %>.Controllers
                 item.LastUpdatedByUserId = User.UserID;
                 item.LastUpdatedOnDate = DateTime.UtcNow;
 
-                ExampleRepository.Instance.CreateItem(item);
+                ExampleInfoRepository.Instance.CreateItem(item);
             }
             else
             {
-                var existingItem = ExampleRepository.Instance.GetItem(item.ExampleId, item.ModuleId);
+                var existingItem = ExampleInfoRepository.Instance.GetItem(item.ExampleId, item.ModuleId);
                 existingItem.LastUpdatedByUserId = User.UserID;
                 existingItem.LastUpdatedOnDate = DateTime.UtcNow;
                 existingItem.Title = item.Title;
                 existingItem.Description = item.Description;
 
-                ExampleRepository.Instance.UpdateItem(existingItem);
+                ExampleInfoRepository.Instance.UpdateItem(existingItem);
             }
 
             return RedirectToDefaultRoute();
@@ -61,7 +61,7 @@ namespace <%= fullNamespace %>.Controllers
         [ModuleAction(ControlKey = "Edit", TitleKey = "AddItem")]
         public ActionResult Index()
         {
-            var items = ExampleRepository.Instance.GetItems(ModuleContext.ModuleId);
+            var items = ExampleInfoRepository.Instance.GetItems(ModuleContext.ModuleId);
             return View(items);
         }
     }

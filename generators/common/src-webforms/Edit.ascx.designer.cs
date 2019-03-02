@@ -9,7 +9,7 @@
 
 namespace <%= fullNamespace %>
 {
-    public partial class Settings
+    public partial class Edit
     {
 
 

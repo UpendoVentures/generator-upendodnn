@@ -1,8 +1,0 @@
-﻿
-<h2><%= moduleName %> Module by <%= namespace %></h2>
-<p>Version 01.00.00</p>
-<ul>
-	<li>First update</li>
-	<li>Second update</li>
-	<li>Another update</li>
-</ul>

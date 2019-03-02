@@ -8,7 +8,7 @@ using <%= fullNamespace %>.Components;
 
 namespace <%= fullNamespace %>
 {
-    public partial class Settings : <%= moduleName %>ModuleSettingsBase
+    public partial class Settings : <%= extensionName %>ModuleSettingsBase
     {
         #region Event Handlers
 

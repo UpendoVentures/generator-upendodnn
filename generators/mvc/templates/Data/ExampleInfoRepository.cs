@@ -7,7 +7,7 @@ using <%= fullNamespace %>.Models;
 
 namespace <%= fullNamespace %>.Data
 {
-    public interface IExampleRepository
+    public interface IExampleInfoRepository
     {
         void CreateItem(ExampleInfo t);
         void DeleteItem(int itemId, int moduleId);
@@ -17,7 +17,7 @@ namespace <%= fullNamespace %>.Data
         void UpdateItem(ExampleInfo t);
     }
 
-    public class ExampleRepository : ServiceLocator<IExampleRepository, ExampleRepository>, IExampleRepository
+    public class ExampleInfoRepository : ServiceLocator<IExampleInfoRepository, ExampleInfoRepository>, IExampleInfoRepository
     {
         public void CreateItem(ExampleInfo t)
         {
@@ -74,9 +74,9 @@ namespace <%= fullNamespace %>.Data
             }
         }
 
-        protected override System.Func<IExampleRepository> GetFactory()
+        protected override System.Func<IExampleInfoRepository> GetFactory()
         {
-            return () => new ExampleRepository();
+            return () => new ExampleInfoRepository();
         }
     }
 }

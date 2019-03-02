@@ -8,7 +8,7 @@ using <%= fullNamespace %>.Components;
 
 namespace <%= fullNamespace %>
 {
-    public partial class View : <%= moduleName %>ModuleBase, IActionable
+    public partial class View : <%= extensionName %>ModuleBase, IActionable
     {
         #region Event Handlers
 
