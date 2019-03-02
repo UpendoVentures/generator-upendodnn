@@ -2,9 +2,9 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>" type="SkinObject" version="01.00.00">
-      <friendlyName><%= moduleName %></friendlyName>
+      <friendlyName><%= extensionName %></friendlyName>
       <description><%= description %></description>
-      <iconFile>~/DesktopModules/<%= moduleName %>/Images/logo.png</iconFile>
+      <iconFile>~/DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
       <owner>
         <name><%= namespace %></name>
         <organization><%= namespace %></organization>
@@ -15,7 +15,7 @@
       <releaseNotes src="ReleaseNotes.txt" />
       <azureCompatible>True</azureCompatible>
       <dependencies>
-        <dependency type="CoreVersion">08.00.01</dependency>
+        <dependency type="CoreVersion">09.01.01</dependency>
       </dependencies>
 
       <components>
@@ -31,7 +31,7 @@
 
         <component type="ResourceFile">
           <resourceFiles>
-            <basePath>DesktopModules/<%= moduleName %></basePath>
+            <basePath>DesktopModules/<%= extensionName %></basePath>
             <resourceFile>
               <name>Resources.zip</name>
             </resourceFile>
@@ -41,7 +41,7 @@
         <component type="SkinObject">
             <moduleControl>
               <controlKey>PrismJS</controlKey>
-              <controlSrc>DesktopModules/<%= moduleName %>/View.ascx</controlSrc>
+              <controlSrc>DesktopModules/<%= extensionName %>/View.ascx</controlSrc>
               <supportsPartialRendering>False</supportsPartialRendering>
             </moduleControl>
         </component>

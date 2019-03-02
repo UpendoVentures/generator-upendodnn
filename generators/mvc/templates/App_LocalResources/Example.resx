@@ -121,7 +121,7 @@
     <value>Add New Item</value>
   </data>
   <data name="BasicSettings.Text" xml:space="preserve">
-    <value><%= moduleName %> Item Basic Settings</value>
+    <value><%= extensionName %> Item Basic Settings</value>
   </data>
   <data name="Cancel.Text" xml:space="preserve">
     <value>Cancel</value>

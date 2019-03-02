@@ -1,8 +1,8 @@
 ﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ModulePath><%= moduleName %></ModulePath>
-    <DNNFileName><%= moduleName %></DNNFileName>
-    <PackageName><%= namespace %>.<%= moduleName %></PackageName>
+    <ModulePath><%= extensionName %></ModulePath>
+    <DNNFileName><%= extensionName %></DNNFileName>
+    <PackageName><%= namespace %>.<%= extensionName %></PackageName>
     <Extension>zip</Extension>
     <BuildScriptsPath>$(MSBuildProjectDirectory)\..\..\Build</BuildScriptsPath>
     <WebsitePath>$(MSBuildProjectDirectory)\..\..\Website</WebsitePath>

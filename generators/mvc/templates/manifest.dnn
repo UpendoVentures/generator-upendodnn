@@ -2,20 +2,22 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>" type="Module" version="01.00.00">
-      <friendlyName><%= moduleName %> Module</friendlyName>
-      <description><%= description %></description>
+      <friendlyName><%= extensionName %> Module</friendlyName>
+      <description>
+        <![CDATA[<p><%= description %></p>]]>
+      </description>
       <iconFile>DesktopModules/MVC/<%= fullNamespace %>/Images/logo.png</iconFile>
       <owner>
         <name><%= namespace %></name>
         <organization><%= namespace %></organization>
-        <url><%= companyUrl %></url>
-        <email><%= emailAddy %></email>
+        <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
+        <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
       </owner>
       <license src="License.txt" />
       <releaseNotes src="ReleaseNotes.txt" />
       <azureCompatible>true</azureCompatible>
       <dependencies>
-        <dependency type="CoreVersion">08.00.00</dependency>
+        <dependency type="coreversion">09.01.01</dependency>
       </dependencies>
       <components>
         <component type="Script">
@@ -33,23 +35,16 @@
             </script>
           </scripts>
         </component>
-        <component type="ResourceFile">
-          <resourceFiles>
-            <basePath>DesktopModules/MVC/<%= fullNamespace %></basePath>
-            <resourceFile>
-              <name>Resources.zip</name>
-            </resourceFile>
-          </resourceFiles>
-        </component>
+
         <component type="Module">
           <desktopModule>
-            <moduleName><%= moduleName %></moduleName>
+            <moduleName><%= extensionName %> Module</moduleName>
             <foldername><%= fullNamespace %></foldername>
-            <businessControllerClass><%= fullNamespace %>.Components.<%= moduleName %>Controller, <%= fullNamespace %></businessControllerClass>
+            <businessControllerClass><%= fullNamespace %>.Components.<%= extensionName %>Controller, <%= fullNamespace %></businessControllerClass>
             <supportedFeatures />
             <moduleDefinitions>
               <moduleDefinition>
-                <friendlyName><%= moduleName %></friendlyName>
+                <friendlyName><%= extensionName %> Module</friendlyName>
                 <defaultCacheTime>0</defaultCacheTime>
                 <moduleControls>
                   <moduleControl>
@@ -66,7 +61,7 @@
                     <controlKey>Edit</controlKey>
                     <controlSrc><%= fullNamespace %>.Controllers/Example/Edit.mvc</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle>Edit Content</controlTitle>
+                    <controlTitle>Edit <%= extensionName %> Content</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
@@ -77,7 +72,7 @@
                     <controlKey>Settings</controlKey>
                     <controlSrc><%= fullNamespace %>.Controllers/Settings/Settings.mvc</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle><%= moduleName %> Settings</controlTitle>
+                    <controlTitle><%= extensionName %> Settings</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
@@ -91,12 +86,13 @@
             <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
             <processorCommand>UpgradeModule</processorCommand>
             <attributes>
-              <businessControllerClass><%= fullNamespace %>.Components.<%= moduleName %>Controller, <%= fullNamespace %></businessControllerClass>
+              <businessControllerClass><%= fullNamespace %>.Components.<%= extensionName %>Controller, <%= fullNamespace %></businessControllerClass>
               <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
               <upgradeVersionsList>01.00.00</upgradeVersionsList>
             </attributes>
           </eventMessage>
         </component>
+
         <component type="Assembly">
           <assemblies>
             <assembly>
@@ -106,6 +102,16 @@
             </assembly>
           </assemblies>
         </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/MVC/<%= fullNamespace %></basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
       </components>
     </package>
   </packages>

@@ -2,11 +2,11 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>" type="Module" version="01.00.00">
-      <friendlyName><%= moduleName %></friendlyName>
+      <friendlyName><%= extensionName %> Module</friendlyName>
       <description>
         <![CDATA[<p><%= description %></p>]]>
       </description>
-      <iconFile>DesktopModules/<%= moduleName %>/Images/logo.png</iconFile>
+      <iconFile>DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
       <owner>
         <name><%= namespace %></name>
         <organization><%= namespace %></organization>
@@ -14,15 +14,15 @@
         <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
       </owner>
       <license src="License.txt" />
-      <releaseNotes src="releasenotes.txt" />
+      <releaseNotes src="ReleaseNotes.txt" />
       <azureCompatible>true</azureCompatible>
       <dependencies>
-        <dependency type="coreversion">08.00.03</dependency>
+        <dependency type="coreversion">09.01.01</dependency>
       </dependencies>
       <components>
         <component type="Script">
           <scripts>
-            <basePath>DesktopModules\<%= moduleName %></basePath>
+            <basePath>DesktopModules\<%= extensionName %></basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>01.00.00.SqlDataProvider</name>
@@ -35,20 +35,21 @@
             </script>
           </scripts>
         </component>
+
         <component type="Module">
           <desktopModule>
-            <moduleName><%= moduleName %></moduleName>
-            <foldername><%= moduleName %></foldername>
-            <businessControllerClass><%= fullNamespace %>.Components.<%= moduleName %>Controller, <%= fullNamespace %></businessControllerClass>
+            <moduleName><%= extensionName %></moduleName>
+            <foldername><%= extensionName %></foldername>
+            <businessControllerClass><%= fullNamespace %>.Components.<%= extensionName %>Controller, <%= fullNamespace %></businessControllerClass>
             <supportedFeatures />
             <moduleDefinitions>
               <moduleDefinition>
-                <friendlyName><%= moduleName %></friendlyName>
-                <defaultCacheTime>-1</defaultCacheTime>
+                <friendlyName><%= extensionName %></friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
                 <moduleControls>
                   <moduleControl>
                     <controlKey />
-                    <controlSrc>DesktopModules/<%= moduleName %>/View.ascx</controlSrc>
+                    <controlSrc>DesktopModules/<%= extensionName %>/View.ascx</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle />
                     <controlType>View</controlType>
@@ -58,9 +59,9 @@
                   </moduleControl>
                   <moduleControl>
                     <controlKey>Edit</controlKey>
-                    <controlSrc>DesktopModules/<%= moduleName %>/Edit.ascx</controlSrc>
+                    <controlSrc>DesktopModules/<%= extensionName %>/Edit.ascx</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle>Edit <%= moduleName %> Content</controlTitle>
+                    <controlTitle>Edit <%= extensionName %> Content</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
@@ -70,9 +71,9 @@
                   </moduleControl>
                   <moduleControl>
                     <controlKey>Settings</controlKey>
-                    <controlSrc>DesktopModules/<%= moduleName %>/Settings.ascx</controlSrc>
+                    <controlSrc>DesktopModules/<%= extensionName %>/Settings.ascx</controlSrc>
                     <supportsPartialRendering>True</supportsPartialRendering>
-                    <controlTitle><%= moduleName %> Settings</controlTitle>
+                    <controlTitle><%= extensionName %> Settings</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
@@ -86,7 +87,7 @@
             <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
             <processorCommand>UpgradeModule</processorCommand>
             <attributes>
-              <businessControllerClass><%= fullNamespace %>.Components.<%= moduleName %>Controller, <%= fullNamespace %></businessControllerClass>
+              <businessControllerClass><%= fullNamespace %>.Components.<%= extensionName %>Controller, <%= fullNamespace %></businessControllerClass>
               <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
               <upgradeVersionsList>01.00.00</upgradeVersionsList>
             </attributes>
@@ -97,15 +98,15 @@
           <assemblies>
             <assembly>
               <name><%= fullNamespace %>.dll</name>
-              <version>01.00.00</version>
               <path>bin</path>
+              <version>01.00.00</version>
             </assembly>
           </assemblies>
         </component>
 
         <component type="ResourceFile">
           <resourceFiles>
-            <basePath>DesktopModules\<%= moduleName %></basePath>
+            <basePath>DesktopModules\<%= extensionName %></basePath>
             <resourceFile>
               <name>Resources.zip</name>
             </resourceFile>

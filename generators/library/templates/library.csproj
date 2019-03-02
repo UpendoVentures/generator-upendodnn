@@ -98,8 +98,8 @@
     <Content Include="ReleaseNotes.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="<%= libraryName %>.dnn" />
-    <None Include="<%= libraryName %>_Symbols.dnn" />
+    <None Include="<%= extensionName %>.dnn" />
+    <None Include="<%= extensionName %>_Symbols.dnn" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="Library.Build" />

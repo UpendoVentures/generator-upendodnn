@@ -2,7 +2,7 @@
 
 INSTALL SQL PROVIDER SCRIPT
 
-<%= moduleName %> Module
+<%= extensionName %> Extension for DNN
 
 Release Notes:
  - This script does this

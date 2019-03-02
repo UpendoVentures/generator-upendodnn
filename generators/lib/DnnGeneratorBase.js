@@ -88,7 +88,8 @@ module.exports = class DnnGeneratorBase extends Generator {
   _defaultInstall() {
     if (!this.options.noinstall) {
       let hasYarn = this._hasYarn();
-      process.chdir(this.props.moduleName);
+	  if (this.props.extensionName == undefined) this.props.extensionName = this.props.moduleName;
+      process.chdir(this.props.extensionName);
       this.installDependencies({ npm: !hasYarn, bower: false, yarn: hasYarn });
     }
   }

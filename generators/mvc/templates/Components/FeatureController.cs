@@ -5,7 +5,7 @@ using DotNetNuke.Services.Search;
 
 namespace <%= fullNamespace %>.Components
 {
-    public class <%= moduleName %>Controller 
+    public class <%= extensionName %>Controller 
     {
 
     }

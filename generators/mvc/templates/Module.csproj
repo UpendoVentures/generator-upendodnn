@@ -111,7 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\FeatureController.cs" />
-    <Compile Include="Data\ExampleRepository.cs" />
+    <Compile Include="Data\ExampleInfoRepository.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Models\Interfaces\IExampleInfo.cs" />
     <Compile Include="Models\ExampleInfo.cs" />
@@ -130,13 +130,13 @@
     <Content Include="Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="<%= moduleName %>.dnn">
+    <Content Include="<%= extensionName %>.dnn">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Module.build">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="<%= moduleName %>_Symbols.dnn">
+    <Content Include="<%= extensionName %>_Symbols.dnn">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>

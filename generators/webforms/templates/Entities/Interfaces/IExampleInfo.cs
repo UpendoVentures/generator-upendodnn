@@ -3,9 +3,9 @@ using System;
 
 namespace <%= fullNamespace %>.Entities
 {
-    public interface IExampleInfo
+    public interface I<%= extensionName %>Info
     {
-        int ExampleId { get; set; }
+        int ItemId { get; set; }
         int ModuleId { get; set; }
         string Title { get; set; }
         string Description { get; set; }
