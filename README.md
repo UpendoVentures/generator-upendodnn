@@ -42,10 +42,14 @@ You're intended to first create the `Solution Structure` if you haven't yet done
  * Yeoman is a person with feelings and opinions, but is very easy to work with.  
  * Yeoman can be too opinionated at times but is easily convinced not to be.  
  * Feel free to [learn more about Yeoman](http://yeoman.io/).  
+ 
+## Video Overview
+
+* [DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN](https://www.youtube.com/watch?v=ZD1p5DDlY2E)
 
 ## More Documentation  
 
-Want to learn more or how to build the gnerator code locally?  
+Want to learn more or how to build the generator code locally?  
 
 [Original Project Documentation](https://mtrutledge.github.io/generator-dnn/)  
 
