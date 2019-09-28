@@ -1,7 +1,7 @@
 'use strict';
 const DnnGeneratorBase = require('../lib/DnnGeneratorBase');
 const chalk = require('chalk');
-const uuid = require('uuid');
+const uuid = require('uuid-v4');
 
 module.exports = class extends DnnGeneratorBase {
   constructor(args, opts) {
@@ -66,7 +66,7 @@ module.exports = class extends DnnGeneratorBase {
 
     var msBuildVersion = this._getMsBuildVersion();
 
-    if (msBuildVersion == ""){
+    if (msBuildVersion == "") {
       this.log(chalk.red("YIKES! A valid version of MSBuild was not found! This is a critical error... :("));
     }
 
@@ -88,9 +88,9 @@ module.exports = class extends DnnGeneratorBase {
 
   writing() {
     this.log(chalk.white('Creating MVC Module.'));
-	
-	// mod: this follows the Upendo development/solution pattern
-	this.destinationRoot("SkinObjects/");
+
+    // mod: this follows the Upendo development/solution pattern
+    this.destinationRoot("SkinObjects/");
 
     let namespace = this.props.namespace;
     let extensionName = this.props.extensionName;
@@ -209,7 +209,7 @@ module.exports = class extends DnnGeneratorBase {
     this.fs.extendJSON(this.destinationPath(extensionName + '/package.json'), pkgJson);
   }
 
-  install() {}
+  install() { }
 
   end() {
     this.log(chalk.white('Installed Skin Object npm Dependencies.'));
