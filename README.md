@@ -52,6 +52,17 @@ You're intended to first create the `Solution Structure` if you haven't yet done
 
 * [DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN](https://www.youtube.com/watch?v=ZD1p5DDlY2E)
 
+## First-Timers: How to Use  
+
+1. Install the generator as shown above.  
+2. Create and navigate to a folder where you wish to begin your new DNN-based solution. (command line example is above)  
+3. Run `yo upendodnn` in CMD or Powershell in that folder.  
+4. For the first time, you'll want to always first choose the `Solution` scaffold and step through the wizard.  
+5. Once the solution scaffold is created, run `yo upendodnn` again to add your other desired DNN solutions/projects.  
+6. After you add the desired solution/project, open the original Solution scaffold in Visual Studio and add the new project to this main solution.  
+7. Build your awesome DNN extension(s) as you see fit.  Everything is now under one easy to open, run, code, build, and commit to source control solution.  
+8. Say hi to Will at [DNN Summit](https://www.dnnsummit.org/) and [DNN-Connect](https://www.dnn-connect.org/). :)  
+
 ## More Documentation  
 
 Want to learn more or how to build the generator code locally?  
