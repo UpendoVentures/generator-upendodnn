@@ -1,27 +1,20 @@
 **A Special Note to ALL Developers...**  
-Please do not begin any development until you first read through and understand all of the notes in the README below.
-
-# PracticeWise Extensions & Integrations  
-This is a cleaned up version of the previous source code for PracticeWise. This solution aggregates all known 
-projects and source code that make up the customizations and integrations for the PracticeWise website.  
+Please do not begin any development until you first read through and understand all of the notes in the README below.  
 
 ## Background  
-The previous version was not adhering to known best practices and as a result, it was unclear of how to find and 
-maintain it. This version has been cleaned up and restructured with best practice architecture, build, versioning, 
-and deployment in mind.  
+The previous version was not adhering to known best practices and as a result, it was unclear of how to find and maintain it. This version has been cleaned up and restructured with best practice architecture, build, versioning, and deployment in mind.  
 
-## Solution
-The solution currently expects to be in the following environment:  
+## Solution  
+The solution currently expects to be in the following environment, but you can update that to be any version you'd like, provided all extensions will be compatible:  
 
-- DNN:  09.01.01 (previously 07.04.02)  
-- Hotcakes Commerce:  03.02.01 (previously 01.10.04)  
-- SQL:  2014 (or 2016, if the database is restored from production)  
+- DNN:  09.01.01  
+- Hotcakes Commerce:  03.02.01  
+- SQL:  2012  
 
-The environment outlined above should not be in the local staging. You should build and develop in a development 
-environment that's separate from the local environment where you'd be testing.  The examples below help to illustrate this...  
+You should build and develop in a development environment that's separate from the local environment where you'd be testing.  The examples below help to illustrate this...  
 
-- Development Path:  `C:\Work\Clients\PracticeWise\source-code\`  
-- Staging/Testing Path:  `C:\Work\Clients\PracticeWise\website\`  
+- Development Path:  `C:\Work\ProjectName\source-code\`  
+- Staging/Testing Path:  `C:\Work\ProjectName\website\`  
 
 The *Development Path* is where the source code (solution) should be contained.  The *Staging/Testing Path* is 
 where the testing website instance should be restored to and ran from via IIS.  
@@ -34,22 +27,12 @@ You should get a backup of the website and database from production, then overwr
 
 ## Builds  
 
-There are two possible paths for development, building and testing related to the suggested approach for this 
-solution. 
+There are two possible paths for development, building and testing related to the suggested approach for this solution.  
 
 1. Restore the website to the *Development Path*. When you build, test the updates from that path.  
 2. Restore the website to the *Staging/Testing Path*. When you build, you'll need to install the extensions into this website.  
 
-__Please Note__: It's possible to follow both approaches. This allows the website in your *Staging/Testing Path* 
-to remain as clean as possible and be a true test before deploying to a true staging environment and/or in production.  
-
-### IMPORTANT Note About PracticeWise.Data  
-
-Due to the way the DLL/project was originally built and maintained, you should **never build** and deploy the `PracticeWise.Data` project and DLL unless you're doing it with _Visual Studio 2013_.  
-
-Building this project for the sake of building other projects that use `PracticeWise.Data` as a dependency is fine.  Just don't deploy the resulting `PracticeWise.Data` package into any staging or production environment.  
-
-Once the project is completely rebuilt using current/contemporary `EntityFramework` standards, this critical process can be updated and/or removed.  
+__Please Note__: It's possible to follow both approaches. This allows the website in your *Staging/Testing Path* to remain as clean as possible and be a true test before deploying to a true staging environment and/or in production.  
 
 ### Debug Mode  
 
@@ -107,7 +90,6 @@ also reflected the same way when viewed in Visual Studio, when necessary.
 - Build: Contains supporting files that enable the build processes mentioned above. These files should usually not be changed.  
 - Libraries: Contains class librarys that either deploy on their own, and/or are deployed within another packaged extension.  
 - Modules: Contains modules.  
-- PWEBS: (Self-explanatory?) This project does not get built if you build the solution. It must be built separately. It generates the `PracticeWise.dll` library.
 - References: Contains references that may be used by one or many of the projects in the solution.  
 - Skin-Objects: Contains skin objects that the theme might need to use.  
 - Skins: Contains theme packages (skins and containers).  
@@ -135,9 +117,9 @@ In order to debug the code, you'll need to follow the steps below:
 3. Ensure that the web.config is set to allow debugging:  `<compilation debug="true" strict="false" optimizeCompilations="true">`  
 4. Run the website and view the page that contains the code you wish to debug.  
 5. In Visual Studio, choose the Debug > Attach to Process feature (a.k.a., `<Ctrl>`+`<Alt>`+`<P>`).  
-6. Find `w3wp.exe' in the list and click the Attach button.  
+6. Find `w3wp.exe` in the list and click the Attach button.  
 7. Set any breakpoints that you wish to hit and step through.  
-8. View the page again and/or perform the steps necessary to hit the breakpoint.  
+8. View the page again and/or perform the steps necessary to hit the breakpoint.    
 
 ### Adding/Updating References
 
@@ -149,13 +131,15 @@ If you're adding/editing references that come from DNN (or from the References f
 
 When necessary, first add the new references to the correct references folder/path, and then update the `SolutionReferences.targets` file.  
 
-Include the following line in the `.csproj` file, just before the references section (if necessary).
+Include the following line in the `.csproj` file, just before the references section (if necessary).  
 
 ```xml
 <Import Project="..\..\Build\SolutionReferences.targets" Condition="false" />
-```
+```  
 
-Next, add the appropriate reference, per the targets file.  Here are examples for DNN, Hotcakes Commerce, and PracticeWise.
+__Please Note__: It's currently required for you to manually update the version numbers in the `.csproj` file when working with any `Library` type project as well.  Please see [Issue #17](https://github.com/UpendoVentures/generator-upendodnn/issues/17) for more details and to potentially help fix this.  :)  
+
+Next, add the appropriate reference, per the targets file.  Here are examples for DNN, and Hotcakes Commerce.  
 
 ```xml
   <ItemGroup>
@@ -169,19 +153,14 @@ Next, add the appropriate reference, per the targets file.  Here are examples fo
       <HintPath>$(HccReferencePath)\Hotcakes.Commerce.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="PracticeWise">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(PwReferencePath)\PracticeWise.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
-```
+```  
 
 Note the use of `SpecificVersion` and `Private` above.  These are very important to ensuring consistent builds and packages.  
 
-If you reference a DLL in the references folder directly, simply edit the `csproj` file afterward to follow the pattern outlined above.  
+If you reference a DLL in the references folder directly, simply edit the `.csproj` file afterward to follow the pattern outlined above.  
 
-# Source Control
+# Source Control  
 
 It may be noticed that this solution and it's architecture are both complicated and elegant at the same time. A beginning developer may feel overwhelmed at first, but this solution greatly simplifies all development. This is especially important and true due to how tightly integrated and dependant all of the projects and code is.  
 
