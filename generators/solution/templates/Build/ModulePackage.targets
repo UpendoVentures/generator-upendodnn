@@ -39,6 +39,7 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       <InstallInclude Include="**\*.resx" Exclude="packages\**;node_modules\**;clientApp\**" />
       <InstallInclude Include="**\*.aspx" Exclude="packages\**;node_modules\**;clientApp\**" />
       <InstallInclude Include="**\*.js" Exclude="packages\**;node_modules\**;clientApp\**" />
+      <InstallInclude Include="**\*.js.map" Exclude="packages\**;node_modules\**;clientApp\**" />
       <InstallInclude Include="**\*.txt"  Exclude="**\obj\**;**\_ReSharper*\**;packages\**;node_modules\**;clientApp\**;readme.txt" />
       <InstallInclude Include="**\images\**\*.*" Exclude="packages\**;node_modules\**;clientApp\**" />
       <InstallInclude Include="**\*.eot" Exclude="packages\**;node_modules\**;clientApp\**" />
