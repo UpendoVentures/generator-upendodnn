@@ -72,7 +72,7 @@
                   <moduleControl>
                     <controlKey>Settings</controlKey>
                     <controlSrc>DesktopModules/<%= extensionName %>/Settings.ascx</controlSrc>
-                    <supportsPartialRendering>True</supportsPartialRendering>
+                    <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle><%= extensionName %> Settings</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
