@@ -19,7 +19,7 @@ module.exports = class DnnGeneratorBase extends Generator {
   }
 
   _generateGuid() {
-	var guid = uuid();
+    var guid = uuid();
     return guid.toUpperCase();
   }
 
@@ -29,7 +29,7 @@ module.exports = class DnnGeneratorBase extends Generator {
 
   _createSolutionFromTemplate() {
     this.log(chalk.white('Creating sln.'));
-	let namespace = this._getNamespace();
+    let namespace = this._getNamespace();
     return this.spawnCommandSync('dotnet', [
       'new',
       'sln',
@@ -41,7 +41,7 @@ module.exports = class DnnGeneratorBase extends Generator {
   }
 
   _addProjectToSolution() {
-	let namespace = this._getNamespace();
+    let namespace = this._getNamespace();
     this.log(chalk.white('Adding project to sln.'));
     this.spawnCommandSync('dotnet', [
       'sln',
@@ -75,20 +75,20 @@ module.exports = class DnnGeneratorBase extends Generator {
       }
     );
   }
-  
-  _getNamespace(){
-	let namespace = this.props.company;
-	if(this.props.extensionType != undefined && this.props.extensionType != ""){
-		namespace = namespace + "." + this.props.extensionType;
-	}
-	namespace = namespace + "." + this.props.moduleName;
-	return namespace;
+
+  _getNamespace() {
+    let namespace = this.props.company;
+    if (this.props.extensionType != undefined && this.props.extensionType != "") {
+      namespace = namespace + "." + this.props.extensionType;
+    }
+    namespace = namespace + "." + this.props.moduleName;
+    return namespace;
   }
 
   _defaultInstall() {
     if (!this.options.noinstall) {
       let hasYarn = this._hasYarn();
-	  if (this.props.extensionName == undefined) this.props.extensionName = this.props.moduleName;
+      if (this.props.extensionName == undefined) this.props.extensionName = this.props.moduleName;
       process.chdir(this.props.extensionName);
       this.installDependencies({ npm: !hasYarn, bower: false, yarn: hasYarn });
     }
@@ -179,17 +179,21 @@ module.exports = class DnnGeneratorBase extends Generator {
 
     this.fs.extendJSON(this.destinationPath('lerna.json'), lernaJson);
   }
-  
-  _getMsBuildVersion(){
-	var msBuildVersion = "";
 
-    try{
+  _getMsBuildVersion() {
+    var msBuildVersion = "";
+
+    try {
       // TODO: Remove the ones that don't matter
+      if (fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications")) {
+        msBuildVersion = "16"; // VS 2019 Community
+      }
+
       /*if (fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\Enterprise\\MSBuild\\15.0\\Bin\\MSBuild.exe")){
         msBuildVersion = "15"; // VS 2017 Enterprise
       }*/
 
-      if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications\\Microsoft.WebApplication.targets")){
+      if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications\\Microsoft.WebApplication.targets")) {
         msBuildVersion = "14"; // VS 2015
       }
 
@@ -197,11 +201,11 @@ module.exports = class DnnGeneratorBase extends Generator {
         msBuildVersion = "13"; // VS 2013
       }*/
 
-      if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v12.0\\WebApplications\\Microsoft.WebApplication.targets")){
+      if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v12.0\\WebApplications\\Microsoft.WebApplication.targets")) {
         msBuildVersion = "13"; // VS 2013
       }
 
-      if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications\\Microsoft.WebApplication.targets")){
+      if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications\\Microsoft.WebApplication.targets")) {
         msBuildVersion = "11"; // VS 2012?
       }
 
@@ -209,12 +213,12 @@ module.exports = class DnnGeneratorBase extends Generator {
         msBuildVersion = "10"; // VS 2010?
       }*/
 
-      if (msBuildVersion == ""){
+      if (msBuildVersion == "") {
         this.log(chalk.red("YIKES! A valid version of MSBuild was not found! This is a critical error... :("));
       }
-	  
-	  return msBuildVersion;
-    }catch (err){
+
+      return msBuildVersion;
+    } catch (err) {
       // if the file doesn't exist, this exception will occur, because the fs.existsSync method is blocking
       return "";
     }
