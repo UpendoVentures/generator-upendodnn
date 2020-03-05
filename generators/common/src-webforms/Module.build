@@ -16,7 +16,7 @@
     <ItemGroup>
       <Manifest Include="*.dnn;*.dnn5;*.dnn6" Exclude="*_Symbols.dnn" />
       <TextFiles Include="*.txt" Exclude="releasenotes.txt;license.txt" />
-      <SourceFiles Include="*.css;*.htm" />
+      <SourceFiles Include="*.css;*.htm;*.html" />
       <Views Include="*.ascx;" />
       <ResourceFiles Include="App_LocalResources/*.resx" />
       <Images Include="Images/**/*.*" />
