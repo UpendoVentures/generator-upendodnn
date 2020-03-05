@@ -1,0 +1,56 @@
+@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IEnumerable<<%= fullNamespace %>.Models.ExampleInfo>>
+
+@using System.Text.RegularExpressions
+@using DotNetNuke.Framework.JavaScriptLibraries
+@using DotNetNuke.Web.Mvc.Helpers
+@using DotNetNuke.Web.Client.ClientResourceManagement
+@using DotNetNuke.Web.Client.Providers
+
+@{
+    var defaultJsPriority = 100;
+
+    ClientResourceManager.RegisterStyleSheet(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/bootstrap/3.3.5/css/bootstrap.min.css");
+    ClientResourceManager.RegisterStyleSheet(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Styles/bootstrap/flat/bootstrap-flat.min.css");
+    ClientResourceManager.RegisterStyleSheet(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Styles/bootstrap/flat/bootstrap-flat-extras.min.css");
+    
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng/angular/angular.min.js", defaultJsPriority, DnnPageHeaderProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng/angular/angular-route.min.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng/angular/angular-resource.min.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng/angular/angular-animate.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng/angular/angular-sortable.min.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng-bootstrap/ui-bootstrap-tpls-0.14.3.min.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/moment/moment.min.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/moment/angular-moment.min.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/bootstrap/3.3.5/js/bootstrap.min.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Styles/bootstrap/bootflat/js/icheck.min.js", 11, DnnPageHeaderProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Styles/bootstrap/bootflat/js/jquery.fs.selecter.min.js", 12, DnnPageHeaderProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Styles/bootstrap/bootflat/js/jquery.fs.stepper.min.js", 13, DnnPageHeaderProvider.DefaultName);
+
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/IE-Support/html5shiv.min.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/IE-Support/respond.min.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/StackBlur/StackBlur.min.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng-flow/ng-flow-standalone.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng/app.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/Common.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng/factories/exampleServiceFactory.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng/directives/dateDirectives.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng/directives/confirmDirectives.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng/controllers/ExampleController.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng/controllers/DeleteExampleModalController.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~" + ViewBag.ModulePath + "Scripts/ng/controllers/TestController.js", defaultJsPriority, DnnFormBottomProvider.DefaultName);
+}
+
+<script type="text/javascript" language="javascript">
+    var appPortalId = parseInt('@ViewBag.PortalId');
+    var appModuleId = parseInt('@ViewBag.ModuleId');
+    var appModuleName = '<%= extensionName %>'; @* Manifest: desktopModule > moduleName *@
+    var templatePath = '@ViewBag.ModulePath';
+    var pageUrl = window.location.href;
+</script>
+
+<div class="module-wrap" ng-view>
+</div>

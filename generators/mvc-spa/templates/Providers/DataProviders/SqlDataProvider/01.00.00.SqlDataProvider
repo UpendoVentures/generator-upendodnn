@@ -1,0 +1,46 @@
+/*
+
+INSTALL SQL PROVIDER SCRIPT
+
+<%= moduleFriendlyName %> Extension for DNN
+
+Release Notes:
+ - This script does this
+ - And this
+ - and this
+
+*/
+
+IF NOT OBJECT_ID('{databaseOwner}[{objectQualifier}<%= objectPrefix %>_Example]') IS NULL
+    DROP TABLE {databaseOwner}[{objectQualifier}<%= objectPrefix %>_Example];
+GO
+
+CREATE TABLE {databaseOwner}[{objectQualifier}<%= objectPrefix %>_Example] (
+    [ExampleId] INT IDENTITY(1,1)
+        CONSTRAINT [PK_{objectQualifier}<%= objectPrefix %>_Example] PRIMARY KEY CLUSTERED,
+    [ModuleId] INT NOT NULL
+        CONSTRAINT [FK_{objectQualifier}<%= objectPrefix %>_Example_ModuleId] FOREIGN KEY
+        REFERENCES {databaseOwner}[{objectQualifier}Modules] ([ModuleId]) ON DELETE CASCADE,
+    [Title] NVARCHAR(100) NOT NULL,
+    [Description] NVARCHAR(1000) NOT NULL,
+    [CreatedOnDate] DATETIME NOT NULL,
+    [CreatedByUserId] INT NOT NULL,
+    [LastUpdatedOnDate] DATETIME NOT NULL,
+    [LastUpdatedByUserId] INT NOT NULL
+);
+GO
+
+CREATE NONCLUSTERED INDEX [IX_{objectQualifier}<%= objectPrefix %>_Example_ModuleId] ON {databaseOwner}[{objectQualifier}<%= objectPrefix %>_Example] ([ModuleId]);
+GO
+
+CREATE NONCLUSTERED INDEX [IX_{objectQualifier}<%= objectPrefix %>_Example_ItemId_ModuleId] ON {databaseOwner}[{objectQualifier}<%= objectPrefix %>_Example] ([ExampleId],[ModuleId]);
+GO
+
+CREATE NONCLUSTERED INDEX [IX_{objectQualifier}<%= objectPrefix %>_Example_CreatedByUser] ON {databaseOwner}[{objectQualifier}<%= objectPrefix %>_Example] ([CreatedByUserId]);
+GO
+
+/*
+
+END OF FILE
+
+*/
