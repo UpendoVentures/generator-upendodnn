@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{343D9EED-59DC-4922-AFBF-8EDAD3345FF7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace><%= fullNamespace %></RootNamespace>
+    <AssemblyName><%= fullNamespace %></AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\<%= fullNamespace %>.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\<%= fullNamespace %>.xml</DocumentationFile>
+  </PropertyGroup>
+  <Import Project="..\..\Build\SolutionReferences.targets" />
+  <ItemGroup>
+    <Reference Include="ClientDependency.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\ClientDependency.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\DotNetNuke.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.Web">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\DotNetNuke.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.Web.Client">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\DotNetNuke.Web.Client.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.Web.Mvc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\DotNetNuke.Web.Mvc.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\System.Net.Http.Formatting.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\System.Web.Helpers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\System.Web.Mvc.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\System.Web.Razor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\System.Web.WebPages.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\System.Web.Helpers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\System.Web.Http.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\DateTimeConverter.cs" />
+    <Compile Include="Components\FeatureController.cs" />
+    <Compile Include="Components\Globals.cs" />
+    <Compile Include="Components\JsonHelper.cs" />
+    <Compile Include="Components\MvcModuleControllerBase.cs" />
+    <Compile Include="Components\RouteMapper.cs" />
+    <Compile Include="Data\ExampleInfoRepository.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Models\Interfaces\ISettings.cs" />
+    <Compile Include="Models\Interfaces\IExampleInfo.cs" />
+    <Compile Include="Models\ExampleInfo.cs" />
+    <Compile Include="Controllers\ExampleController.cs" />
+    <Compile Include="Models\Settings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Controllers\ExampleController.cs" />
+    <Compile Include="Services\Controllers\TestController.cs" />
+    <Compile Include="Services\Controllers\UtilityController.cs" />
+    <Compile Include="Services\IServiceResponse.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Services\ServiceError.cs" />
+    <Compile Include="Services\ServiceHelper.cs" />
+    <Compile Include="Services\ServiceProxy.cs" />
+    <Compile Include="Services\ServiceProxyBase.cs" />
+    <Compile Include="Services\ServiceResponse.cs" />
+    <Compile Include="Services\ServiceResponseHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Example.resx" />
+    <Content Include="App_LocalResources\Settings.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="License.txt" />
+    <Content Include="module.css" />
+    <Content Include="ReleaseNotes.txt" />
+    <Content Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="<%= extensionName %>.dnn">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Module.build">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="<%= extensionName %>_Symbols.dnn">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Providers\DataProviders\SqlDataProvider\01.00.00.SqlDataProvider" />
+    <Content Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\bootstrap\3.3.5\css\bootstrap-theme.css" />
+    <Content Include="Scripts\bootstrap\3.3.5\css\bootstrap-theme.min.css" />
+    <Content Include="Scripts\bootstrap\3.3.5\css\bootstrap.css" />
+    <Content Include="Scripts\bootstrap\3.3.5\css\bootstrap.min.css" />
+    <Content Include="Scripts\bootstrap\3.3.5\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\bootstrap\3.3.5\js\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\3.3.5\js\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\3.3.5\js\npm.js" />
+    <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\IE-Support\html5shiv.js" />
+    <Content Include="Scripts\IE-Support\html5shiv.min.js" />
+    <Content Include="Scripts\IE-Support\respond.js" />
+    <Content Include="Scripts\IE-Support\respond.min.js" />
+    <Content Include="Scripts\moment\angular-moment.js" />
+    <Content Include="Scripts\moment\angular-moment.min.js" />
+    <Content Include="Scripts\moment\moment-with-locales.js" />
+    <Content Include="Scripts\moment\moment.js" />
+    <Content Include="Scripts\moment\moment.min.js" />
+    <Content Include="Scripts\ng-bootstrap\ui-bootstrap-tpls-0.14.3.js" />
+    <Content Include="Scripts\ng-bootstrap\ui-bootstrap-tpls-0.14.3.min.js" />
+    <Content Include="Scripts\ng-flow\ng-flow-standalone.js" />
+    <Content Include="Scripts\ng-flow\ng-flow-standalone.min.js" />
+    <Content Include="Scripts\ng-flow\ng-flow.js" />
+    <Content Include="Scripts\ng-flow\ng-flow.min.js" />
+    <Content Include="Scripts\ng\angular\angular-animate.js" />
+    <Content Include="Scripts\ng\angular\angular-animate.min.js" />
+    <Content Include="Scripts\ng\angular\angular-resource.js" />
+    <Content Include="Scripts\ng\angular\angular-resource.min.js" />
+    <Content Include="Scripts\ng\angular\angular-route.js" />
+    <Content Include="Scripts\ng\angular\angular-route.min.js" />
+    <Content Include="Scripts\ng\angular\angular-sortable.js" />
+    <Content Include="Scripts\ng\angular\angular-sortable.min.js" />
+    <Content Include="Scripts\ng\angular\angular.js" />
+    <Content Include="Scripts\ng\angular\angular.min.js" />
+    <Content Include="Scripts\ng\app.js" />
+    <Content Include="Scripts\ng\controllers\DeleteExampleModalController.js" />
+    <Content Include="Scripts\ng\controllers\ExampleController.js" />
+    <Content Include="Scripts\ng\controllers\TestController.js" />
+    <Content Include="Scripts\ng\directives\confirmDirectives.js" />
+    <Content Include="Scripts\ng\directives\dateDirectives.js" />
+    <Content Include="Scripts\ng\factories\exampleServiceFactory.js" />
+    <Content Include="Scripts\StackBlur\StackBlur.js" />
+    <Content Include="Scripts\StackBlur\StackBlur.min.js" />
+    <Content Include="Styles\bootstrap\bootflat\css\bootflat.css" />
+    <Content Include="Styles\bootstrap\bootflat\css\bootflat.min.css" />
+    <Content Include="Styles\bootstrap\bootflat\img\check_flat\default.png" />
+    <Content Include="Styles\bootstrap\bootflat\js\icheck.min.js" />
+    <Content Include="Styles\bootstrap\bootflat\js\jquery.fs.selecter.min.js" />
+    <Content Include="Styles\bootstrap\bootflat\js\jquery.fs.stepper.min.js" />
+    <Content Include="Styles\bootstrap\flat\bootstrap-flat-extras.css" />
+    <Content Include="Styles\bootstrap\flat\bootstrap-flat-extras.min.css" />
+    <Content Include="Styles\bootstrap\flat\bootstrap-flat.css" />
+    <Content Include="Styles\bootstrap\flat\bootstrap-flat.min.css" />
+    <Content Include="Templates\_default\examples.html" />
+    <Content Include="Templates\_default\update.html" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\bootstrap\3.3.5\css\bootstrap-theme.css.map" />
+    <Content Include="Scripts\bootstrap\3.3.5\css\bootstrap.css.map" />
+    <Content Include="Scripts\bootstrap\3.3.5\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\bootstrap\3.3.5\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Scripts\bootstrap\3.3.5\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\bootstrap\3.3.5\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\moment\angular-moment.min.js.map" />
+    <Content Include="Scripts\ng\angular\angular-animate.min.js.map" />
+    <Content Include="Scripts\ng\angular\angular-resource.min.js.map" />
+    <Content Include="Scripts\ng\angular\angular-route.min.js.map" />
+    <Content Include="Scripts\ng\angular\angular.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Example\Index.cshtml" />
+    <Content Include="Views\Settings\Settings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\bootstrap\bootflat\css\bootflat.css.map" />
+    <Content Include="Styles\bootstrap\bootflat\img\check_flat\default.psd" />
+    <Content Include="Styles\bootstrap\bootflat\scss\.csscomb.json" />
+    <Content Include="Styles\bootstrap\bootflat\scss\.csslintrc" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_accordion.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_alert.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_breadcrumb.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_button.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_button_group.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_calendar.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_checkbox_radio.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_dropdown.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_footer.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_form.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_global.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_jumbotron.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_label_badge.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_list.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_media_list.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_modal.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_navbar.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_pager.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_pagination.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_panel.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_pill.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_popover.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_pricing.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_progress.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_selecter.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_stepper.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_tab.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_thumbnail.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_timeline.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_toggle.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_tooltip.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_typography.scss" />
+    <Content Include="Styles\bootstrap\bootflat\scss\bootflat\_well.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\ng\constants\" />
+    <Folder Include="Scripts\ng\filters\" />
+    <Folder Include="Scripts\ng\ng-templates\" />
+    <Folder Include="Scripts\ng\services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="Module.build" />
+</Project>

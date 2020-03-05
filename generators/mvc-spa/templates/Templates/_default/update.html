@@ -1,0 +1,88 @@
+﻿<div class="container" ng-show="!userCanEdit">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="alert alert-danger">
+                <i class="glyphicon glyphicon-alert"></i>
+                You do not have permission to perform this action. Please login to continue.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" ng-controller="exampleController" ng-form="exampleForm" ng-show="userCanEdit">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1><span ng-show="!CanDelete(example.ExampleId)">Create</span><span ng-show="CanDelete(example.ExampleId)">Update</span> Item</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-info" ng-show="HasSuccess">
+                <h4>Well done!</h4>
+                <p>The example was successfully saved!</p>
+                <p>
+                    <button type="button" class="btn btn-space" ng-click="goToPage('examples')"><i class="glyphicon glyphicon-arrow-left"></i> Go Back</button>
+                </p>
+            </div>
+            <div class="alert alert-danger" ng-show="HasErrors">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Oh snap!</strong> An error occurred. Please try again, or contact the website administrator.
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group" ng-class="{ 'has-error error' : exampleForm.title.$invalid && !exampleForm.title.$pristine }">
+                <label for="title">Title *</label>
+                <input type="text" name="title" ng-model="example.Title" ng-required="true" class="form-control" placeholder="Title" maxlength="100" required ng-trim />
+                <p class="help-block" ng-show="exampleForm.title.$invalid && !exampleForm.title.$pristine">
+                    Title is required.
+                </p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error error' : exampleForm.description.$invalid && !exampleForm.description.$pristine }">
+                <label for="description">Description *</label>
+                <textarea name="description" ng-model="example.Description" ng-required="true" class="form-control" placeholder="Description" maxlength="1000" required ng-trim></textarea>
+                <p class="help-block" ng-show="exampleForm.description.$invalid && !exampleForm.description.$pristine">
+                    Description is required.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="btn-toolbar pull-right">
+            <button type="button" class="btn btn-success btn-space" ng-disabled="exampleForm.$invalid" ng-click="UpdateExample()"><i class="glyphicon glyphicon-floppy-disk"></i> Save Changes</button>
+            <button type="button" class="btn btn-danger btn-space" ng-click="DeleteExample(example.ExampleId)" ng-show="CanDelete(example.ExampleId)"><i class="glyphicon glyphicon-remove"></i> Delete</button>
+            <button type="button" class="btn btn-space" ng-click="goToPage('examples')"><i class="glyphicon glyphicon-arrow-left"></i> Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="DeleteExampleModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Please Confirm</h3>
+    </div>
+    <div class="modal-body">
+        <div class="modal-form-container-sm">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>Are you sure you want to delete this?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="modal-form-container-sm">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="btn-toolbar pull-right">
+                        <button class="btn btn-sm btn-danger btn-space" type="button" ng-click="ok()">Delete</button>
+                        <button class="btn btn-sm btn-space" type="button" ng-click="cancel()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

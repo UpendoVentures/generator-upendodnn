@@ -1,0 +1,53 @@
+﻿<h2><%= moduleFriendlyName %></h2>
+<div class="container">
+    <div class="row" ng-show="examples.length > 0">
+        <div class="col-sm-3 col-sm-offset-9">
+            <div class="pull-right">
+                <div class="form-group" ng-class="{ 'has-error' : exampleFilter != '' }">
+                    <input type="text" ng-Model="exampleFilter" placeholder="Filter By..." class="form-control" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="examples.length == 0">
+        <div class="col-lg-12">
+            <div class="alert alert-warning">
+                <h4>Whoops!</h4>
+                <p>There aren't any items saved yet.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="userCanEdit">
+        <div class="col-xs-12">
+            <div class="pull-right">
+                <a class="btn btn-primary" href="#/update" ng-show="userCanEdit">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    Add Item
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="examples.length > 0">
+        <div ng-repeat="example in examples | filter: exampleFilter | orderBy: 'Title'">
+            <div class="clearfix" ng-if="$index % 3 == 0"></div>
+            <div class="col-sm-4">
+                <div class="sessioncard sessioncard-primary">
+                    <div class="sessioncard-content">
+                        <h3 class="lead">
+                            {{example.Title}}
+                        </h3>
+                        <div>
+                            {{example.Description}}
+                        </div>
+                        <div class="clearfix" ng-show="userCanEdit">
+                            <a class="btn btn-secondary" href="#/update/{{example.ExampleId}}" ng-show="userCanEdit">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                Edit Item
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

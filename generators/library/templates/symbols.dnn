@@ -5,10 +5,10 @@
       <friendlyName><%= extensionName %> Library Symbols</friendlyName>
       <description><![CDATA[<%= description %>]]></description>
       <owner>
-        <name><%= namespace %></name>
-        <organization><%= namespace %></organization>
-        <url><%= companyUrl %></url>
-        <email><%= emailAddy %></email>
+        <name><%= yourName %></name>
+        <organization><%= company %></organization>
+        <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
+        <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
       </owner>
       <license src="License.txt" />
       <releaseNotes src="ReleaseNotes.txt" />

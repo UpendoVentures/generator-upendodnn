@@ -6,7 +6,7 @@
       <description><%= description %></description>
       <iconFile>~/DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
       <owner>
-        <name><%= namespace %></name>
+        <name><%= yourName %></name>
         <organization><%= namespace %></organization>
         <url><%= companyUrl %></url>
         <email><%= emailAddy %></email>
@@ -45,7 +45,7 @@
               <supportsPartialRendering>False</supportsPartialRendering>
             </moduleControl>
         </component>
-        
+
       </components>
     </package>
   </packages>
