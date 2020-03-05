@@ -7,8 +7,8 @@
 		<![CDATA[<p><%= description %></p>]]>
 	  </description>
       <owner>
-        <name><%= namespace %></name>
-        <organization><%= namespace %></organization>
+        <name><%= yourName %></name>
+        <organization><%= company %></organization>
         <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
         <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
       </owner>
