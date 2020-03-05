@@ -50,39 +50,19 @@ module.exports = class extends DnnGeneratorBase {
         validate: str => {
           return str.length > 0;
         }
-      },
-      {
-        when: !this.options.companyUrl,
-        type: 'input',
-        name: 'companyUrl',
-        message: 'Company Website:',
-        store: true,
-        validate: str => {
-          return str.length > 0;
-        }
-      },
-      {
-        when: !this.options.emailAddy,
-        type: 'input',
-        name: 'emailAddy',
-        message: 'Your e-mail address:',
-        store: true,
-        validate: str => {
-          return str.length > 0;
-        }
       }
     ];
 
     var msBuildVersion = this._getMsBuildVersion();
 
-    if (msBuildVersion == ""){
+    if (msBuildVersion == "") {
       this.log(chalk.red("YIKES! A valid version of MSBuild was not found! This is a critical error... :("));
     }
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date();
-      props.namespace = this._pascalCaseName(props.company);
+      props.namespace = this._pascalCaseName(this.options.company);
       props.extensionName = this._pascalCaseName(props.name);
       props.extensionType = "Modules";
       props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.extensionName;
@@ -97,7 +77,7 @@ module.exports = class extends DnnGeneratorBase {
 
   writing() {
     this.log(chalk.white('Creating Webforms Module.'));
-	
+
     // mod: this follows the Upendo development/solution pattern
     this.destinationRoot("Modules/");
 
@@ -107,12 +87,14 @@ module.exports = class extends DnnGeneratorBase {
     let fullNamespace = this.props.fullNamespace;
 
     let template = {
+      yourName: this.options.yourName,
+      company: this.options.company,
       namespace: namespace,
       extensionName: extensionName,
       moduleFriendlyName: this.props.name,
       description: this.props.description,
-      companyUrl: this.props.companyUrl,
-      emailAddy: this.props.emailAddy,
+      companyUrl: this.options.companyUrl,
+      emailAddy: this.options.emailAddy,
       currentYear: currentDate.getFullYear(),
       version: '1.0.0',
       menuLinkName: this.props.menuLinkName,

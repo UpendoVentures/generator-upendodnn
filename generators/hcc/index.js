@@ -42,16 +42,6 @@ module.exports = class extends DnnGeneratorBase {
         ]
       },
       {
-        when: !this.options.company,
-        type: 'input',
-        name: 'company',
-        message: 'Namespace for your Hotcakes Commerce extension point (Usually a company name)?',
-        store: true,
-        validate: str => {
-          return str.length > 0;
-        }
-      },
-      {
         when: !this.options.name,
         type: 'input',
         name: 'name',
@@ -69,33 +59,13 @@ module.exports = class extends DnnGeneratorBase {
         validate: str => {
           return str.length > 0;
         }
-      },
-      {
-        when: !this.options.companyUrl,
-        type: 'input',
-        name: 'companyUrl',
-        message: 'Company Website:',
-        store: true,
-        validate: str => {
-          return str.length > 0;
-        }
-      },
-      {
-        when: !this.options.emailAddy,
-        type: 'input',
-        name: 'emailAddy',
-        message: 'Your e-mail address:',
-        store: true,
-        validate: str => {
-          return str.length > 0;
-        }
       }
     ];
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date();
-      props.namespace = this._pascalCaseName(props.company);
+      props.namespace = this._pascalCaseName(this.options.company);
       props.extensionName = this._pascalCaseName(props.name);
       props.extensionType = "Hotcakes";
       props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.extensionName;
@@ -116,7 +86,7 @@ module.exports = class extends DnnGeneratorBase {
     let fullNamespace = this.props.fullNamespace;
     let hccType = this.props.hccType;
     let guid = this.props.guid;
-	
+
     // mod: this follows the Upendo development/solution pattern
     switch (hccType) {
       case "workflow":
@@ -132,12 +102,14 @@ module.exports = class extends DnnGeneratorBase {
     }
 
     let template = {
+      yourName: this.options.yourName,
+      company: this.options.company,
       namespace: namespace,
       extensionName: extensionName,
       moduleFriendlyName: this.props.name,
       description: this.props.description,
-      companyUrl: this.props.companyUrl,
-      emailAddy: this.props.emailAddy,
+      companyUrl: this.options.companyUrl,
+      emailAddy: this.options.emailAddy,
       currentYear: currentDate.getFullYear(),
       version: '1.0.0',
       menuLinkName: this.props.menuLinkName,
@@ -159,7 +131,7 @@ module.exports = class extends DnnGeneratorBase {
       template
     );
 
-    if (hccType == "workflow"){
+    if (hccType == "workflow") {
       let task1Guid = this._generateGuid();
       let task2Guid = this._generateGuid();
 
@@ -179,19 +151,19 @@ module.exports = class extends DnnGeneratorBase {
       );
     }
 
-    if (hccType == "actiondelegate"){
+    if (hccType == "actiondelegate") {
       this.fs.copyTpl(
         this.templatePath(hccType + '/MyCartIntegration.cs'),
         this.destinationPath(extensionName + '/MyCartIntegration.cs'),
         template
       );
-      
+
       this.fs.copyTpl(
         this.templatePath(hccType + '/MyCheckoutIntegration.cs'),
         this.destinationPath(extensionName + '/MyCheckoutIntegration.cs'),
         template
       );
-      
+
       this.fs.copyTpl(
         this.templatePath(hccType + '/MyProductIntegration.cs'),
         this.destinationPath(extensionName + '/MyProductIntegration.cs'),

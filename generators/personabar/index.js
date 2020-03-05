@@ -13,16 +13,6 @@ module.exports = class extends DnnGeneratorBase {
         choices: [{ name: 'ReactJS', value: 'ReactJS' }]
       },
       {
-        when: !this.options.company,
-        type: 'input',
-        name: 'company',
-        message: 'Namespace for your module (Usually a company name)?',
-        store: true,
-        validate: str => {
-          return str.length > 0;
-        }
-      },
-      {
         when: !this.options.name,
         type: 'input',
         name: 'name',
@@ -37,26 +27,6 @@ module.exports = class extends DnnGeneratorBase {
         type: 'input',
         name: 'description',
         message: 'Describe your module:',
-        validate: str => {
-          return str.length > 0;
-        }
-      },
-      {
-        when: !this.options.companyUrl,
-        type: 'input',
-        name: 'companyUrl',
-        message: 'Company Website:',
-        store: true,
-        validate: str => {
-          return str.length > 0;
-        }
-      },
-      {
-        when: !this.options.emailAddy,
-        type: 'input',
-        name: 'emailAddy',
-        message: 'Your e-mail address:',
-        store: true,
         validate: str => {
           return str.length > 0;
         }
@@ -87,7 +57,7 @@ module.exports = class extends DnnGeneratorBase {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date();
-      props.namespace = this._pascalCaseName(props.company);
+      props.namespace = this._pascalCaseName(this.options.company);
       props.moduleName = this._pascalCaseName(props.name);
 
       this.props = props;
@@ -102,12 +72,14 @@ module.exports = class extends DnnGeneratorBase {
     let currentDate = this.props.currentDate;
 
     let template = {
+      yourName: this.options.yourName,
+      company: this.options.company,
       namespace: namespace,
       moduleName: moduleName,
       moduleFriendlyName: this.props.name,
       description: this.props.description,
-      companyUrl: this.props.companyUrl,
-      emailAddy: this.props.emailAddy,
+      companyUrl: this.options.companyUrl,
+      emailAddy: this.options.emailAddy,
       currentYear: currentDate.getFullYear(),
       version: '1.0.0',
       menuLinkName: this.props.menuLinkName,
