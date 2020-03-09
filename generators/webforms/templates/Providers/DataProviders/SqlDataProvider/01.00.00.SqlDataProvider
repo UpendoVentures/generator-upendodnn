@@ -16,16 +16,16 @@ IF NOT OBJECT_ID('{databaseOwner}[{objectQualifier}<%= objectPrefix %>_<%= exten
 GO
 
 CREATE TABLE {databaseOwner}[{objectQualifier}<%= objectPrefix %>_<%= extensionName %>] (
-    [ItemId] INT IDENTITY(1,1) 
-        CONSTRAINT [PK_{objectQualifier}<%= objectPrefix %>_<%= extensionName %>] PRIMARY KEY CLUSTERED, 
-    [ModuleId] INT NOT NULL 
-        CONSTRAINT [FK_{objectQualifier}<%= objectPrefix %>_<%= extensionName %>_ModuleId] FOREIGN KEY 
-        REFERENCES {databaseOwner}[{objectQualifier}Modules] ([ModuleId]) ON DELETE CASCADE, 
-    [Title] NVARCHAR(100) NOT NULL, 
-    [Description] NVARCHAR(1000) NOT NULL, 
-    [CreatedOnDate] DATETIME NOT NULL, 
-    [CreatedByUserId] INT NOT NULL, 
-    [LastModifiedOnDate] DATETIME NOT NULL, 
+    [ItemId] INT IDENTITY(1,1)
+        CONSTRAINT [PK_{objectQualifier}<%= objectPrefix %>_<%= extensionName %>] PRIMARY KEY CLUSTERED,
+    [ModuleId] INT NOT NULL
+        CONSTRAINT [FK_{objectQualifier}<%= objectPrefix %>_<%= extensionName %>_ModuleId] FOREIGN KEY
+        REFERENCES {databaseOwner}[{objectQualifier}Modules] ([ModuleId]) ON DELETE CASCADE,
+    [Title] NVARCHAR(100) NOT NULL,
+    [Description] NVARCHAR(1000) NOT NULL,
+    [CreatedOnDate] DATETIME NOT NULL,
+    [CreatedByUserId] INT NOT NULL,
+    [LastModifiedOnDate] DATETIME NOT NULL,
     [LastModifiedByUserId] INT NOT NULL
 );
 GO
@@ -33,7 +33,7 @@ GO
 CREATE NONCLUSTERED INDEX [IX_{objectQualifier}<%= objectPrefix %>_<%= extensionName %>_ModuleId] ON {databaseOwner}[{objectQualifier}<%= objectPrefix %>_<%= extensionName %>] ([ModuleId]);
 GO
 
-CREATE NONCLUSTERED INDEX [IX_{objectQualifier}<%= objectPrefix %>_<%= extensionName %>_CodeCampId_ModuleId] ON {databaseOwner}[{objectQualifier}<%= objectPrefix %>_<%= extensionName %>] ([ItemId],[ModuleId]);
+CREATE NONCLUSTERED INDEX [IX_{objectQualifier}<%= objectPrefix %>_<%= extensionName %>_ItemId_ModuleId] ON {databaseOwner}[{objectQualifier}<%= objectPrefix %>_<%= extensionName %>] ([ItemId],[ModuleId]);
 GO
 
 CREATE NONCLUSTERED INDEX [IX_{objectQualifier}<%= objectPrefix %>_<%= extensionName %>_CreatedByUser] ON {databaseOwner}[{objectQualifier}<%= objectPrefix %>_<%= extensionName %>] ([CreatedByUserId]);
