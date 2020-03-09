@@ -10,22 +10,6 @@ namespace <%= fullNamespace %>
 {
     public partial class Settings : <%= extensionName %>ModuleSettingsBase
     {
-        #region Event Handlers
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                // do nothing
-            }
-            catch (Exception exc) //Module failed to load
-            {
-                Exceptions.ProcessModuleLoadException(this, exc);
-            }
-        }
-
-        #endregion
-
         #region Base Method Implementations
 
         /// <summary>
