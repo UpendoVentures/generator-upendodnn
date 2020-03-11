@@ -40,7 +40,7 @@
           <desktopModule>
             <moduleName><%= extensionName %></moduleName>
             <foldername><%= extensionName %></foldername>
-            <businessControllerClass><%= fullNamespace %>.Components.<%= extensionName %>Controller, <%= fullNamespace %></businessControllerClass>
+            <businessControllerClass><%= fullNamespace %>.Components.FeatureController, <%= fullNamespace %></businessControllerClass>
             <supportedFeatures />
             <moduleDefinitions>
               <moduleDefinition>
@@ -86,7 +86,7 @@
             <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
             <processorCommand>UpgradeModule</processorCommand>
             <attributes>
-              <businessControllerClass><%= fullNamespace %>.Components.<%= extensionName %>Controller, <%= fullNamespace %></businessControllerClass>
+              <businessControllerClass><%= fullNamespace %>.Components.FeatureController, <%= fullNamespace %></businessControllerClass>
               <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
               <upgradeVersionsList>01.00.00</upgradeVersionsList>
             </attributes>

@@ -16,7 +16,7 @@ using System.Xml;
 
 namespace <%= fullNamespace %>.Components
 {
-    public sealed class <%= extensionName %>Controller
+    public sealed class FeatureController
     {
     }
 }

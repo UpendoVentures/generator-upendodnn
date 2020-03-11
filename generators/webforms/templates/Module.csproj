@@ -98,7 +98,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\Controller.cs" />
+    <Compile Include="Components\FeatureController.cs" />
     <Compile Include="Components\ModuleBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
