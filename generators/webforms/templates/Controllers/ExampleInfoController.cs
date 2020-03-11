@@ -5,16 +5,16 @@ using <%= fullNamespace %>.Entities;
 
 namespace <%= fullNamespace %>.Controllers
 {
-    public class <%= extensionName %>InfoController
+    public class ExampleInfoController
     {
-        private readonly <%= extensionName %>InfoRepository repo = null;
+        private readonly ExampleInfoRepository repo = null;
 
-        public <%= extensionName %>InfoController() 
+        public ExampleInfoController() 
         {
-            repo = new <%= extensionName %>InfoRepository();
+            repo = new ExampleInfoRepository();
         }
 
-        public void CreateItem(<%= extensionName %>Info i)
+        public void CreateItem(ExampleInfo i)
         {
             repo.CreateItem(i);
         }
@@ -24,29 +24,29 @@ namespace <%= fullNamespace %>.Controllers
             repo.DeleteItem(itemId, moduleId);
         }
 
-        public void DeleteItem(<%= extensionName %>Info i)
+        public void DeleteItem(ExampleInfo i)
         {
             repo.DeleteItem(i);
         }
 
-        public IEnumerable<<%= extensionName %>Info> GetItems(int moduleId)
+        public IEnumerable<ExampleInfo> GetItems(int moduleId)
         {
             var items = repo.GetItems(moduleId);
             return items;
         }
 
-        public <%= extensionName %>Info GetItem(int itemId, int moduleId)
+        public ExampleInfo GetItem(int itemId, int moduleId)
         {
             var item = repo.GetItem(itemId, moduleId);
             return item;
         }
 
-        public void UpdateItem(<%= extensionName %>Info i)
+        public void UpdateItem(ExampleInfo i)
         {
             repo.UpdateItem(i);
         }
 
-        public <%= extensionName %>Info GetItemByModuleId(int moduleId)
+        public ExampleInfo GetItemByModuleId(int moduleId)
         {
             var items = GetItems(moduleId);
 

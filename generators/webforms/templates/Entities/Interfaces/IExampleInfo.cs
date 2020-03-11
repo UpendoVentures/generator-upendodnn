@@ -3,7 +3,7 @@ using System;
 
 namespace <%= fullNamespace %>.Entities
 {
-    public interface I<%= extensionName %>Info
+    public interface IExampleInfo
     {
         int ItemId { get; set; }
         int ModuleId { get; set; }
