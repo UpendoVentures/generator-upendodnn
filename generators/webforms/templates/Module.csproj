@@ -50,6 +50,12 @@
       <HintPath>$(DnnReferencePath)\DotNetNuke.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DotNetNuke.Instrumentation">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DnnReferencePath)\DotNetNuke.Instrumentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    </Reference>
     <Reference Include="DotNetNuke.Web">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(DnnReferencePath)\DotNetNuke.Web.dll</HintPath>
