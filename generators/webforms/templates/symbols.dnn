@@ -13,6 +13,10 @@
       <license src="License.txt" />
       <releaseNotes src="ReleaseNotes.txt" />
       <azureCompatible>True</azureCompatible>
+      <dependencies>
+        <dependency type="managedPackage" version="1.0.0"><%= fullNamespace %></dependency>
+      </dependencies>
+
       <components>
         <component type="ResourceFile">
           <resourceFiles>
