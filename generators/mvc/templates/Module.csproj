@@ -54,11 +54,11 @@
     <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.2.1.533" />
     <PackageReference Include="DotNetNuke.WebApi" Version="9.2.1.533" />
     <PackageReference Include="Newtonsoft.Json" Version="7.0.1" />
-    <PackageReference Include="System.Web.Http" Version="4.0.0" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.1.2" />
     <PackageReference Include="Microsoft.AspNet.Razor" Version="3.1.2" />
     <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.1.2" />
     <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.3" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Hotcakes.Commerce">
@@ -79,6 +79,7 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
