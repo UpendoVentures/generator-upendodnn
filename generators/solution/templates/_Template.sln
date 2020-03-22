@@ -15,6 +15,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration Files", "Configuration Files", "{B51AA4AF-EE33-49E1-B621-DF1BCD22A28C}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Directory.Packages.props = Directory.Packages.props
 		Website\DotNetNuke.log4net.config = Website\DotNetNuke.log4net.config
 		README.md = README.md
 		Website\web.config = Website\web.config
