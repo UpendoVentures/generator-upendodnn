@@ -52,6 +52,7 @@ module.exports = class extends Generator {
       this.destinationPath('Website/DotNetNuke.log4net.config')
     );
 
+    this.fs.copy(this.templatePath('Directory.Packages.props'), this.destinationPath('Directory.Packages.props'));
     this.fs.copy(this.templatePath('README.md'), this.destinationPath('README.md'));
 
     this.fs.copy(
