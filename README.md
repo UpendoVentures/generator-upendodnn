@@ -44,13 +44,6 @@ yo upendodnn
 You're intended to first create the `Solution Structure` if you haven't yet done so in this directory.
 
 [More verbose instructions on how to use this.](http://www.dnnsoftware.com/community-blog/cid/155574/create-a-dnn-module-in-less-than-2-minutes)  
-
-## Getting To Know Yeoman  
-
- * Yeoman has a heart of gold.  
- * Yeoman is a person with feelings and opinions, but is very easy to work with.  
- * Yeoman can be too opinionated at times but is easily convinced not to be.  
- * Feel free to [learn more about Yeoman](http://yeoman.io/).  
  
 ## Video Overview
 
@@ -58,14 +51,15 @@ You're intended to first create the `Solution Structure` if you haven't yet done
 
 ## First-Timers: How to Use  
 
-1. Install the generator as shown above.  
-2. Create and navigate to a folder where you wish to begin your new DNN-based solution. (command line example is above)  
-3. Run `yo upendodnn` in CMD or Powershell in that folder.  
-4. For the first time, you'll want to always first choose the `Solution` scaffold and step through the wizard.  
-5. Once the solution scaffold is created, run `yo upendodnn` again to add your other desired DNN solutions/projects.  
-6. After you add the desired solution/project, open the original Solution scaffold in Visual Studio and add the new project to this main solution.  
-7. Build your awesome DNN extension(s) as you see fit.  Everything is now under one easy to open, run, code, build, and commit to source control solution.  
-8. Say hi to Will at [DNN Summit](https://www.dnnsummit.org/) and [DNN-Connect](https://www.dnn-connect.org/). :)  
+First, install the generator using the steps above.  
+
+1. Create and navigate to a folder where you wish to begin your new DNN-based solution. (command line example is above)  
+2. Run `yo upendodnn` in CMD or Powershell in that folder.  
+3. For the first time, you'll want to always first choose the `Solution Structure` scaffold and step through the wizard.  
+4. Once the solution scaffold is created, run `yo upendodnn` again to add your other desired DNN projects.  
+5. After you add the desired solution/project, open the original Solution scaffold in Visual Studio and add the new project to this main solution.  
+6. Build your awesome DNN extension(s) as you see fit.  Everything is now under one easy to open, run, code, build, and commit to source control solution.  
+7. (Optional) Say hi to Will at [DNN Summit](https://www.dnnsummit.org/) and [DNN-Connect](https://www.dnn-connect.org/). :)  
 
 ## More Documentation  
 
