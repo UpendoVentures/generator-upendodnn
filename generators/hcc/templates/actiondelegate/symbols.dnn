@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dotnetnuke type="Package" version="6.0">
   <packages>
-    <package name="<%= fullNamespace %>" type="Library" version="01.00.00">
+    <package name="<%= fullNamespace %>_Symbols" type="Library" version="01.00.00">
       <friendlyName><%= extensionName %> Hotcakes Commerce Action Delegate Integration Symbols</friendlyName>
       <description><![CDATA[<%= description %>]]></description>
       <owner>
@@ -13,6 +13,9 @@
       <license src="License.txt" />
       <releaseNotes src="ReleaseNotes.txt" />
       <azureCompatible>True</azureCompatible>
+      <dependencies>
+        <dependency type="managedPackage" version="1.0.0"><%= fullNamespace %></dependency>
+      </dependencies>
       <components>
         <component type="ResourceFile">
           <resourceFiles>
