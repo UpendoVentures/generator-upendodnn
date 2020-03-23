@@ -11,14 +11,9 @@ module.exports = class extends DnnGeneratorBase {
   }
 
   prompting() {
-    this.options.company = "";
-    this.options.objectPrefix = "";
-    this.options.name = "";
-    this.options.description = "";
-
     const prompts = [
       {
-        when: !this.options.company || this.options.company == "",
+        when: !this.options.company,
         type: 'input',
         name: 'company',
         message: 'Namespace for your module (Usually a company name)?',
@@ -28,7 +23,7 @@ module.exports = class extends DnnGeneratorBase {
         }
       },
       {
-        when: !this.options.objectPrefix || this.options.objectPrefix == "",
+        when: !this.options.objectPrefix,
         type: 'input',
         name: 'objectPrefix',
         message: 'What would be a good abbreviation for that (e.g., abc for Awesome Beverages Company)?',
@@ -38,7 +33,7 @@ module.exports = class extends DnnGeneratorBase {
         }
       },
       {
-        when: !this.options.name || this.options.name == "",
+        when: !this.options.name,
         type: 'input',
         name: 'name',
         message: 'What is the name of your MVC Module?',
@@ -48,7 +43,7 @@ module.exports = class extends DnnGeneratorBase {
         }
       },
       {
-        when: !this.options.description || this.options.description == "",
+        when: !this.options.description,
         type: 'input',
         name: 'description',
         message: 'Describe your module:',
