@@ -40,7 +40,7 @@
 
         <component type="SkinObject">
             <moduleControl>
-              <controlKey>PrismJS</controlKey>
+              <controlKey>View</controlKey>
               <controlSrc>DesktopModules/<%= extensionName %>/View.ascx</controlSrc>
               <supportsPartialRendering>False</supportsPartialRendering>
             </moduleControl>
