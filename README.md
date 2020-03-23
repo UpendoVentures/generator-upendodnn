@@ -23,6 +23,8 @@ You also need to install the latest version of MSBuild if you don't already have
 * [Build tools for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48159)  
 * [Build tools for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=40760)  
 
+> Note: Visual Studio 2019 should have installed MSBuild for you.  
+
 Now, simply run the following commands:
 
 ```bash
