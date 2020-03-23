@@ -16,7 +16,7 @@
       <releaseNotes src="ReleaseNotes.txt" />
       <azureCompatible>True</azureCompatible>
       <dependencies>
-        <dependency type="CoreVersion">09.01.01</dependency>
+        <dependency type="CoreVersion">09.02.01</dependency>
         <dependency type="managedPackage" version="3.2.1">Hotcakes.Commerce</dependency>
       </dependencies>
       <components>
