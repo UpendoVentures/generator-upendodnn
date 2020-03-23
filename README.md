@@ -58,8 +58,10 @@ First, install the generator using the steps above.
 3. For the first time, you'll want to always first choose the `Solution Structure` scaffold and step through the wizard.  
 4. Once the solution scaffold is created, run `yo upendodnn` again to add your other desired DNN projects.  
 5. After you add the desired solution/project, open the original Solution scaffold in Visual Studio and add the new project to this main solution.  
-6. Build your awesome DNN extension(s) as you see fit.  Everything is now under one easy to open, run, code, build, and commit to source control solution.  
-7. (Optional) Say hi to Will at [DNN Summit](https://www.dnnsummit.org/) and [DNN-Connect](https://www.dnn-connect.org/). :)  
+
+That's it!  Now you can begin building your awesome DNN extension(s) as you see fit.  Everything is now under one easy to open, run, code, build, and commit to source control solution.  
+
+Say hi to Will at [DNN Summit](https://www.dnnsummit.org/) and [DNN-Connect](https://www.dnn-connect.org/). :)  
 
 ## More Documentation  
 
@@ -71,7 +73,7 @@ Want to learn more or how to build the generator code locally?
 
 MIT © 2018 [Matt Rutledge]()  
 
-MIT © 2019 [Upendo Ventures, LLC](https://upendoventures.com)  
+MIT © 2019-2020 [Upendo Ventures, LLC](https://upendoventures.com)  
 
 
 [npm-image]: https://badge.fury.io/js/generator-dnn.svg
