@@ -63,6 +63,12 @@ That's it!  Now you can begin building your awesome DNN extension(s) as you see 
 
 Say hi to Will at [DNN Summit](https://www.dnnsummit.org/) and [DNN-Connect](https://www.dnn-connect.org/). :)  
 
+## Additional Features  
+
+By default, the namespace and extension names will be cased using Pascal-casing rules. If you'd like to override this behavior, you can add a `-f` parameter to the name.  
+
+For example, if your company name is abcCompany, the default behavior will change the name to AbcCompany.  In most cases, this is the intended behavior. If you enter `abcCompany -f`, the namespace or extension name will honor the casing as-is.  
+
 ## More Documentation  
 
 Want to learn more or how to build the generator code locally?  
