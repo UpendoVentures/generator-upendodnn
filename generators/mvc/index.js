@@ -62,8 +62,18 @@ module.exports = class extends DnnGeneratorBase {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date();
-      props.namespace = this._pascalCaseName(this.options.company);
-      props.extensionName = this._pascalCaseName(props.name);
+      if (this.options.company.endsWith(" -f")) {
+        props.namespace = this.options.company.replace(" -f", "");
+      }
+      else {
+        props.namespace = this._pascalCaseName(this.options.company);
+      }
+      if (props.name.endsWith(" -f")) {
+        props.extensionName = props.name.replace(" -f", "");
+      }
+      else {
+        props.extensionName = this._pascalCaseName(props.name);
+      }
       props.extensionType = "Modules";
       props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.extensionName;
       props.guid = this._generateGuid();
