@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dotnetnuke type="Package" version="6.0">
+  <packages>
+    <package name="<%= fullNamespace %>_Symbols" type="Library" version="01.00.00">
+      <friendlyName><%= extensionName %> Skin Object Symbols</friendlyName>
+      <description><![CDATA[<%= description %>]]></description>
+      <iconFile>~/DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
+      <owner>
+        <name><%= yourName %></name>
+        <organization><%= company %></organization>
+        <url><%= companyUrl %></url>
+        <email><%= emailAddy %></email>
+      </owner>
+      <license src="License.txt" />
+      <releaseNotes src="ReleaseNotes.txt" />
+      <azureCompatible>True</azureCompatible>
+      <dependencies>
+        <dependency type="managedPackage" version="1.0.0"><%= fullNamespace %></dependency>
+      </dependencies>
+
+      <components>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath></basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

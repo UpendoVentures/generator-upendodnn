@@ -12,13 +12,16 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace><%= fullNamespace %></RootNamespace>
     <AssemblyName><%= fullNamespace %></AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,20 +45,18 @@
   </PropertyGroup>
   <Import Project="..\..\Build\SolutionReferences.targets" />
   <ItemGroup>
-    <Reference Include="DotNetNuke">
-      <HintPath>$(DnnReferencePath)\DotNetNuke.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DotNetNuke.Web">
-      <HintPath>$(DnnReferencePath)\DotNetNuke.Web.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DotNetNuke.Web.Client">
-      <HintPath>$(DnnReferencePath)\DotNetNuke.Web.Client.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DotNetNuke.WebUtility">
-      <HintPath>$(DnnReferencePath)\DotNetNuke.WebUtility.dll</HintPath>
+    <PackageReference Include="DotNetNuke.Core" Version="9.2.1.533" />
+    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.2.1.533" />
+    <PackageReference Include="DotNetNuke.Web" Version="9.2.1.533" />
+    <PackageReference Include="DotNetNuke.Web.Client" Version="9.2.1.533" />
+    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.2.1.533" />
+    <PackageReference Include="DotNetNuke.WebApi" Version="9.2.1.533" />
+    <PackageReference Include="Newtonsoft.Json" Version="7.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Hotcakes.Commerce">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(HccReferencePath)\Hotcakes.Commerce.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -94,7 +95,12 @@
     <Content Include="View.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="<%= extensionName %>.dnn" />
+    <Content Include="<%= extensionName %>.dnn">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="<%= extensionName %>_Symbols.dnn">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="SkinObject.Build" />
@@ -102,6 +108,10 @@
   <ItemGroup>
     <Folder Include="Scripts\" />
     <Folder Include="Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NuGet.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

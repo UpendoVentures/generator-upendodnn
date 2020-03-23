@@ -130,6 +130,12 @@ module.exports = class extends DnnGeneratorBase {
     );
 
     this.fs.copyTpl(
+      this.templatePath('symbols.dnn'),
+      this.destinationPath(extensionName + '/' + extensionName + '_Symbols.dnn'),
+      template
+    );
+
+    this.fs.copyTpl(
       this.templatePath('SkinObject.build'),
       this.destinationPath(extensionName + '/SkinObject.build'),
       template
@@ -162,6 +168,18 @@ module.exports = class extends DnnGeneratorBase {
     this.fs.copyTpl(
       this.templatePath('View.ascx.designer.cs'),
       this.destinationPath(extensionName + '/View.ascx.designer.cs'),
+      template
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('NuGet.config'),
+      this.destinationPath(extensionName + '/NuGet.config'),
+      template
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('packages.config'),
+      this.destinationPath(extensionName + '/packages.config'),
       template
     );
 
