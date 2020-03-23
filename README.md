@@ -76,9 +76,9 @@ MIT © 2018 [Matt Rutledge]()
 MIT © 2019-2020 [Upendo Ventures, LLC](https://upendoventures.com)  
 
 
-[npm-image]: https://badge.fury.io/js/generator-dnn.svg
-[npm-url]: https://npmjs.org/package/generator-dnn
-[travis-image]: https://travis-ci.org/mtrutledge/generator-dnn.svg?branch=master
-[travis-url]: https://travis-ci.org/mtrutledge/generator-dnn
-[daviddm-image]: https://david-dm.org/mtrutledge/generator-dnn.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/mtrutledge/generator-dnn
+[npm-image]: https://badge.fury.io/js/generator-upendodnn.svg  
+[npm-url]: https://npmjs.org/package/generator-upendodnn  
+[travis-image]: https://travis-ci.org/UpendoVentures/generator-upendodnn.svg?branch=master  
+[travis-url]: https://travis-ci.org/UpendoVentures/generator-upendodnn  
+[daviddm-image]: https://david-dm.org/UpendoVentures/generator-upendodnn.svg?theme=shields.io  
+[daviddm-url]: https://david-dm.org/UpendoVentures/generator-upendodnn  
