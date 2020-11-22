@@ -6,7 +6,7 @@ The 25 minute video below will walk you through everything you need to know.  (r
 
 [![DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN](http://img.youtube.com/vi/ZD1p5DDlY2E/0.jpg)](http://www.youtube.com/watch?v=ZD1p5DDlY2E "DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN")  
 
-This module is created and maintained by [Upendo Ventures](https://upendoventures.com) for the [DNN CMS Community](https://dnncommunity.org). Please consider [sponsoring us](https://github.com/sponsors/hismightiness) for this and the many other open-source efforts we do.  
+This solution is created and maintained by [Upendo Ventures](https://upendoventures.com) for the [DNN CMS Community](https://dnncommunity.org). Please consider [sponsoring us](https://github.com/sponsors/hismightiness) for this and the many other open-source efforts we do.  
 
 
 ## Installation  
