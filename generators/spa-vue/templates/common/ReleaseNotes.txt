@@ -1,0 +1,10 @@
+﻿<h3><%= extensionName %></h3>
+<p class="Contributor">
+	<%= company %> <br />
+	<a href="mailto:<%= emailAddy %>"><%= emailAddy %></a>
+</p>
+<hr/>
+<div class="License">
+	<h3>About the <%= extensionName %></h3>
+	<p>This module is intended as an example of how to build DNN Modules with VueJS.</p>
+</div>

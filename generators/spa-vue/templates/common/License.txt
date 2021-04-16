@@ -1,0 +1,3 @@
+﻿<p><%= extensionName %> Modules Extension for DNN</p>
+<p><%= company %> <a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a></p>
+<p>Your License Here</p>
