@@ -2,7 +2,7 @@ const DnnGeneratorBase = require('../lib/DnnGeneratorBase')
 const chalk = require('chalk')
 
 module.exports = class extends DnnGeneratorBase {
-  async prompting() {
+  prompting() {
     const prompts = [
       {
         when: !this.options.company,
@@ -77,14 +77,8 @@ module.exports = class extends DnnGeneratorBase {
       companyUrl: this.options.companyUrl,
       emailAddy: this.options.emailAddy,
       currentYear: currentDate.getFullYear(),
-      version: '1.0.0',
-      menuLinkName: this.props.menuLinkName,
-      parentMenu: this.props.parentMenu,
-      extensionType: this.props.extensionType,
       fullNamespace: this.props.fullNamespace,
-      guid: this.props.guid,
-      localhost: this.options.dnnHost,
-      dnnRoot: this.options.dnnRoot
+      guid: this.props.guid
     };
 
 
