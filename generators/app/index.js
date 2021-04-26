@@ -71,7 +71,6 @@ module.exports = class extends Generator {
           { name: 'Module: MVC+SPA', value: 'mvc-spa' },
           /*{ name: 'Module: MVC, .NET Core', value: 'mvc-core' },*/
           { name: 'Module: SPA', value: 'spa' },
-          { name: 'Module: SPA-Vue (40Fingers)', value: 'spa-vue' },
           { name: 'Persona Bar', value: 'personabar' },
           { name: 'Skin Object', value: 'skinobject' },
           { name: 'Library', value: 'library' },
