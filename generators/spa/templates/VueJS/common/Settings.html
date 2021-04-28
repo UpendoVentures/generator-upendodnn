@@ -1,0 +1,19 @@
+[JavaScript:{ jsname: "JQuery" }]
+[JavaScript:{ path: "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"}]
+[JavaScript:{ path: "~/Resources/Shared/scripts/dnn.jquery.js"}]
+[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/scripts/QuickSettings.js"}]
+
+<div id="vue-settings-wrapper-[ModuleContext:ModuleId]" class="dnnForm">
+    <div id="settings-[ModuleContext:ModuleId]">
+        <div class="dnnFormMessage dnnFormInfo">
+            <div>{{message}}</div>
+            [Resx:{key:"SettingsInfo"}]
+        </div>
+    </div>
+</div>
+
+<script language="javascript" type="text/javascript">
+    jQuery(function ($) {
+        <%= moduleName %>Settings.InitApp("[ModuleContext:ModuleId]");
+    });
+</script>
