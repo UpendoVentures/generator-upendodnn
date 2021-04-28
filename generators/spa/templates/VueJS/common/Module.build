@@ -4,7 +4,7 @@
     <DNNFileName><%= moduleName %></DNNFileName>
     <PackageName><%= fullNamespace %></PackageName>
     <Extension>zip</Extension>
-    <BuildScriptsPath>$(MSBuildProjectDirectory)\BuildScripts</BuildScriptsPath>
+    <BuildScriptsPath>$(MSBuildProjectDirectory)\..\..\Build</BuildScriptsPath>
     <WebsitePath>$(MSBuildProjectDirectory)\..\..\Website</WebsitePath>
     <WebsiteInstallPath>$(WebsitePath)\Install\Module</WebsiteInstallPath>
     <FullModulePath>$(WebsitePath)\DesktopModules\$(ModulePath)</FullModulePath>
@@ -20,13 +20,14 @@
       <Views Include="*.ascx;" />
       <ResourceFiles Include="App_LocalResources/*.resx" />
       <Images Include="Images/**/*.*" />
-      <JsFiles Include="Scripts/**/*.*" />
+      <JsFiles Include="Scripts/**/*.*" Exclude="client-app/**" />
       <Styles Include="Styles/**/*.*" />
       <DataProvider Include="Providers/DataProviders/SqlDataProvider/*.SqlDataProvider" />
       <Resources Include="@(Manifest);@(TextFiles);@(SourceFiles);@(Views);@(ResourceFiles);@(Images);@(JsFiles);@(Styles);@(DataProvider)" />
     </ItemGroup>
   </Target>
   <ItemGroup>
+    <SymbolsInclude Include="$(DNNFileName)_Symbols.dnn" />
     <SymbolsInclude Include="License.txt" />
     <SymbolsInclude Include="ReleaseNotes.txt" />
   </ItemGroup>
@@ -47,5 +48,14 @@
     <Copy SourceFiles="@(JsFiles)" DestinationFolder="$(FullModulePath)\Scripts\%(RecursiveDir)" />
     <Copy SourceFiles="@(Styles)" DestinationFolder="$(FullModulePath)\Styles\%(RecursiveDir)" />
     <Copy SourceFiles="@(DataProvider)" DestinationFolder="$(FullModulePath)\Providers\DataProviders\SqlDataProvider" />
+  </Target>
+  <Target Name="BuildVueClientApp">
+    <Message  Text="Performing VueJS build." Importance="high"></Message>
+    <CreateItem Include="$(FullModulePath)\Scripts\client-app\**;">
+      <Output TaskParameter="Include" ItemName="deleteVueFiles" />
+    </CreateItem>
+    <Delete ContinueOnError="true" Files="@(deleteVueFiles)"></Delete>
+    <Exec Condition="$(Configuration) == 'Debug'" Command="npm run build-dev" />
+    <Exec Condition="$(Configuration) == 'Release'" Command="npm run build" />
   </Target>
 </Project>
