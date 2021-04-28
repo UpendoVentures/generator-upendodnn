@@ -64,6 +64,12 @@ module.exports = class extends DnnGeneratorBase {
       }
     ];
 
+    var msBuildVersion = this._getMsBuildVersion();
+
+    if (msBuildVersion == "") {
+      this.log(chalk.red("YIKES! A valid version of MSBuild was not found! This is a critical error... :("));
+    }
+
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date();
@@ -80,8 +86,9 @@ module.exports = class extends DnnGeneratorBase {
         props.moduleName = this._pascalCaseName(props.name);
       }
       props.extensionType = "Modules";
-      props.fullNamespace = (props.spaType === "VueJS") ? props.namespace + "." + props.extensionName : props.namespace + "." + props.extensionType + "." + props.moduleName;
+      props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.moduleName;
       props.guid = this._generateGuid();
+      props.msBuildVersion = msBuildVersion;
 
       this.props = props;
     });
@@ -121,7 +128,8 @@ module.exports = class extends DnnGeneratorBase {
       fullNamespace: this.props.fullNamespace,
       guid: this.props.guid,
       localhost: this.options.dnnHost,
-      dnnRoot: this.options.dnnRoot
+      dnnRoot: this.options.dnnRoot,
+      msBuildVersion: this.props.msBuildVersion
     };
 
     if (spaType === "ReactJS") {
@@ -213,6 +221,12 @@ module.exports = class extends DnnGeneratorBase {
       this.fs.copyTpl(
         this.templatePath('common/package.json'),
         this.destinationPath(moduleName + '/package.json'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('../../common/branding/Images/**'),
+        this.destinationPath(moduleName + '/Images'),
         template
       );
 
@@ -338,11 +352,19 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(moduleName + '/' + moduleName + '.csproj'),
         template
       );
+
       this.fs.copyTpl(
         this.templatePath(spaPath + 'Module.dnn'),
         this.destinationPath(moduleName + '/' + moduleName + '.dnn'),
         template
       );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + 'symbols.dnn'),
+        this.destinationPath(moduleName + '/' + moduleName + '_Symbols.dnn'),
+        template
+      );
+
       this.fs.copyTpl(
         this.templatePath(spaPath + 'Data/ModuleContext.cs'),
         this.destinationPath(moduleName + '/Data/' + moduleName + 'Context.cs'),
@@ -352,6 +374,12 @@ module.exports = class extends DnnGeneratorBase {
       this.fs.copyTpl(
         this.templatePath(spaPath + 'common/**'),
         this.destinationPath(moduleName + '/.'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('../../common/branding/Images/**'),
+        this.destinationPath(moduleName + '/Images'),
         template
       );
     }
