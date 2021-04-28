@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dotnetnuke type="Package" version="6.0">
   <packages>
-    <package name="<%= moduleName %>" type="Module" version="1.0.0.0">
+    <package name="<%= fullNamespace %>" type="Module" version="<%= version %>">
       <friendlyName><%= moduleName %></friendlyName>
-      <description><%= description %></description>
-      <iconFile>~/DesktopModules/<%= namespace %>/<%= moduleName %>/Resources/img/extension.png</iconFile>
+      <description><![CDATA[<p><%= description %></p>]]></description>
+      <iconFile>~/DesktopModules/<%= moduleName %>/Images/logo.png</iconFile>
       <owner>
-        <name><%= namespace %></name>
-        <organization><%= namespace %></organization>
+        <name><%= yourName %></name>
+        <organization><%= company %></organization>
         <url><%= companyUrl %></url>
         <email><![CDATA[<a href="mailto:<%= emailAddy %>"><%= emailAddy %></a>]]></email>
       </owner>
-      <license src="License.txt">
-      </license>
-      <releaseNotes src="ReleaseNotes.txt">
-      </releaseNotes>
+      <license src="License.txt" />
+      <releaseNotes src="ReleaseNotes.txt" />
+      <azureCompatible>true</azureCompatible>
       <dependencies>
-        <dependency type="CoreVersion">08.00.01</dependency>
+        <dependency type="CoreVersion">09.03.02</dependency>
       </dependencies>
       <components>
+
         <component type="Script">
           <scripts>
-            <basePath>DesktopModules\<%= namespace %>\<%= moduleName %></basePath>
+            <basePath>DesktopModules\<%= moduleName %></basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>01.00.00.SqlDataProvider</name>
@@ -34,18 +34,11 @@
             </script>
           </scripts>
         </component>
-        <component type="ResourceFile">
-          <resourceFiles>
-            <basePath>DesktopModules/<%= namespace %>/<%= moduleName %></basePath>
-            <resourceFile>
-              <name>Resources.zip</name>
-            </resourceFile>
-          </resourceFiles>
-        </component>
+
         <component type="Module">
           <desktopModule>
             <moduleName><%= moduleName %></moduleName>
-            <foldername><%= namespace %>/<%= moduleName %></foldername>
+            <foldername><%= moduleName %></foldername>
             <businessControllerClass />
             <supportedFeatures />
             <moduleDefinitions>
@@ -56,7 +49,7 @@
                   <moduleControl>
                     <controlKey>
                     </controlKey>
-                    <controlSrc>DesktopModules/<%= namespace%>/<%= moduleName %>/View.html</controlSrc>
+                    <controlSrc>DesktopModules/<%= moduleName %>/View.html</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle><%= moduleName %> SPA</controlTitle>
                     <controlType>View</controlType>
@@ -65,7 +58,7 @@
                   </moduleControl>
                   <moduleControl>
                     <controlKey>Edit</controlKey>
-                    <controlSrc>DesktopModules/<%= namespace%>/<%= moduleName %>/Edit.html</controlSrc>
+                    <controlSrc>DesktopModules/<%= moduleName %>/Edit.html</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle>Add/Edit Menu Item</controlTitle>
                     <controlType>Edit</controlType>
@@ -76,7 +69,7 @@
                   </moduleControl>
                   <moduleControl>
                     <controlKey>QuickSettings</controlKey>
-                    <controlSrc>DesktopModules/<%= namespace%>/<%= moduleName %>/Settings.html</controlSrc>
+                    <controlSrc>DesktopModules/<%= moduleName %>/Settings.html</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle><%= moduleName %> Settings</controlTitle>
                     <controlType>Edit</controlType>
@@ -90,15 +83,36 @@
               </moduleDefinition>
             </moduleDefinitions>
           </desktopModule>
+          <eventMessage>
+            <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
+            <processorCommand>UpgradeModule</processorCommand>
+            <attributes>
+              <businessControllerClass><%= fullNamespace %>.Components.FeatureController, <%= fullNamespace %></businessControllerClass>
+              <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
+              <upgradeVersionsList>01.00.00</upgradeVersionsList>
+            </attributes>
+          </eventMessage>
         </component>
+
         <component type="Assembly">
           <assemblies>
             <assembly>
               <path>bin</path>
               <name><%= namespace %>.<%= moduleName %>.dll</name>
+              <version><%= version %></version>
             </assembly>
           </assemblies>
         </component>
+        
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/<%= moduleName %></basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
       </components>
     </package>
   </packages>
