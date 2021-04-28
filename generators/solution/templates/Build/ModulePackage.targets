@@ -25,7 +25,7 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   <Target Name="PackageModule" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <XmlRead Prefix="n"
                     Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
-                    XPath="dotnetnuke/packages/package/@version"
+                    XPath="dotnetnuke/packages/package[1]/@version"
                     XmlFileName="$(DNNFileName).dnn">
       <Output TaskParameter="Value" PropertyName="Version" />
     </XmlRead>
