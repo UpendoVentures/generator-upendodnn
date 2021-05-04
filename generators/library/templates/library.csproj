@@ -2,8 +2,8 @@
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <DnnVersion>09.03.02</DnnVersion>
-    <HccVersion>03.02.01</HccVersion>
+    <DnnVersion>09.04.04</DnnVersion>
+    <HccVersion>03.05.00</HccVersion>
     <ReferencesPath>..\..\References</ReferencesPath>
     <DnnReferencePath>$(ReferencesPath)\DNN\$(DnnVersion)</DnnReferencePath>
     <HccReferencePath>$(ReferencesPath)\HotcakesCommerce\$(HccVersion)</HccReferencePath>
@@ -38,14 +38,14 @@
   </PropertyGroup>
   <Import Project="..\..\Build\SolutionReferences.targets" />
   <ItemGroup>
-    <PackageReference Include="DotNetNuke.Core" Version="9.2.1.533" />
-    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.2.1.533" />
-    <PackageReference Include="DotNetNuke.Web" Version="9.2.1.533" />
-    <PackageReference Include="DotNetNuke.Web.Mvc" Version="9.2.1.533" />
-    <PackageReference Include="DotNetNuke.Web.Client" Version="9.2.1.533" />
-    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.2.1.533" />
-    <PackageReference Include="DotNetNuke.WebApi" Version="9.2.1.533" />
-    <PackageReference Include="Newtonsoft.Json" Version="7.0.1" />
+    <PackageReference Include="DotNetNuke.Core" Version="9.4.4" />
+    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.4.4" />
+    <PackageReference Include="DotNetNuke.Web" Version="9.4.4" />
+    <PackageReference Include="DotNetNuke.Web.Mvc" Version="9.4.4" />
+    <PackageReference Include="DotNetNuke.Web.Client" Version="9.4.4" />
+    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.4.4" />
+    <PackageReference Include="DotNetNuke.WebApi" Version="9.4.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.3" />
   </ItemGroup>
   <ItemGroup>

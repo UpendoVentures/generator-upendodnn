@@ -16,7 +16,7 @@
       <releaseNotes src="ReleaseNotes.txt">
       </releaseNotes>
       <dependencies>
-        <dependency type="CoreVersion">09.03.02</dependency>
+        <dependency type="CoreVersion">09.04.04</dependency>
       </dependencies>
       <components>
         <component type="Script">

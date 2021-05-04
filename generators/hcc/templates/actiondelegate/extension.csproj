@@ -2,8 +2,8 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <DnnVersion>09.03.02</DnnVersion>
-    <HccVersion>03.02.01</HccVersion>
+    <DnnVersion>09.04.04</DnnVersion>
+    <HccVersion>03.05.00</HccVersion>
     <ReferencesPath>..\..\References</ReferencesPath>
     <DnnReferencePath>$(ReferencesPath)\DNN\$(DnnVersion)</DnnReferencePath>
     <HccReferencePath>$(ReferencesPath)\HotcakesCommerce\$(HccVersion)</HccReferencePath>
