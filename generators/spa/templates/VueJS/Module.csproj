@@ -118,10 +118,6 @@
     <Compile Include="Components\FeatureController.cs" />
     <Content Include="Scripts\ItemView.js" />
     <Content Include="Scripts\QuickSettings.js" />
-    <Content Include="Scripts\client-app\favoicon.ico" />
-    <Content Include="Scripts\client-app\chunk-vendors.js" />
-    <Content Include="Scripts\client-app\js\app.js" />
-    <Content Include="Scripts\client-app\js\index.html" />
     <Compile Include="Data\DnnDbConfiguration.cs" />
     <Compile Include="Data\Item.cs" />
     <Compile Include="Data\<%= moduleName %>DataContext.cs" />
