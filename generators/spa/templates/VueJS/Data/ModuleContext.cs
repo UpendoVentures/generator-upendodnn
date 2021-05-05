@@ -9,11 +9,11 @@ namespace <%= fullNamespace %>.Data
 {
 
     [DbConfigurationType("<%= fullNamespace %>.Data.DnnDbConfiguration, <%= fullNamespace %>")]
-    public partial class VueDataContext : DbContext
+    public partial class <%= moduleName %>DataContext : DbContext
     {
-        public EmptyModuleVueContext() : base("name=SiteSqlServer")
+        public <%= moduleName %>DataContext() : base("name=SiteSqlServer")
         {
-            Database.SetInitializer<EmptyModuleVueContext>(null);
+            Database.SetInitializer<<%= moduleName %>DataContext>(null);
         }
 
         public virtual DbSet<Item> Items { get; set; }

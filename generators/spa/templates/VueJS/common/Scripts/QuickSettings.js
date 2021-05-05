@@ -1,7 +1,7 @@
-﻿var EmptyModuleVueSettings = EmptyModuleVueSettings || {};
+﻿var <%= moduleName %>SettingsVue = <%= moduleName %>SettingsVue || {};
 
-EmptyModuleVueSettings.baseUrl = "/API/<%= moduleName %>";
-EmptyModuleVueSettings.service = {
+<%= moduleName %>SettingsVue.baseUrl = "/API/<%= moduleName %>";
+<%= moduleName %>SettingsVue.service = {
     baseUrl : "/API/<%= moduleName %>",
     setModuleHeaders : function(request, moduleid, tabid) {
         request.setRequestHeader("moduleid", moduleid);
@@ -9,7 +9,7 @@ EmptyModuleVueSettings.service = {
     }
 };
 
-EmptyModuleVueSettings.InitApp = function(moduleid) {
+<%= moduleName %>SettingsVue.InitApp = function(moduleid) {
     new Vue({
         el: `#settings-${moduleid}`,
         computed: {

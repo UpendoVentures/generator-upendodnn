@@ -53,19 +53,19 @@
         methods: {
             loadItems() {
                 var self = this;
-                EmptyModuleVue.GetItemList(this.tabid, this.moduleid, function (data) {
+                <%= moduleName %>Vue.GetItemList(this.tabid, this.moduleid, function (data) {
                     self.items = data;
                 });
             },
             loadResx() {
                 var self = this;
-                EmptyModuleVue.GetResxList(this.tabid, this.moduleid, "View", function (data) {
+                <%= moduleName %>Vue.GetResxList(this.tabid, this.moduleid, "View", function (data) {
                     self.resx = data;
                 });
             },
             loadUsers() {
                 var self = this;
-                EmptyModuleVue.GetUserList(this.tabid, this.moduleid, function (data) {
+                <%= moduleName %>Vue.GetUserList(this.tabid, this.moduleid, function (data) {
                     self.users = data;
                     self.usersFetched = true;
                 });

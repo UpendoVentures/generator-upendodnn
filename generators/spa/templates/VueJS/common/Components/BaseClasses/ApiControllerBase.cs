@@ -11,7 +11,7 @@ namespace <%= fullNamespace %>.Components.BaseClasses
     {
         private const string DBCONTEXT_KEY = "<%= moduleName %>Context_Instance";
 
-        public <%= moduleName %>Context DbCtx
+        public <%= moduleName %>DataContext DbCtx
         {
             get
             {
@@ -20,23 +20,23 @@ namespace <%= fullNamespace %>.Components.BaseClasses
         }
 
         /// <summary>
-        /// Returns a DbContext object for use with this request. Instanciates a new DbContext when requested in the parameter. When using createNewInstance, you should always dispose your DbContext yourself.
+        /// Returns a DbContext object for use with this request. Instantiates a new DbContext when requested in the parameter. When using createNewInstance, you should always dispose your DbContext yourself.
         /// </summary>
         /// <param name="createNewInstance"></param>
         /// <returns></returns>
-        protected <%= moduleName %>Context GetContext(bool createNewInstance = false)
+        protected <%= moduleName %>DataContext GetContext(bool createNewInstance = false)
         {
             // if a new instance is requested: return one
-            if (createNewInstance) return new <%= moduleName %>Context();
+            if (createNewInstance) return new <%= moduleName %>DataContext();
 
             // get a reference to the HttpContext
             var ctx = Request.Properties["MS_HttpContext"] as HttpContextWrapper;
 
-            <%= moduleName %>Context retval = null;
+            <%= moduleName %>DataContext retval = null;
             // se if we have one in the HttpContext already
             if (ctx.Items[DBCONTEXT_KEY] == null)
             {
-                retval = new <%= moduleName %>Context();
+                retval = new <%= moduleName %>DataContext();
                 // store in HttpContext
                 ctx.Items[DBCONTEXT_KEY] = retval;
             }
@@ -57,7 +57,7 @@ namespace <%= fullNamespace %>.Components.BaseClasses
             // dispose of stored DbContext
             if (ctx.Items[DBCONTEXT_KEY] != null)
             {
-                var dbctx = (<%= moduleName %>Context)ctx.Items[DBCONTEXT_KEY];
+                var dbctx = (<%= moduleName %>DataContext)ctx.Items[DBCONTEXT_KEY];
                 dbctx.Dispose();
             }
 

@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "build": "cd ./client-app && npm run build",
+    "build-dev": "cd ./client-app && npm run build-dev"
+  }
+}

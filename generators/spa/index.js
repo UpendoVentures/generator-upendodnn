@@ -381,7 +381,7 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath(spaPath + 'Data/ModuleContext.cs'),
-        this.destinationPath(moduleName + '/Data/' + moduleName + 'Context.cs'),
+        this.destinationPath(moduleName + '/Data/' + moduleName + 'DataContext.cs'),
         template
       );
 

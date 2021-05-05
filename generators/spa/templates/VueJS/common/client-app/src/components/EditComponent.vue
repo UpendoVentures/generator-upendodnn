@@ -57,7 +57,7 @@
             },
             saveItem() {
                 var self = this;
-                EmptyModuleVue.SaveItem(this.tabid, this.moduleid,
+                <%= moduleName %>Vue.SaveItem(this.tabid, this.moduleid,
                     {
                         id: self.item.id,
                         name: self.item.name,
@@ -76,7 +76,7 @@
             },
             deleteItem() {
                 var self = this;
-                EmptyModuleVue.DeleteItem(this.tabid, this.moduleid, this.item.id,
+                <%= moduleName %>Vue.DeleteItem(this.tabid, this.moduleid, this.item.id,
                     function () {
                         self.$emit('reload');
                     });
