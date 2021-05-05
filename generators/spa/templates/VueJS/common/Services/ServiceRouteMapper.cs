@@ -1,4 +1,4 @@
-
+﻿
 using DotNetNuke.Web.Api;
 using System.Web.Http;
 
@@ -23,5 +23,4 @@ namespace <%= fullNamespace %>.Services
                 namespaces: new[] { "<%= fullNamespace %>.Services" });
         }
     }
-
 }

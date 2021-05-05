@@ -15,7 +15,6 @@ namespace <%= fullNamespace %>.Data
         {
             SetExecutionStrategy("System.Data.SqlClient", () => new SqlAzureExecutionStrategy());
             SetDefaultConnectionFactory(new SqlConnectionFactory(DataProviderHelper.ConnectionString));
-            //SetDefaultConnectionFactory(new LocalDbConnectionFactory("v11.0"));
         }
     }
 }

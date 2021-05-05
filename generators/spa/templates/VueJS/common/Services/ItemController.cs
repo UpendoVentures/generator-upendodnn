@@ -1,24 +1,23 @@
-using DotNetNuke.Common;
-using DotNetNuke.Common.Utilities;
-using DotNetNuke.Security;
-using DotNetNuke.UI.Modules;
-using DotNetNuke.Web.Api;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Net.Http;
-using System.Threading;
 using System.Web.Http;
+using DotNetNuke.Common;
+using DotNetNuke.Web.Api;
+using DotNetNuke.Security;
+using System.Threading;
+using DotNetNuke.UI.Modules;
+using DotNetNuke.Common.Utilities;
+using System.Collections.Generic;
 using <%= fullNamespace %>.Components.BaseClasses;
 using <%= fullNamespace %>.Data;
 using <%= fullNamespace %>.Services.ViewModels;
+using Newtonsoft.Json.Linq;
 
 namespace <%= fullNamespace %>.Services
 {
     [SupportedModules("<%= moduleName %>")]
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
-
     public class ItemController : ApiControllerBase
     {
         public ItemController() { }
@@ -45,7 +44,7 @@ namespace <%= fullNamespace %>.Services
         public HttpResponseMessage GetList()
         {
             List<ItemViewModel> retval = new List<ItemViewModel>();
-            List<Item> items;
+            List <Item>  items;
 
             items = DbCtx.Items.Where(i => i.ModuleId == ActiveModule.ModuleID).ToList();
             items.ForEach(i => retval.Add(new ItemViewModel(i, Globals.IsEditMode())));

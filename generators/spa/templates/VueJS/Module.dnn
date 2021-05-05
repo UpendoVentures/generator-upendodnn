@@ -1,21 +1,23 @@
-<dotnetnuke type="Package" version="5.0">
+<?xml version="1.0" encoding="utf-8"?>
+<dotnetnuke type="Package" version="6.0">
   <packages>
-    <package name="<%= fullNamespace %>" type="Module" version="00.00.01">
+    <package name="<%= fullNamespace %>" type="Module" version="01.00.00">
       <friendlyName><%= moduleName %></friendlyName>
       <description>
         <![CDATA[<p><%= description %></p>]]>
       </description>
-      <iconFile>~/Icons/Sigma/Software_32X32_Standard.png</iconFile>
+      <iconFile>DesktopModules/<%= moduleName %>/Images/logo.png</iconFile>
       <owner>
         <name><%= yourName %></name>
         <organization><%= company %></organization>
         <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
         <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
       </owner>
-      <license src="License.txt"></license>
-      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <license src="License.txt" />
+      <releaseNotes src="ReleaseNotes.txt" />
+      <azureCompatible>true</azureCompatible>
       <dependencies>
-        <dependency type="CoreVersion">09.03.02</dependency>
+        <dependency type="CoreVersion">09.04.04</dependency>
       </dependencies>
       
       <components>
@@ -24,24 +26,15 @@
             <basePath>DesktopModules\<%= moduleName %></basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>00.00.01.SqlDataProvider</name>
-              <version>00.00.01</version>
+              <name>01.00.00.SqlDataProvider</name>
+              <version>01.00.00</version>
             </script>
             <script type="UnInstall">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>Uninstall.SqlDataProvider</name>
-              <version>00.00.01</version>
+              <version>01.00.00</version>
             </script>
           </scripts>
-        </component>
-
-        <component type="ResourceFile">
-          <resourceFiles>
-            <basePath>DesktopModules/<%= moduleName %></basePath>
-            <resourceFile>
-              <name>Resources.zip</name>
-            </resourceFile>
-          </resourceFiles>
         </component>
 
         <component type="Module">
@@ -79,20 +72,42 @@
               </moduleDefinition>
             </moduleDefinitions>
           </desktopModule>
+          <eventMessage>
+            <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
+            <processorCommand>UpgradeModule</processorCommand>
+            <attributes>
+              <businessControllerClass><%= fullNamespace %>.Components.FeatureController, <%= fullNamespace %></businessControllerClass>
+              <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
+              <upgradeVersionsList>01.00.00</upgradeVersionsList>
+            </attributes>
+          </eventMessage>
         </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/<%= moduleName %></basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
         <component type="Assembly">
           <assemblies>
             <assembly>
               <name><%= fullNamespace %>.dll</name>
               <path>bin</path>
+              <version>01.00.00</version>
             </assembly>
             <assembly>
               <name>EntityFramework.dll</name>
               <path>bin</path>
+              <version>06.00.00</version>
             </assembly>
             <assembly>
               <name>EntityFramework.SqlServer.dll</name>
               <path>bin</path>
+              <version>06.00.00</version>
             </assembly>
           </assemblies>
         </component>

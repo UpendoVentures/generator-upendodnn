@@ -1,4 +1,5 @@
-﻿using <%= fullNamespace %>.Components;
+﻿
+using <%= fullNamespace %>.Components;
 using <%= fullNamespace %>.Data;
 using Newtonsoft.Json;
 
@@ -19,7 +20,6 @@ namespace <%= fullNamespace %>.Services.ViewModels
         {
             CanEdit = canEdit;
         }
-
 
         public ItemViewModel() { }
 

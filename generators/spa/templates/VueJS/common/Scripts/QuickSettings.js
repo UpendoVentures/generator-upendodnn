@@ -1,22 +1,15 @@
-var <%= moduleName %>Settings = <%= moduleName %>Settings || {};
+﻿var EmptyModuleVueSettings = EmptyModuleVueSettings || {};
 
-<%= moduleName %>.services = {}; // we need a service reference for each module
+EmptyModuleVueSettings.baseUrl = "/API/<%= moduleName %>";
+EmptyModuleVueSettings.service = {
+    baseUrl : "/API/<%= moduleName %>",
+    setModuleHeaders : function(request, moduleid, tabid) {
+        request.setRequestHeader("moduleid", moduleid);
+        request.setRequestHeader("tabid", tabid);
+    }
+};
 
-jQuery(function ($) {
-    <%= moduleName %>Settings.service.framework = $.ServicesFramework(0); // TODO
-    <%= moduleName %>Settings.service.baseUrl = <%= moduleName %>Settings.service.framework.getServiceRoot(<%= moduleName %>Settings.service.path) + "Settings/";
-});
-
-<%= moduleName %>Settings.InitApp = function (moduleid) {
-    var svc = {
-        moduleid: moduleid,
-        path: "<%= moduleName %>",
-        framework: $.ServicesFramework(moduleid)
-    };
-    svc.baseUrl = svc.framework.getServiceRoot(svc.path) + "Item/";
-
-    <%= moduleName %>Settings.services[`svc-${moduleid}`] = svc;
-
+EmptyModuleVueSettings.InitApp = function(moduleid) {
     new Vue({
         el: `#settings-${moduleid}`,
         computed: {
@@ -26,7 +19,7 @@ jQuery(function ($) {
         },
         methods: {
         },
-        mounted: function () {
+        mounted: function() {
         }
     });
 }

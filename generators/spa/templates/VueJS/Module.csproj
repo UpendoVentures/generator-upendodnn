@@ -49,12 +49,12 @@
   </PropertyGroup>
   <Import Project="..\..\Build\SolutionReferences.targets" />
   <ItemGroup>
-    <PackageReference Include="DotNetNuke.Core" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.Web" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.Web.Client" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.WebApi" Version="9.3.2" />
+    <PackageReference Include="DotNetNuke.Core" Version="9.4.4" />
+    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.4.4" />
+    <PackageReference Include="DotNetNuke.Web" Version="9.4.4" />
+    <PackageReference Include="DotNetNuke.Web.Client" Version="9.4.4" />
+    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.4.4" />
+    <PackageReference Include="DotNetNuke.WebApi" Version="9.4.4" />
     <PackageReference Include="EntityFramework" Version="6.0.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
@@ -88,7 +88,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Providers\DataProviders\SqlDataProvider\00.00.01.SqlDataProvider" />
+    <Content Include="Providers\DataProviders\SqlDataProvider\01.00.00.SqlDataProvider" />
     <Content Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
   <ItemGroup>
@@ -101,18 +101,33 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="client-app\babel.config.js" />
+    <Content Include="client-app\package-lock.json" />
+    <Content Include="client-app\README.md" />
+    <Content Include="client-app\vue.config.js" />
+    <Content Include="client-app\public\favicon.ico" />
+    <Content Include="client-app\public\index.html" />
+    <Content Include="client-app\src\App.vue" />
+    <Content Include="client-app\src\main.js" />
+    <Content Include="client-app\src\assets\logo.png" />
+    <Content Include="client-app\src\components\EditComponent.vue" />
     <Compile Include="Components\BaseClasses\ApiControllerBase.cs" />
     <Compile Include="Components\DataProviderHelper.cs" />
     <Compile Include="Components\FeatureController.cs" />
     <Content Include="Scripts\ItemView.js" />
     <Content Include="Scripts\QuickSettings.js" />
+    <Content Include="Scripts\client-app\favoicon.ico" />
+    <Content Include="Scripts\client-app\chunk-vendors.js" />
+    <Content Include="Scripts\client-app\js\app.js" />
+    <Content Include="Scripts\client-app\js\index.html" />
     <Compile Include="Data\DnnDbConfiguration.cs" />
     <Compile Include="Data\Item.cs" />
-    <Compile Include="Data\<%= moduleName %>Context.cs" />
+    <Compile Include="Data\VueDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\ItemController.cs" />
+    <Compile Include="Services\ResxController.cs" />
     <Compile Include="Services\ServiceRouteMapper.cs" />
     <Compile Include="Services\UserController.cs" />
     <Compile Include="Services\ViewModels\ItemViewModel.cs" />
@@ -123,7 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\logo.png" />
-    <Content Include="Edit.html" />
     <Content Include="License.txt" />
     <Content Include="module.css" />
     <Content Include="ReleaseNotes.txt" />

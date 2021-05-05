@@ -44,6 +44,16 @@ module.exports = class extends DnnGeneratorBase {
         }
       },
       {
+        when: !this.options.objectPrefix,
+        type: 'input',
+        name: 'objectPrefix',
+        message: 'What would be a good abbreviation for that (e.g., abc for Awesome Beverages Company)?',
+        store: true,
+        validate: str => {
+          return str.length > 0 && str.length < 6;
+        }
+      },
+      {
         when: !this.options.name,
         type: 'input',
         name: 'name',
@@ -107,8 +117,10 @@ module.exports = class extends DnnGeneratorBase {
 
     let namespace = this.props.namespace;
     let moduleName = this.props.moduleName;
+    let extensionName = this.props.moduleName;
     let currentDate = this.props.currentDate;
     let fullNamespace = this.props.fullNamespace;
+    let objectPrefix = this.props.objectPrefix;
     let guid = this.props.guid;
 
     let template = {
@@ -116,6 +128,7 @@ module.exports = class extends DnnGeneratorBase {
       company: this.options.company,
       namespace: namespace,
       moduleName: moduleName,
+      extensionName: extensionName,
       moduleFriendlyName: this.props.name,
       description: this.props.description,
       companyUrl: this.options.companyUrl,
@@ -129,6 +142,7 @@ module.exports = class extends DnnGeneratorBase {
       guid: this.props.guid,
       localhost: this.options.dnnHost,
       dnnRoot: this.options.dnnRoot,
+      objectPrefix: this.props.objectPrefix,
       msBuildVersion: this.props.msBuildVersion
     };
 
@@ -374,6 +388,12 @@ module.exports = class extends DnnGeneratorBase {
       this.fs.copyTpl(
         this.templatePath(spaPath + 'common/**'),
         this.destinationPath(moduleName + '/.'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('../../common/properties/**'),
+        this.destinationPath(moduleName + '/Properties/'),
         template
       );
 
