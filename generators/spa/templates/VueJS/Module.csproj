@@ -113,6 +113,7 @@
     <Content Include="client-app\src\main.js" />
     <Content Include="client-app\src\assets\logo.png" />
     <Content Include="client-app\src\components\EditComponent.vue" />
+    <Content Include="client-app\src\lib\ItemView.js" />
     <Compile Include="Components\BaseClasses\ApiControllerBase.cs" />
     <Compile Include="Components\DataProviderHelper.cs" />
     <Compile Include="Components\FeatureController.cs" />
