@@ -30,7 +30,7 @@
             data: JSON.stringify(editItem),
             url: <%= moduleName %>Vue.service.baseUrl + "/Item/" + editItem.id,
             beforeSend: function(request) {
-                TestVueVue.service.setModuleHeaders(request, moduleid, tabid);
+                <%= moduleName %>Vue.service.setModuleHeaders(request, moduleid, tabid);
             },
             dataType: "json"
         }).done(function (data) {
