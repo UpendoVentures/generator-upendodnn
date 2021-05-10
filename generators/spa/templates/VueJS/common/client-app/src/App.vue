@@ -24,6 +24,7 @@
 </template>
 
 <script>
+    import <%= moduleName %>Vue from './lib/ItemView.js'
     import EditComponent from './components/EditComponent.vue'
 
     export default {
