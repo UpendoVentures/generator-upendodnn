@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dotnetnuke type="Package" version="6.0">
+  <packages>
+    <package name="<%= fullNamespace %>" type="Auth_System" version="01.00.00">
+      <friendlyName><%= extensionName %></friendlyName>
+      <description>
+        <![CDATA[<p><%= description %></p>]]>
+      </description>
+      <iconFile>DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
+      <owner>
+        <name><%= yourName %></name>
+        <organization><%= company %></organization>
+        <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
+        <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
+      </owner>
+      <license src="License.txt" />
+      <releaseNotes src="ReleaseNotes.txt" />
+      <azureCompatible>true</azureCompatible>
+      <dependencies>
+        <dependency type="CoreVersion">09.04.04</dependency>
+      </dependencies>
+      <components>
+      
+        <component type="AuthenticationSystem">
+          <authenticationService>
+            <type><%= type %></type>
+            <settingsControlSrc>DesktopModules/<%= extensionName %>/Settings.ascx</settingsControlSrc>
+            <loginControlSrc>DesktopModules/<%= extensionName %>/Login.ascx</loginControlSrc>
+            <logoffControlSrc>DesktopModules/<%= extensionName %>/Logoff.ascx</logoffControlSrc>
+          </authenticationService>
+        </component>
+
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name><%= fullNamespace %>.dll</name>
+              <path>bin</path>
+              <version>01.00.00</version>
+            </assembly>
+          </assemblies>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules\<%= extensionName %></basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

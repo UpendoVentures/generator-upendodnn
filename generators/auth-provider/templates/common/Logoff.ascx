@@ -1,0 +1,2 @@
+﻿<<%= openDirective %> Control Language="C#" AutoEventWireup="true" CodeBehind="Logoff.ascx.cs" Inherits="<%= fullNamespace %>.Logoff" <%= closeDirective %>>
+<asp:Panel ID="pnlLogoffContainer" runat="server" />
