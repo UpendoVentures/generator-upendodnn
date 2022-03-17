@@ -75,6 +75,7 @@ module.exports = class extends Generator {
           { name: 'Skin Object', value: 'skinobject' },
           { name: 'Library', value: 'library' },
           { name: 'Library: Scheduled Job', value: 'library-scheduledjob' },
+          { name: 'Authentication Provider', value: 'auth-provider' },
           { name: 'Hotcakes Commerce Extension', value: 'hcc' }
         ]
       },
