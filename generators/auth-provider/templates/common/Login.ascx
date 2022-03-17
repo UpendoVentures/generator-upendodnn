@@ -46,7 +46,7 @@
         /*globals jQuery, window, Sys */
         (function ($, Sys) {
             const disabledActionClass = "dnnDisabledAction";
-            const actionLinks = $('a[id^="dnn_ctr<<%= closeDirective %>=ModuleId > Null.NullInteger ? ModuleId.ToString() : ""<%= closeDirective %>>_Login_Login_DNN"]');
+            const actionLinks = $('a[id^="dnn_ctr<<%= closeDirective %>=ModuleId > Null.NullInteger ? ModuleId.ToString() : ""<%= closeDirective %>>_Login_<%= type %>_Login_<%= type %>"]');
             function isActionDisabled($el) {
                 return $el && $el.hasClass(disabledActionClass);
             }
@@ -77,8 +77,8 @@
 		
             $(document).ready(function () {
                 $(document).on('keydown', '.dnnLoginService', function (e) {
-                    if ($(e.target).is('input:text,input:password') && e.keyCode === 13) {
-                        var $loginButton = $('#dnn_ctr<<%= closeDirective %>=ModuleId > Null.NullInteger ? ModuleId.ToString() : ""<%= closeDirective %>>_Login_Login_DNN_cmdLogin');
+                    if ($(e.target).is('input:text,input:password,input:checkbox') && e.keyCode === 13) {
+                        var $loginButton = $('#dnn_ctr<<%= closeDirective %>=ModuleId > Null.NullInteger ? ModuleId.ToString() : ""<%= closeDirective %>>_Login_<%= type %>_Login_<%= type %>_cmdLogin');
                         if (isActionDisabled($loginButton)) {
                             return false;
                         }
