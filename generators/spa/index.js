@@ -386,16 +386,20 @@ module.exports = class extends DnnGeneratorBase {
   }
 
   install() {
-    if (this.props.spaType !== "VueJS")
-      this._writeSolution();
-    this._defaultInstall();
+    this._writeSolution();
+    if (this.props.spaType !== "VueJS") {
+      try {
+        this._defaultInstall();
+      } catch { }
+    }
   }
 
   end() {
     this.log(chalk.white('Installed Dependencies.'));
     this.log(chalk.white('Running dotnet restore.'));
-    this.spawnCommand('dotnet', ['restore']);
-    process.chdir('../');
-    this.log(chalk.white('All Ready!'));
+    process.chdir('Modules/' + this.props.moduleName);
+    this.spawnCommand('dotnet', ['restore'], { cwd: process.cwd() }).then(() => {
+      this.log(chalk.white('All Ready!'));
+    });
   }
 };
