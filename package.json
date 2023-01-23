@@ -21,17 +21,17 @@
     "upendo"
   ],
   "devDependencies": {
-    "eslint": "^5.12.0",
+    "eslint": "^8.28.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-config-xo": "^0.25.1",
     "eslint-plugin-prettier": "^3.0.1",
-    "jest": "^23.6.0",
-    "jest-cli": "^23.6.0",
+    "jest": "^29.3.0",
+    "jest-cli": "^29.3.0",
     "nsp": "^3.2.1",
     "prettier": "^1.15.3",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^6.2.0",
-    "yo": "^4.3.0"
+    "yo": "^4.3.1"
   },
   "dependencies": {
     "chalk": "^2.4.2",
@@ -84,5 +84,14 @@
   },
   "packageConfig": {
     "registry": "http://registry.npmjs.org/"
+  },
+  "resolutions": {
+    "**/**/got": "11.8.5",
+    "**/**/semver-regex": "3.1.4",
+    "**/**/yargs-parser": "13.1.2",
+    "**/**/mem":"4.0.0",
+    "**/**/lodash":"4.17.21",
+    "**/**/trim-newlines": "3.0.1"
+
   }
 }
