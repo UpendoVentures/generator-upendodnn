@@ -7,62 +7,81 @@
 
 <div id="vue-app-wrapper-[ModuleContext:ModuleId]">
     <div id="app-[ModuleContext:ModuleId]">
+        <h3>Item list </h3>
         <div>
             <a @click="loadItems" href="#">[Resx:{key:"Refresh"}]</a>
             <a v-if="userCanAdd" @click="addItem" href="#">[Resx:{key:"EditModule"}]</a>
         </div>
-        <ul class="tm_tl">
-            <li class="tm_t" v-for="(item, index) in items" :key="item.id">
-                <h3>{{item.name}}</h3>
-                <div class="tm_td">{{item.description}}</div>
-                <edit-component :moduleid="moduleid"
-                                :id="item.id"
-                                :name="item.name"
-                                :description="item.description"
-                                :canedit="item.canEdit"
-                                :assigned-user="item.assignedUser"
-                                :users="users"
-                                v-on:reload="loadItems"
-                                v-on:edit-cancelled="cancelAdd"></edit-component>
-            </li>
-        </ul>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="tm_t" v-for="(item, index) in items" :key="item.id">
+                    <td>{{item.ItemId}}</td>
+                    <td>{{item.ItemName}}</td>
+                    <td class="tm_td">{{item.ItemDescription}}</td>
+                    <td>
+                        <button v-if="userCanAdd" type="button" class="btn btn-sm" title="Edit item" @click="editItem(item)">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </button>
+                        <button v-if="userCanAdd" type="button" class="btn btn-sm btn-danger" title="Remove item" @click="deleteItem(item.ItemId)">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div v-if="showModal" class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: block">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" @click="cancelAdd" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 v-if="item.id > 0" class="modal-title" id="myModalLabel">Edit Item</h4>
+                        <h4 v-else class="modal-title" id="myModalLabel">Create Item</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="dnnForm dnnEditBasicSettings" id="dnnEditBasicSettings">
+                            <fieldset>
+                                <div class="dnnFormItem">
+                                    <div><label for="itemName">[Resx:{key:"lblName"}]</label></div>
+                                    <input id="itemName" type="text" v-model="item.name" />
+                                </div>
+                                <div class="dnnFormItem">
+                                    <div><label for="itemDescription">[Resx:{key:"lblDescription"}]</label></div>
+                                    <textarea id="itemDescription" cols="20" rows="5" v-model="item.description"></textarea>
+                                </div>
+                                <div class="dnnFormItem">
+                                    <div><label for="itemUser">[Resx:{key:"lblAssignedUser"}]</label></div>
+                                    <select v-model="item.assignedUser">
+                                        <option v-for="user in users" v-bind:value="user.id">
+                                            {{ user.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" @click="cancelAdd">Close</button>
+                        <button type="button" class="btn btn-primary" @click="saveChanges">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<script type="x-template" id="edit-component-[ModuleContext:ModuleId]">
-    <div>
-        <div v-if="editMode || item.id <= 0" class="dnnForm dnnEditBasicSettings" id="dnnEditBasicSettings">
-            <fieldset>
-                <div class="dnnFormItem">
-                    <div><label for="itemName">[Resx:{key:"lblName"}]</label></div>
-                    <input id="itemName" type="text" v-model="item.name" />
-                </div>
-                <div class="dnnFormItem">
-                    <div><label for="itemDescription">[Resx:{key:"lblDescription"}]</label></div>
-                    <textarea id="itemDescription" cols="20" rows="5" v-model="item.description"></textarea>
-                </div>
-                <div class="dnnFormItem">
-                    <div><label for="itemUser">[Resx:{key:"lblAssignedUser"}]</label></div>
-                    <select v-model="item.assignedUser">
-                        <option v-for="user in users" v-bind:value="user.id">
-                            {{ user.name }}
-                        </option>
-                    </select>
-                </div>
-            </fieldset>
-            <a href="#" @click="saveItem" class="dnnPrimaryAction">[Resx:{key:"btnSubmit"}]</a>
-            <a href="#" @click="cancelEdit" class="dnnSecondaryAction">[Resx:{key:"btnCancel"}]</a>
-        </div>
-        <div v-if="item.id > 0 && item.canedit">
-            <a v-if="!editMode" @click="toggleEditMode" href="#">[Resx:{key:"EditItem"}]</a>
-            <a @click="deleteItem" href="#">[Resx:{key:"DeleteItem"}]</a>
-        </div>
-    </div>
-</script>
 
 <script language="javascript" type="text/javascript">
     jQuery(function ($) {
-        <%= moduleName %>.InitApp([ModuleContext:ModuleId], '[ModuleContext:EditMode]' === 'True');
+        TestVue.InitApp("[ModuleContext:ModuleId]", '[ModuleContext:EditMode]' === 'True');
     });
 
 </script>

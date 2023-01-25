@@ -7,13 +7,11 @@ using DotNetNuke.Framework.Providers;
 
 namespace <%= fullNamespace %>.Data
 {
-    [DbConfigurationType("<%= fullNamespace %>.Data.DnnDbConfiguration, <%= fullNamespace %>")]
     public class <%= moduleName %>Context: DbContext
     {
         public <%= moduleName %>Context()
             : base("name=SiteSqlServer")
         {
-            Database.SetInitializer<<%= moduleName %>Context>(null);
         }
 
         public virtual DbSet<Item> Items { get; set; }

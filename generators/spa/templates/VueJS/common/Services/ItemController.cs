@@ -22,10 +22,10 @@ namespace <%= fullNamespace %>.Services
     public class ItemController : ApiControllerBase
     {
         public ItemController() { }
-
+        [HttpDelete]
         public HttpResponseMessage Delete(int itemId)
         {
-            var item = DbCtx.Items.FirstOrDefault(i => i.Id == itemId);
+            var item = DbCtx.Items.FirstOrDefault(i => i.ItemId == itemId);
             if (item != null)
             {
                 DbCtx.Items.Remove(item);
@@ -35,13 +35,15 @@ namespace <%= fullNamespace %>.Services
             return Request.CreateResponse(System.Net.HttpStatusCode.NoContent);
         }
 
+        [HttpGet]
         public HttpResponseMessage Get(int itemId)
         {
-            var itemVm = new ItemViewModel(DbCtx.Items.FirstOrDefault(i => i.Id == itemId));
+            var itemVm = new ItemViewModel(DbCtx.Items.FirstOrDefault(i => i.ItemId == itemId));
 
             return Request.CreateResponse(itemVm);
         }
 
+        [HttpGet]
         public HttpResponseMessage GetList()
         {
             List<ItemViewModel> retval = new List<ItemViewModel>();
@@ -65,7 +67,7 @@ namespace <%= fullNamespace %>.Services
             else
             {
                 var t = Create(item);
-                return Request.CreateResponse(t.Id);
+                return Request.CreateResponse(t.ItemId);
             }
 
         }
@@ -92,7 +94,7 @@ namespace <%= fullNamespace %>.Services
         private Item Update(ItemViewModel item)
         {
 
-            var t = DbCtx.Items.FirstOrDefault(i => i.Id == item.Id);
+            var t = DbCtx.Items.FirstOrDefault(i => i.ItemId == item.Id);
             if (t != null)
             {
                 t.ItemName = item.Name;
