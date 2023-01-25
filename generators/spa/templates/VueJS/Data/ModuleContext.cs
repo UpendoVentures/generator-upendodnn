@@ -7,7 +7,6 @@ using DotNetNuke.Framework.Providers;
 
 namespace <%= fullNamespace %>.Data
 {
-    [DbConfigurationType("<%= fullNamespace %>.Data.DnnDbConfiguration, <%= fullNamespace %>")]
     public class <%= moduleName %>Context: DbContext
     {
         public <%= moduleName %>Context()
