@@ -9,7 +9,7 @@ namespace <%= fullNamespace %>.Services.ViewModels
     {
         public ItemViewModel(Item t)
         {
-            Id = t.Id;
+            Id = t.ItemId;
             Name = t.ItemName;
             Description = t.ItemDescription;
             AssignedUser = t.AssignedUserId;
