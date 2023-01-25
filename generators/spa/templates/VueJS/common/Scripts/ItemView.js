@@ -6,101 +6,96 @@ var <%= moduleName %> = <%= moduleName %> || {};
     // create the service object for this module
     var svc = {
         moduleid: moduleid,
-        path: "<%= moduleName %>",
+        baseUrl: "DesktopModules/<%= moduleName %>/API/",
         framework: $.ServicesFramework(moduleid)
     };
-    svc.baseUrl = svc.framework.getServiceRoot(svc.path) + "Item/";
 
     // add the service to the object containg all services in case multiple modules are placed on the page
     <%= moduleName %>.services[`svc-${moduleid}`] = svc;
-
-    // create the edit-component
-    Vue.component('edit-component',
-        {
-            template: `#edit-component-${moduleid}`,
-            props: ['moduleid', 'id', 'name', 'description', 'canedit', 'assigned-user', 'users'],
-            data: function () {
-                return {
-                    editMode: false,
-                    item: {
-                        id: this.id,
-                        name: this.name,
-                        description: this.description,
-                        canedit: this.canedit,
-                        assignedUser: this.assignedUser
-                    },
-                }
-            },
-            methods: {
-                toggleEditMode() {
-                    this.editMode = !this.editMode;
-                },
-                saveItem() {
-                    var self = this;
-                    <%= moduleName %>.SaveItem(moduleid,
-                        {
-                            id: self.item.id,
-                            name: self.item.name,
-                            description: self.item.description,
-                            assignedUser: self.item.assignedUser
-                        },
-                        function (data) {
-                            // onDone
-                            self.editMode = false;
-                            self.$emit('reload');
-                        });
-                },
-                cancelEdit() {
-                    this.editMode = false;
-                    this.$emit("edit-cancelled");
-                },
-                deleteItem() {
-                    var self = this;
-                    <%= moduleName %>.DeleteItem(moduleid, this.item.id,
-                        function () {
-                            self.$emit('reload');
-                        });
-                },
-            },
-            mounted: function () {
-            }
-        });
 
     new Vue({
         el: `#app-${moduleid}`,
         computed: {
             userCanAdd: function () {
-                return editmode && (this.items.length == 0 || this.items[0].id > 0);
+                return editmode;
             }
         },
         data: {
+            showModal: false,
             moduleid: moduleid,
             addMode: false,
             editId: 0,
+            item: {
+                id: 0,
+                name: "",
+                description: "",
+                canedit: "",
+                assignedUser: ""
+            },
             items: [],
             users: [],
         },
         methods: {
             loadItems() {
                 var self = this;
-                <%= moduleName %>.GetItemList(moduleid, function (data) {
+                TestVue.GetItemList(moduleid, function (data) {
                     self.items = data;
+                    self.isLoading = false;
                 });
             },
             loadUsers() {
                 var self = this;
-                <%= moduleName %>.GetUserList(moduleid, function (data) {
+                TestVue.GetUserList(moduleid, function (data) {
                     self.users = data;
                 });
             },
-            addItem(item) {
-                this.items.unshift({ id: 0 });
+            addItem() {
+                this.showModal = true;
+            },
+            saveChanges() {
+                var self = this;
+                TestVue.SaveItem(moduleid,
+                    {
+                        id: self.item.id,
+                        name: self.item.name,
+                        description: self.item.description,
+                        assignedUser: self.item.assignedUser
+                    },
+                    function () {
+                        // onDone
+                        self.resetItem();
+                        self.loadItems();
+                        self.showModal = false;
+                    });
+            },          
+            editItem(item) {
+                this.item.id = item.ItemId;
+                this.item.name = item.ItemName;
+                this.item.description = item.ItemDescription;
+                this.item.assignedUser = item.AssignedUserId
+                this.showModal = true;
             },
             cancelAdd() {
-                if (this.items.length > 0 && this.items[0].id === 0) {
-                    this.items.splice(0, 1);
-                }
+                this.showModal = false;
+                this.resetItem();
             },
+            resetItem() {
+                this.item = {
+                    id: 0,
+                    name: "",
+                    description: "",
+                    canedit: "",
+                    assignedUser: ""
+                };
+            },
+            deleteItem(itemId) {
+                var self = this;
+                if (confirm("Do you want to remove this item?")) {
+                    TestVue.DeleteItem(moduleid, itemId, function () {
+                        self.loadItems();
+                    });
+                }     
+            }
         },
         mounted: function () {
             this.loadItems();
@@ -114,7 +109,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
     // get the service for this module from the services object
     var svc = <%= moduleName %>.services[`svc-${moduleid}`];
     var jqXHR = $.ajax({
-        url: svc.baseUrl,
+        url: svc.baseUrl + "Item/GetList",
         beforeSend: svc.framework.setModuleHeaders,
         dataType: "json"
     }).done(function (data) {
@@ -128,7 +123,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
     // get the service for this module from the services object
     var svc = <%= moduleName %>.services[`svc-${moduleid}`];
     var ajaxMethod = "POST";
-    var restUrl = svc.baseUrl;
+    var restUrl = svc.baseUrl + "Item/Save";
 
     if (editItem.id > 0) {
         // ajaxMethod = "PATCH";
@@ -152,7 +147,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
 <%= moduleName %>.DeleteItem = function (moduleid, id, onDone, onFail) {
     // get the service for this module from the services object
     var svc = <%= moduleName %>.services[`svc-${moduleid}`];
-    var restUrl = svc.baseUrl + id;
+    var restUrl = svc.baseUrl + "Item/Delete?itemId=" + id;
     var jqXHR = $.ajax({
         method: "DELETE",
         url: restUrl,
@@ -170,7 +165,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
     // get the service for this module from the services object
     var svc = <%= moduleName %>.services[`svc-${moduleid}`];
     // need to calculate a different Url for User service
-    var restUrl = svc.framework.getServiceRoot(svc.path) + "User/";
+    var restUrl = svc.baseUrl + "/User/GetList";
     var jqXHR = $.ajax({
         url: restUrl,
         beforeSend: svc.framework.setModuleHeaders,
