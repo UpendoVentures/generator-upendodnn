@@ -12,7 +12,6 @@ namespace <%= fullNamespace %>.Data
         public <%= moduleName %>Context()
             : base("name=SiteSqlServer")
         {
-            Database.SetInitializer<<%= moduleName %>Context>(null);
         }
 
         public virtual DbSet<Item> Items { get; set; }
