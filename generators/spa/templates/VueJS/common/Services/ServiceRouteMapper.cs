@@ -18,10 +18,9 @@ namespace <%= fullNamespace %>.Services
             mapRouteManager.MapHttpRoute(
                 moduleFolderName: "<%= moduleName %>",
                 routeName: "default",
-                url: "{controller}/{itemId}",
+                url: "{controller}/{action}",
                 defaults: new { action = RouteParameter.Optional, itemId = RouteParameter.Optional },
                 namespaces: new[] { "<%= fullNamespace %>.Services" });
         }
     }
-
 }
