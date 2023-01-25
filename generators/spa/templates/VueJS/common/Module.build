@@ -55,7 +55,5 @@
       <Output TaskParameter="Include" ItemName="deleteVueFiles" />
     </CreateItem>
     <Delete ContinueOnError="true" Files="@(deleteVueFiles)"></Delete>
-    <Exec Condition="$(Configuration) == 'Debug'" Command="npm run build-dev" />
-    <Exec Condition="$(Configuration) == 'Release'" Command="npm run build" />
   </Target>
 </Project>
