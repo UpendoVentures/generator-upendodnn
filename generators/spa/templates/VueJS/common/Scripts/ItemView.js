@@ -38,14 +38,14 @@ var <%= moduleName %> = <%= moduleName %> || {};
         methods: {
             loadItems() {
                 var self = this;
-                TestVue.GetItemList(moduleid, function (data) {
+                <%= moduleName %>.GetItemList(moduleid, function (data) {
                     self.items = data;
                     self.isLoading = false;
                 });
             },
             loadUsers() {
                 var self = this;
-                TestVue.GetUserList(moduleid, function (data) {
+                <%= moduleName %>.GetUserList(moduleid, function (data) {
                     self.users = data;
                 });
             },
@@ -54,7 +54,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
             },
             saveChanges() {
                 var self = this;
-                TestVue.SaveItem(moduleid,
+                <%= moduleName %>.SaveItem(moduleid,
                     {
                         id: self.item.id,
                         name: self.item.name,
@@ -91,7 +91,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
             deleteItem(itemId) {
                 var self = this;
                 if (confirm("Do you want to remove this item?")) {
-                    TestVue.DeleteItem(moduleid, itemId, function () {
+                    <%= moduleName %>.DeleteItem(moduleid, itemId, function () {
                         self.loadItems();
                     });
                 }     
