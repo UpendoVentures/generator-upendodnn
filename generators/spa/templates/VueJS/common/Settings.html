@@ -1,19 +1,27 @@
 [JavaScript:{ jsname: "JQuery" }]
-[JavaScript:{ path: "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"}]
+[JavaScript:{ jsname: "Knockout" }]
 [JavaScript:{ path: "~/Resources/Shared/scripts/dnn.jquery.js"}]
+[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/scripts/common.js"}]
 [JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/scripts/QuickSettings.js"}]
 
-<div id="vue-settings-wrapper-[ModuleContext:ModuleId]" class="dnnForm">
-    <div id="settings-[ModuleContext:ModuleId]">
-        <div class="dnnFormMessage dnnFormInfo">
-            <div>{{message}}</div>
-            [Resx:{key:"SettingsInfo"}]
-        </div>
+<div id="QuickSettings-[ModuleContext:ModuleId]" class="dnnForm">
+    <label for="Description">Show table columns:</label>
+    <div class="dnnFormMessage dnnFormInfo">
+        <input type="checkbox" id="Name" name="Name">
+        <label for="ItemName"> Name</label><br>
+        <input type="checkbox" id="Description" name="Description">
+        <label for="Description"> Description</label><br>
+        <input type="checkbox" id="ItemId" name="ItemId">
+        <label for="ItemId"> Id</label><br>
+        <input type="checkbox" id="CreatedOnDate" name="CreatedOnDate">
+        <label for="CreatedOnDate"> Created On</label><br>
     </div>
 </div>
-
 <script language="javascript" type="text/javascript">
     jQuery(function ($) {
-        <%= moduleName %>Settings.InitApp("[ModuleContext:ModuleId]");
+        var moduleId = parseInt("[ModuleContext:ModuleId]");
+        var element = 'QuickSettings-[ModuleContext:ModuleId]';
+        var quickSettings = new dnnspamodule.quickSettings(element, moduleId);
+        quickSettings.init();
     });
 </script>
