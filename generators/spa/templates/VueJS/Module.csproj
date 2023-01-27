@@ -108,6 +108,7 @@
     <Content Include="Scripts\QuickSettings.js" />
     <Content Include="Scripts\common.js" />
     <Compile Include="Data\Item.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Data\<%= moduleName %>Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -118,6 +119,7 @@
     <Compile Include="Services\SettingsController.cs" />
     <Compile Include="Services\ViewModels\ItemViewModel.cs" />
     <Compile Include="Services\ViewModels\UserViewModel.cs" />
+    <Compile Include="Services\ViewModels\SettingsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
