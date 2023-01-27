@@ -106,6 +106,7 @@
     <Compile Include="Components\FeatureController.cs" />
     <Content Include="Scripts\ItemView.js" />
     <Content Include="Scripts\QuickSettings.js" />
+    <Content Include="Scripts\common.js" />
     <Compile Include="Data\DnnDbConfiguration.cs" />
     <Compile Include="Data\Item.cs" />
     <Compile Include="Data\<%= moduleName %>Context.cs" />
