@@ -21,11 +21,11 @@ using DotNetNuke.Web.Api;
 using DotNetNuke.Security;
 using Telerik.Web.UI.Calendar.Utils;
 using <%= fullNamespace %>;
-using <%= fullNamespace %>.ViewModels;
+using <%= fullNamespace %>.Services.ViewModels;
 
 namespace <%= fullNamespace %>.Services
 {
-    [SupportedModules("TestVue")]
+    [SupportedModules("<%= moduleName %>")]
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
     public class SettingsController : DnnApiController
     {

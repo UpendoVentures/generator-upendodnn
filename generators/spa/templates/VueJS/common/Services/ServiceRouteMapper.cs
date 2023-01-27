@@ -19,7 +19,6 @@ namespace <%= fullNamespace %>.Services
                 moduleFolderName: "<%= moduleName %>",
                 routeName: "default",
                 url: "{controller}/{action}",
-                defaults: new { action = RouteParameter.Optional, itemId = RouteParameter.Optional },
                 namespaces: new[] { "<%= fullNamespace %>.Services" });
         }
     }
