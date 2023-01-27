@@ -20,7 +20,7 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Web.Api;
 using DotNetNuke.Security;
 using Telerik.Web.UI.Calendar.Utils;
-using <%= fullNamespace %>
+using <%= fullNamespace %>;
 using <%= fullNamespace %>.ViewModels;
 
 namespace <%= fullNamespace %>.Services
