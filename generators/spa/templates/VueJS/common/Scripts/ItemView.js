@@ -32,6 +32,14 @@ var <%= moduleName %> = <%= moduleName %> || {};
                 canedit: "",
                 assignedUser: ""
             },
+            settings: {
+                name: false,
+                description: false,
+                itemId: false,
+                createdUserId: false,
+                assignedUserId: false,
+                createdOnDate:false
+            },
             items: [],
             users: [],
         },
@@ -41,6 +49,16 @@ var <%= moduleName %> = <%= moduleName %> || {};
                 <%= moduleName %>.GetItemList(moduleid, function (data) {
                     self.items = data;
                     self.isLoading = false;
+                });
+            },
+            loadSettings() {
+                var self = this;
+                <%= moduleName %>.LoadSettings(moduleid, function (data) {
+                    console.log(data);
+                    self.settings.itemId = data.itemId == "true" ? true: false;
+                    self.settings.description = data.description == "true" ? true : false;
+                    self.settings.name = data.name == "true" ? true : false;
+                    self.settings.createdOnDate = data.createdOnDate == "true" ? true : false;
                 });
             },
             loadUsers() {
@@ -166,6 +184,24 @@ var <%= moduleName %> = <%= moduleName %> || {};
     var svc = <%= moduleName %>.services[`svc-${moduleid}`];
     // need to calculate a different Url for User service
     var restUrl = svc.baseUrl + "/User/GetList";
+    var jqXHR = $.ajax({
+        url: restUrl,
+        beforeSend: svc.framework.setModuleHeaders,
+        dataType: "json",
+        async: false
+    }).done(function (data) {
+        if (typeof (onDone) === "function") {
+            onDone(data);
+        }
+    }).always(function (data) {
+    });
+};
+
+<%= moduleName %>.LoadSettings = function (moduleid, onDone) {
+    // get the service for this module from the services object
+    var svc = TestVue.services[`svc-${moduleid}`];
+    // need to calculate a different Url for User service
+    var restUrl = svc.baseUrl + "/Settings/LoadSettings";
     var jqXHR = $.ajax({
         url: restUrl,
         beforeSend: svc.framework.setModuleHeaders,
