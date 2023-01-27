@@ -20,10 +20,10 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Web.Api;
 using DotNetNuke.Security;
 using Telerik.Web.UI.Calendar.Utils;
-using Upendo.Modules.TestVue.Common;
-using Upendo.Modules.TestVue.Services.ViewModels;
+using <%= fullNamespace %>
+using <%= fullNamespace %>.ViewModels;
 
-namespace Upendo.Modules.TestVue.Services
+namespace <%= fullNamespace %>.Services
 {
     [SupportedModules("TestVue")]
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]

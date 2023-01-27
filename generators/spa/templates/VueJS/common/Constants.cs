@@ -13,7 +13,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OU
 DEALINGS IN THE SOFTWARE.
 */
 
-namespace Upendo.Modules.TestVue.Common
+namespace <%= fullNamespace %>
 {
     public static class QuickSettings
     {
