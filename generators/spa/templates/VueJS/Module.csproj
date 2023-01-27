@@ -107,7 +107,6 @@
     <Content Include="Scripts\ItemView.js" />
     <Content Include="Scripts\QuickSettings.js" />
     <Content Include="Scripts\common.js" />
-    <Compile Include="Data\DnnDbConfiguration.cs" />
     <Compile Include="Data\Item.cs" />
     <Compile Include="Data\<%= moduleName %>Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,6 +115,7 @@
     <Compile Include="Services\ItemController.cs" />
     <Compile Include="Services\ServiceRouteMapper.cs" />
     <Compile Include="Services\UserController.cs" />
+    <Compile Include="Services\SettingsController.cs" />
     <Compile Include="Services\ViewModels\ItemViewModel.cs" />
     <Compile Include="Services\ViewModels\UserViewModel.cs" />
   </ItemGroup>
