@@ -86,10 +86,10 @@ var <%= moduleName %> = <%= moduleName %> || {};
                     });
             },          
             editItem(item) {
-                this.item.id = item.ItemId;
-                this.item.name = item.ItemName;
-                this.item.description = item.ItemDescription;
-                this.item.assignedUser = item.AssignedUserId
+                this.item.id = item.id;
+                this.item.name = item.name;
+                this.item.description = item.description;
+                this.item.assignedUser = item.assignedUserId
                 this.showModal = true;
             },
             cancelAdd() {
