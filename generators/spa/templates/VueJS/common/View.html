@@ -36,7 +36,7 @@
                         <button v-if="userCanAdd" type="button" class="btn btn-sm" title="Edit item" @click="editItem(item)">
                             <i class="glyphicon glyphicon-edit"></i>
                         </button>
-                        <button v-if="userCanAdd" type="button" class="btn btn-sm btn-danger" title="Remove item" @click="deleteItem(item.ItemId)">
+                        <button v-if="userCanAdd" type="button" class="btn btn-sm btn-danger" title="Remove item" @click="deleteItem(item.id)">
                             <i class="glyphicon glyphicon-remove"></i>
                         </button>
                     </td>
