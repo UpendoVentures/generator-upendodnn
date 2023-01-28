@@ -89,7 +89,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
                 this.item.id = item.id;
                 this.item.name = item.name;
                 this.item.description = item.description;
-                this.item.assignedUser = item.assignedUserId
+                this.item.assignedUser = item.assignedUser
                 this.showModal = true;
             },
             cancelAdd() {
@@ -141,12 +141,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
     // get the service for this module from the services object
     var svc = <%= moduleName %>.services[`svc-${moduleid}`];
     var ajaxMethod = "POST";
-    var restUrl = svc.baseUrl + "Item/Save";
-
-    if (editItem.id > 0) {
-        // ajaxMethod = "PATCH";
-        restUrl += editItem.id;
-    }
+    var restUrl = svc.baseUrl + "Item/Save";   
     var jqXHR = $.ajax({
         method: ajaxMethod,
         url: restUrl,
