@@ -116,6 +116,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
             }
         },
         mounted: function () {
+            this.loadSettings();
             this.loadItems();
             this.loadUsers();
         }
