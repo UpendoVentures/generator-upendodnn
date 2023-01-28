@@ -28,10 +28,10 @@
             </thead>
             <tbody>
                 <tr class="tm_t" v-for="(item, index) in items" :key="item.id">
-                    <td v-if="settings.itemId">{{item.ItemId}}</td>
-                    <td v-if="settings.name">{{item.ItemName}}</td>
-                    <td v-if="settings.description">{{item.ItemDescription}}</td>
-                    <td v-if="settings.createdOnDate">{{item.CreatedOnDate}}</td>
+                    <td v-if="settings.itemId">{{item.id}}</td>
+                    <td v-if="settings.name">{{item.name}}</td>
+                    <td v-if="settings.description">{{item.description}}</td>
+                    <td v-if="settings.createdOnDate">{{item.createdOnDate}}</td>
                     <td>
                         <button v-if="userCanAdd" type="button" class="btn btn-sm" title="Edit item" @click="editItem(item)">
                             <i class="glyphicon glyphicon-edit"></i>

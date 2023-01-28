@@ -48,7 +48,12 @@ var <%= moduleName %> = <%= moduleName %> || {};
                 var self = this;
                 <%= moduleName %>.GetItemList(moduleid, function (data) {
                     self.items = data;
-                    self.isLoading = false;
+                });
+            },
+            loadUsers() {
+                var self = this;
+                <%= moduleName %>.GetUserList(moduleid, function (data) {
+                    self.users = data;
                 });
             },
             loadSettings() {
@@ -60,13 +65,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
                     self.settings.name = data.name == "true" ? true : false;
                     self.settings.createdOnDate = data.createdOnDate == "true" ? true : false;
                 });
-            },
-            loadUsers() {
-                var self = this;
-                <%= moduleName %>.GetUserList(moduleid, function (data) {
-                    self.users = data;
-                });
-            },
+            },            
             addItem() {
                 this.showModal = true;
             },
@@ -200,7 +199,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
 
 <%= moduleName %>.LoadSettings = function (moduleid, onDone) {
     // get the service for this module from the services object
-    var svc = TestVue.services[`svc-${moduleid}`];
+    var svc = <%= moduleName %>.services[`svc-${moduleid}`];
     // need to calculate a different Url for User service
     var restUrl = svc.baseUrl + "/Settings/LoadSettings";
     var jqXHR = $.ajax({

@@ -13,6 +13,7 @@ namespace <%= fullNamespace %>.Services.ViewModels
             Name = t.ItemName;
             Description = t.ItemDescription;
             AssignedUser = t.AssignedUserId;
+            CreatedOnDate = t.CreatedOnDate.ToShortDateString();
         }
 
         public ItemViewModel(Item t, bool canEdit) : this(t)
@@ -37,5 +38,8 @@ namespace <%= fullNamespace %>.Services.ViewModels
 
         [JsonProperty("canEdit")]
         public bool CanEdit { get; }
+
+        [JsonProperty("createdOnDate")]
+        public string CreatedOnDate { get; }
     }
 }
