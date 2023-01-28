@@ -5,7 +5,7 @@
       <description>
         <![CDATA[<p><%= description %></p>]]>
       </description>
-      <iconFile>~/Icons/Sigma/Software_32X32_Standard.png</iconFile>
+      <iconFile>DesktopModules/<%= moduleName %>/Images/logo.png</iconFile>
       <owner>
         <name><%= yourName %></name>
         <organization><%= company %></organization>
@@ -49,7 +49,9 @@
             <moduleName><%= moduleName %></moduleName>
             <foldername><%= moduleName %></foldername>
             <businessControllerClass><%= fullNamespace %>.Components.FeatureController</businessControllerClass>
-            <supportedFeatures />
+            <supportedFeatures>
+							<supportedFeature type="Portable" />
+						</supportedFeatures>
             <moduleDefinitions>
               <moduleDefinition>
                 <friendlyName><%= moduleName %></friendlyName>
@@ -58,12 +60,12 @@
                   <moduleControl>
                     <controlKey />
                     <controlSrc>DesktopModules/<%= moduleName %>/View.html</controlSrc>
-                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <supportsPartialRendering>True</supportsPartialRendering>
                     <controlTitle />
                     <controlType>View</controlType>
                     <iconFile />
                     <helpUrl />
-                    <viewOrder>0</viewOrder>
+                    <supportsPopUps>True</supportsPopUps>                    
                   </moduleControl>
                   <moduleControl>
                     <controlKey>QuickSettings</controlKey>
