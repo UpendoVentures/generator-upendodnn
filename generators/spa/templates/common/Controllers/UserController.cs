@@ -7,7 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 
-namespace <%= fullNamespace %>.Services
+namespace <%= fullNamespace %>.Controllers
 {
     [SupportedModules("<%= moduleName %>")]
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]

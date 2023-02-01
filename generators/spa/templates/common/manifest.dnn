@@ -94,12 +94,19 @@
           </eventMessage>
         </component>
 
-        <component type="Assembly">
+       <component type="Assembly">
           <assemblies>
             <assembly>
+              <name><%= fullNamespace %>.dll</name>
               <path>bin</path>
-              <name><%= namespace %>.<%= moduleName %>.dll</name>
-              <version><%= version %></version>
+            </assembly>
+            <assembly>
+              <name>EntityFramework.dll</name>
+              <path>bin</path>
+            </assembly>
+            <assembly>
+              <name>EntityFramework.SqlServer.dll</name>
+              <path>bin</path>
             </assembly>
           </assemblies>
         </component>

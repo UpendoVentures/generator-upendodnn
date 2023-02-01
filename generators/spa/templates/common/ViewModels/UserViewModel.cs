@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace <%= fullNamespace %>.Services.ViewModels
+namespace <%= fullNamespace %>.ViewModels
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class UserViewModel

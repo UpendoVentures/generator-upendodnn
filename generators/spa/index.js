@@ -181,6 +181,24 @@ module.exports = class extends DnnGeneratorBase {
         template
       );
 
+      this.fs.copyTpl(
+        this.templatePath('common/Data/**'),
+        this.destinationPath(moduleName + '/Data/'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/ViewModels/**'),
+        this.destinationPath(moduleName + '/ViewModels/'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Providers/**'),
+        this.destinationPath(moduleName + '/Providers/'),
+        template
+      );
+
       // Do all templated copies
       this.fs.copyTpl(
         this.templatePath('../../common/src/**'),
@@ -293,7 +311,6 @@ module.exports = class extends DnnGeneratorBase {
           'eslint': '^5.8.0',
           'eslint-loader': '^2.1.1',
           'eslint-plugin-react': '^7.11.1',
-          'react-hot-loader': '^4.3.12'
         };
       } else {
         this._writeTsConfig();

@@ -12,9 +12,9 @@ using System.Threading;
 using System.Web.Http;
 using <%= fullNamespace %>.Components.BaseClasses;
 using <%= fullNamespace %>.Data;
-using <%= fullNamespace %>.Services.ViewModels;
+using <%= fullNamespace %>.ViewModels;
 
-namespace <%= fullNamespace %>.Services
+namespace <%= fullNamespace %>.Controllers
 {
     [SupportedModules("<%= moduleName %>")]
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]

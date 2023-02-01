@@ -2,7 +2,7 @@
 using <%= fullNamespace %>.Data;
 using Newtonsoft.Json;
 
-namespace <%= fullNamespace %>.Services.ViewModels
+namespace <%= fullNamespace %>.ViewModels
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class ItemViewModel
