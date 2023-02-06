@@ -1,4 +1,4 @@
-using <%= fullNamespace %>.Services.ViewModels;
+using <%= fullNamespace %>.ViewModels;
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Security;
 using DotNetNuke.Web.Api;

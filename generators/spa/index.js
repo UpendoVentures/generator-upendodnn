@@ -231,8 +231,26 @@ module.exports = class extends DnnGeneratorBase {
       );
 
       this.fs.copyTpl(
-        this.templatePath('../../common/csproj/_Project.csproj'),
+        this.templatePath('common/symbols.dnn'),
+        this.destinationPath(moduleName + '/' + moduleName + '_Symbols.dnn'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaType + '/common/Module.csproj'),
         this.destinationPath(moduleName + '/' + moduleName + '.csproj'),
+                template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaType + '/common/Module.build'),
+        this.destinationPath(moduleName + '/Module.build'),
+                template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Data/ModuleContext.cs'),
+        this.destinationPath(moduleName + '/Data/' + moduleName + 'Context.cs'),
         template
       );
 
