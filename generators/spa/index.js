@@ -181,6 +181,24 @@ module.exports = class extends DnnGeneratorBase {
         template
       );
 
+      this.fs.copyTpl(
+        this.templatePath('common/Data/**'),
+        this.destinationPath(moduleName + '/Data/'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/ViewModels/**'),
+        this.destinationPath(moduleName + '/ViewModels/'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Providers/**'),
+        this.destinationPath(moduleName + '/Providers/'),
+        template
+      );
+
       // Do all templated copies
       this.fs.copyTpl(
         this.templatePath('../../common/src/**'),
@@ -205,6 +223,12 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(moduleName + '/RouteConfig.cs'),
         template
       );
+      
+      this.fs.copyTpl(
+        this.templatePath('common/Constants.cs'),
+        this.destinationPath(moduleName + '/Constants.cs'),
+        template
+      );
 
       this.fs.copyTpl(
         this.templatePath('common/manifest.dnn'),
@@ -213,8 +237,38 @@ module.exports = class extends DnnGeneratorBase {
       );
 
       this.fs.copyTpl(
-        this.templatePath('../../common/csproj/_Project.csproj'),
+        this.templatePath('common/symbols.dnn'),
+        this.destinationPath(moduleName + '/' + moduleName + '_Symbols.dnn'),
+        template
+      );
+      
+      this.fs.copyTpl(
+        this.templatePath('common/License.txt'),
+        this.destinationPath(moduleName + '/License.txt'),
+        template
+      );
+      
+      this.fs.copyTpl(
+        this.templatePath('common/ReleaseNotes.txt'),
+        this.destinationPath(moduleName + '/ReleaseNotes.txt'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaType + '/common/Module.csproj'),
         this.destinationPath(moduleName + '/' + moduleName + '.csproj'),
+                template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaType + '/common/Module.build'),
+        this.destinationPath(moduleName + '/Module.build'),
+                template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Data/ModuleContext.cs'),
+        this.destinationPath(moduleName + '/Data/' + moduleName + 'Context.cs'),
         template
       );
 
@@ -258,7 +312,7 @@ module.exports = class extends DnnGeneratorBase {
           'html-webpack-plugin': '^3.2.0',
           // eslint-disable-next-line prettier/prettier
           'marked': '^0.5.2',
-          'node-sass': '^4.11.0',
+          'node-sass': '^8.0.0',
           'sass-loader': '^7.1.0',
           'style-loader': '^0.23.1',
           // eslint-disable-next-line prettier/prettier
@@ -268,10 +322,13 @@ module.exports = class extends DnnGeneratorBase {
           'webpack-node-externals': '^1.7.2'
         },
         dependencies: {
-          'prop-types': '^15.6.2',
-          // eslint-disable-next-line prettier/prettier
-          'react': '^16.6.3',
-          'react-dom': '^16.6.3'
+          "@testing-library/jest-dom": "^5.16.5",
+          "@testing-library/react": "^13.4.0",
+          "@testing-library/user-event": "^13.5.0",
+          "react": "^18.2.0",
+          "react-dom": "^18.2.0",
+          "react-scripts": "5.0.1",
+          "web-vitals": "^2.1.4"
         }
       };
 
@@ -290,7 +347,6 @@ module.exports = class extends DnnGeneratorBase {
           'eslint': '^5.8.0',
           'eslint-loader': '^2.1.1',
           'eslint-plugin-react': '^7.11.1',
-          'react-hot-loader': '^4.3.12'
         };
       } else {
         this._writeTsConfig();

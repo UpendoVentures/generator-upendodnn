@@ -49,7 +49,7 @@
                   <moduleControl>
                     <controlKey>
                     </controlKey>
-                    <controlSrc>DesktopModules/<%= moduleName %>/View.html</controlSrc>
+                    <controlSrc>DesktopModules/<%= moduleName %>/dist/View.html</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle><%= moduleName %> SPA</controlTitle>
                     <controlType>View</controlType>
@@ -58,7 +58,7 @@
                   </moduleControl>
                   <moduleControl>
                     <controlKey>Edit</controlKey>
-                    <controlSrc>DesktopModules/<%= moduleName %>/Edit.html</controlSrc>
+                    <controlSrc>DesktopModules/<%= moduleName %>/dist/Edit.html</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle>Add/Edit Menu Item</controlTitle>
                     <controlType>Edit</controlType>
@@ -69,7 +69,7 @@
                   </moduleControl>
                   <moduleControl>
                     <controlKey>QuickSettings</controlKey>
-                    <controlSrc>DesktopModules/<%= moduleName %>/Settings.html</controlSrc>
+                    <controlSrc>DesktopModules/<%= moduleName %>/dist/Settings.html</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle><%= moduleName %> Settings</controlTitle>
                     <controlType>Edit</controlType>
@@ -94,12 +94,19 @@
           </eventMessage>
         </component>
 
-        <component type="Assembly">
+       <component type="Assembly">
           <assemblies>
             <assembly>
+              <name><%= fullNamespace %>.dll</name>
               <path>bin</path>
-              <name><%= namespace %>.<%= moduleName %>.dll</name>
-              <version><%= version %></version>
+            </assembly>
+            <assembly>
+              <name>EntityFramework.dll</name>
+              <path>bin</path>
+            </assembly>
+            <assembly>
+              <name>EntityFramework.SqlServer.dll</name>
+              <path>bin</path>
             </assembly>
           </assemblies>
         </component>
