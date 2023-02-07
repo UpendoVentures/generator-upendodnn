@@ -223,6 +223,12 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(moduleName + '/RouteConfig.cs'),
         template
       );
+      
+      this.fs.copyTpl(
+        this.templatePath('common/Constants.cs'),
+        this.destinationPath(moduleName + '/Constants.cs'),
+        template
+      );
 
       this.fs.copyTpl(
         this.templatePath('common/manifest.dnn'),
