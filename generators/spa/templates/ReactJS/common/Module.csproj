@@ -115,7 +115,7 @@
     <Content Include="src\License.md" />
     <Content Include="src\ReleaseNotes.md" />
     <Content Include="src\Resources\styles\module.scss" />    
-      <Content Include="src\Resources\scripts\common.js" />
+    <Content Include="src\Resources\scripts\common.js" />
     <Content Include="src\Resources\scripts\QuickSettings.js" />
     <Content Include="src\Resources\scripts\useFetch.js" />    
     <!-- <Compile Include="Properties\AssemblyInfo.cs" /> -->
@@ -132,9 +132,6 @@
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Data\Item.cs" />
     <Compile Include="Data\<%= moduleName %>Context.cs" />  
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\logo.png" />
