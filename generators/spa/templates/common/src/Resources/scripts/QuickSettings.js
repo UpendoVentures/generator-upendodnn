@@ -7,7 +7,7 @@ dnnspamodule.quickSettings = function (root, moduleId) {
     let parentSelector = "[id='" + root + "']";
     // Setup your settings service endpoint
     let service = {
-        baseUrl: "DesktopModules/React7/API/",
+        baseUrl: "DesktopModules/<%= moduleName %>/API/",
         framework: $.ServicesFramework(moduleId),
         controller: "Settings"
     };

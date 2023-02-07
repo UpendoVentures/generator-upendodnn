@@ -114,18 +114,23 @@
     <Content Include="src\_templates\Markdown.html" />
     <Content Include="src\License.md" />
     <Content Include="src\ReleaseNotes.md" />
-    <Content Include="src\Resources\styles\module.scss" />    <Compile Include="Data\Item.cs" />
-    <Compile Include="Data\<%= moduleName %>Context.cs" />
+    <Content Include="src\Resources\styles\module.scss" />    
+      <Content Include="src\Resources\scripts\common.js" />
+    <Content Include="src\Resources\scripts\QuickSettings.js" />
+    <Content Include="src\Resources\scripts\useFetch.js" />    
     <!-- <Compile Include="Properties\AssemblyInfo.cs" /> -->
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\BaseClasses\ApiControllerBase.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="RouteConfig.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Data\Item.cs" />
+    <Compile Include="Data\<%= moduleName %>Context.cs" />  
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
