@@ -1,0 +1,16 @@
+[ModuleAction:{ controlKey : "Edit", 
+                securityAccessLevel : "Edit",  
+                title: "Edit",
+                titleKey: "EditModule",
+                localResourceFile: "~/DesktopModules/<%= moduleName %>/App_LocalResources/View.resx"
+}]
+<"<%= namespace.toLowerCase() %><%= moduleName %>" data-moduleid="[ModuleContext:ModuleId]"></<%= namespace.toLowerCase() %><%= moduleName %>>
+<script language="javascript" type="text/javascript">
+    function getmoduleId(){
+        return '[ModuleContext:ModuleId]';
+    }
+</script>
+[CSS:{ path: "~/DesktopModules/<%= moduleName %>/Resources/module.css"}]
+[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/dist/Resources/scripts/runtime.js", provider: "DnnFormBottomProvider"}]
+[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/dist/Resources/scripts/polyfills.js", provider: "DnnFormBottomProvider"}]
+[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/dist/Resources/scripts/main.js", provider: "DnnFormBottomProvider"}]
