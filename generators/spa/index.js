@@ -14,11 +14,7 @@ module.exports = class extends DnnGeneratorBase {
         choices: [
           { name: 'ReactJS', value: 'ReactJS' },
           { name: 'VueJS', value: 'VueJS' },
-          {
-            name: chalk.gray('Angular'),
-            value: 'angular',
-            disabled: chalk.gray('Coming Soon')
-          }
+          { name: 'Angular', value: 'Angular'}
         ]
       },
       {
@@ -438,6 +434,93 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(moduleName + '/Images'),
         template
       );
+    } else if(spaType === "Angular"){
+      console.log("Angularrrrrrrrrrr");
+      this.fs.copyTpl(
+        this.templatePath('common/package.json'),
+        this.destinationPath(moduleName + '/package.json'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/**'),
+        this.destinationPath(moduleName + '/.'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/Module.csproj'),
+        this.destinationPath(moduleName + '/' + moduleName + '.csproj'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/src/**'),
+        this.destinationPath(moduleName + '/src/'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/Module.build'),
+        this.destinationPath(moduleName + '/' + 'Module.build'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/angular.json'),
+        this.destinationPath(moduleName + '/' + 'angular.json'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/tsconfig.app.json'),
+        this.destinationPath(moduleName + '/' + 'tsconfig.app.json'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/tsconfig.json'),
+        this.destinationPath(moduleName + '/' + 'tsconfig.json'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/tsconfig.spec.json'),
+        this.destinationPath(moduleName + '/' + 'tsconfig.spec.json'),
+        template
+      );
+
+      const pkgJson = {
+        "dependencies": {
+          "@angular/animations": "^14.0.0",
+          "@angular/common": "^14.0.0",
+          "@angular/compiler": "^14.0.0",
+          "@angular/core": "^14.0.0",
+          "@angular/forms": "^14.0.0",
+          "@angular/platform-browser": "^14.0.0",
+          "@angular/platform-browser-dynamic": "^14.0.0",
+          "@angular/router": "^14.0.0",
+          "rxjs": "~7.5.0",
+          "tslib": "^2.3.0",
+          "zone.js": "~0.11.4"
+        },
+        "devDependencies": {
+          "@angular-devkit/build-angular": "^14.2.1",
+          "@angular/cli": "~14.2.1",
+          "@angular/compiler-cli": "^14.0.0",
+          "@types/jasmine": "~4.0.0",
+          "jasmine-core": "~4.3.0",
+          "karma": "~6.4.0",
+          "karma-chrome-launcher": "~3.1.0",
+          "karma-coverage": "~2.2.0",
+          "karma-jasmine": "~5.1.0",
+          "karma-jasmine-html-reporter": "~2.0.0",
+          "typescript": "~4.7.2"
+        }
+      }
+      
+      this.fs.extendJSON(this.destinationPath(moduleName + '/package.json'), pkgJson);
+
     }
   }
 
