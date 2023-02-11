@@ -435,7 +435,6 @@ module.exports = class extends DnnGeneratorBase {
         template
       );
     } else if(spaType === "Angular"){
-      console.log("Angularrrrrrrrrrr");
       this.fs.copyTpl(
         this.templatePath('common/package.json'),
         this.destinationPath(moduleName + '/package.json'),
@@ -443,8 +442,56 @@ module.exports = class extends DnnGeneratorBase {
       );
 
       this.fs.copyTpl(
-        this.templatePath('common/**'),
-        this.destinationPath(moduleName + '/.'),
+        this.templatePath('common/Controllers/**'),
+        this.destinationPath(moduleName + '/Controllers'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Data/Item.cs'),
+        this.destinationPath(moduleName + '/Data'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Data/ModuleContext.cs'),
+        this.destinationPath(moduleName + '/Data/'+moduleName+'Context.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/_BuildScripts/**'),
+        this.destinationPath(moduleName + '/_BuildScripts'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/App_LocalResources/**'),
+        this.destinationPath(moduleName + '/App_LocalResources'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Providers/**'),
+        this.destinationPath(moduleName + '/Providers'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/manifes.dnn'),
+        this.destinationPath(moduleName + '/' + moduleName +'.dnn'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/symbols.dnn'),
+        this.destinationPath(moduleName + '/' + moduleName + '_Symbols.dnn'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/RouteConfig.cs'),
+        this.destinationPath(moduleName + '/RouteConfig.cs'),
         template
       );
 
@@ -455,8 +502,8 @@ module.exports = class extends DnnGeneratorBase {
       );
 
       this.fs.copyTpl(
-        this.templatePath(spaPath + '/src/**'),
-        this.destinationPath(moduleName + '/src/'),
+        this.templatePath(spaPath + '/src/Resources/**'),
+        this.destinationPath(moduleName + '/src/Resorces'),
         template
       );
 
