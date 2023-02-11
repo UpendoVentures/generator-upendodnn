@@ -434,7 +434,9 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(moduleName + '/Images'),
         template
       );
-    } else if(spaType === "Angular"){
+    }
+    // ANGULAR 
+    else if(spaType === "Angular"){
       this.fs.copyTpl(
         this.templatePath('common/package.json'),
         this.destinationPath(moduleName + '/package.json'),
@@ -448,20 +450,50 @@ module.exports = class extends DnnGeneratorBase {
       );
 
       this.fs.copyTpl(
+        this.templatePath('common/Components/**'),
+        this.destinationPath(moduleName + '/Components/.'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/ViewModels/**'),
+        this.destinationPath(moduleName + '/ViewModels/.'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Constants.cs'),
+        this.destinationPath(moduleName + '/Constants.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
         this.templatePath('common/Data/Item.cs'),
-        this.destinationPath(moduleName + '/Data'),
+        this.destinationPath(moduleName + '/Data/Item.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath('common/Data/ModuleContext.cs'),
-        this.destinationPath(moduleName + '/Data/'+moduleName+'Context.cs'),
+        this.destinationPath(moduleName + '/Data/' + moduleName+'Context.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath('common/_BuildScripts/**'),
         this.destinationPath(moduleName + '/_BuildScripts'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/src/Resources/**'),
+        this.destinationPath(moduleName + '/src/Resources/.'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/src/Settings.html'),
+        this.destinationPath(moduleName + '/src/Settings.html'),
         template
       );
 
@@ -478,7 +510,7 @@ module.exports = class extends DnnGeneratorBase {
       );
 
       this.fs.copyTpl(
-        this.templatePath('common/manifes.dnn'),
+        this.templatePath('common/manifest.dnn'),
         this.destinationPath(moduleName + '/' + moduleName +'.dnn'),
         template
       );
@@ -502,8 +534,8 @@ module.exports = class extends DnnGeneratorBase {
       );
 
       this.fs.copyTpl(
-        this.templatePath(spaPath + '/src/Resources/**'),
-        this.destinationPath(moduleName + '/src/Resorces'),
+        this.templatePath(spaPath + '/src/**'),
+        this.destinationPath(moduleName + '/src/.'),
         template
       );
 
@@ -538,6 +570,10 @@ module.exports = class extends DnnGeneratorBase {
       );
 
       const pkgJson = {
+        "scripts":{
+          "ng": "ng",
+          "angular-build": "ng build" 
+        },
         "dependencies": {
           "@angular/animations": "^14.0.0",
           "@angular/common": "^14.0.0",

@@ -103,13 +103,8 @@
   <ItemGroup>
     <!-- <Compile Include="Components\DataProviderHelper.cs" />
     <Compile Include="Components\FeatureController.cs" /> -->
-    <Content Include="src\app.jsx" />
-    <Content Include="src\components\Hello.jsx" />
-    <Content Include="src\Edit.html" />
-    <Content Include="src\edit.jsx" />
     <Content Include="src\Resources\img\extension.png" />
     <Content Include="src\Settings.html" />
-    <Content Include="src\settings.jsx" />
     <Content Include="src\View.html" />
     <Content Include="src\_templates\Markdown.html" />
     <Content Include="src\License.md" />
@@ -117,7 +112,6 @@
     <Content Include="src\Resources\styles\module.scss" />    
     <Content Include="src\Resources\scripts\common.js" />
     <Content Include="src\Resources\scripts\QuickSettings.js" />
-    <Content Include="src\Resources\scripts\useFetch.js" />    
     <!-- <Compile Include="Properties\AssemblyInfo.cs" /> -->
   </ItemGroup>
   <ItemGroup>

@@ -47,7 +47,7 @@
       <Output TaskParameter="Include" ItemName="deleteReactFiles" />
     </CreateItem>
     <Delete ContinueOnError="true" Files="@(deleteReactFiles)"></Delete>
-    <Exec Condition="$(Configuration) == 'Debug'" Command="npm run build-client" />
-    <Exec Condition="$(Configuration) == 'Release'" Command="npm run build-client" />
+    <Exec Condition="$(Configuration) == 'Debug'" Command="npm run angular-build" />
+    <Exec Condition="$(Configuration) == 'Release'" Command="npm run angular-build" />
   </Target>
 </Project>
