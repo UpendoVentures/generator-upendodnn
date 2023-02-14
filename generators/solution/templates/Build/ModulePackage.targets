@@ -49,7 +49,7 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       <InstallInclude Include="**\*.woff2" Exclude="packages\**;node_modules\**;clientApp\**;client-app\**" />
       <InstallInclude Include="**\*.swf" Exclude="packages\**;node_modules\**;clientApp\**;client-app\**" />
       <InstallInclude Include="**\*.ico" Exclude="packages\**;node_modules\**;clientApp\**;client-app\**" />
-      <InstallInclude Include="**\*.json" Exclude="packages\**;node_modules\**;clientApp\**;client-app\**;obj\**" />
+      <InstallInclude Include="**\*.json" Exclude="packages\**;node_modules\**;clientApp\**;client-app\**;obj\**;.angular\**" />
       <InstallInclude Include="**\*.scss" Exclude="packages\**;node_modules\**;clientApp\**;client-app\**" />
       <InstallInclude Include="**\*.cshtml" Exclude="packages\**;node_modules\**;clientApp\**;client-app\**" />
       <InstallInclude Include="**\*.png" Exclude="packages\**;node_modules\**;clientApp\**;client-app\**" />
