@@ -92,7 +92,7 @@ module.exports = class extends DnnGeneratorBase {
 
   writing() {
     this.log(
-      chalk.white(`Creating ${this.props.spaType} ${this.props.langType} SPA Module.`)
+      chalk.white(`Creating ${this.props.spaType} ${this.props.langType? this.props.langType :""} SPA Module.`)
     );
 
     // mod: this follows the Upendo development/solution pattern
@@ -446,6 +446,18 @@ module.exports = class extends DnnGeneratorBase {
       this.fs.copyTpl(
         this.templatePath('common/Controllers/**'),
         this.destinationPath(moduleName + '/Controllers'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/License.txt'),
+        this.destinationPath(moduleName + '/License.txt'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/ReleaseNotes.txt'),
+        this.destinationPath(moduleName + '/ReleaseNotes.txt'),
         template
       );
 
