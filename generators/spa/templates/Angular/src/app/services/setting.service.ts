@@ -1,38 +1,23 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Item } from './interfaces/Item';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Setting } from '../interfaces/Setting';
+
 @Injectable({
   providedIn: 'root'
 })
-export class ItemsService {
-  private baseUrl = 'DesktopModules/Angular1/API/Items/';  // URL to web api
+export class SettingService {
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  private baseUrl = 'DesktopModules/<%= moduleName %>/API/Settings/';  // URL to web api
+  
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http: HttpClient) { }
-
-  /** GET heroes from the server */
-  getItems(): Observable<Item[]> {
-    const url = this.baseUrl + "GetList";
-    return this.http.get<Item[]>(url)
-      .pipe(
-        tap(_ => this.log('fetched items')),
-        catchError(this.handleError<Item[]>('getItems', []))
-      );
+  /** GET Settings from the server */
+  getSettings(): Observable<Setting> {
+    const url = this.baseUrl + "LoadSettings";
+    return this.http.get<Setting>(url);
   }
 
-  deleteItem(itemId: number): Observable<Item> {
-    const url = this.baseUrl + "Item/Delete?itemId=" + itemId;
-    return this.http.delete<Item>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted hero id=${itemId}`)),
-      catchError(this.handleError<Item>('deleteItem'))
-    );
-  }
 
   /**
      * Handle Http operation that failed.
@@ -43,7 +28,6 @@ export class ItemsService {
      */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
