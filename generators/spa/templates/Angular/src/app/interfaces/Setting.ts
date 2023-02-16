@@ -1,5 +1,5 @@
 export interface Setting {
-    Id: string;
+    itemId: string;
     name: string;
     description: string;
     createdOnDate: string

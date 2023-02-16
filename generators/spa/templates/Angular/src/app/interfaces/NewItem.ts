@@ -1,7 +1,6 @@
-export interface Item {
+export interface NewItem {
     id: number;
     name: string;
     description: string;
-    createdOnDate: string
     assignedUser: number
   }
