@@ -24,13 +24,13 @@
             <basePath>DesktopModules\<%= moduleName %></basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>01.00.00.SqlDataProvider</name>
-              <version>01.00.00</version>
+              <name>00.00.01.SqlDataProvider</name>
+              <version>00.00.01</version>
             </script>
             <script type="UnInstall">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>Uninstall.SqlDataProvider</name>
-              <version>01.00.00</version>
+              <version>00.00.01</version>
             </script>
           </scripts>
         </component>
@@ -39,7 +39,10 @@
           <desktopModule>
             <moduleName><%= moduleName %></moduleName>
             <foldername><%= moduleName %></foldername>
-            <businessControllerClass />
+            <businessControllerClass><%= fullNamespace %>.Controllers.BusinessController, <%= fullNamespace %></businessControllerClass>
+						<supportedFeatures>
+							<supportedFeature type="Portable" />
+						</supportedFeatures>
             <supportedFeatures />
             <moduleDefinitions>
               <moduleDefinition>
@@ -55,17 +58,6 @@
                     <controlType>View</controlType>
                     <iconFile />
                     <helpUrl />
-                  </moduleControl>
-                  <moduleControl>
-                    <controlKey>Edit</controlKey>
-                    <controlSrc>DesktopModules/<%= moduleName %>/dist/Edit.html</controlSrc>
-                    <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle>Add/Edit Menu Item</controlTitle>
-                    <controlType>Edit</controlType>
-                    <iconFile />
-                    <helpUrl />
-                    <viewOrder>0</viewOrder>
-                    <supportsPopUps>True</supportsPopUps>
                   </moduleControl>
                   <moduleControl>
                     <controlKey>QuickSettings</controlKey>

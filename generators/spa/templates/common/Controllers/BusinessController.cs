@@ -18,9 +18,8 @@ using DotNetNuke.Services.Tokens;
 using DotNetNuke.UI.Modules;
 using System.Collections.Generic;
 using System.Web.UI;
-using <%= fullNamespace %>.Controllers;
 
-namespace <%= fullNamespace %>.Controller
+namespace <%= fullNamespace %>.Controllers
 {
     public class BusinessController : ICustomTokenProvider
     {

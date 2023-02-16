@@ -22,6 +22,7 @@ using DotNetNuke.Security;
 using Telerik.Web.UI.Calendar.Utils;
 using <%= fullNamespace %>;
 using <%= fullNamespace %>.ViewModels;
+using static <%= fullNamespace %>.Constants;
 
 namespace <%= fullNamespace %>.Controllers
 {

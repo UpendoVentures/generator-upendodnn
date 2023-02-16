@@ -1,0 +1,68 @@
+<div class="col-xs-12">
+    <h3>Item list </h3>
+</div>
+<button type="button" (click)="addItem()">Add item</button>
+<table *ngIf="settings" class="table table-striped">
+    <thead>
+        <tr>
+            <th *ngIf="settings.itemId === 'true'">Id</th>
+            <th *ngIf="settings.name === 'true'">Name</th>
+            <th *ngIf="settings.description === 'true'">Description</th>
+            <th *ngIf="settings.createdOnDate === 'true'">Created on</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="tm_t" *ngFor="let item of items">
+            <td *ngIf="settings.itemId === 'true'">{{item.id}}</td>
+            <td *ngIf="settings.name === 'true'">{{item.name}}</td>
+            <td *ngIf="settings.description === 'true'">{{item.description}}</td>
+            <td *ngIf="settings.createdOnDate === 'true'">{{item.createdOnDate}}</td>
+            <td>
+                <button type="button" class="btn btn-sm" (click)="editItem(item)" title="Edit item">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </button>
+                <button type="button" class="btn btn-sm btn-danger" (click)="delete(item)" title="Remove item">
+                    <i class="glyphicon glyphicon-remove"></i>
+                </button>
+            </td>
+        </tr >
+    </tbody >
+</table >
+<div *ngIf="showModal" class="modal fade in" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: block;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="cancelAdd()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 *ngIf="item.id>0" class="modal-title" id="myModalLabel">Edit Item</h4>
+                <h4 *ngIf="item.id === 0" class="modal-title" id="myModalLabel">Create Item</h4>
+            </div>
+            <div class="modal-body">
+                <div class="dnnForm dnnEditBasicSettings" id="dnnEditBasicSettings">
+                    <fieldset>
+                        <div class="dnnFormItem">
+                            <div><label htmlFor="itemName">Name</label></div>
+                            <input id="itemName" type="text" [(ngModel)]="item.name" />
+                        </div>
+                        <div class="dnnFormItem">
+                            <div><label htmlFor="itemDescription">Description</label></div>
+                            <textarea id="itemDescription" cols="20" rows="5" [(ngModel)]="item.description"></textarea>
+                        </div>
+                        <div class="dnnFormItem">
+                            <div><label htmlFor="itemUser">AssignedUser</label></div>
+                            <select [(ngModel)]="item.assignedUser">
+                                <option *ngFor="let user of users" value="{{user.id}}">
+                                    {{user.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="cancelAdd()">Close</button>
+                <button type="button" class="btn btn-primary" (click)="saveChanges()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

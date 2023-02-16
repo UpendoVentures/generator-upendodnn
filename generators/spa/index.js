@@ -442,6 +442,12 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(moduleName + '/package.json'),
         template
       );
+      
+      this.fs.copyTpl(
+        this.templatePath('../../common/branding/Images/**'),
+        this.destinationPath(moduleName + '/Images'),
+        template
+      );
 
       this.fs.copyTpl(
         this.templatePath('common/Controllers/**'),
@@ -584,7 +590,7 @@ module.exports = class extends DnnGeneratorBase {
       const pkgJson = {
         "scripts":{
           "ng": "ng",
-          "angular-build": "ng build" 
+          "angular-build": "ng build --output-hashing none" 
         },
         "dependencies": {
           "@angular/animations": "^14.0.0",
