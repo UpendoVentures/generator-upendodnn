@@ -590,7 +590,8 @@ module.exports = class extends DnnGeneratorBase {
       const pkgJson = {
         "scripts":{
           "ng": "ng",
-          "angular-build": "ng build --output-hashing none" 
+          "angular-build": "ng build --output-hashing none",
+          "start": "ng run " + moduleName + ":builddev --watch",
         },
         "dependencies": {
           "@angular/animations": "^14.0.0",
@@ -606,7 +607,10 @@ module.exports = class extends DnnGeneratorBase {
           "zone.js": "~0.11.4"
         },
         "devDependencies": {
+          "@angular-builders/custom-webpack": "^14.1.0",
           "@angular-devkit/build-angular": "^14.2.1",
+          "copy-webpack-plugin": "^11.0.0",
+          "html-webpack-plugin": "^5.5.0",
           "@angular/cli": "~14.2.1",
           "@angular/compiler-cli": "^14.0.0",
           "@types/jasmine": "~4.0.0",
