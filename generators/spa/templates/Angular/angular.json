@@ -18,7 +18,7 @@
               "replaceDuplicatePlugins": true
             },
             "outputPath": "dist",
-            "index": "src/View.html",
+            "index": "",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
