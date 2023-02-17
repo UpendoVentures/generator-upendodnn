@@ -546,6 +546,12 @@ module.exports = class extends DnnGeneratorBase {
       );
 
       this.fs.copyTpl(
+        this.templatePath(spaPath + '/webpack.config.js'),
+        this.destinationPath(moduleName + '/webpack.config.js'),
+        template
+      );
+
+      this.fs.copyTpl(
         this.templatePath(spaPath + '/Module.csproj'),
         this.destinationPath(moduleName + '/' + moduleName + '.csproj'),
         template
