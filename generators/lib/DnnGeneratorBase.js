@@ -190,14 +190,7 @@ module.exports = class DnnGeneratorBase extends Generator {
         fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications\\Microsoft.WebApplication.targets")||
         fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications\\Microsoft.WebApplication.targets")) {
         msBuildVersion = "16"; // VS 2019 Community
-      }
-      
-      // if (
-      //   fs.existsSync("C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VisualStudio\\v17.0\\WebApplications\\Microsoft.WebApplication.targets") ||
-      //   fs.existsSync("C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Microsoft\\VisualStudio\\v17.0\\WebApplications\\Microsoft.WebApplication.targets") ||
-      //   fs.existsSync("C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Microsoft\\VisualStudio\\v17.0\\WebApplications\\Microsoft.WebApplication.targets")) {
-      //   msBuildVersion = "17"; // VS 2022 Community
-      // }
+      }     
 
       /*if (fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\Enterprise\\MSBuild\\15.0\\Bin\\MSBuild.exe")){
         msBuildVersion = "15"; // VS 2017 Enterprise
