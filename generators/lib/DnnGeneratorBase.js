@@ -190,19 +190,11 @@ module.exports = class DnnGeneratorBase extends Generator {
         fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications\\Microsoft.WebApplication.targets")||
         fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications\\Microsoft.WebApplication.targets")) {
         msBuildVersion = "16"; // VS 2019 Community
-      }     
-
-      /*if (fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\Enterprise\\MSBuild\\15.0\\Bin\\MSBuild.exe")){
-        msBuildVersion = "15"; // VS 2017 Enterprise
-      }*/
+      }    
 
       if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications\\Microsoft.WebApplication.targets")) {
         msBuildVersion = "14"; // VS 2015
-      }
-
-      /*if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\12.0\\bin\\MSBuild.exe")){
-        msBuildVersion = "13"; // VS 2013
-      }*/
+      }    
 
       if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v12.0\\WebApplications\\Microsoft.WebApplication.targets")) {
         msBuildVersion = "13"; // VS 2013
@@ -210,11 +202,7 @@ module.exports = class DnnGeneratorBase extends Generator {
 
       if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications\\Microsoft.WebApplication.targets")) {
         msBuildVersion = "11"; // VS 2012?
-      }
-
-      /*if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v10.0\\WebApplications\\Microsoft.WebApplication.targets")){
-        msBuildVersion = "10"; // VS 2010?
-      }*/
+      }  
 
       if (msBuildVersion == "") {
         this.log(chalk.red("YIKES! A valid version of MSBuild was not found! This is a critical error... :("));
