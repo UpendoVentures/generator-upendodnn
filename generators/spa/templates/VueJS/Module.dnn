@@ -60,12 +60,12 @@
                   <moduleControl>
                     <controlKey />
                     <controlSrc>DesktopModules/<%= moduleName %>/View.html</controlSrc>
-                    <supportsPartialRendering>True</supportsPartialRendering>
+                    <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle />
                     <controlType>View</controlType>
                     <iconFile />
                     <helpUrl />
-                    <supportsPopUps>True</supportsPopUps>                    
+                    <viewOrder>0</viewOrder>
                   </moduleControl>
                   <moduleControl>
                     <controlKey>QuickSettings</controlKey>
