@@ -1,6 +1,6 @@
-var dnnspamodule = dnnspamodule || {};
+var <%= moduleName %>Settings = <%= moduleName %>Settings || {};
 
-dnnspamodule.quickSettings = function (root, moduleId) {
+<%= moduleName %>Settings.quickSettings = function (root, moduleId) {
     console.log(moduleId);
     var utils = new common.Utils();
     var alert = new common.Alert();
