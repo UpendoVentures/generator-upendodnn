@@ -14,11 +14,11 @@ var <%= moduleName %>Settings = <%= moduleName %>Settings || {};
 
     var SaveSettings = function () {
 
-        var name = $('#Name').is(":checked");
-        var description = $('#Description').is(":checked");
-        var assignedUserId = $('#AssignedUserId').is(":checked");
-        var createdOnDate = $('#CreatedOnDate').is(":checked");
-        var itemId = $('#ItemId').is(":checked");
+        var name = $('#QuickSettings-' + moduleId + ' #Name').is(":checked");
+        var description = $('#QuickSettings-' + moduleId + ' #Description').is(":checked");
+        var assignedUserId = $('#QuickSettings-' + moduleId + ' #AssignedUserId').is(":checked");
+        var createdOnDate = $('#QuickSettings-' + moduleId + ' #CreatedOnDate').is(":checked");
+        var itemId = $('#QuickSettings-' + moduleId + ' #ItemId').is(":checked");
 
         var deferred = $.Deferred();
         var params = {
@@ -62,10 +62,10 @@ var <%= moduleName %>Settings = <%= moduleName %>Settings || {};
 
         utils.get("GET", "LoadSettings", service, params,
             function (data) {
-                $('#CreatedOnDate').prop('checked', data.createdOnDate == "true");               
-                $('#Name').prop('checked', data.name == "true");
-                $('#Description').prop('checked', data.description == "true");
-                $('#ItemId').prop('checked', data.itemId == "true");
+                $('#QuickSettings-' + moduleId + ' #CreatedOnDate').prop('checked', data.createdOnDate == "true");               
+                $('#QuickSettings-' + moduleId + ' #Name').prop('checked', data.name == "true");
+                $('#QuickSettings-' + moduleId + ' #Description').prop('checked', data.description == "true");
+                $('#QuickSettings-' + moduleId + ' #ItemId').prop('checked', data.itemId == "true");
             },
             function (error, exception) {
                 // fail
