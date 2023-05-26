@@ -24,7 +24,7 @@ namespace <%= fullNamespace %>.Services.ViewModels
 
         public ItemViewModel() { }
 
-        [JsonProperty("id")]
+        [JsonProperty("itemId")]
         public int Id { get; set; }
 
         [JsonProperty("name")]
