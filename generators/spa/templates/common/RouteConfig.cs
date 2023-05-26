@@ -7,15 +7,26 @@
 ' 
 */
 using DotNetNuke.Web.Api;
+using System.Web.Http;
 
-namespace <%= namespace%>.Modules.<%= moduleName %>
+namespace <%= fullNamespace %>
 {
-    public class RouteConfig : IServiceRouteMapper
+    /// <summary>
+    /// The ServiceRouteMapper tells the DNN Web API Framework what routes this module uses
+    /// </summary>
+    public class ServiceRouteMapper : IServiceRouteMapper
     {
+        /// <summary>
+        /// RegisterRoutes is used to register the module's routes
+        /// </summary>
+        /// <param name="mapRouteManager"></param>
         public void RegisterRoutes(IMapRoute mapRouteManager)
         {
-            mapRouteManager.MapHttpRoute("<%= namespace%>.Modules.<%= moduleName %>", "<%= namespace%>.Modules.<%= moduleName %>", "{controller}/{action}", new[]
-            {"<%= namespace%>.Modules.<%= moduleName %>.Controllers"});
+            mapRouteManager.MapHttpRoute(
+                moduleFolderName: "<%= moduleName %>",
+                routeName: "default",
+                url: "{controller}/{action}",
+                namespaces: new[] { "<%= fullNamespace %>.Controllers" });
         }
     }
 }

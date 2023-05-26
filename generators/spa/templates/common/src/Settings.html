@@ -1,3 +1,27 @@
-﻿<div id="<%= namespace.toLowerCase() %><%= moduleName %>Settings" data-moduleid="[ModuleContext:ModuleId]"></div>
-[CSS:{ path: "~/DesktopModules/<%= namespace %>/<%= moduleName %>/Resources/module.css"}]
-[JavaScript:{ path: "~/DesktopModules/<%= namespace %>/<%= moduleName %>/Resources/scripts/settings-bundle.js", provider: "DnnFormBottomProvider"}]
+﻿[JavaScript:{ jsname: "JQuery" }]
+[JavaScript:{ jsname: "Knockout" }]
+[JavaScript:{ path: "~/Resources/Shared/scripts/dnn.jquery.js"}]
+[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/dist/Resources/scripts/common.js"}]
+[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/dist/Resources/scripts/QuickSettings.js"}]
+
+<div id="QuickSettings-[ModuleContext:ModuleId]" class="dnnForm">
+    <label for="Description">Show table columns:</label>
+    <div class="dnnFormMessage dnnFormInfo">
+        <input type="checkbox" id="Name" name="Name">
+        <label for="ItemName"> Name</label><br>
+        <input type="checkbox" id="Description" name="Description">
+        <label for="Description"> Description</label><br>
+        <input type="checkbox" id="ItemId" name="ItemId">
+        <label for="ItemId"> Id</label><br>
+        <input type="checkbox" id="CreatedOnDate" name="CreatedOnDate">
+        <label for="CreatedOnDate"> Created On</label><br>
+    </div>
+</div>
+<script language="javascript" type="text/javascript">
+    jQuery(function ($) {
+        var moduleId = parseInt("[ModuleContext:ModuleId]");
+        var element = 'QuickSettings-[ModuleContext:ModuleId]';
+        var quickSettings = new dnnspamodule.quickSettings(element, moduleId);
+        quickSettings.init();
+    });
+</script>

@@ -2,8 +2,13 @@
                 securityAccessLevel : "Edit",  
                 title: "Edit",
                 titleKey: "EditModule",
-                localResourceFile: "~/DesktopModules/<%= namespace %>/<%= moduleName %>/App_LocalResources/View.resx"
+                localResourceFile: "~/DesktopModules/<%= moduleName %>/App_LocalResources/View.resx"
 }]
 <div id="<%= namespace.toLowerCase() %><%= moduleName %>" data-moduleid="[ModuleContext:ModuleId]"></div>
-[CSS:{ path: "~/DesktopModules/<%= namespace %>/<%= moduleName %>/Resources/module.css"}]
-[JavaScript:{ path: "~/DesktopModules/<%= namespace %>/<%= moduleName %>/Resources/scripts/app-bundle.js", provider: "DnnFormBottomProvider"}]
+<script language="javascript" type="text/javascript">
+    function getmoduleId(){
+        return '[ModuleContext:ModuleId]';
+    }
+</script>
+[CSS:{ path: "~/DesktopModules/<%= moduleName %>/Resources/module.css"}]
+[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/dist/Resources/scripts/app-bundle.js", provider: "DnnFormBottomProvider"}]

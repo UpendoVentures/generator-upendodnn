@@ -1,12 +1,10 @@
 ﻿import React from "react";
 import * as ReactDOM from "react-dom";
-import Hello from "./components/Hello";
+import Items from "./components/Items";
 
 ReactDOM.render(
-	<div className="row">
-		<div className="col-xs-12">
-			<Hello name="I am a JSX react module"  />
-		</div>
-	</div>,
+	<React.StrictMode>
+        <Items />
+    </React.StrictMode>,
   document.getElementById("<%= namespace.toLowerCase() %><%= moduleName %>")
 );
