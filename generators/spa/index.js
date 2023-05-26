@@ -14,11 +14,7 @@ module.exports = class extends DnnGeneratorBase {
         choices: [
           { name: 'ReactJS', value: 'ReactJS' },
           { name: 'VueJS', value: 'VueJS' },
-          {
-            name: chalk.gray('Angular'),
-            value: 'angular',
-            disabled: chalk.gray('Coming Soon')
-          }
+          { name: 'Angular', value: 'Angular'}
         ]
       },
       {
@@ -96,7 +92,7 @@ module.exports = class extends DnnGeneratorBase {
 
   writing() {
     this.log(
-      chalk.white(`Creating ${this.props.spaType} ${this.props.langType} SPA Module.`)
+      chalk.white(`Creating ${this.props.spaType} ${this.props.langType? this.props.langType :""} SPA Module.`)
     );
 
     // mod: this follows the Upendo development/solution pattern
@@ -438,6 +434,204 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(moduleName + '/Images'),
         template
       );
+    }
+    // ANGULAR 
+    else if(spaType === "Angular"){
+      this.fs.copyTpl(
+        this.templatePath('common/package.json'),
+        this.destinationPath(moduleName + '/package.json'),
+        template
+      );
+      
+      this.fs.copyTpl(
+        this.templatePath('../../common/branding/Images/**'),
+        this.destinationPath(moduleName + '/Images'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Controllers/**'),
+        this.destinationPath(moduleName + '/Controllers'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/License.txt'),
+        this.destinationPath(moduleName + '/License.txt'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/ReleaseNotes.txt'),
+        this.destinationPath(moduleName + '/ReleaseNotes.txt'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Components/**'),
+        this.destinationPath(moduleName + '/Components/.'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/ViewModels/**'),
+        this.destinationPath(moduleName + '/ViewModels/.'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Constants.cs'),
+        this.destinationPath(moduleName + '/Constants.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Data/Item.cs'),
+        this.destinationPath(moduleName + '/Data/Item.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Data/ModuleContext.cs'),
+        this.destinationPath(moduleName + '/Data/' + moduleName+'Context.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/_BuildScripts/**'),
+        this.destinationPath(moduleName + '/_BuildScripts'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/src/Resources/**'),
+        this.destinationPath(moduleName + '/src/Resources/.'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/src/Settings.html'),
+        this.destinationPath(moduleName + '/src/Settings.html'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/App_LocalResources/**'),
+        this.destinationPath(moduleName + '/App_LocalResources'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/Providers/**'),
+        this.destinationPath(moduleName + '/Providers'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/manifest.dnn'),
+        this.destinationPath(moduleName + '/' + moduleName +'.dnn'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/symbols.dnn'),
+        this.destinationPath(moduleName + '/' + moduleName + '_Symbols.dnn'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('common/RouteConfig.cs'),
+        this.destinationPath(moduleName + '/RouteConfig.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/webpack.config.js'),
+        this.destinationPath(moduleName + '/webpack.config.js'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/Module.csproj'),
+        this.destinationPath(moduleName + '/' + moduleName + '.csproj'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/src/**'),
+        this.destinationPath(moduleName + '/src/.'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/Module.build'),
+        this.destinationPath(moduleName + '/' + 'Module.build'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/angular.json'),
+        this.destinationPath(moduleName + '/' + 'angular.json'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/tsconfig.app.json'),
+        this.destinationPath(moduleName + '/' + 'tsconfig.app.json'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/tsconfig.json'),
+        this.destinationPath(moduleName + '/' + 'tsconfig.json'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(spaPath + '/tsconfig.spec.json'),
+        this.destinationPath(moduleName + '/' + 'tsconfig.spec.json'),
+        template
+      );
+
+      const pkgJson = {
+        "scripts":{
+          "ng": "ng",
+          "angular-build": "ng build --output-hashing none",
+          "start": "ng run " + moduleName + ":builddev --watch",
+        },
+        "dependencies": {
+          "@angular/animations": "^14.0.0",
+          "@angular/common": "^14.0.0",
+          "@angular/compiler": "^14.0.0",
+          "@angular/core": "^14.0.0",
+          "@angular/forms": "^14.0.0",
+          "@angular/platform-browser": "^14.0.0",
+          "@angular/platform-browser-dynamic": "^14.0.0",
+          "@angular/router": "^14.0.0",
+          "rxjs": "~7.5.0",
+          "tslib": "^2.3.0",
+          "zone.js": "~0.11.4"
+        },
+        "devDependencies": {
+          "@angular-builders/custom-webpack": "^14.1.0",
+          "@angular-devkit/build-angular": "^14.2.1",
+          "copy-webpack-plugin": "^11.0.0",
+          "html-webpack-plugin": "^5.5.0",
+          "@angular/cli": "~14.2.1",
+          "@angular/compiler-cli": "^14.0.0",
+          "@types/jasmine": "~4.0.0",
+          "jasmine-core": "~4.3.0",
+          "karma": "~6.4.0",
+          "karma-chrome-launcher": "~3.1.0",
+          "karma-coverage": "~2.2.0",
+          "karma-jasmine": "~5.1.0",
+          "karma-jasmine-html-reporter": "~2.0.0",
+          "typescript": "~4.7.2"
+        }
+      }
+      
+      this.fs.extendJSON(this.destinationPath(moduleName + '/package.json'), pkgJson);
+
     }
   }
 

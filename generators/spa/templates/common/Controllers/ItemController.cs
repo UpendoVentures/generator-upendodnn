@@ -17,7 +17,7 @@ using <%= fullNamespace %>.ViewModels;
 namespace <%= fullNamespace %>.Controllers
 {
     [SupportedModules("<%= moduleName %>")]
-    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
+    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
 
     public class ItemController : ApiControllerBase
     {

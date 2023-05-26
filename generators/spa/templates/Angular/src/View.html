@@ -1,0 +1,15 @@
+[ModuleAction:{ controlKey : "Edit", 
+                securityAccessLevel : "Edit",  
+                title: "Edit",
+                titleKey: "EditModule",
+                localResourceFile: "~/DesktopModules/<%= moduleName %>/App_LocalResources/View.resx"
+}]
+<base href="[ModuleProperties:rawurl]">
+<<%= namespace.toLowerCase() %>-<%= moduleName.toLowerCase() %> data-moduleid="[ModuleContext:ModuleId]"></<%= namespace.toLowerCase() %>-<%= moduleName.toLowerCase() %>>
+<script>
+    window["<%= moduleName %>"] = [ModuleProperties:All]
+</script>
+[CSS:{ path: "~/DesktopModules/<%= moduleName %>/Resources/module.css"}]
+[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/dist/runtime.js", provider: "DnnFormBottomProvider"}]
+[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/dist/polyfills.js", provider: "DnnFormBottomProvider"}]
+[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/dist/main.js", provider: "DnnFormBottomProvider"}]
