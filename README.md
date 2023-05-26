@@ -23,7 +23,7 @@ You also need to install the latest version of MSBuild if you don't already have
 * [Build tools for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48159)  
 * [Build tools for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=40760)  
 
-> Note: Visual Studio 2019 should have installed MSBuild for you.  
+> Note: Visual Studio 2019 (and newer) should have installed MSBuild for you.  
 
 Now, simply run the following commands:
 
@@ -80,7 +80,7 @@ Want to learn more or how to build the generator code locally?
 
 MIT © 2018 [Matt Rutledge]()  
 
-MIT © 2019-2021 [Upendo Ventures, LLC](https://upendoventures.com)  
+MIT © 2019-2023 [Upendo Ventures, LLC](https://upendoventures.com)  
 
 
 [npm-image]: https://badge.fury.io/js/generator-upendodnn.svg  
