@@ -77,7 +77,7 @@ module.exports = class DnnGeneratorBase extends Generator {
   }
 
   _getNamespace() {
-    let namespace = this.props.company;
+    let namespace = this.props.namespace;
     if (this.props.extensionType != undefined && this.props.extensionType != "") {
       namespace = namespace + "." + this.props.extensionType;
     }

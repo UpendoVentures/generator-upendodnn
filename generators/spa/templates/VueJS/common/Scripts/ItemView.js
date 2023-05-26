@@ -26,11 +26,19 @@ var <%= moduleName %> = <%= moduleName %> || {};
             addMode: false,
             editId: 0,
             item: {
-                id: 0,
+                itemId: 0,
                 name: "",
                 description: "",
                 canedit: "",
                 assignedUser: ""
+            },
+            settings: {
+                name: false,
+                description: false,
+                itemId: false,
+                createdUserId: false,
+                assignedUserId: false,
+                createdOnDate:false
             },
             items: [],
             users: [],
@@ -40,7 +48,6 @@ var <%= moduleName %> = <%= moduleName %> || {};
                 var self = this;
                 <%= moduleName %>.GetItemList(moduleid, function (data) {
                     self.items = data;
-                    self.isLoading = false;
                 });
             },
             loadUsers() {
@@ -49,6 +56,16 @@ var <%= moduleName %> = <%= moduleName %> || {};
                     self.users = data;
                 });
             },
+            loadSettings() {
+                var self = this;
+                <%= moduleName %>.LoadSettings(moduleid, function (data) {
+                    console.log(data);
+                    self.settings.itemId = data.itemId == "true" ? true: false;
+                    self.settings.description = data.description == "true" ? true : false;
+                    self.settings.name = data.name == "true" ? true : false;
+                    self.settings.createdOnDate = data.createdOnDate == "true" ? true : false;
+                });
+            },            
             addItem() {
                 this.showModal = true;
             },
@@ -56,7 +73,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
                 var self = this;
                 <%= moduleName %>.SaveItem(moduleid,
                     {
-                        id: self.item.id,
+                        itemId: self.item.itemId,
                         name: self.item.name,
                         description: self.item.description,
                         assignedUser: self.item.assignedUser
@@ -69,10 +86,10 @@ var <%= moduleName %> = <%= moduleName %> || {};
                     });
             },          
             editItem(item) {
-                this.item.id = item.ItemId;
-                this.item.name = item.ItemName;
-                this.item.description = item.ItemDescription;
-                this.item.assignedUser = item.AssignedUserId
+                this.item.itemId = item.itemId;
+                this.item.name = item.name;
+                this.item.description = item.description;
+                this.item.assignedUser = item.assignedUser
                 this.showModal = true;
             },
             cancelAdd() {
@@ -81,7 +98,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
             },
             resetItem() {
                 this.item = {
-                    id: 0,
+                    itemId: 0,
                     name: "",
                     description: "",
                     canedit: "",
@@ -98,6 +115,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
             }
         },
         mounted: function () {
+            this.loadSettings();
             this.loadItems();
             this.loadUsers();
         }
@@ -123,12 +141,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
     // get the service for this module from the services object
     var svc = <%= moduleName %>.services[`svc-${moduleid}`];
     var ajaxMethod = "POST";
-    var restUrl = svc.baseUrl + "Item/Save";
-
-    if (editItem.id > 0) {
-        // ajaxMethod = "PATCH";
-        restUrl += editItem.id;
-    }
+    var restUrl = svc.baseUrl + "Item/Save";   
     var jqXHR = $.ajax({
         method: ajaxMethod,
         url: restUrl,
@@ -144,10 +157,10 @@ var <%= moduleName %> = <%= moduleName %> || {};
     });
 };
 
-<%= moduleName %>.DeleteItem = function (moduleid, id, onDone, onFail) {
+<%= moduleName %>.DeleteItem = function (moduleid, itemId, onDone, onFail) {
     // get the service for this module from the services object
     var svc = <%= moduleName %>.services[`svc-${moduleid}`];
-    var restUrl = svc.baseUrl + "Item/Delete?itemId=" + id;
+    var restUrl = svc.baseUrl + "Item/Delete?itemId=" + itemId;
     var jqXHR = $.ajax({
         method: "DELETE",
         url: restUrl,
@@ -166,6 +179,24 @@ var <%= moduleName %> = <%= moduleName %> || {};
     var svc = <%= moduleName %>.services[`svc-${moduleid}`];
     // need to calculate a different Url for User service
     var restUrl = svc.baseUrl + "/User/GetList";
+    var jqXHR = $.ajax({
+        url: restUrl,
+        beforeSend: svc.framework.setModuleHeaders,
+        dataType: "json",
+        async: false
+    }).done(function (data) {
+        if (typeof (onDone) === "function") {
+            onDone(data);
+        }
+    }).always(function (data) {
+    });
+};
+
+<%= moduleName %>.LoadSettings = function (moduleid, onDone) {
+    // get the service for this module from the services object
+    var svc = <%= moduleName %>.services[`svc-${moduleid}`];
+    // need to calculate a different Url for User service
+    var restUrl = svc.baseUrl + "/Settings/LoadSettings";
     var jqXHR = $.ajax({
         url: restUrl,
         beforeSend: svc.framework.setModuleHeaders,

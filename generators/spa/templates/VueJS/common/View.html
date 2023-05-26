@@ -1,5 +1,8 @@
 [JavaScript:{ jsname: "JQuery" }]
-[JavaScript:{ path: "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"}]
+<!-- development version, includes helpful console warnings -->
+[JavaScript:{ path: "https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"}]
+<!-- production version, optimized for size and speed -->
+<!--[JavaScript:{ path: "https://cdn.jsdelivr.net/npm/vue@2"}]-->
 [JavaScript:{ path: "~/Resources/Shared/scripts/dnn.jquery.js"}]
 [JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/scripts/ItemView.js"}]
 
@@ -16,34 +19,36 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Description</th>
+                    <th v-if="settings.itemId">Id</th>
+                    <th v-if="settings.name">Name</th>
+                    <th v-if="settings.description">Description</th>
+                    <th v-if="settings.createdOnDate">Created on</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="tm_t" v-for="(item, index) in items" :key="item.id">
-                    <td>{{item.ItemId}}</td>
-                    <td>{{item.ItemName}}</td>
-                    <td class="tm_td">{{item.ItemDescription}}</td>
+                    <td v-if="settings.itemId">{{item.itemId}}</td>
+                    <td v-if="settings.name">{{item.name}}</td>
+                    <td v-if="settings.description">{{item.description}}</td>
+                    <td v-if="settings.createdOnDate">{{item.createdOnDate}}</td>
                     <td>
                         <button v-if="userCanAdd" type="button" class="btn btn-sm" title="Edit item" @click="editItem(item)">
                             <i class="glyphicon glyphicon-edit"></i>
                         </button>
-                        <button v-if="userCanAdd" type="button" class="btn btn-sm btn-danger" title="Remove item" @click="deleteItem(item.ItemId)">
+                        <button v-if="userCanAdd" type="button" class="btn btn-sm btn-danger" title="Remove item" @click="deleteItem(item.itemId)">
                             <i class="glyphicon glyphicon-remove"></i>
                         </button>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <div v-if="showModal" class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: block">
+        <div v-if="showModal" class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" :style="{display: showModal ? 'block' :'none'}">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" @click="cancelAdd" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 v-if="item.id > 0" class="modal-title" id="myModalLabel">Edit Item</h4>
+                        <h4 v-if="item.itemId > 0" class="modal-title" id="myModalLabel">Edit Item</h4>
                         <h4 v-else class="modal-title" id="myModalLabel">Create Item</h4>
                     </div>
                     <div class="modal-body">
@@ -78,10 +83,9 @@
     </div>
 </div>
 
-
 <script language="javascript" type="text/javascript">
     jQuery(function ($) {
-        TestVue.InitApp("[ModuleContext:ModuleId]", '[ModuleContext:EditMode]' === 'True');
+        <%= moduleName %>.InitApp("[ModuleContext:ModuleId]", '[ModuleContext:EditMode]' === 'True');
     });
 
 </script>
