@@ -26,7 +26,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
             addMode: false,
             editId: 0,
             item: {
-                id: 0,
+                itemId: 0,
                 name: "",
                 description: "",
                 canedit: "",
@@ -73,7 +73,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
                 var self = this;
                 <%= moduleName %>.SaveItem(moduleid,
                     {
-                        id: self.item.id,
+                        itemId: self.item.itemId,
                         name: self.item.name,
                         description: self.item.description,
                         assignedUser: self.item.assignedUser
@@ -86,7 +86,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
                     });
             },          
             editItem(item) {
-                this.item.id = item.id;
+                this.item.itemId = item.itemId;
                 this.item.name = item.name;
                 this.item.description = item.description;
                 this.item.assignedUser = item.assignedUser
@@ -98,7 +98,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
             },
             resetItem() {
                 this.item = {
-                    id: 0,
+                    itemId: 0,
                     name: "",
                     description: "",
                     canedit: "",
@@ -157,10 +157,10 @@ var <%= moduleName %> = <%= moduleName %> || {};
     });
 };
 
-<%= moduleName %>.DeleteItem = function (moduleid, id, onDone, onFail) {
+<%= moduleName %>.DeleteItem = function (moduleid, itemId, onDone, onFail) {
     // get the service for this module from the services object
     var svc = <%= moduleName %>.services[`svc-${moduleid}`];
-    var restUrl = svc.baseUrl + "Item/Delete?itemId=" + id;
+    var restUrl = svc.baseUrl + "Item/Delete?itemId=" + itemId;
     var jqXHR = $.ajax({
         method: "DELETE",
         url: restUrl,
