@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 <tr class="tm_t" v-for="(item, index) in items" :key="item.id">
-                    <td v-if="settings.itemId">{{item.id}}</td>
+                    <td v-if="settings.itemId">{{item.itemId}}</td>
                     <td v-if="settings.name">{{item.name}}</td>
                     <td v-if="settings.description">{{item.description}}</td>
                     <td v-if="settings.createdOnDate">{{item.createdOnDate}}</td>
@@ -36,7 +36,7 @@
                         <button v-if="userCanAdd" type="button" class="btn btn-sm" title="Edit item" @click="editItem(item)">
                             <i class="glyphicon glyphicon-edit"></i>
                         </button>
-                        <button v-if="userCanAdd" type="button" class="btn btn-sm btn-danger" title="Remove item" @click="deleteItem(item.id)">
+                        <button v-if="userCanAdd" type="button" class="btn btn-sm btn-danger" title="Remove item" @click="deleteItem(item.itemId)">
                             <i class="glyphicon glyphicon-remove"></i>
                         </button>
                     </td>
@@ -48,7 +48,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" @click="cancelAdd" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 v-if="item.id > 0" class="modal-title" id="myModalLabel">Edit Item</h4>
+                        <h4 v-if="item.itemId > 0" class="modal-title" id="myModalLabel">Edit Item</h4>
                         <h4 v-else class="modal-title" id="myModalLabel">Create Item</h4>
                     </div>
                     <div class="modal-body">
