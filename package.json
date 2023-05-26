@@ -18,7 +18,14 @@
     "dotnetnuke",
     "dnncms",
     "evoq",
-    "upendo"
+    "upendo", 
+    "upendo ventures", 
+    "module template", 
+    "VueJS", 
+    "ReactJS", 
+    "React", 
+    "Angular",
+    "MVC"
   ],
   "devDependencies": {
     "eslint": "^8.28.0",
