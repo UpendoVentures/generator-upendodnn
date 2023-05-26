@@ -80,7 +80,7 @@ Want to learn more or how to build the generator code locally?
 
 MIT © 2018 [Matt Rutledge]()  
 
-MIT © 2019-2021 [Upendo Ventures, LLC](https://upendoventures.com)  
+MIT © 2019-2023 [Upendo Ventures, LLC](https://upendoventures.com)  
 
 
 [npm-image]: https://badge.fury.io/js/generator-upendodnn.svg  
