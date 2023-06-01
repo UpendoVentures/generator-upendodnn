@@ -1,27 +1,27 @@
-var dnnspamodule = dnnspamodule || {};
+var <%= moduleName %>Settings = <%= moduleName %>Settings || {};
 
-dnnspamodule.quickSettings = function (root, moduleId) {
+<%= moduleName %>Settings.quickSettings = function (root, moduleId) {
     console.log(moduleId);
-    let utils = new common.Utils();
-    let alert = new common.Alert();
-    let parentSelector = "[id='" + root + "']";
+    var utils = new common.Utils();
+    var alert = new common.Alert();
+    var parentSelector = "[id='" + root + "']";
     // Setup your settings service endpoint
-    let service = {
+    var service = {
         baseUrl: "DesktopModules/<%= moduleName %>/API/",
         framework: $.ServicesFramework(moduleId),
         controller: "Settings"
-    };
+    }
 
-    let SaveSettings = function () {
+    var SaveSettings = function () {
 
-        let name = $("#Name").is(":checked");
-        let description = $("#Description").is(":checked");
-        let assignedUserId = $("#AssignedUserId").is(":checked");
-        let createdOnDate = $("#CreatedOnDate").is(":checked");
-        let itemId = $("#ItemId").is(":checked");
+        var name = $('#QuickSettings-' + moduleId + ' #Name').is(":checked");
+        var description = $('#QuickSettings-' + moduleId + ' #Description').is(":checked");
+        var assignedUserId = $('#QuickSettings-' + moduleId + ' #AssignedUserId').is(":checked");
+        var createdOnDate = $('#QuickSettings-' + moduleId + ' #CreatedOnDate').is(":checked");
+        var itemId = $('#QuickSettings-' + moduleId + ' #ItemId').is(":checked");
 
-        let deferred = $.Deferred();
-        let params = {
+        var deferred = $.Deferred();
+        var params = {
             name: name,
             description: description,
             assignedUserId: assignedUserId,
@@ -37,7 +37,7 @@ dnnspamodule.quickSettings = function (root, moduleId) {
             },
             function (error, exception) {
                 // fail
-                let deferred = $.Deferred();
+                var deferred = $.Deferred();
                 deferred.reject();
                 alert.danger({
                     selector: parentSelector,
@@ -51,25 +51,24 @@ dnnspamodule.quickSettings = function (root, moduleId) {
         return deferred.promise();
     };
 
-    let CancelSettings = function () {
-        let deferred = $.Deferred();
+    var CancelSettings = function () {
+        var deferred = $.Deferred();
         deferred.resolve();
         return deferred.promise();
     };
 
-    let LoadSettings = function () {
-        let params = {};
+    var LoadSettings = function () {
+        var params = {};
 
         utils.get("GET", "LoadSettings", service, params,
             function (data) {
-                $("#CreatedOnDate").prop("checked", data.createdOnDate == "true");               
-                $("#Name").prop("checked", data.name == "true");
-                $("#Description").prop("checked", data.description == "true");
-                $("#ItemId").prop("checked", data.itemId == "true");
+                $('#QuickSettings-' + moduleId + ' #CreatedOnDate').prop('checked', data.createdOnDate == "true");               
+                $('#QuickSettings-' + moduleId + ' #Name').prop('checked', data.name == "true");
+                $('#QuickSettings-' + moduleId + ' #Description').prop('checked', data.description == "true");
+                $('#QuickSettings-' + moduleId + ' #ItemId').prop('checked', data.itemId == "true");
             },
             function (error, exception) {
                 // fail
-                console.log("12345657897");
                 console.log(error);
                 alert.danger({
                     selector: parentSelector,
@@ -81,7 +80,7 @@ dnnspamodule.quickSettings = function (root, moduleId) {
             });
     };
 
-    let init = function () {
+    var init = function () {
         // Wire up the default save and cancel buttons
         $(root).dnnQuickSettings({
             moduleId: moduleId,
@@ -89,9 +88,9 @@ dnnspamodule.quickSettings = function (root, moduleId) {
             onCancel: CancelSettings
         });
         LoadSettings();
-    };
+    }
 
     return {
         init: init
-    };
+    }
 };
