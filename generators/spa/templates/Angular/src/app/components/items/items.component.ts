@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../../interfaces/Item';
 import { User } from '../../interfaces/User';
-import { NewItem } from '../../interfaces/newItem';
+import { NewItem } from '../../interfaces/NewItem';
 import { Setting } from '../../interfaces/Setting';
 import { ItemsService } from '../../services/items.service';
 import { UsersService } from '../../services/users.service';
