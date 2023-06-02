@@ -46,7 +46,7 @@
   </PropertyGroup>
   <Import Project="..\..\Build\SolutionReferences.targets" />
   <ItemGroup>
-    <PackageReference Include="DotNetNuke.Core" Version="9.3.2" />
+    <PackageReference Include="DotNetNuke.Core" Version="9.11.0" />
     <PackageReference Include="DotNetNuke.Instrumentation" Version="9.3.2" />
     <PackageReference Include="DotNetNuke.Web" Version="9.3.2" />
     <PackageReference Include="DotNetNuke.Web.Mvc" Version="9.3.2" />
