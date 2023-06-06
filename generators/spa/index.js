@@ -14,7 +14,7 @@ module.exports = class extends DnnGeneratorBase {
         choices: [
           { name: 'ReactJS', value: 'ReactJS' },
           { name: 'VueJS', value: 'VueJS' },
-          { name: 'Angular', value: 'Angular'}
+          { name: 'Angular', value: 'Angular' }
         ]
       },
       {
@@ -92,7 +92,7 @@ module.exports = class extends DnnGeneratorBase {
 
   writing() {
     this.log(
-      chalk.white(`Creating ${this.props.spaType} ${this.props.langType? this.props.langType :""} SPA Module.`)
+      chalk.white(`Creating ${this.props.spaType} ${this.props.langType ? this.props.langType : ""} SPA Module.`)
     );
 
     // mod: this follows the Upendo development/solution pattern
@@ -219,7 +219,7 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(moduleName + '/RouteConfig.cs'),
         template
       );
-      
+
       this.fs.copyTpl(
         this.templatePath('common/Constants.cs'),
         this.destinationPath(moduleName + '/Constants.cs'),
@@ -237,13 +237,13 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(moduleName + '/' + moduleName + '_Symbols.dnn'),
         template
       );
-      
+
       this.fs.copyTpl(
         this.templatePath('common/License.txt'),
         this.destinationPath(moduleName + '/License.txt'),
         template
       );
-      
+
       this.fs.copyTpl(
         this.templatePath('common/ReleaseNotes.txt'),
         this.destinationPath(moduleName + '/ReleaseNotes.txt'),
@@ -253,13 +253,13 @@ module.exports = class extends DnnGeneratorBase {
       this.fs.copyTpl(
         this.templatePath(spaType + '/common/Module.csproj'),
         this.destinationPath(moduleName + '/' + moduleName + '.csproj'),
-                template
+        template
       );
 
       this.fs.copyTpl(
         this.templatePath(spaType + '/common/Module.build'),
         this.destinationPath(moduleName + '/Module.build'),
-                template
+        template
       );
 
       this.fs.copyTpl(
@@ -436,13 +436,13 @@ module.exports = class extends DnnGeneratorBase {
       );
     }
     // ANGULAR 
-    else if(spaType === "Angular"){
+    else if (spaType === "Angular") {
       this.fs.copyTpl(
         this.templatePath('common/package.json'),
         this.destinationPath(moduleName + '/package.json'),
         template
       );
-      
+
       this.fs.copyTpl(
         this.templatePath('../../common/branding/Images/**'),
         this.destinationPath(moduleName + '/Images'),
@@ -493,7 +493,7 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath('common/Data/ModuleContext.cs'),
-        this.destinationPath(moduleName + '/Data/' + moduleName+'Context.cs'),
+        this.destinationPath(moduleName + '/Data/' + moduleName + 'Context.cs'),
         template
       );
 
@@ -529,7 +529,7 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath('common/manifest.dnn'),
-        this.destinationPath(moduleName + '/' + moduleName +'.dnn'),
+        this.destinationPath(moduleName + '/' + moduleName + '.dnn'),
         template
       );
 
@@ -594,7 +594,7 @@ module.exports = class extends DnnGeneratorBase {
       );
 
       const pkgJson = {
-        "scripts":{
+        "scripts": {
           "ng": "ng",
           "angular-build": "ng build --output-hashing none",
           "start": "ng run " + moduleName + ":builddev --watch",
@@ -629,7 +629,7 @@ module.exports = class extends DnnGeneratorBase {
           "typescript": "~4.7.2"
         }
       }
-      
+
       this.fs.extendJSON(this.destinationPath(moduleName + '/package.json'), pkgJson);
 
     }
@@ -637,19 +637,10 @@ module.exports = class extends DnnGeneratorBase {
 
   install() {
     this._writeSolution();
-    if (this.props.spaType !== "VueJS") {
-      try {
-        this._defaultInstall();
-      } catch { }
-    }
+    this._restoreSolution()
   }
-
+  
   end() {
-    this.log(chalk.white('Installed Dependencies.'));
-    this.log(chalk.white('Running dotnet restore.'));
-    process.chdir('Modules/' + this.props.moduleName);
-    this.spawnCommand('dotnet', ['restore'], { cwd: process.cwd() }).then(() => {
-      this.log(chalk.white('All Ready!'));
-    });
+    this.log(chalk.white('All Ready!'));
   }
 };
