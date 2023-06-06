@@ -65,6 +65,25 @@ module.exports = class DnnGeneratorBase extends Generator {
     this._addProjectToSolution();
   }
 
+  _installDependencies() {
+    if (!this.options.noinstall) {
+      let hasYarn = this._hasYarn();
+      if (this.props.extensionName == undefined) this.props.extensionName = this.props.moduleName;
+        this.spawnCommand('yarn', ['install'], { cwd: process.cwd() }).then(() => {
+        this.log(chalk.white('Installed dependencies'));
+      });
+    }
+  }
+
+  _restoreSolution() {
+    this.log(chalk.white('Running dotnet restore.'));
+    process.chdir('Modules/' + this.props.moduleName);
+    this.spawnCommand('dotnet', ['restore'], { cwd: process.cwd() }).then(() => {
+      this.log(chalk.white('Installing dependencies'));
+      this._installDependencies();      
+    });
+  }
+
   _copyCommon(namespace, moduleName) {
     this.fs.copyTpl(
       this.templatePath('../../gulp/*.js'),
