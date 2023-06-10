@@ -284,38 +284,37 @@ module.exports = class extends DnnGeneratorBase {
 
       const pkgJson = {
         devDependencies: {
-          '@babel/core': '^7.2.2',
+          "@babel/core": "^7.22.5",
+          "@babel/preset-env": "^7.22.5",
+          "@babel/preset-react": "^7.22.5",
           '@babel/plugin-proposal-class-properties': '^7.2.1',
           '@babel/plugin-proposal-object-rest-spread': '^7.2.0',
           '@babel/plugin-transform-object-assign': '^7.2.0',
-          '@babel/polyfill': '^7.2.5',
-          '@babel/preset-env': '^7.2.0',
-          '@babel/preset-react': '^7.0.0',
           // eslint-disable-next-line prettier/prettier
           'archiver': '^3.0.0',
-          'babel-loader': '^8.0.4',
+          "babel-loader": "^9.1.2",
           'babel-plugin-transform-react-remove-prop-types': '^0.4.21',
           'browser-sync': '^2.26.3',
           // eslint-disable-next-line prettier/prettier
           'chokidar': '^2.1.1',
           // eslint-disable-next-line prettier/prettier
-          'concurrently': '^4.1.0',
-          'copy-webpack-plugin': '^4.6.0',
-          'css-loader': '^2.0.1',
+          'concurrently': '^8.2.0',
+          "copy-webpack-plugin": "^11.0.0",
+          "css-loader": "^6.8.1",
+          "file-loader": "^6.2.0",
           // eslint-disable-next-line prettier/prettier
           'dotenv': '^6.2.0',
           'fs-extra': '^7.0.1',
           'html-webpack-plugin': '^3.2.0',
           // eslint-disable-next-line prettier/prettier
           'marked': '^0.5.2',
-          'node-sass': '^8.0.0',
-          'sass-loader': '^7.1.0',
-          'style-loader': '^0.23.1',
+          "sass": "^1.63.2",
+          "sass-loader": "^13.3.1",
+          "style-loader": "^3.3.3",
           // eslint-disable-next-line prettier/prettier
-          'webpack': '^4.27.1',
-          'webpack-cli': '^3.1.2',
-          'webpack-dev-server': '^3.1.10',
-          'webpack-node-externals': '^1.7.2'
+          "webpack": "^5.86.0",
+          "webpack-cli": "^5.1.4",
+          "webpack-dev-server": "^4.15.0"
         },
         dependencies: {
           "@testing-library/jest-dom": "^5.16.5",
@@ -323,7 +322,6 @@ module.exports = class extends DnnGeneratorBase {
           "@testing-library/user-event": "^13.5.0",
           "react": "^18.2.0",
           "react-dom": "^18.2.0",
-          "react-scripts": "5.0.1",
           "web-vitals": "^2.1.4"
         }
       };
@@ -355,15 +353,10 @@ module.exports = class extends DnnGeneratorBase {
 
         pkgJson.devDependencies = {
           ...pkgJson.devDependencies,
-          '@types/react': '^16.0.34',
-          '@types/react-dom': '^16.0.3',
-          'ts-loader': '^5.3.3',
-          // eslint-disable-next-line prettier/prettier
-          'tslint': '^5.12.1',
-          'tslint-loader': '^3.5.4',
-          'tslint-react': '^3.6.0',
-          // eslint-disable-next-line prettier/prettier
-          'typescript': '^3.2.2',
+          "@types/react": "^18.2.9",
+          "@types/react-dom": "^18.2.4",
+          "ts-loader": "^9.4.3",
+          "typescript": "^5.1.3",
         };
       }
 
@@ -639,7 +632,7 @@ module.exports = class extends DnnGeneratorBase {
     this._writeSolution();
     this._restoreSolution()
   }
-  
+
   end() {
     this.log(chalk.white('All Ready!'));
   }
