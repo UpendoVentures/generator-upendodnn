@@ -287,16 +287,12 @@ module.exports = class extends DnnGeneratorBase {
           "@babel/core": "^7.22.5",
           "@babel/preset-env": "^7.22.5",
           "@babel/preset-react": "^7.22.5",
-          '@babel/plugin-proposal-class-properties': '^7.2.1',
-          '@babel/plugin-proposal-object-rest-spread': '^7.2.0',
-          '@babel/plugin-transform-object-assign': '^7.2.0',
           // eslint-disable-next-line prettier/prettier
           'archiver': '^3.0.0',
           "babel-loader": "^9.1.2",
-          'babel-plugin-transform-react-remove-prop-types': '^0.4.21',
           'browser-sync': '^2.26.3',
           // eslint-disable-next-line prettier/prettier
-          'chokidar': '^2.1.1',
+          'chokidar': '^3.5.3',
           // eslint-disable-next-line prettier/prettier
           'concurrently': '^8.2.0',
           "copy-webpack-plugin": "^11.0.0",
@@ -305,16 +301,17 @@ module.exports = class extends DnnGeneratorBase {
           // eslint-disable-next-line prettier/prettier
           'dotenv': '^6.2.0',
           'fs-extra': '^7.0.1',
-          'html-webpack-plugin': '^3.2.0',
+          "html-webpack-plugin": "^5.5.1",
           // eslint-disable-next-line prettier/prettier
-          'marked': '^0.5.2',
+          'marked': '^5.1.0',
           "sass": "^1.63.2",
           "sass-loader": "^13.3.1",
           "style-loader": "^3.3.3",
           // eslint-disable-next-line prettier/prettier
           "webpack": "^5.86.0",
           "webpack-cli": "^5.1.4",
-          "webpack-dev-server": "^4.15.0"
+          "webpack-dev-server": "^4.15.0",
+          "@testing-library/dom": "^7.21.4"
         },
         dependencies: {
           "@testing-library/jest-dom": "^5.16.5",
@@ -338,9 +335,8 @@ module.exports = class extends DnnGeneratorBase {
         pkgJson.devDependencies = {
           ...pkgJson.devDependencies,
           // eslint-disable-next-line prettier/prettier
-          'eslint': '^5.8.0',
-          'eslint-loader': '^2.1.1',
-          'eslint-plugin-react': '^7.11.1',
+          'eslint': '^8.42.0',
+          'eslint-plugin-react': '^7.32.2',
         };
       } else {
         this._writeTsConfig();
