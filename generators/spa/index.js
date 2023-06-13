@@ -284,6 +284,8 @@ module.exports = class extends DnnGeneratorBase {
 
       const pkgJson = {
         devDependencies: {
+          "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
+          "@babel/plugin-transform-object-assign": "^7.22.5",
           "@babel/core": "^7.22.5",
           "@babel/preset-env": "^7.22.5",
           "@babel/preset-react": "^7.22.5",
@@ -303,7 +305,7 @@ module.exports = class extends DnnGeneratorBase {
           'fs-extra': '^7.0.1',
           "html-webpack-plugin": "^5.5.1",
           // eslint-disable-next-line prettier/prettier
-          'marked': '^5.1.0',
+          'marked': '^4.3.0',
           "sass": "^1.63.2",
           "sass-loader": "^13.3.1",
           "style-loader": "^3.3.3",
