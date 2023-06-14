@@ -46,7 +46,7 @@ module.exports = {
                 { from: "./<%= moduleName %>.dnn", to: "../../<%= moduleName %>.dnn" },
                 { from: "./App_LocalResources", to: "../../App_LocalResources" },
                 { from: "./src/Resources", to: "../../Resources", globOptions:{ ignore: ["*.scss"] }},
-                { from: "./bin/*.*", to: "../../", globOptions:{ ignore: ["Dnn*", "DotNetNuke*", "System*", "Microsoft*", "Newtonsoft*", "*.deps.json"] }},
+                { from: "./bin/*.*", globOptions:{ ignore: ["**/Dnn*", "**/DotNetNuke*", "System*", "**/Microsoft*", "**/Newtonsoft*", "*.deps.json"] }, to: "../../", noErrorOnMissing: true},
                 { from: "./Providers/**/*.*", to: "../../" }
             ],
         }),
