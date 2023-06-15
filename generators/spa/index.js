@@ -294,6 +294,7 @@ module.exports = class extends DnnGeneratorBase {
           "babel-loader": "^9.1.2",
           'browser-sync': '^2.26.3',
           // eslint-disable-next-line prettier/prettier
+          "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
           'chokidar': '^3.5.3',
           // eslint-disable-next-line prettier/prettier
           'concurrently': '^8.2.0',
