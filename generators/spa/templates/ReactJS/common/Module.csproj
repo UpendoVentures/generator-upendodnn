@@ -125,6 +125,7 @@
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\ModulePropertiesPropertyAccess.cs" />
     <Compile Include="RouteConfig.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\UserController.cs" />
