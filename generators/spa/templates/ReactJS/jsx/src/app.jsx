@@ -1,10 +1,12 @@
 ﻿import React from "react";
-import * as ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
 import Items from "./components/Items";
 
-ReactDOM.render(
-	<React.StrictMode>
-        <Items />
-    </React.StrictMode>,
-  document.getElementById("<%= namespace.toLowerCase() %><%= moduleName %>")
+const container = document.getElementById("<%= namespace.toLowerCase() %><%= moduleName %>")
+
+const root = createRoot(container);
+root.render(
+  <React.StrictMode>
+    <Items />
+  </React.StrictMode>,
 );

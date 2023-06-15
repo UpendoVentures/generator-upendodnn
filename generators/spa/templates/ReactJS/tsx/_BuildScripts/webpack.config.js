@@ -33,14 +33,24 @@ module.exports = (env, argv) => {
         },
         module: {
             rules: [
-                { test: /\.(ts|tsx)$/, enforce: "pre", exclude: /node_modules/, loaders: "tslint-loader" },
-                // .ts(x) files should first pass through the Typescript loader, and then through babel
-                { test: /\.(ts|tsx)?$/, exclude: /node_modules/, loaders: ['babel-loader', 'ts-loader'] },
-                { test: /\.(sass|scss)$/, loaders: "style-loader!css-loader!sass-loader" },
-                { test: /\.(ttf|woff)$/, loaders: "url-loader?limit=8192" },
-                { test: /\.(gif|png)$/, loaders: "url-loader?mimetype=image/png" },
-                { test: /\.woff(2)?(\?v=[0-9].[0-9].[0-9])?$/, loaders: "url-loader?mimetype=application/font-woff" },
-                { test: /\.(ttf|eot|svg)(\?v=[0-9].[0-9].[0-9])?$/, loaders: "file-loader?name=[name].[ext]" },
+                {
+                    test: /\.tsx?$/,
+                    exclude: /node_modules/,
+                    loader: 'ts-loader',
+                    options: {
+                        compilerOptions: {
+                          noEmit: false,
+                        },
+                      },
+                },
+                // { test: /\.(ts|tsx)$/, enforce: "pre", exclude: /node_modules/, loaders: "tslint-loader" },
+                // // .ts(x) files should first pass through the Typescript loader, and then through babel
+                // { test: /\.(ts|tsx)?$/, exclude: /node_modules/, loaders: ['babel-loader', 'ts-loader'] },
+                // { test: /\.(sass|scss)$/, loaders: "style-loader!css-loader!sass-loader" },
+                // { test: /\.(ttf|woff)$/, loaders: "url-loader?limit=8192" },
+                // { test: /\.(gif|png)$/, loaders: "url-loader?mimetype=image/png" },
+                // { test: /\.woff(2)?(\?v=[0-9].[0-9].[0-9])?$/, loaders: "url-loader?mimetype=application/font-woff" },
+                // { test: /\.(ttf|eot|svg)(\?v=[0-9].[0-9].[0-9])?$/, loaders: "file-loader?name=[name].[ext]" },
             ]
         },
         plugins: isProduction ? [
@@ -50,13 +60,13 @@ module.exports = (env, argv) => {
                     "NODE_ENV": JSON.stringify("production")
                 }
             }),
-            new CopyWebpackPlugin([
+            new CopyWebpackPlugin({ patterns:[
                 { from: "./<%= moduleName %>.dnn", to: "../../<%= moduleName %>.dnn" },
                 { from: "./App_LocalResources", to: "../../App_LocalResources" },
-                { from: "./src/Resources", to: "../../Resources", ignore: [ "*.scss" ] },
-                { from: "./bin/*.*", to: "../../", ignore: [ "Dnn*", "DotNetNuke*", "System*", "Microsoft*", "Newtonsoft*", "*.deps.json" ] },
+                { from: "./src/Resources", to: "../../Resources",globOptions:{ ignore: [ "*.scss" ] }},
+                { from: "./bin/*.*", globOptions: { ignore: ["**/Dnn*", "**/DotNetNuke*", "System*", "**/Microsoft*", "**/Newtonsoft*", "*.deps.json"] }, to: "../../", noErrorOnMissing: true },
                 { from: "./Providers/**/*.*", to: "../../" }
-            ]),
+            ]}),
             new HtmlWebpackPlugin({
                 inject: false,
                 environment: process.env.NODE_ENV,
@@ -80,14 +90,14 @@ module.exports = (env, argv) => {
                 title: "License",
                 template: path.resolve("./src/_templates/Markdown.html"),
                 filename: "../../License.txt",
-                bodyHTML: marked(fs.readFileSync( path.resolve("./src/License.md"), "utf8")) 
+                bodyHTML: marked.marked(fs.readFileSync( path.resolve("./src/License.md"), "utf8")) 
             }),
             new HtmlWebpackPlugin({
                 inject: false,
                 title: "Release Notes",
                 template: path.resolve("./src/_templates/Markdown.html"),
                 filename: "../../ReleaseNotes.txt",
-                bodyHTML: marked(fs.readFileSync( path.resolve("./src/ReleaseNotes.md"), "utf8")) 
+                bodyHTML: marked.marked(fs.readFileSync( path.resolve("./src/ReleaseNotes.md"), "utf8")) 
             })
         ] : [
             new webpack.DefinePlugin({

@@ -103,15 +103,7 @@
   <ItemGroup>
     <!-- <Compile Include="Components\DataProviderHelper.cs" />
     <Compile Include="Components\FeatureController.cs" /> -->
-    <Content Include="src\app.jsx" />
-    <Content Include="src\components\Hello.jsx" />
-    <Content Include="src\Edit.html" />
-    <Content Include="src\edit.jsx" />
     <Content Include="src\Resources\img\extension.png" />
-    <Content Include="src\Settings.html" />
-    <Content Include="src\settings.jsx" />
-    <Content Include="src\View.html" />
-    <Content Include="src\_templates\Markdown.html" />
     <Content Include="src\License.md" />
     <Content Include="src\ReleaseNotes.md" />
     <Content Include="src\Resources\styles\module.scss" />    
@@ -124,6 +116,8 @@
     <Compile Include="Components\BaseClasses\ApiControllerBase.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\ModulePropertiesPropertyAccess.cs" />
     <Compile Include="RouteConfig.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\UserController.cs" />

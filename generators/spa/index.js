@@ -14,7 +14,7 @@ module.exports = class extends DnnGeneratorBase {
         choices: [
           { name: 'ReactJS', value: 'ReactJS' },
           { name: 'VueJS', value: 'VueJS' },
-          { name: 'Angular', value: 'Angular'}
+          { name: 'Angular', value: 'Angular' }
         ]
       },
       {
@@ -92,7 +92,7 @@ module.exports = class extends DnnGeneratorBase {
 
   writing() {
     this.log(
-      chalk.white(`Creating ${this.props.spaType} ${this.props.langType? this.props.langType :""} SPA Module.`)
+      chalk.white(`Creating ${this.props.spaType} ${this.props.langType ? this.props.langType : ""} SPA Module.`)
     );
 
     // mod: this follows the Upendo development/solution pattern
@@ -219,7 +219,7 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(moduleName + '/RouteConfig.cs'),
         template
       );
-      
+
       this.fs.copyTpl(
         this.templatePath('common/Constants.cs'),
         this.destinationPath(moduleName + '/Constants.cs'),
@@ -237,13 +237,13 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(moduleName + '/' + moduleName + '_Symbols.dnn'),
         template
       );
-      
+
       this.fs.copyTpl(
         this.templatePath('common/License.txt'),
         this.destinationPath(moduleName + '/License.txt'),
         template
       );
-      
+
       this.fs.copyTpl(
         this.templatePath('common/ReleaseNotes.txt'),
         this.destinationPath(moduleName + '/ReleaseNotes.txt'),
@@ -253,13 +253,13 @@ module.exports = class extends DnnGeneratorBase {
       this.fs.copyTpl(
         this.templatePath(spaType + '/common/Module.csproj'),
         this.destinationPath(moduleName + '/' + moduleName + '.csproj'),
-                template
+        template
       );
 
       this.fs.copyTpl(
         this.templatePath(spaType + '/common/Module.build'),
         this.destinationPath(moduleName + '/Module.build'),
-                template
+        template
       );
 
       this.fs.copyTpl(
@@ -284,38 +284,37 @@ module.exports = class extends DnnGeneratorBase {
 
       const pkgJson = {
         devDependencies: {
-          '@babel/core': '^7.2.2',
-          '@babel/plugin-proposal-class-properties': '^7.2.1',
-          '@babel/plugin-proposal-object-rest-spread': '^7.2.0',
-          '@babel/plugin-transform-object-assign': '^7.2.0',
-          '@babel/polyfill': '^7.2.5',
-          '@babel/preset-env': '^7.2.0',
-          '@babel/preset-react': '^7.0.0',
+          "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
+          "@babel/plugin-transform-object-assign": "^7.22.5",
+          "@babel/core": "^7.22.5",
+          "@babel/preset-env": "^7.22.5",
+          "@babel/preset-react": "^7.22.5",
           // eslint-disable-next-line prettier/prettier
           'archiver': '^3.0.0',
-          'babel-loader': '^8.0.4',
-          'babel-plugin-transform-react-remove-prop-types': '^0.4.21',
+          "babel-loader": "^9.1.2",
           'browser-sync': '^2.26.3',
           // eslint-disable-next-line prettier/prettier
-          'chokidar': '^2.1.1',
+          "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+          'chokidar': '^3.5.3',
           // eslint-disable-next-line prettier/prettier
-          'concurrently': '^4.1.0',
-          'copy-webpack-plugin': '^4.6.0',
-          'css-loader': '^2.0.1',
+          'concurrently': '^8.2.0',
+          "copy-webpack-plugin": "^11.0.0",
+          "css-loader": "^6.8.1",
+          "file-loader": "^6.2.0",
           // eslint-disable-next-line prettier/prettier
           'dotenv': '^6.2.0',
           'fs-extra': '^7.0.1',
-          'html-webpack-plugin': '^3.2.0',
+          "html-webpack-plugin": "^5.5.1",
           // eslint-disable-next-line prettier/prettier
-          'marked': '^0.5.2',
-          'node-sass': '^8.0.0',
-          'sass-loader': '^7.1.0',
-          'style-loader': '^0.23.1',
+          'marked': '^4.3.0',
+          "sass": "^1.63.2",
+          "sass-loader": "^13.3.1",
+          "style-loader": "^3.3.3",
           // eslint-disable-next-line prettier/prettier
-          'webpack': '^4.27.1',
-          'webpack-cli': '^3.1.2',
-          'webpack-dev-server': '^3.1.10',
-          'webpack-node-externals': '^1.7.2'
+          "webpack": "^5.86.0",
+          "webpack-cli": "^5.1.4",
+          "webpack-dev-server": "^4.15.0",
+          "@testing-library/dom": "^7.21.4"
         },
         dependencies: {
           "@testing-library/jest-dom": "^5.16.5",
@@ -323,7 +322,6 @@ module.exports = class extends DnnGeneratorBase {
           "@testing-library/user-event": "^13.5.0",
           "react": "^18.2.0",
           "react-dom": "^18.2.0",
-          "react-scripts": "5.0.1",
           "web-vitals": "^2.1.4"
         }
       };
@@ -340,9 +338,8 @@ module.exports = class extends DnnGeneratorBase {
         pkgJson.devDependencies = {
           ...pkgJson.devDependencies,
           // eslint-disable-next-line prettier/prettier
-          'eslint': '^5.8.0',
-          'eslint-loader': '^2.1.1',
-          'eslint-plugin-react': '^7.11.1',
+          'eslint': '^8.42.0',
+          'eslint-plugin-react': '^7.32.2',
         };
       } else {
         this._writeTsConfig();
@@ -355,15 +352,10 @@ module.exports = class extends DnnGeneratorBase {
 
         pkgJson.devDependencies = {
           ...pkgJson.devDependencies,
-          '@types/react': '^16.0.34',
-          '@types/react-dom': '^16.0.3',
-          'ts-loader': '^5.3.3',
-          // eslint-disable-next-line prettier/prettier
-          'tslint': '^5.12.1',
-          'tslint-loader': '^3.5.4',
-          'tslint-react': '^3.6.0',
-          // eslint-disable-next-line prettier/prettier
-          'typescript': '^3.2.2',
+          "@types/react": "^18.2.9",
+          "@types/react-dom": "^18.2.4",
+          "ts-loader": "^9.4.3",
+          "typescript": "^5.1.3",
         };
       }
 
@@ -436,13 +428,13 @@ module.exports = class extends DnnGeneratorBase {
       );
     }
     // ANGULAR 
-    else if(spaType === "Angular"){
+    else if (spaType === "Angular") {
       this.fs.copyTpl(
         this.templatePath('common/package.json'),
         this.destinationPath(moduleName + '/package.json'),
         template
       );
-      
+
       this.fs.copyTpl(
         this.templatePath('../../common/branding/Images/**'),
         this.destinationPath(moduleName + '/Images'),
@@ -493,7 +485,7 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath('common/Data/ModuleContext.cs'),
-        this.destinationPath(moduleName + '/Data/' + moduleName+'Context.cs'),
+        this.destinationPath(moduleName + '/Data/' + moduleName + 'Context.cs'),
         template
       );
 
@@ -529,7 +521,7 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath('common/manifest.dnn'),
-        this.destinationPath(moduleName + '/' + moduleName +'.dnn'),
+        this.destinationPath(moduleName + '/' + moduleName + '.dnn'),
         template
       );
 
@@ -594,7 +586,7 @@ module.exports = class extends DnnGeneratorBase {
       );
 
       const pkgJson = {
-        "scripts":{
+        "scripts": {
           "ng": "ng",
           "angular-build": "ng build --output-hashing none",
           "start": "ng run " + moduleName + ":builddev --watch",
@@ -629,7 +621,7 @@ module.exports = class extends DnnGeneratorBase {
           "typescript": "~4.7.2"
         }
       }
-      
+
       this.fs.extendJSON(this.destinationPath(moduleName + '/package.json'), pkgJson);
 
     }
@@ -637,19 +629,10 @@ module.exports = class extends DnnGeneratorBase {
 
   install() {
     this._writeSolution();
-    if (this.props.spaType !== "VueJS") {
-      try {
-        this._defaultInstall();
-      } catch { }
-    }
+    this._restoreSolution()
   }
 
   end() {
-    this.log(chalk.white('Installed Dependencies.'));
-    this.log(chalk.white('Running dotnet restore.'));
-    process.chdir('Modules/' + this.props.moduleName);
-    this.spawnCommand('dotnet', ['restore'], { cwd: process.cwd() }).then(() => {
-      this.log(chalk.white('All Ready!'));
-    });
+    this.log(chalk.white('All Ready!'));
   }
 };
