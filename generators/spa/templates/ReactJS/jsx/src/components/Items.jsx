@@ -10,8 +10,8 @@ const Items = () => {
     const [modal, setModal] = useState(false);
     const [items, setItems] = useState(null);
     const [users, setUsers] = useState(null);
-    const [description, setDescription] = useState(null);
-    const [name, setName] = useState(null);
+    const [description, setDescription] = useState('');
+    const [name, setName] = useState('');
     const [assignedUser, setUser] = useState(null);
     const [id, setId] = useState(0);
     // SETTINGS
