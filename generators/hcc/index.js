@@ -14,26 +14,10 @@ module.exports = class extends DnnGeneratorBase {
         choices: [
           { name: 'Order Workflow', value: 'workflow' },
           { name: 'Action Delegate Integration', value: 'actiondelegate' },
-          {
-            name: chalk.gray('Credit Card Gateway'),
-            value: 'creditcardgateway',
-            disabled: chalk.gray('Coming Soon')
-          },
-          {
-            name: chalk.gray('Gift Card Gateway'),
-            value: 'giftcardgateway',
-            disabled: chalk.gray('Coming Soon')
-          },
-          {
-            name: chalk.gray('Payment Method'),
-            value: 'paymentmethod',
-            disabled: chalk.gray('Coming Soon')
-          },
-          {
-            name: chalk.gray('Tax Provider'),
-            value: 'taxprovider',
-            disabled: chalk.gray('Coming Soon')
-          },
+          { name: 'Credit Card Gateway', value: 'creditcardgateway' },
+          { name: 'Gift Card Gateway', value: 'giftcardgateway' },
+          { name: 'Payment Method', value: 'paymentmethod' },
+          { name: 'Tax Provider', value: 'taxprovider' },
           {
             name: chalk.gray('Viewset'),
             value: 'viewset',
@@ -80,7 +64,8 @@ module.exports = class extends DnnGeneratorBase {
       props.extensionType = "Hotcakes";
       props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.extensionName;
       props.guid = this._generateGuid();
-
+      props.openDirective = "%@";
+      props.closeDirective = "%";
       this.props = props;
     });
   }
@@ -106,6 +91,12 @@ module.exports = class extends DnnGeneratorBase {
       case "viewset":
         this.destinationRoot("Viewsets/");
         break;
+      case "creditcardgateway":
+      case "giftcardgateway":
+      case "paymentmethod":
+      case "taxprovider":
+        this.destinationRoot("Modules/");
+        break;
       default:
         this.destinationRoot("Hotcakes/");
         break;
@@ -126,7 +117,9 @@ module.exports = class extends DnnGeneratorBase {
       parentMenu: this.props.parentMenu,
       extensionType: this.props.extensionType,
       fullNamespace: this.props.fullNamespace,
-      guid: this.props.guid
+      guid: this.props.guid,
+      openDirective: this.props.openDirective,
+      closeDirective: this.props.closeDirective
     };
 
     this.fs.copyTpl(
@@ -134,14 +127,15 @@ module.exports = class extends DnnGeneratorBase {
       this.destinationPath(extensionName + '/'),
       template
     );
-
+    if (hccType == "workflow" || hccType == "actiondelegate") {
     this.fs.copyTpl(
       this.templatePath('../../common/src-library-hcc/**'),
       this.destinationPath(extensionName + '/'),
       template
     );
-
+    }
     if (hccType == "workflow") {
+      
       let task1Guid = this._generateGuid();
       let task2Guid = this._generateGuid();
 
@@ -182,6 +176,7 @@ module.exports = class extends DnnGeneratorBase {
     }
 
     // used by workflow & action delegate so far
+   
     this.fs.copyTpl(
       this.templatePath(hccType + '/ReadMe.txt'),
       this.destinationPath(extensionName + '/ReadMe.txt'),
@@ -211,6 +206,312 @@ module.exports = class extends DnnGeneratorBase {
       this.destinationPath(extensionName + '/' + extensionName + '_Symbols.dnn'),
       template
     );
+  
+    // used by giftcardgateway
+    if (hccType == "giftcardgateway") {
+
+      this.fs.copyTpl(
+        this.templatePath('../../common/src-hotcakes-hcc/giftcardgateway/Module.build'),
+        this.destinationPath(extensionName + '/Module.build'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('../../common/src-hotcakes-hcc/Properties/AssemblyInfo.cs'),
+        this.destinationPath(extensionName + '/Properties/AssemblyInfo.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/packages.config'),
+        this.destinationPath(extensionName + '/packages.config'),
+        template
+      );
+
+     
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/Edit.ascx'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/Edit.ascx'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/Edit.ascx.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/Edit.ascx.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/Edit.ascx.designer.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/Edit.ascx.designer.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/MyTestGateway.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/' + extensionName+'_GiftCardGateway.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/MyTestGatewaySettings.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/' + extensionName+'_GiftCardGatewaySettings.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/App_LocalResources/Edit.ascx.resx'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/App_LocalResources/' + 'Edit.ascx.resx'),
+        template
+      );
+    }
+    // used by paymentmethod
+    if (hccType == "paymentmethod") {
+
+      this.fs.copyTpl(
+        this.templatePath('../../common/src-hotcakes-hcc/paymentmethod/Module.build'),
+        this.destinationPath(extensionName + '/Module.build'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('../../common/src-hotcakes-hcc/Properties/AssemblyInfo.cs'),
+        this.destinationPath(extensionName + '/Properties/AssemblyInfo.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/packages.config'),
+        this.destinationPath(extensionName + '/packages.config'),
+        template
+      );
+
+     
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/Edit.ascx'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/Edit.ascx'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/Edit.ascx.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/Edit.ascx.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/Edit.ascx.designer.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/Edit.ascx.designer.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/MyCustomWorkflowFactory.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + '_CustomWorkflowFactory.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/MyPaymentMethod.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + '_PaymentMethod.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/MyPaymentMethodCheckoutController.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + '_PaymentMethodCheckoutController.cs'),
+        template
+      );
+
+      
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/MyPaymentMethodSettings.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + '_PaymentMethodSettings.cs'),
+        template
+      );
+
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/StartMyPaymentMethodCheckout.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/Start_' + extensionName + '_PaymentMethodCheckout.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/App_LocalResources/Edit.ascx.resx'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/App_LocalResources/Edit.ascx.resx'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/Portals/_default/HotcakesViews/_default/Views/MyPaymentMethodCheckout/App_LocalResources/Controller.resx'),
+        this.destinationPath(extensionName + '/Portals/_default/HotcakesViews/_default/Views/'+extensionName+'PaymentMethodCheckout/App_LocalResources/Controller.resx'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/Portals/_default/HotcakesViews/_default/Views/MyPaymentMethodCheckout/App_LocalResources/Index.cshtml.resx'),
+        this.destinationPath(extensionName + '/Portals/_default/HotcakesViews/_default/Views/'+extensionName+'PaymentMethodCheckout/App_LocalResources/Index.cshtml.resx'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/Portals/_default/HotcakesViews/_default/Views/MyPaymentMethodCheckout/Index.cshtml'),
+        this.destinationPath(extensionName + '/Portals/_default/HotcakesViews/_default/Views/'+extensionName+'PaymentMethodCheckout/Index.cshtml'),
+        template
+      );
+    }
+    // used by taxprovider
+    if (hccType == "taxprovider") {
+
+        this.fs.copyTpl(
+          this.templatePath('../../common/src-hotcakes-hcc/taxprovider/Module.build'),
+          this.destinationPath(extensionName + '/Module.build'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath('../../common/src-hotcakes-hcc/Properties/AssemblyInfo.cs'),
+          this.destinationPath(extensionName + '/Properties/AssemblyInfo.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/packages.config'),
+          this.destinationPath(extensionName + '/packages.config'),
+          template
+        );
+
+         
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/Edit.ascx'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/Edit.ascx'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/Edit.ascx.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/Edit.ascx.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/Edit.ascx.designer.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/Edit.ascx.designer.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MessageBox.ascx'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/MessageBox.ascx'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MessageBox.ascx.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/MessageBox.ascx.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MessageBox.ascx.designer.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/MessageBox.ascx.designer.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProvider.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'_TaxProvider.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProviderGateway.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'_TaxProviderGateway.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProviderLineResult.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'_TaxProviderLineResult.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProviderResult.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'_TaxProviderResult.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProviderSettings.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'_TaxProviderSettings.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/App_LocalResources/Edit.ascx.resx'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/App_LocalResources/Edit.ascx.resx'),
+          template
+        );
+    }
+      // used by creditcardgateway
+    if (hccType == "creditcardgateway") {
+
+        this.fs.copyTpl(
+          this.templatePath('../../common/src-hotcakes-hcc/creditcardgateway/Module.build'),
+          this.destinationPath(extensionName + '/Module.build'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath('../../common/src-hotcakes-hcc/Properties/AssemblyInfo.cs'),
+          this.destinationPath(extensionName + '/Properties/AssemblyInfo.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/packages.config'),
+          this.destinationPath(extensionName + '/packages.config'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/Edit.ascx'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/Edit.ascx'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/Edit.ascx.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/Edit.ascx.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/Edit.ascx.designer.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/Edit.ascx.designer.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/MyTestGateway.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/' + extensionName+'_CreditCardGateway.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/MyTestGatewaySettings.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/' + extensionName+'_CreditCardGatewaySettings.cs'),
+          template
+        );
+
+        this.fs.copyTpl(
+          this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/App_LocalResources/Edit.ascx.resx'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/App_LocalResources/' + 'Edit.ascx.resx'),
+          template
+        );
+    }
   }
 
   install() { }
