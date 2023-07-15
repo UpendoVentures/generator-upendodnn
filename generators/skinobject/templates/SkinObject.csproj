@@ -45,12 +45,12 @@
   </PropertyGroup>
   <Import Project="..\..\Build\SolutionReferences.targets" />
   <ItemGroup>
-    <PackageReference Include="DotNetNuke.Core" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.Web" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.Web.Client" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.WebApi" Version="9.3.2" />
+    <PackageReference Include="DotNetNuke.Core" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Web" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Web.Client" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.WebApi" Version="9.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
   <ItemGroup>
@@ -114,7 +114,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

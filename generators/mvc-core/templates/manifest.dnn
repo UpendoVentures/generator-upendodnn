@@ -16,7 +16,7 @@
       <releaseNotes src="ReleaseNotes.txt">
       </releaseNotes>
       <dependencies>
-        <dependency type="CoreVersion">09.03.02</dependency>
+        <dependency type="CoreVersion">09.08.00</dependency>
       </dependencies>
       <components>
         <component type="Script">
@@ -96,6 +96,7 @@
             <assembly>
               <path>bin</path>
               <name><%= namespace %>.<%= moduleName %>.dll</name>
+              <version>01.00.00</version>
             </assembly>
           </assemblies>
         </component>

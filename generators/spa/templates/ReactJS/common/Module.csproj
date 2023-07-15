@@ -49,12 +49,12 @@
   </PropertyGroup>
   <Import Project="..\..\Build\SolutionReferences.targets" />
   <ItemGroup>
-    <PackageReference Include="DotNetNuke.Core" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.Web" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.Web.Client" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.3.2" />
-    <PackageReference Include="DotNetNuke.WebApi" Version="9.3.2" />
+    <PackageReference Include="DotNetNuke.Core" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Web" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Web.Client" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.WebApi" Version="9.8.0" />
     <PackageReference Include="EntityFramework" Version="6.0.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
