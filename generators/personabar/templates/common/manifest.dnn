@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dotnetnuke type="Package" version="6.0">
   <packages>
-    <package name="<%= moduleName %>" type="PersonaBar" version="1.0.0.0">
+    <package name="<%= moduleName %>" type="PersonaBar" version="1.0.0">
       <friendlyName><%= namespace %>.<%= moduleName %></friendlyName>
       <description><%= description %></description>
       <iconFile>~/Images/icon-personabarapp-32px.png</iconFile>
@@ -15,7 +15,7 @@
       <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
       <azureCompatible>true</azureCompatible>
       <dependencies>
-        <dependency type="CoreVersion">08.00.00</dependency>
+        <dependency type="CoreVersion">09.08.00</dependency>
         <dependency type="ManagedPackage" version="01.00.00">Dnn.PersonaBar.UI</dependency>
       </dependencies>
       <components>
