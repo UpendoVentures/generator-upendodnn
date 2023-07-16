@@ -7,9 +7,9 @@ The previous version was not adhering to known best practices and as a result, i
 ## Solution  
 The solution currently expects to be in the following environment, but you can update that to be any version you'd like, provided all extensions will be compatible:  
 
-- DNN:  09.04.04  
-- Hotcakes Commerce:  03.02.03  
-- SQL:  2014+  
+- DNN:  09.08.00  
+- Hotcakes Commerce:  03.06.00  
+- SQL:  2017+  
 
 You should build and develop in a development environment that's separate from the local environment where you'd be testing.  The examples below help to illustrate this...  
 
@@ -181,6 +181,6 @@ The primary branches that are present and used may change over time.  Those pote
 # Support for this Project  
 This solution and the related materials are proudly created and provided by Upendo Ventures.  
 
-- [Visit Us](https://upendoventures.com/Support)  
+- [Visit Us](https://upendoventures.com/What/CMS/DNN)  
 - [E-Mail Us](mailto:solutions@upendoventures.com)  
 - [Other Ways to Contact Us](https://upendoventures.com/Contact-Us)  

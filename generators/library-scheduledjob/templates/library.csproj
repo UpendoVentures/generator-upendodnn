@@ -3,7 +3,7 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <DnnVersion>09.08.00</DnnVersion>
-    <HccVersion>03.02.01</HccVersion>
+    <HccVersion>03.06.00</HccVersion>
     <ReferencesPath>..\..\References</ReferencesPath>
     <DnnReferencePath>$(ReferencesPath)\DNN\$(DnnVersion)</DnnReferencePath>
     <HccReferencePath>$(ReferencesPath)\HotcakesCommerce\$(HccVersion)</HccReferencePath>
