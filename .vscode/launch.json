@@ -13,6 +13,7 @@
               "upendodnn",
               "--skip-install"
             ],
+            "cwd": "<your dir>",
             "console": "externalTerminal",
             "internalConsoleOptions": "neverOpen",
             "stopOnEntry": false
