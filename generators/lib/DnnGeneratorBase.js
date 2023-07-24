@@ -30,24 +30,26 @@ module.exports = class DnnGeneratorBase extends Generator {
   _createSolutionFromTemplate() {
     this.log(chalk.white('Creating sln.'));
     let namespace = this._getNamespace();
+    var folderPath = this.destinationPath(this.props.moduleName);
     return this.spawnCommandSync('dotnet', [
       'new',
       'sln',
       '-n',
       namespace,
       '-o',
-      this.destinationRoot()
+      folderPath
     ]);
   }
 
   _addProjectToSolution() {
     let namespace = this._getNamespace();
     this.log(chalk.white('Adding project to sln.'));
+    this.destinationRoot();
     this.spawnCommandSync('dotnet', [
       'sln',
-      this.destinationPath(namespace + '.sln'),
+      this.destinationPath('..'),
       'add',
-      this.destinationPath(`${this.props.moduleName}/${this.props.moduleName}.csproj`)
+      this.destinationPath(`${this.props.moduleName}/${namespace}.csproj`)
     ]);
   }
 
@@ -62,26 +64,28 @@ module.exports = class DnnGeneratorBase extends Generator {
     if (this.fs.exists(slnFileName) === false) {
       this._createSolutionFromTemplate();
     }
-    this._addProjectToSolution();
   }
 
   _installDependencies() {
     if (!this.options.noinstall) {
       let hasYarn = this._hasYarn();
-      if (this.props.extensionName == undefined) this.props.extensionName = this.props.moduleName;
-        this.spawnCommand('yarn', ['install'], { cwd: process.cwd() }).then(() => {
-        this.log(chalk.white('Installed dependencies'));
-      });
+      if (this.props.extensionName == undefined) {
+        this.props.extensionName = this.props.moduleName;
+        this.destinationRoot("/" + this.props.extensionName);
+        if (hasYarn) {
+          this.spawnCommandSync('yarn', ['install'])
+        } else {
+          this.spawnCommandSync('npm', ['install'])
+        }
+      }
     }
   }
 
   _restoreSolution() {
     this.log(chalk.white('Running dotnet restore.'));
-    process.chdir('Modules/' + this.props.moduleName);
-    this.spawnCommand('dotnet', ['restore'], { cwd: process.cwd() }).then(() => {
-      this.log(chalk.white('Installing dependencies'));
-      this._installDependencies();      
-    });
+    let namespace = this._getNamespace();
+    var path = this.destinationPath(this.props.moduleName);
+    this.spawnCommandSync('dotnet', ['restore', namespace + ".csproj"], { cwd: path });
   }
 
   _copyCommon(namespace, moduleName) {
@@ -206,14 +210,14 @@ module.exports = class DnnGeneratorBase extends Generator {
       // TODO: Remove the ones that don't matter
       if (fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications\\Microsoft.WebApplication.targets") ||
         fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications\\Microsoft.WebApplication.targets") ||
-        fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications\\Microsoft.WebApplication.targets")||
+        fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications\\Microsoft.WebApplication.targets") ||
         fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications\\Microsoft.WebApplication.targets")) {
         msBuildVersion = "16"; // VS 2019 Community
-      }    
+      }
 
       if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications\\Microsoft.WebApplication.targets")) {
         msBuildVersion = "14"; // VS 2015
-      }    
+      }
 
       if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v12.0\\WebApplications\\Microsoft.WebApplication.targets")) {
         msBuildVersion = "13"; // VS 2013
@@ -221,7 +225,7 @@ module.exports = class DnnGeneratorBase extends Generator {
 
       if (fs.existsSync("C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications\\Microsoft.WebApplication.targets")) {
         msBuildVersion = "11"; // VS 2012?
-      }  
+      }
 
       if (msBuildVersion == "") {
         this.log(chalk.red("YIKES! A valid version of MSBuild was not found! This is a critical error... :("));
