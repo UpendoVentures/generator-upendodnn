@@ -44,12 +44,15 @@ module.exports = class DnnGeneratorBase extends Generator {
   _addProjectToSolution() {
     let namespace = this._getNamespace();
     this.log(chalk.white('Adding project to sln.'));
+    if (this.props.extensionName == undefined) {
+      this.props.extensionName = this.props.moduleName;
+    }
     this.destinationRoot();
     this.spawnCommandSync('dotnet', [
       'sln',
       this.destinationPath('..'),
       'add',
-      this.destinationPath(`${this.props.moduleName}/${namespace}.csproj`)
+      this.destinationPath(`${this.props.extensionName}/${namespace}.csproj`)
     ]);
   }
 
@@ -71,20 +74,27 @@ module.exports = class DnnGeneratorBase extends Generator {
       let hasYarn = this._hasYarn();
       if (this.props.extensionName == undefined) {
         this.props.extensionName = this.props.moduleName;
-        this.destinationRoot("/" + this.props.extensionName);
-        if (hasYarn) {
-          this.spawnCommandSync('yarn', ['install'])
-        } else {
-          this.spawnCommandSync('npm', ['install'])
-        }
       }
+      this.destinationRoot();
+      var path = this.destinationPath(this.props.extensionName);      console.log("Installing npm dependencies in " + path);
+      if (hasYarn) {
+        this.spawnCommandSync('yarn', ['install'], { cwd: path })
+      } else {
+        this.spawnCommandSync('npm', ['install'], { cwd: path })
+      }
+      this.log(chalk.white('Installed Webforms Module npm Dependencies.'));
     }
   }
+
 
   _restoreSolution() {
     this.log(chalk.white('Running dotnet restore.'));
     let namespace = this._getNamespace();
-    var path = this.destinationPath(this.props.moduleName);
+    if (this.props.extensionName == undefined) {
+      this.props.extensionName = this.props.moduleName;
+    }
+    this.destinationRoot();
+    var path = this.destinationPath(this.props.extensionName);
     this.spawnCommandSync('dotnet', ['restore', namespace + ".csproj"], { cwd: path });
   }
 
@@ -104,7 +114,8 @@ module.exports = class DnnGeneratorBase extends Generator {
     if (this.props.extensionType != undefined && this.props.extensionType != "") {
       namespace = namespace + "." + this.props.extensionType;
     }
-    namespace = namespace + "." + this.props.moduleName;
+    if (this.props.extensionName == undefined) this.props.extensionName = this.props.moduleName;
+    namespace = namespace + "." + this.props.extensionName;
     return namespace;
   }
 
