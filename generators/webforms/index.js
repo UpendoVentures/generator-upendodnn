@@ -223,14 +223,13 @@ module.exports = class extends DnnGeneratorBase {
   }
 
   install() {
-    this._defaultInstall();
+    // this._defaultInstall();
+    this._addProjectToSolution();
+    this._restoreSolution();
+    this._installDependencies();
   }
 
   end() {
-    this.log(chalk.white('Installed Webforms Module npm Dependencies.'));
-    this.log(chalk.white('Running dotnet restore.'));
-    this.spawnCommand('dotnet', ['restore']);
-    process.chdir('../');
     this.log(chalk.green('All Ready!'));
   }
 };
