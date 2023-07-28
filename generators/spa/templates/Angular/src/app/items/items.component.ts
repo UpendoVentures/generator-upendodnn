@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../interfaces/Item';
 import { Setting } from '../interfaces/Setting';
-import { ItemsService } from '../items.service';
+import { ItemsService } from '../services/items.service';
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
@@ -13,25 +13,16 @@ export class ItemsComponent implements OnInit {
   constructor(private itemsService: ItemsService) { }
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.getItems();
   }
 
-  getHeroes(): void {
+  getItems(): void {
     this.itemsService.getItems()
       .subscribe(data => this.items = data);
   }
 
-  // add(name: string): void {
-  //   name = name.trim();
-  //   if (!name) { return; }
-  //   this.heroService.addHero({ name } as Hero)
-  //     .subscribe(hero => {
-  //       this.heroes.push(hero);
-  //     });
-  // }
-
   delete(item: Item): void {
-    this.itemsService.deleteItem(item.itemId).subscribe();
+    this.itemsService.deleteItem(item.id).subscribe();
     this.items = this.items.filter(h => h !== item);
   }
 }

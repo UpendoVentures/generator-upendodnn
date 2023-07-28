@@ -219,10 +219,12 @@ module.exports = class extends DnnGeneratorBase {
     this.fs.extendJSON(this.destinationPath(extensionName + '/package.json'), pkgJson);
   }
 
-  install() { }
+  install() {
+    this._addProjectToSolution();
+    this._installDependencies();
+   }
 
   end() {
-    this.log(chalk.white('Installed Skin Object npm Dependencies.'));
     process.chdir('../');
     this.log(chalk.white('All Ready!'));
   }

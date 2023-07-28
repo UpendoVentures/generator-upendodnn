@@ -252,7 +252,7 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath(spaType + '/common/Module.csproj'),
-        this.destinationPath(moduleName + '/' + moduleName + '.csproj'),
+        this.destinationPath(moduleName + '/' + fullNamespace + '.csproj'),
         template
       );
 
@@ -393,7 +393,7 @@ module.exports = class extends DnnGeneratorBase {
     } else if (spaType === "VueJS") {
       this.fs.copyTpl(
         this.templatePath(spaPath + 'Module.csproj'),
-        this.destinationPath(moduleName + '/' + moduleName + '.csproj'),
+        this.destinationPath(moduleName + '/' + fullNamespace + '.csproj'),
         template
       );
 
@@ -545,7 +545,7 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath(spaPath + '/Module.csproj'),
-        this.destinationPath(moduleName + '/' + moduleName + '.csproj'),
+        this.destinationPath(moduleName + '/' + fullNamespace + '.csproj'),
         template
       );
 
@@ -629,7 +629,9 @@ module.exports = class extends DnnGeneratorBase {
 
   install() {
     this._writeSolution();
-    this._restoreSolution()
+    this._restoreSolution();
+    this._addProjectToSolution();
+    this._installDependencies();
   }
 
   end() {

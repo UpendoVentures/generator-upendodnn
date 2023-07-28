@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Item } from '../interfaces/Item';
 import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
-import { NewItem } from '../interfaces/newItem';
+import { NewItem } from '../interfaces/NewItem';
 
 
 @Injectable({
