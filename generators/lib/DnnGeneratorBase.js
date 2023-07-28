@@ -76,16 +76,16 @@ module.exports = class DnnGeneratorBase extends Generator {
         this.props.extensionName = this.props.moduleName;
       }
       this.destinationRoot();
-      var path = this.destinationPath(this.props.extensionName);      console.log("Installing npm dependencies in " + path);
+      var path = this.destinationPath(this.props.extensionName);      
+      console.log("Installing npm dependencies in " + path);
       if (hasYarn) {
         this.spawnCommandSync('yarn', ['install'], { cwd: path })
       } else {
         this.spawnCommandSync('npm', ['install'], { cwd: path })
       }
-      this.log(chalk.white('Installed Webforms Module npm Dependencies.'));
+      this.log(chalk.white('Installed npm Dependencies.'));
     }
   }
-
 
   _restoreSolution() {
     this.log(chalk.white('Running dotnet restore.'));
