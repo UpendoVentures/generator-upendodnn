@@ -7,7 +7,7 @@ var <%= moduleName %>Settings = <%= moduleName %>Settings || {};
     var parentSelector = "[id='" + root + "']";
     // Setup your settings service endpoint
     var service = {
-        baseUrl: "DesktopModules/<%= moduleName %>/API/",
+        baseUrl: "/DesktopModules/<%= moduleName %>/API/",
         framework: $.ServicesFramework(moduleId),
         controller: "Settings"
     }

@@ -6,7 +6,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
     // create the service object for this module
     var svc = {
         moduleid: moduleid,
-        baseUrl: "DesktopModules/<%= moduleName %>/API/",
+        baseUrl: "/DesktopModules/<%= moduleName %>/API/",
         framework: $.ServicesFramework(moduleid)
     };
 
