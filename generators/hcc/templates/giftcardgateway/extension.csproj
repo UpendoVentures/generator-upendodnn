@@ -90,8 +90,8 @@
     <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\GiftCardGateways\<%= extensionName %>\Edit.ascx.designer.cs">
       <DependentUpon>Edit.ascx</DependentUpon>
     </Compile>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\GiftCardGateways\<%= extensionName %>\<%= extensionName %>_GiftCardGateway.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\GiftCardGateways\<%= extensionName %>\<%= extensionName %>_GiftCardGatewaySettings.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\GiftCardGateways\<%= extensionName %>\<%= extensionName %>.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\GiftCardGateways\<%= extensionName %>\<%= extensionName %>Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
