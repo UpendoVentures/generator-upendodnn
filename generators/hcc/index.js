@@ -249,13 +249,13 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/MyTestGateway.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/' + extensionName+'_GiftCardGateway.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/' + extensionName+'.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/MyTestGatewaySettings.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/' + extensionName+'_GiftCardGatewaySettings.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/' + extensionName+'Settings.cs'),
         template
       );
 
@@ -307,33 +307,33 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/MyCustomWorkflowFactory.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + '_CustomWorkflowFactory.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + 'CustomWorkflowFactory.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/MyPaymentMethod.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + '_PaymentMethod.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + 'PaymentMethod.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/MyPaymentMethodCheckoutController.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + '_PaymentMethodCheckoutController.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + 'PaymentMethodCheckoutController.cs'),
         template
       );
 
       
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/MyPaymentMethodSettings.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + '_PaymentMethodSettings.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + 'PaymentMethodSettings.cs'),
         template
       );
 
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/StartMyPaymentMethodCheckout.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/Start_' + extensionName + '_PaymentMethodCheckout.cs'),
+        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/Start' + extensionName + 'PaymentMethodCheckout.cs'),
         template
       );
 
@@ -421,31 +421,31 @@ module.exports = class extends DnnGeneratorBase {
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProvider.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'_TaxProvider.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProviderGateway.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'_TaxProviderGateway.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'Gateway.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProviderLineResult.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'_TaxProviderLineResult.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'LineResult.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProviderResult.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'_TaxProviderResult.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'Result.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProviderSettings.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'_TaxProviderSettings.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'Settings.cs'),
           template
         );
 
@@ -496,13 +496,13 @@ module.exports = class extends DnnGeneratorBase {
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/MyTestGateway.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/' + extensionName+'_CreditCardGateway.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/' + extensionName+'.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/MyTestGatewaySettings.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/' + extensionName+'_CreditCardGatewaySettings.cs'),
+          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/' + extensionName+'Settings.cs'),
           template
         );
 

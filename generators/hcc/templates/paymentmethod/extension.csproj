@@ -102,11 +102,11 @@
     <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\Edit.ascx.designer.cs">
       <DependentUpon>Edit.ascx</DependentUpon>
     </Compile>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\<%= extensionName %>_CustomWorkflowFactory.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\<%= extensionName %>_PaymentMethod.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\Start_<%= extensionName %>_PaymentMethodCheckout.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\<%= extensionName %>_PaymentMethodSettings.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\<%= extensionName %>_PaymentMethodCheckoutController.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\<%= extensionName %>CustomWorkflowFactory.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\<%= extensionName %>PaymentMethod.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\Start<%= extensionName %>PaymentMethodCheckout.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\<%= extensionName %>PaymentMethodSettings.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\<%= extensionName %>PaymentMethodCheckoutController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

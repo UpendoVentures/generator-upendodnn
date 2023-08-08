@@ -92,8 +92,8 @@
     <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= extensionName %>\Edit.ascx.designer.cs">
       <DependentUpon>Edit.ascx</DependentUpon>
     </Compile>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= extensionName %>\<%= extensionName %>_CreditCardGateway.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= extensionName %>\<%= extensionName %>_CreditCardGatewaySettings.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= extensionName %>\<%= extensionName %>.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= extensionName %>\<%= extensionName %>Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
