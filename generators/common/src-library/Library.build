@@ -2,7 +2,7 @@
   <PropertyGroup>
     <ModulePath><%= extensionName %></ModulePath>
     <DNNFileName><%= extensionName %></DNNFileName>
-    <PackageName><%= namespace %>.<%= extensionName %></PackageName>
+    <PackageName><%= fullNamespace %></PackageName>
     <Extension>zip</Extension>
     <BuildScriptsPath>$(MSBuildProjectDirectory)\..\..\Build</BuildScriptsPath>
     <WebsitePath>$(MSBuildProjectDirectory)\..\..\Website</WebsitePath>
@@ -10,6 +10,8 @@
     <FullModulePath>$(WebsitePath)\Bin</FullModulePath>
   </PropertyGroup>
   <Import Project="$(BuildScriptsPath)\LibraryPackage.Targets" />
+  <Target Name="BeforeBuild" DependsOnTargets="SetVersion">
+  </Target>
   <Target Name="AfterBuild" DependsOnTargets="CopyBin;GetFiles;PackageModule">
   </Target>
   <Target Name="GetFiles">

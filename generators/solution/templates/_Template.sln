@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Files", "Build Files", "{F84D698C-3163-472D-95E9-EC36712D597B}"
 	ProjectSection(SolutionItems) = preProject
 		Build\HccViewsetPackage.targets = Build\HccViewsetPackage.targets
+		Build\Helpers.targets = Build\Helpers.targets
 		Build\LibraryPackage.targets = Build\LibraryPackage.targets
 		Build\ModulePackage.targets = Build\ModulePackage.targets
 		Build\SkinPackage.targets = Build\SkinPackage.targets
@@ -24,6 +25,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{1F828F98-2015-4EAD-8296-EABDD9EA4880}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{70FB7EDF-2E12-405F-B9CD-8A437E96FB11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{0704E87E-126F-42C6-A0B0-35DF812AAC2E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Skin Objects", "Skin Objects", "{7722B241-C88C-4BBA-973F-32D755BE9C08}"
 EndProject

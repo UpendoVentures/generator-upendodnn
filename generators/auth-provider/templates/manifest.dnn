@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dotnetnuke type="Package" version="6.0">
   <packages>
-    <package name="<%= fullNamespace %>" type="Auth_System" version="01.00.00">
+    <package name="<%= fullNamespace %>" type="Auth_System" version="<%= version %>">
       <friendlyName><%= extensionName %></friendlyName>
       <description>
         <![CDATA[<p><%= description %></p>]]>
@@ -35,7 +35,7 @@
             <assembly>
               <name><%= fullNamespace %>.dll</name>
               <path>bin</path>
-              <version>01.00.00</version>
+              <version><%= version %></version>
             </assembly>
           </assemblies>
         </component>

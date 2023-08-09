@@ -81,20 +81,32 @@
               </moduleDefinition>
             </moduleDefinitions>
           </desktopModule>
+          <eventMessage>
+            <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
+            <processorCommand>UpgradeModule</processorCommand>
+            <attributes>
+              <businessControllerClass><%= fullNamespace %>.Components.FeatureController, <%= fullNamespace %></businessControllerClass>
+              <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
+              <upgradeVersionsList><%= version %></upgradeVersionsList>
+            </attributes>
+          </eventMessage>
         </component>
         <component type="Assembly">
           <assemblies>
             <assembly>
               <name><%= fullNamespace %>.dll</name>
               <path>bin</path>
+              <version><%= version %></version>
             </assembly>
             <assembly>
               <name>EntityFramework.dll</name>
               <path>bin</path>
+              <version>6.0.20911.0</version>
             </assembly>
             <assembly>
               <name>EntityFramework.SqlServer.dll</name>
               <path>bin</path>
+              <version>6.0.20911.0</version>
             </assembly>
           </assemblies>
         </component>
