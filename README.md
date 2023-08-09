@@ -15,9 +15,13 @@ This solution is created and maintained by [Upendo Ventures](https://upendoventu
 
 ## 1. Installation  
 
-First, install [Yeoman](http://yeoman.io) and generator-upendodnn using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).  
+First, install [Node.js](https://nodejs.org/en).  
 
-Warning: You may need to [add the user path to your Environmental Variables](https://superuser.com/questions/949560/how-do-i-set-system-environment-variables-in-windows-10).  Here is an example from Windows 10 (you'd replace your username):
+Now, install [npm](https://www.npmjs.com/).  
+
+[Yeoman](http://yeoman.io) and generator-upendodnn using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).  
+
+> Warning: You may need to [add the user path to your Environmental Variables](https://superuser.com/questions/949560/how-do-i-set-system-environment-variables-in-windows-10).  Here is an example from Windows 10 (you'd replace your username):
 
 `C:\Users\yourUsername\AppData\Roaming\npm`  
 
@@ -39,31 +43,51 @@ You also need to install the latest version of MSBuild if you don't already have
 
 ### 1. b. Finish Installing by Command Line  
 
-Now, simply run the following commands:
+The commands below will install the final bits.  
+
+1. Install Yeoman:  
 
 ```bash  
 npm install -g yo  
 ```  
+
+2. Install Yarn:  
+
 ```bash  
 npm install -g yarn  
 ```  
+
+3. Install the generator:  
+
 ```bash  
 npm install -g generator-upendodnn  
 ```  
 
 ## 2. Using UpendoDNN Generator  
 
-Now you can generate your new project:  
+Now, you're ready to sprint through your DNN projects! 
+
+Here are the steps to generate your new project... **4 easy steps!**  
+
+1. Create a folder for it:  
 
 ```bash
 mkdir my-project-name  
 ```  
+
+2. Go into that folder.  
+
 ```bash  
 cd my-project-name  
 ```  
+
+3. Choose the project to install.  
+
 ```bash  
 yo upendodnn  
 ```  
+
+4. Open the solution in Visual Studio, and have fun writing code!  
 
 ### IMPORTANT!  
 
@@ -71,11 +95,7 @@ You need to first create the `Solution Structure` if you haven't yet done so in 
 
 [More verbose instructions on how to use this.](http://www.dnnsoftware.com/community-blog/cid/155574/create-a-dnn-module-in-less-than-2-minutes)  
  
-## Video Overview
-
-* [DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN](https://www.youtube.com/watch?v=ZD1p5DDlY2E)  
-
-# First-Timers: How to Use  
+## First-Timers: How to Use (verbose)  
 
 First, install the generator using the steps above.  
 
@@ -91,12 +111,13 @@ Say hi to Will at [DNN Summit](https://www.dnnsummit.org/) and [DNN-Connect](htt
 
 [Awesome Sponsors Accepted Here](https://github.com/sponsors/UpendoVentures)  
 
+## Video Overview
+
+* [DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN](https://www.youtube.com/watch?v=ZD1p5DDlY2E)  
+
 ## Additional Features  
 
-### Force Overriding of Casing using `-f` Switch  
-By default, the namespace and extension names will be cased using Pascal-casing rules. If you'd like to override this behavior, you can add a `-f` parameter to the name.  
-
-For example, if your company name is `abcCompany`, the default behavior will change the name to `AbcCompany`.  In most cases, this would be the intended behavior. If you enter `abcCompany -f`, the namespace or extension name will honor the casing as-is.  
+Additional features for end-users will continue to be added in [this project's wiki](https://github.com/UpendoVentures/generator-upendodnn/wiki/Additional-Features).
 
 ## More Documentation  
 
