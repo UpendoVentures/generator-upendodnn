@@ -6,26 +6,33 @@ The 25-minute video below will walk you through everything you need to know.  (r
 
 [![DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN](http://img.youtube.com/vi/ZD1p5DDlY2E/0.jpg)](http://www.youtube.com/watch?v=ZD1p5DDlY2E "DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN")  
 
-## var Sponsors == (typeOf superHuman)Awesome;  
+<hr />  
+
+## `Sponsors == (typeOf superHuman) Awesome;`  
 
 > Yes, it's not real code. It's just supposed to be fun. :P
 
 This solution is created and maintained by [Upendo Ventures](https://upendoventures.com/What/CMS/DNN/Extensions) for the [DNN CMS Community](https://dnncommunity.org). Please consider [sponsoring us](https://github.com/sponsors/UpendoVentures) for this and the many other open-source efforts we do.  It's a lot.  :)  
 
+- [Sponsor Us](https://github.com/sponsors/UpendoVentures) (we're grateful at any level)  
 
-## 1. Installation  
+<hr />  
 
-First, install [Node.js](https://nodejs.org/en).  
+## Installation  
 
-Now, install [npm](https://www.npmjs.com/).  
+### 1. Manual Software Installation  
 
-[Yeoman](http://yeoman.io) and generator-upendodnn using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).  
+This generator is dependent on the following popular frameworks, and needs them to be installed for you to use this generator. You probabably already have them installed. 
 
-> Warning: You may need to [add the user path to your Environmental Variables](https://superuser.com/questions/949560/how-do-i-set-system-environment-variables-in-windows-10).  Here is an example from Windows 10 (you'd replace your username):
+First, install/upgrade [Node.js](https://nodejs.org/en) to the **most current version**.  
 
-`C:\Users\yourUsername\AppData\Roaming\npm`  
+Now, install/upgrade [npm](https://www.npmjs.com/) to the **most current version**.  
 
-### 1. a. Dependency: MSBuild  
+> Warning: You may need to [add the user path to your Environmental Variables](https://superuser.com/questions/949560/how-do-i-set-system-environment-variables-in-windows-10).  Here is an example from Windows 10 (you'd replace `yourUsername`, obviously):
+> 
+> `C:\Users\yourUsername\AppData\Roaming\npm`  
+
+### 2. Dependency: MSBuild (optional?)  
 
 You also need to install the latest version of MSBuild if you don't already have it installed.
 
@@ -41,7 +48,7 @@ You also need to install the latest version of MSBuild if you don't already have
 
 </details>  
 
-### 1. b. Finish Installing by Command Line  
+### 3. Finish Installing by Command Line  
 
 The commands below will install the final bits.  
 
@@ -63,7 +70,7 @@ npm install -g yarn
 npm install -g generator-upendodnn  
 ```  
 
-## 2. Using UpendoDNN Generator  
+## Using UpendoDNN Generator  
 
 Now, you're ready to sprint through your DNN projects! 
 
