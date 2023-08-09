@@ -55,7 +55,7 @@ module.exports = class extends DnnGeneratorBase {
         when: !this.options.type,
         type: 'input',
         name: 'type',
-        message: 'Enter your authentication provider name type (e.g., DNN)?',
+        message: 'Enter your authentication provider name type (e.g., MyCompany)?', 
         validate: str => {
           return str.length > 0;
         }
