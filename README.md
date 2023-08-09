@@ -1,4 +1,6 @@
-# generator-upendodnn [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/UpendoVentures/generator-upendodnn)  
+# generator-upendodnn  
+
+[![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url]  ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/UpendoVentures/generator-upendodnn)  
 
 > Scaffolds DNN extensions, including Modules (Webforms, SPA, and MVC), Persona Bar, Skin Object, Library, Scheduler, and Hotcakes Commerce projects (based on [generator-dnn](https://github.com/mtrutledge/generator-dnn) built by Matt Rutledge).  
 
