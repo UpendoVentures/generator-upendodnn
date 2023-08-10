@@ -145,7 +145,6 @@ module.exports = class extends DnnGeneratorBase {
   }
 
   install() { 
-    this._defaultInstall();
     this._addProjectToSolution();
   }
 

@@ -93,9 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="<%= moduleName %>.dnn" />
-    <Content Include="Module.build">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="<%= moduleName %>_Symbols.dnn">
       <SubType>Designer</SubType>
     </Content>
