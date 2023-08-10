@@ -1,3 +1,27 @@
+Hello, fellow DNN'er!  
+
+This solution was built using the [Upendo DNN Generator](https://github.com/UpendoVentures/generator-upendodnn#readme).  Anything you need to know about using this tool can be found there.  
+
+However, the rest of the `README` below is quite detailed in explaining how this solution is expected to work.  Have fun writing code!  
+
+<hr />  
+
+## `Sponsors == (typeOf superHuman) Awesome;`  
+
+> Yes, it's not real code. It's just supposed to be fun. :P
+
+The tool that generated this solution is created and maintained by [Upendo Ventures](https://upendoventures.com/What/CMS/DNN) for the [DNN CMS Community](https://dnncommunity.org). Please consider [sponsoring us](https://github.com/sponsors/UpendoVentures) for this and [the many other open-source efforts we do](https://upendoventures.com/What/CMS/DNN/Extensions).  It's a lot.  ;)  
+
+- [Sponsor Us](https://github.com/sponsors/UpendoVentures) (we're grateful at any level 🙏🏽)  
+
+<hr />  
+
+# Developers Only 🤓  
+
+If you're not a developer, the rest of this README is not going to interest you. 😉  
+
+<hr />  
+
 **A Special Note to ALL Developers...**  
 Please do not begin any development until you first read through and understand all of the notes in the README below.  
 
