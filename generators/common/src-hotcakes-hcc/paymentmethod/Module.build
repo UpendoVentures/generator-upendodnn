@@ -7,9 +7,9 @@
     <BuildScriptsPath>$(MSBuildProjectDirectory)\..\..\Build</BuildScriptsPath>
     <WebsitePath>$(MSBuildProjectDirectory)\..\..\Website</WebsitePath>
     <WebsiteInstallPath>$(WebsitePath)\Install\Module</WebsiteInstallPath>
-     <FullModulePath>$(WebsitePath)\DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\$(DNNFileName)</FullModulePath>
+    <FullModulePath>$(WebsitePath)\DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\$(DNNFileName)</FullModulePath>
     <ModulePathFiles>$(MSBuildProjectDirectory)\DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\$(DNNFileName)</ModulePathFiles>
-    <FullModulePortalPath>$(WebsitePath)\Portals\_default\HotcakesViews\_default\Views\$(ModulePath)</FullModulePortalPath>
+    <FullModulePortalPath>$(WebsitePath)\Portals\</FullModulePortalPath>
   </PropertyGroup>
   <Import Project="$(BuildScriptsPath)\ModulePackage.Targets" />
   <Target Name="BeforeBuild" DependsOnTargets="SetVersion">
