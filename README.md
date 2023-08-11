@@ -26,9 +26,9 @@ This solution is created and maintained by [Upendo Ventures](https://upendoventu
 
 This generator is dependent on the following popular frameworks, and needs them to be installed for you to use this generator. You probabably already have them installed. 
 
-First, install/upgrade [Node.js](https://nodejs.org/en) to the **most current version**.  
+First, install/upgrade [Node.js](https://nodejs.org/en)  and `npm` to the **most current version**.  
 
-Now, install/upgrade [npm](https://www.npmjs.com/) to the **most current version**.  
+- [How to Install Node.js & npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)  
 
 > Warning: You may need to [add the user path to your Environmental Variables](https://superuser.com/questions/949560/how-do-i-set-system-environment-variables-in-windows-10).  Here is an example from Windows 10 (you'd replace `yourUsername`, obviously):
 > 
