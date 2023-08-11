@@ -18,7 +18,7 @@
       <azureCompatible>True</azureCompatible>
       <dependencies>
         <dependency type="CoreVersion">09.08.00</dependency>
-        <dependency type="managedPackage" version="3.6.0">Hotcakes.Commerce</dependency>
+        <dependency type="managedPackage" version="3.6.0">Hotcakes.Core</dependency>
       </dependencies>
       <components>
       
