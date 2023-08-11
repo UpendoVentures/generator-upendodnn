@@ -28,7 +28,7 @@ This generator is dependent on the following popular frameworks, and needs them 
 
 First, install/upgrade [Node.js](https://nodejs.org/en)  and `npm` to the **most current version**.  
 
-- [How to Install Node.js & npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)  
+- [Use a Node Version Manager to Install Node.js & npm]([https://docs.npmjs.com/downloading-and-installing-node-js-and-npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm))  
 
 > Warning: You may need to [add the user path to your Environmental Variables](https://superuser.com/questions/949560/how-do-i-set-system-environment-variables-in-windows-10).  Here is an example from Windows 10 (you'd replace `yourUsername`, obviously):
 > 
@@ -44,6 +44,9 @@ You also need to install the latest version of MSBuild if you don't already have
   <summary>Do You Need to Install MSBuild Manually?</summary> 
   
   ### MSBuild Download Locations  
+  * [Latest Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/)  
+    * Scroll down to find "Tools for Visual Studio" and expand it. 
+    * You'll see a download button for "Build Tools for Visual Studio 2022".  
   * [Build tools for Visual Studio 2017](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2017)  
   * [Build tools for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48159)  
   * [Build tools for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=40760)  
