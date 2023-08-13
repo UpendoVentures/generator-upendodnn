@@ -218,7 +218,10 @@ module.exports = class DnnGeneratorBase extends Generator {
     var msBuildVersion = "";
 
     try {
-      // TODO: Remove the ones that don't matter
+      if (fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\MSBuild\\Microsoft\\VisualStudio\\v17.0\\WebApplications\\Microsoft.WebApplication.targets")) {
+        msBuildVersion = "17"; // VS 2022
+      }
+      
       if (fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications\\Microsoft.WebApplication.targets") ||
         fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications\\Microsoft.WebApplication.targets") ||
         fs.existsSync("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Microsoft\\VisualStudio\\v16.0\\WebApplications\\Microsoft.WebApplication.targets") ||
