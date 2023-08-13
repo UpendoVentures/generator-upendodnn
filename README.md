@@ -123,6 +123,26 @@ Say hi to Will at [DNN Summit](https://www.dnnsummit.org/) and [DNN-Connect](htt
 
 [Awesome Sponsors Accepted Here](https://github.com/sponsors/UpendoVentures)  
 
+## Upgrading  
+
+In many cases, you may be able to simply re-execute the following command to upgrade upendodnn generator.  
+
+```bash  
+npm install -g generator-upendodnn  
+```  
+
+However, upgrading your existing projects may or may not be more involved.  If you want to take advantage of the build process updates, you will at least need to update the build files.  
+
+The steps below will help you upgrade the build process in your development environment successfully.  
+
+1. In a new (empty) folder, run `yo upendodnn`.  
+2. Choose the `Solution Structure`.  
+3. Copy the files from both the `Build` and `References` folders.  
+4. Paste the files into their respective matching folders in your project.  Overwrite all.  
+5. In any release, if there were any updates to the project file(s) and/or `.build` file(s), you'll want to return to the new "copy/paste" folder you just created.  
+6. Use the upendodnn generator to install each respective extension.  
+7. Use a compare/diff tool, like [WinMerge](), to compare the files and determine which updates you want to merge into your existing development environment.  
+
 ## Video Overview
 
 * [DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN](https://www.youtube.com/watch?v=ZD1p5DDlY2E)  
