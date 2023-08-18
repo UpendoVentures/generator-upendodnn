@@ -24,13 +24,13 @@
             <basePath>DesktopModules\<%= moduleName %></basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>00.00.01.SqlDataProvider</name>
-              <version>00.00.01</version>
+              <name><%= version %>.SqlDataProvider</name>
+              <version><%= version %></version>
             </script>
             <script type="UnInstall">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>Uninstall.SqlDataProvider</name>
-              <version>00.00.01</version>
+              <version><%= version %></version>
             </script>
           </scripts>
         </component>
@@ -81,7 +81,7 @@
             <attributes>
               <businessControllerClass><%= fullNamespace %>.Components.FeatureController, <%= fullNamespace %></businessControllerClass>
               <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
-              <upgradeVersionsList>01.00.00</upgradeVersionsList>
+              <upgradeVersionsList><%= version %></upgradeVersionsList>
             </attributes>
           </eventMessage>
         </component>
@@ -91,14 +91,17 @@
             <assembly>
               <name><%= fullNamespace %>.dll</name>
               <path>bin</path>
+              <version><%= version %></version>
             </assembly>
             <assembly>
               <name>EntityFramework.dll</name>
               <path>bin</path>
+              <version>6.0.20911.0</version>
             </assembly>
             <assembly>
               <name>EntityFramework.SqlServer.dll</name>
               <path>bin</path>
+              <version>6.0.20911.0</version>
             </assembly>
           </assemblies>
         </component>

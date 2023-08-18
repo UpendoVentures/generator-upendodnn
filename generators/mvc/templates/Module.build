@@ -2,7 +2,7 @@
   <PropertyGroup>
     <ModulePath><%= fullNamespace %></ModulePath>
     <DNNFileName><%= extensionName %></DNNFileName>
-    <PackageName><%= namespace %>.<%= extensionName %></PackageName>
+    <PackageName><%= fullNamespace %></PackageName>
     <Extension>zip</Extension>
     <BuildScriptsPath>$(MSBuildProjectDirectory)\..\..\Build</BuildScriptsPath>
     <WebsitePath>$(MSBuildProjectDirectory)\..\..\Website</WebsitePath>
@@ -10,6 +10,8 @@
     <FullModulePath>$(WebsitePath)\DesktopModules\MVC\$(ModulePath)</FullModulePath>
   </PropertyGroup>
   <Import Project="$(BuildScriptsPath)\ModulePackage.Targets" />
+  <Target Name="BeforeBuild" DependsOnTargets="SetVersion">
+  </Target>
   <Target Name="AfterBuild" DependsOnTargets="CopyBin;GetFiles;DebugProject;PackageModule">
   </Target>
   <Target Name="GetFiles">

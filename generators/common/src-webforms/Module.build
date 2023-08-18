@@ -1,8 +1,8 @@
-﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ModulePath><%= extensionName %></ModulePath>
     <DNNFileName><%= extensionName %></DNNFileName>
-    <PackageName><%= namespace %>.<%= extensionName %></PackageName>
+    <PackageName><%= fullNamespace %></PackageName>
     <Extension>zip</Extension>
     <BuildScriptsPath>$(MSBuildProjectDirectory)\..\..\Build</BuildScriptsPath>
     <WebsitePath>$(MSBuildProjectDirectory)\..\..\Website</WebsitePath>
@@ -10,6 +10,8 @@
     <FullModulePath>$(WebsitePath)\DesktopModules\$(ModulePath)</FullModulePath>
   </PropertyGroup>
   <Import Project="$(BuildScriptsPath)\ModulePackage.Targets" />
+  <Target Name="BeforeBuild" DependsOnTargets="SetVersion">
+  </Target>
   <Target Name="AfterBuild" DependsOnTargets="CopyBin;GetFiles;DebugProject;PackageModule">
   </Target>
   <Target Name="GetFiles">
