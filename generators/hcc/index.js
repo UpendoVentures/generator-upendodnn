@@ -18,11 +18,7 @@ module.exports = class extends DnnGeneratorBase {
           { name: 'Gift Card Gateway', value: 'giftcardgateway' },
           { name: 'Payment Method', value: 'paymentmethod' },
           { name: 'Tax Provider', value: 'taxprovider' },
-          {
-            name: chalk.gray('Viewset'),
-            value: 'viewset',
-            disabled: chalk.gray('Coming Soon')
-          }
+          { name: 'Viewset', value: 'viewset' },          
         ]
       },
       {
@@ -511,6 +507,39 @@ module.exports = class extends DnnGeneratorBase {
           this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/App_LocalResources/' + 'Edit.ascx.resx'),
           template
         );
+    }
+     // used by viewset
+    if (hccType == "viewset") {
+
+      this.fs.copyTpl(
+        this.templatePath('../../common/src-hotcakes-hcc/viewset/Module.build'),
+        this.destinationPath(extensionName + '/Module.build'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('../../common/src-hotcakes-hcc/Properties/AssemblyInfo.cs'),
+        this.destinationPath(extensionName + '/Properties/AssemblyInfo.cs'),
+        template
+      );
+
+      this.fs.copyTpl(
+        this.templatePath(hccType + '/packages.config'),
+        this.destinationPath(extensionName + '/packages.config'),
+        template
+      );
+      this.fs.copyTpl(
+        this.templatePath(hccType + "/Controllers/MyCustomViewController.cs"),
+        this.destinationPath(extensionName + '/Controllers/MyCustomViewController.cs'), template
+      );
+      this.fs.copyTpl(
+        this.templatePath(hccType + "/Models/MyCustomViewModel.cs"),
+        this.destinationPath(extensionName + '/Models/MyCustomViewModel.cs'), template
+      );
+      this.fs.copyTpl(
+        this.templatePath(hccType + "/Portals/**/*.*"),
+        this.destinationPath(extensionName + '/Portals'), template
+      );
     }
   }
 
