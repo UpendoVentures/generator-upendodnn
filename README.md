@@ -20,6 +20,24 @@ This solution is created and maintained by [Upendo Ventures](https://upendoventu
 
 <hr />  
 
+# UpendoDNN Generator  
+
+**Table of Contents**
+
+- [Installation](#installation)  
+    - [Dependency: MSBuild (optional step?)](#2-dependency-msbuild-optional)  
+    - [Finish Installing by Command Line](#3-finish-installing-by-command-line)  
+- [Using UpendoDNN Generator](#using-upendodnn-generator)  
+    - [First-Timers: How to Use (verbose)](#first-timers-how-to-use-verbose)  
+- [Upgrading](#upgrading)  
+- [Video Overview](#video-overview)  
+- [Additional Features](#additional-features)  
+- [More Documentation](#more-documentation)  
+- [Original Project](#original-project)  
+- [License](#license)  
+
+<hr />  
+
 ## Installation  
 
 ### 1. Manual Software Installation  
@@ -34,7 +52,7 @@ First, install/upgrade [Node.js](https://nodejs.org/en)  and `npm` to the **most
 > 
 > `C:\Users\yourUsername\AppData\Roaming\npm`  
 
-### 2. Dependency: MSBuild (optional?)  
+### 2. Dependency: MSBuild (optional step?)  
 
 You also need to install the latest version of MSBuild if you don't already have it installed.
 
