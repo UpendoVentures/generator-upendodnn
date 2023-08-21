@@ -163,7 +163,7 @@ The steps below will help you upgrade the build process in your development envi
 
 ## Video Overview
 
-* [DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN](https://www.youtube.com/watch?v=ZD1p5DDlY2E)  
+* [DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN](https://www.youtube.com/watch?v=GGyDvJkSEzk)  
 
 ## Additional Features  
 
