@@ -6,7 +6,7 @@
 
 The 25-minute video below will walk you through everything you need to know.  (right-click and open in a new tab)
 
-[![DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN](http://img.youtube.com/vi/ZD1p5DDlY2E/0.jpg)](http://www.youtube.com/watch?v=ZD1p5DDlY2E "DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN")  
+[![DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN](http://img.youtube.com/vi/ZD1p5DDlY2E/0.jpg)](https://www.youtube.com/watch?v=GGyDvJkSEzk "DNN: Building Enterprise & Team Friendly Solutions & Extensions with UpendoDNN")  
 
 <hr />  
 
