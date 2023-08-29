@@ -110,9 +110,9 @@ module.exports = class extends Generator {
         }
       },
       {
-        when: !this.options.emailAddy,
+        when: !this.options.emailAddress,
         type: 'input',
-        name: 'emailAddy',
+        name: 'emailAddress',
         message: 'Your e-mail address:',
         store: true,
         validate: str => {
@@ -133,7 +133,7 @@ module.exports = class extends Generator {
       ownerName: this.props.ownerName,
       companyName: this.props.companyName,
       companyUrl: this.props.companyUrl,
-      emailAddy: this.props.emailAddy
+      emailAddress: this.props.emailAddress
     };
 
     this.composeWith(require.resolve('../' + this.props.projType), options);

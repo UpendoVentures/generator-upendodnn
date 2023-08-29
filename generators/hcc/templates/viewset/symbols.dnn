@@ -8,7 +8,7 @@
         <name><%= ownerName %></name>
         <organization><%= companyName %></organization>
         <url><%= companyUrl %></url>
-        <email><%= emailAddy %></email>
+        <email><%= emailAddress %></email>
       </owner>
       <license src="License.txt" />
       <releaseNotes src="ReleaseNotes.txt" />

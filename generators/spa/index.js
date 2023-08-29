@@ -115,7 +115,7 @@ module.exports = class extends DnnGeneratorBase {
       moduleFriendlyName: this.props.name,
       description: this.props.description,
       companyUrl: this.options.companyUrl,
-      emailAddy: this.options.emailAddy,
+      emailAddress: this.options.emailAddress,
       currentYear: currentDate.getFullYear(),
       version: '01.00.00',
       menuLinkName: this.props.menuLinkName, /* NOT USED */

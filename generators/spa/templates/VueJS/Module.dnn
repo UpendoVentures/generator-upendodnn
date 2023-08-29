@@ -10,7 +10,7 @@
         <name><%= ownerName %></name>
         <organization><%= companyName %></organization>
         <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
-        <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
+        <email><![CDATA[<a href="mailto:<%= emailAddress %>" target="_blank"><%= emailAddress %></a>]]></email>
       </owner>
       <license src="License.txt"></license>
       <releaseNotes src="ReleaseNotes.txt"></releaseNotes>

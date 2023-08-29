@@ -1,7 +1,7 @@
 <h3><%= moduleName %></h3>
 <p class="Contributor">
 	<%= companyName %> <br />
-	<a href="mailto:<%= emailAddy %>"><%= emailAddy %></a>
+	<a href="mailto:<%= emailAddress %>"><%= emailAddress %></a>
 </p>
 <hr/>
 <div class="License">

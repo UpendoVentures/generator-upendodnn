@@ -9,7 +9,7 @@
         <name><%= namespace %></name>
         <organization><%= companyName %></organization>
         <url><%= companyUrl %></url>
-        <email><![CDATA[<a href="mailto:<%= emailAddy %>"><%= emailAddy %></a>]]></email>
+        <email><![CDATA[<a href="mailto:<%= emailAddress %>"><%= emailAddress %></a>]]></email>
       </owner>
       <license src="License.txt">
       </license>

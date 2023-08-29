@@ -14,7 +14,7 @@
       "name": "<%= ownerName %>",
       "organization": "<%= companyName %>",
       "url": "<%= companyUrl %>",
-      "email": "<%= emailAddy %>"
+      "email": "<%= emailAddress %>"
     },
     "module": {
       "packageName": "<%= namespace %>_<%= moduleName %>",

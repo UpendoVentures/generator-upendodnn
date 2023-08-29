@@ -62,7 +62,7 @@ module.exports = class extends DnnGeneratorBase {
       moduleFriendlyName: this.props.name,
       description: this.props.description,
       companyUrl: this.options.companyUrl,
-      emailAddy: this.options.emailAddy,
+      emailAddress: this.options.emailAddress,
       currentYear: currentDate.getFullYear(), /* NOT USED */
       version: '1.0.0',
       menuLinkName: this.props.menuLinkName, /* NOT USED */
@@ -154,7 +154,7 @@ module.exports = class extends DnnGeneratorBase {
         moduleFriendlyName: this.props.name,
         description: this.props.description,
         companyUrl: this.props.companyUrl,
-        emailAddy: this.props.emailAddy
+        emailAddress: this.props.emailAddress
       }
     );
 
