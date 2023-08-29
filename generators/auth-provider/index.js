@@ -52,10 +52,10 @@ module.exports = class extends DnnGeneratorBase {
         }
       },
       {
-        when: !this.options.type,
+        when: !this.options.authTypeName,
         type: 'input',
-        name: 'type',
-        message: 'Enter your authentication provider name type (e.g., MyCompany)?', 
+        name: 'authTypeName',
+        message: 'Enter your authentication provider name with NO SPACES (e.g., MyCompany)?', 
         validate: str => {
           return str.length > 0;
         }
@@ -112,7 +112,7 @@ module.exports = class extends DnnGeneratorBase {
       extensionName: extensionName,
       moduleFriendlyName: this.props.name, /* NOT USED */
       extensionDescription: this.props.extensionDescription,
-      type: this.props.type,
+      authTypeName: this.props.authTypeName,
       companyUrl: this.options.companyUrl,
       emailAddress: this.options.emailAddress,
       currentYear: currentDate.getFullYear(), /* NOT USED */
