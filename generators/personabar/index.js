@@ -86,6 +86,7 @@ module.exports = class extends DnnGeneratorBase {
       companyName: this.options.companyName, /* NOT USED */
       currentDate: this.props.currentDate,
       extensionType: this.props.extensionType,
+      fullNamespace: this.props.fullNamespace,
       namespace: namespace,
       moduleName: moduleName,
       moduleFriendlyName: this.props.name, /* NOT USED */
