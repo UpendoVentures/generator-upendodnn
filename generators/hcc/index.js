@@ -106,6 +106,7 @@ module.exports = class extends DnnGeneratorBase {
       extensionName: extensionName,
       extensionType: this.props.extensionType,
       moduleFriendlyName: this.props.name, /* NOT USED */
+      msBuildVersion: this.props.msBuildVersion, 
       extensionDescription: this.props.extensionDescription,
       companyUrl: this.options.companyUrl,
       emailAddress: this.options.emailAddress,
