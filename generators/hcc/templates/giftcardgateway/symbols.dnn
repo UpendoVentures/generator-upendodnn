@@ -5,7 +5,7 @@
       <friendlyName>Hotcakes Commerce <%= extensionName %>  Gift Card Gateway</friendlyName>
       <description><![CDATA[<%= description %>]]></description>
       <owner>
-        <name><%= namespace %></name>
+        <name><%= yourName %></name>
         <organization><%= namespace %></organization>
         <url><%= companyUrl %></url>
         <email><%= emailAddy %></email>
