@@ -3,7 +3,7 @@
   <packages>
     <package name="<%= fullNamespace %>" type="Library" version="01.00.00">
       <friendlyName><%= extensionName %> Library Symbols</friendlyName>
-      <description><![CDATA[<%= description %>]]></description>
+      <description><![CDATA[<%= extensionDescription %>]]></description>
       <owner>
         <name><%= ownerName %></name>
         <organization><%= companyName %></organization>

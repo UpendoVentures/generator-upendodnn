@@ -3,7 +3,7 @@
 namespace <%= fullNamespace %>
 {
 	/// <summary>
-    /// ExampleClass - <%= description %>
+    /// ExampleClass - <%= extensionDescription %>
     /// </summary>
 	public static class ExampleClass
 	{

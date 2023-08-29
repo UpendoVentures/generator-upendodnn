@@ -5,7 +5,7 @@
       <friendlyName> Hotcakes Commerce <%= extensionName %> Tax Provider</friendlyName>
       <iconFile>DesktopModules/Hotcakes/Core/Images/hcc-logo.png</iconFile>
       <description>
-        <![CDATA[<p><%= description %></p>]]>
+        <![CDATA[<p><%= extensionDescription %></p>]]>
       </description>
       <owner>
         <name><%= ownerName %></name>

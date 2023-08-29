@@ -3,7 +3,7 @@
   <packages>
     <package name="<%= fullNamespace %>" type="SkinObject" version="01.00.00">
       <friendlyName><%= extensionName %></friendlyName>
-      <description><%= description %></description>
+      <description><%= extensionDescription %></description>
       <iconFile>~/DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
       <owner>
         <name><%= ownerName %></name>

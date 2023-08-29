@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dotnetnuke type="Package" version="6.0">
   <packages>
-    <package name="<%= moduleName %>" type="Module" version="1.0.0.0">
+    <package name="<%= moduleName %>" type="Module" version="01.00.00">
       <friendlyName><%= moduleName %></friendlyName>
-      <description><%= description %></description>
+      <description><%= extensionDescription %></description>
       <iconFile>~/DesktopModules/MVC/<%= namespace %>/<%= moduleName %>/Resources/img/extension.png</iconFile>
       <owner>
         <name><%= namespace %></name>

@@ -1,7 +1,7 @@
  {
   "name":"<%= extensionName %>", 
   "version":"01.00.00", 
-  "description":"<%= description %>", 
+  "description":"<%= extensionDescription %>", 
   "dnnModule": {
     "fullName":"<%= fullNamespace %>", 
     "friendlyName":"<%= extensionName %> Extension for DNN", 

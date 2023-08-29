@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("<%= moduleName %>")]
-[assembly: AssemblyDescription("<%= description %>")]
+[assembly: AssemblyDescription("<%= extensionDescription %>")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("<%= companyName %>")]
 [assembly: AssemblyProduct("<%= moduleName %> Extension for DNN")]

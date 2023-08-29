@@ -3,7 +3,7 @@
   <packages>
     <package name="<%= fullNamespace %>" type="Module" version="<%= version %>">
       <friendlyName><%= moduleName %></friendlyName>
-      <description><![CDATA[<p><%= description %></p>]]></description>
+      <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
       <iconFile>~/DesktopModules/<%= moduleName %>/Images/logo.png</iconFile>
       <owner>
         <name><%= ownerName %></name>

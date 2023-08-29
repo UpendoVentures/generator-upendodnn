@@ -4,7 +4,7 @@
     <package name="<%= fullNamespace %>" type="Auth_System" version="<%= version %>">
       <friendlyName><%= extensionName %></friendlyName>
       <description>
-        <![CDATA[<p><%= description %></p>]]>
+        <![CDATA[<p><%= extensionDescription %></p>]]>
       </description>
       <iconFile>DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
       <owner>

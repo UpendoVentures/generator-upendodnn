@@ -3,7 +3,7 @@
   <packages>
     <package name="<%= fullNamespace %>_Symbols" type="Library" version="01.00.00">
       <friendlyName><%= extensionName %> Hotcakes Commerce Credit Card Gateways</friendlyName>
-      <description><![CDATA[<%= description %>]]></description>
+      <description><![CDATA[<%= extensionDescription %>]]></description>
       <owner>
         <name><%= ownerName %></name>
         <organization><%= companyName %></organization>

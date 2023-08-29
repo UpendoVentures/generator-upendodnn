@@ -4,9 +4,7 @@
     <package name="<%= fullNamespace %>" type="Module" version="01.00.00">
       <friendlyName> Hotcakes Commerce <%= extensionName %> Gift Card Gateway</friendlyName>
       <iconFile>DesktopModules/Hotcakes/Core/Images/hcc-logo.png</iconFile>
-      <description>
-        <![CDATA[<p><%= description %></p>]]>
-      </description>
+      <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
       <owner>
         <name><%= ownerName %></name>
         <organization><%= companyName %></organization>

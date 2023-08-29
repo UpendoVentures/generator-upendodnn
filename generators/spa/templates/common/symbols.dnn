@@ -3,7 +3,7 @@
   <packages>
     <package name="<%= fullNamespace %>_Symbols" type="Library" version="01.00.00">
       <friendlyName><%= moduleName %> Module Symbols</friendlyName>
-      <description><![CDATA[<%= description %>]]></description>
+      <description><![CDATA[<%= extensionDescription %>]]></description>
       <iconFile>~/DesktopModules/<%= moduleName %>/Images/logo.png</iconFile>
       <owner>
         <name><%= ownerName %></name>

@@ -23,9 +23,9 @@ module.exports = class extends DnnGeneratorBase {
         }
       },
       {
-        when: !this.options.description,
+        when: !this.options.extensionDescription,
         type: 'input',
-        name: 'description',
+        name: 'extensionDescription',
         message: 'Describe your module:',
         validate: str => {
           return str.length > 0;
@@ -87,7 +87,7 @@ module.exports = class extends DnnGeneratorBase {
       namespace: namespace,
       moduleName: moduleName,
       moduleFriendlyName: this.props.name, /* NOT USED */
-      description: this.props.description,
+      extensionDescription: this.props.extensionDescription,
       companyUrl: this.options.companyUrl,
       emailAddress: this.options.emailAddress,
       currentYear: currentDate.getFullYear(),

@@ -4,9 +4,7 @@
     <package name="<%= fullNamespace %>" type="Module" version="01.00.00">
       <iconFile>DesktopModules/Hotcakes/Core/Images/hcc-logo.png</iconFile>
       <friendlyName>Hotcakes Commerce <%= extensionName %>  Payment Method</friendlyName>
-      <description>
-        <![CDATA[<p><%= description %></p>]]>
-      </description>
+      <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
       <owner>
         <name><%= ownerName %></name>
         <organization><%= companyName %></organization>

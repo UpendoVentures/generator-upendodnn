@@ -3,7 +3,7 @@
   <packages>
     <package name="<%= fullNamespace %>_Symbols" type="Library" version="01.00.00">
       <friendlyName><%= extensionName %> Module Symbols</friendlyName>
-      <description><![CDATA[<p>(Symbols Package) <%= description %></p>]]></description>
+      <description><![CDATA[<p>(Symbols Package) <%= extensionDescription %></p>]]></description>
       <owner>
         <name><%= ownerName %></name>
         <organization><%= companyName %></organization>
