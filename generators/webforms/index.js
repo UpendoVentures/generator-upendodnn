@@ -37,7 +37,7 @@ module.exports = class extends DnnGeneratorBase {
         type: 'input',
         name: 'name',
         message: 'What is the name of your webforms module?',
-        default: this.appname,
+        default: this.appname, /*to-do: figure out if we want to populate and actually use this later */
         validate: str => {
           return str.length > 0;
         }
@@ -61,7 +61,7 @@ module.exports = class extends DnnGeneratorBase {
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
-      props.currentDate = new Date();
+      props.currentDate = new Date(); /* NOT USED */
       if (this.options.company.endsWith(" -f")) {
         props.namespace = this.options.company.replace(" -f", "");
       }
@@ -101,19 +101,19 @@ module.exports = class extends DnnGeneratorBase {
       company: this.options.company,
       namespace: namespace,
       extensionName: extensionName,
-      moduleFriendlyName: this.props.name,
+      moduleFriendlyName: this.props.name, /* NOT USED */
       description: this.props.description,
       companyUrl: this.options.companyUrl,
       emailAddy: this.options.emailAddy,
-      currentYear: currentDate.getFullYear(),
-      version: '1.0.0',
-      menuLinkName: this.props.menuLinkName,
-      parentMenu: this.props.parentMenu,
+      currentYear: currentDate.getFullYear(), /* NOT USED */
+      version: '1.0.0', /* NOT USED */
+      menuLinkName: this.props.menuLinkName, /* NOT USED */
+      parentMenu: this.props.parentMenu, /* NOT USED */
       extensionType: this.props.extensionType,
       fullNamespace: this.props.fullNamespace,
       guid: this.props.guid,
-      openDirective: this.props.openDirective,
-      closeDirective: this.props.closeDirective,
+      openDirective: this.props.openDirective, /* NOT USED */
+      closeDirective: this.props.closeDirective, /* NOT USED */
       objectPrefix: this.props.objectPrefix,
       msBuildVersion: this.props.msBuildVersion
     };

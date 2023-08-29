@@ -17,7 +17,7 @@ module.exports = class extends DnnGeneratorBase {
         type: 'input',
         name: 'name',
         message: 'What is the name of your MVC (.NET Core) Module?',
-        default: this.appname,
+        default: this.appname, /*to-do: figure out if we want to populate and actually use this later */
         validate: str => {
           return str.length > 0;
         }
@@ -35,7 +35,7 @@ module.exports = class extends DnnGeneratorBase {
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
-      props.currentDate = new Date();
+      props.currentDate = new Date(); /* NOT USED */
       props.namespace = this._pascalCaseName(this.options.company);
       props.moduleName = this._pascalCaseName(props.name);
       props.extensionType = "Modules";
@@ -55,7 +55,7 @@ module.exports = class extends DnnGeneratorBase {
     let currentDate = this.props.currentDate;
 
     let template = {
-      yourName: this.options.yourName,
+      yourName: this.options.yourName, /* NOT USED */
       company: this.options.company,
       namespace: namespace,
       moduleName: moduleName,
@@ -63,10 +63,10 @@ module.exports = class extends DnnGeneratorBase {
       description: this.props.description,
       companyUrl: this.options.companyUrl,
       emailAddy: this.options.emailAddy,
-      currentYear: currentDate.getFullYear(),
+      currentYear: currentDate.getFullYear(), /* NOT USED */
       version: '1.0.0',
-      menuLinkName: this.props.menuLinkName,
-      parentMenu: this.props.parentMenu
+      menuLinkName: this.props.menuLinkName, /* NOT USED */
+      parentMenu: this.props.parentMenu /* NOT USED */
     };
 
     this.fs.copyTpl(

@@ -37,7 +37,7 @@ module.exports = class extends DnnGeneratorBase {
         type: 'input',
         name: 'name',
         message: 'What is the name of your authentication provider? ',
-        default: this.appname,
+        default: this.appname, /*to-do: figure out if we want to populate and actually use this later */
         validate: str => {
           return str.length > 0;
         }
@@ -70,7 +70,7 @@ module.exports = class extends DnnGeneratorBase {
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
-      props.currentDate = new Date();
+      props.currentDate = new Date(); /* NOT USED */ 
       if (this.options.company.endsWith(" -f")) {
         props.namespace = this.options.company.replace(" -f", "");
       }
@@ -110,15 +110,15 @@ module.exports = class extends DnnGeneratorBase {
       company: this.options.company,
       namespace: namespace,
       extensionName: extensionName,
-      moduleFriendlyName: this.props.name,
+      moduleFriendlyName: this.props.name, /* NOT USED */
       description: this.props.description,
       type: this.props.type,
       companyUrl: this.options.companyUrl,
       emailAddy: this.options.emailAddy,
-      currentYear: currentDate.getFullYear(),
+      currentYear: currentDate.getFullYear(), /* NOT USED */
       version: '01.00.00',
-      menuLinkName: this.props.menuLinkName,
-      parentMenu: this.props.parentMenu,
+      menuLinkName: this.props.menuLinkName, /* NOT USED */
+      parentMenu: this.props.parentMenu, /* NOT USED */
       extensionType: this.props.extensionType,
       fullNamespace: this.props.fullNamespace,
       guid: this.props.guid,

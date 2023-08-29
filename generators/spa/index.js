@@ -44,7 +44,7 @@ module.exports = class extends DnnGeneratorBase {
         type: 'input',
         name: 'name',
         message: 'What is the name of your SPA Module?',
-        default: this.appname,
+        default: this.appname, /*to-do: figure out if we want to populate and actually use this later */
         validate: str => {
           return str.length > 0;
         }
@@ -68,7 +68,7 @@ module.exports = class extends DnnGeneratorBase {
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
-      props.currentDate = new Date();
+      props.currentDate = new Date(); /* NOT USED */
       if (this.options.company.endsWith(" -f")) {
         props.namespace = this.options.company.replace(" -f", "");
       }
@@ -118,8 +118,8 @@ module.exports = class extends DnnGeneratorBase {
       emailAddy: this.options.emailAddy,
       currentYear: currentDate.getFullYear(),
       version: '01.00.00',
-      menuLinkName: this.props.menuLinkName,
-      parentMenu: this.props.parentMenu,
+      menuLinkName: this.props.menuLinkName, /* NOT USED */
+      parentMenu: this.props.parentMenu, /* NOT USED */
       extensionType: this.props.extensionType,
       fullNamespace: this.props.fullNamespace,
       guid: this.props.guid,
