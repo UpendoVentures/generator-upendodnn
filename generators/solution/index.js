@@ -30,7 +30,7 @@ module.exports = class extends Generator {
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
-      props.currentDate = new Date(); /* NOT USED */
+      props.currentDate = new Date();
       props.solutionGuid = uuid();
       props.companyName = pascalCase(props.companyName);
 
