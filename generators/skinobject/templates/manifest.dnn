@@ -7,7 +7,7 @@
       <iconFile>~/DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
       <owner>
         <name><%= yourName %></name>
-        <organization><%= namespace %></organization>
+        <organization><%= company %></organization>
         <url><%= companyUrl %></url>
         <email><%= emailAddy %></email>
       </owner>
