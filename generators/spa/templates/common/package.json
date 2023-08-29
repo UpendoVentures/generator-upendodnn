@@ -11,9 +11,9 @@
     "friendlyName": "<%= moduleName %> Module",
     "packageName": "<%= namespace %>_<%= moduleName %>",
     "owner": {
-      "name": "<%= moduleName %>",
-      "organization": "<%= namespace %>",
-      "url": "<%= companyUrl %>.org",
+      "name": "<%= ownerName %>",
+      "organization": "<%= companyName %>",
+      "url": "<%= companyUrl %>",
       "email": "<%= emailAddy %>"
     },
     "module": {

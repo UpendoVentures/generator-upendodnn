@@ -1,6 +1,6 @@
 <h3><%= moduleName %></h3>
 <p class="Contributor">
-	<%= company %> <br />
+	<%= companyName %> <br />
 	<a href="mailto:<%= emailAddy %>"><%= emailAddy %></a>
 </p>
 <hr/>

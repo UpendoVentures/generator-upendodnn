@@ -6,8 +6,8 @@
       <description><%= description %></description>
       <iconFile>~/DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
       <owner>
-        <name><%= yourName %></name>
-        <organization><%= company %></organization>
+        <name><%= ownerName %></name>
+        <organization><%= companyName %></organization>
         <url><%= companyUrl %></url>
         <email><%= emailAddy %></email>
       </owner>

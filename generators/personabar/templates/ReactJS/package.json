@@ -8,9 +8,9 @@
     "friendlyName": "<%= moduleName %> Module",
     "packageName": "<%= namespace %>_<%= moduleName %>",
     "owner": {
-      "name": "<%= moduleName %>",
+      "name": "<%= ownerName %>",
       "organization": "<%= namespace %>",
-      "url": "<%= companyUrl %>.org",
+      "url": "<%= companyUrl %>",
       "email": "<%= emailAddy %>"
     },
     "module": {

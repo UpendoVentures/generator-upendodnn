@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("<%= moduleName %>")]
 [assembly: AssemblyDescription("<%= description %>")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("<%= namespace %>")]
+[assembly: AssemblyCompany("<%= companyName %>")]
 [assembly: AssemblyProduct("<%= moduleName %> Extension for DNN")]
 [assembly: AssemblyCopyright("Copyright © <%= currentYear %> <%= namespace %>")]
 [assembly: AssemblyTrademark("")]

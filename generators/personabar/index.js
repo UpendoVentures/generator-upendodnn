@@ -57,11 +57,11 @@ module.exports = class extends DnnGeneratorBase {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date(); /* NOT USED */
-      if (this.options.company.endsWith(" -f")) {
-        props.namespace = this.options.company.replace(" -f", "");
+      if (this.options.companyName.endsWith(" -f")) {
+        props.namespace = this.options.companyName.replace(" -f", "");
       }
       else {
-        props.namespace = this._pascalCaseName(this.options.company);
+        props.namespace = this._pascalCaseName(this.options.companyName);
       }
       if (props.name.endsWith(" -f")) {
         props.moduleName = props.name.replace(" -f", "");
@@ -82,8 +82,8 @@ module.exports = class extends DnnGeneratorBase {
     let currentDate = this.props.currentDate;
 
     let template = {
-      yourName: this.options.yourName, /* NOT USED */
-      company: this.options.company, /* NOT USED */
+      ownerName: this.options.ownerName, /* NOT USED */
+      companyName: this.options.companyName, /* NOT USED */
       namespace: namespace,
       moduleName: moduleName,
       moduleFriendlyName: this.props.name, /* NOT USED */

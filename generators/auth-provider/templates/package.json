@@ -7,9 +7,9 @@
     "friendlyName":"<%= extensionName %> Authentication Provider for DNN", 
     "packageName":"<%= fullNamespace %>", 
     "owner": {
-      "name":"<%= namespace %>", 
+      "name":"<%= ownerName %>", 
       "organization":"<%= namespace %>", 
-      "url":"<%= companyUrl %>.org", 
+      "url":"<%= companyUrl %>", 
       "email":"<%= emailAddy %>"
     }, 
     "module": {

@@ -80,9 +80,9 @@ module.exports = class extends Generator {
         ]
       },
       {
-        when: !this.options.yourName,
+        when: !this.options.ownerName,
         type: 'input',
-        name: 'yourName',
+        name: 'ownerName',
         message: 'What\'s your first and last name (surname)?',
         store: true,
         validate: str => {
@@ -90,10 +90,10 @@ module.exports = class extends Generator {
         }
       },
       {
-        when: !this.options.company,
+        when: !this.options.companyName,
         type: 'input',
-        name: 'company',
-        message: 'Namespace for your solution (Usually a company name, such as \'Upendo\' if you were Upendo Ventures)?',
+        name: 'companyName',
+        message: 'Namespace root for your solution (Usually a company name, such as \'Upendo\' if you were Upendo Ventures)?',
         store: true,
         validate: str => {
           return str.length > 0;
@@ -130,8 +130,8 @@ module.exports = class extends Generator {
   composing() {
     const options = {
       projType: this.props.value,
-      yourName: this.props.yourName,
-      company: this.props.company,
+      ownerName: this.props.ownerName,
+      companyName: this.props.companyName,
       companyUrl: this.props.companyUrl,
       emailAddy: this.props.emailAddy
     };

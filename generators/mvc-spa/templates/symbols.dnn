@@ -5,8 +5,8 @@
       <friendlyName><%= extensionName %> Module Symbols</friendlyName>
       <description><![CDATA[<p>(Symbols Package) <%= description %></p>]]></description>
       <owner>
-        <name><%= yourName %></name>
-        <organization><%= company %></organization>
+        <name><%= ownerName %></name>
+        <organization><%= companyName %></organization>
         <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
         <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
       </owner>

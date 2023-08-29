@@ -14,10 +14,10 @@ module.exports = class extends DnnGeneratorBase {
   prompting() {
     const prompts = [
       {
-        when: !this.options.company,
+        when: !this.options.companyName,
         type: 'input',
-        name: 'company',
-        message: 'Namespace for your skin object (Usually a company name)?',
+        name: 'companyName',
+        message: 'Namespace root for your skin object (Usually a company name)?',
         store: true,
         validate: str => {
           return str.length > 0;
@@ -53,11 +53,11 @@ module.exports = class extends DnnGeneratorBase {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date(); /* NOT USED */
-      if (this.options.company.endsWith(" -f")) {
-        props.namespace = this.options.company.replace(" -f", "");
+      if (this.options.companyName.endsWith(" -f")) {
+        props.namespace = this.options.companyName.replace(" -f", "");
       }
       else {
-        props.namespace = this._pascalCaseName(this.options.company);
+        props.namespace = this._pascalCaseName(this.options.companyName);
       }
       if (props.name.endsWith(" -f")) {
         props.extensionName = props.name.replace(" -f", "");
@@ -89,8 +89,8 @@ module.exports = class extends DnnGeneratorBase {
     let guid = this.props.guid;
 
     let template = {
-      yourName: this.options.yourName,
-      company: this.options.company,
+      ownerName: this.options.ownerName,
+      companyName: this.options.companyName,
       namespace: namespace,
       extensionName: extensionName,
       moduleFriendlyName: this.props.name, /* NOT USED */

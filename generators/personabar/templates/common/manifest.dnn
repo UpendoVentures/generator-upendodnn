@@ -7,7 +7,7 @@
       <iconFile>~/Images/icon-personabarapp-32px.png</iconFile>
       <owner>
         <name><%= namespace %></name>
-        <organization><%= namespace %></organization>
+        <organization><%= companyName %></organization>
         <url><%= companyUrl %></url>
         <email><![CDATA[<a href="mailto:<%= emailAddy %>"><%= emailAddy %></a>]]></email>
       </owner>

@@ -7,7 +7,7 @@
       <iconFile>~/DesktopModules/MVC/<%= namespace %>/<%= moduleName %>/Resources/img/extension.png</iconFile>
       <owner>
         <name><%= namespace %></name>
-        <organization><%= namespace %></organization>
+        <organization><%= companyName %></organization>
         <url><%= companyUrl %></url>
         <email><![CDATA[<a href="mailto:<%= emailAddy %>"><%= emailAddy %></a>]]></email>
       </owner>

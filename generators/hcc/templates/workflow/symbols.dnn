@@ -5,8 +5,8 @@
       <friendlyName><%= extensionName %> Hotcakes Commerce Workflow Symbols</friendlyName>
       <description><![CDATA[<%= description %>]]></description>
       <owner>
-        <name><%= yourName %></name>
-        <organization><%= namespace %></organization>
+        <name><%= ownerName %></name>
+        <organization><%= companyName %></organization>
         <url><%= companyUrl %></url>
         <email><%= emailAddy %></email>
       </owner>
