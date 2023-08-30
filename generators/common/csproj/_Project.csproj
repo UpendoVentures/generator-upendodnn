@@ -1,16 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <AssemblyName><%= namespace %>.<%= moduleName %></AssemblyName>
+    <AssemblyName><%= namespaceRoot %>.<%= friendlyName %></AssemblyName>
     <TargetFramework>net472</TargetFramework>
     <OutputPath>bin</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <Authors><%= namespace %></Authors>
-    <Company><%= namespace %></Company>
-    <Product><%= moduleName %></Product>
-    <Copyright><%= currentYear%></Copyright>
-    <PackageId><%= moduleName %></PackageId>
+    <Authors><%= namespaceRoot %></Authors>
+    <Company><%= namespaceRoot %></Company>
+    <Product><%= friendlyName %></Product>
+    <Copyright><%= currentYear %></Copyright>
+    <PackageId><%= friendlyName %></PackageId>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <Description><%= extensionDescription %></Description>

@@ -5,7 +5,7 @@ using <%= fullNamespace %>.Components;
 
 namespace <%= fullNamespace %>
 {
-    public partial class Edit : <%= extensionName %>ModuleBase
+    public partial class Edit : <%= friendlyName %>ModuleBase
     {
         #region Event Handlers
 

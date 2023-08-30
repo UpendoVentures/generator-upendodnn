@@ -32,7 +32,7 @@ module.exports = class extends Generator {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date();
       props.solutionGuid = uuid();
-      props.companyName = pascalCase(props.companyName);
+      props.companyName = pascalCase(this.options.companyName);
 
       this.props = props;
     });
@@ -65,9 +65,10 @@ module.exports = class extends Generator {
 
   _createSolutionFromTemplate() {
     this.log(chalk.white('Creating sln from template.'));
+    
     let companyName = this.props.companyName;
     let solutionGuid = this.props.solutionGuid;
-
+    
     this.fs.copyTpl(
       this.templatePath('_Template.sln'),
       this.destinationPath(companyName + '.DNN.sln'),

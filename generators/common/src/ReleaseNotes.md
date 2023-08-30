@@ -1,3 +1,3 @@
 # Release Notes
-## v<%= version%>
+## v<%= version %>
 Intitial Release
