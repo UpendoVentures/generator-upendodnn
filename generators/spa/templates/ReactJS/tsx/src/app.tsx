@@ -2,7 +2,7 @@
 import ReactDOM from 'react-dom/client';
 import Hello from "./components/Hello";
 
-const container = document.getElementById("<%= namespace.toLowerCase() %><%= moduleName %>")
+const container = document.getElementById("<%= namespaceRoot.toLowerCase() %><%= friendlyName %>")
 
 const root = ReactDOM.createRoot(container);
 root.render(

@@ -5,7 +5,7 @@
   "dnnModule": {
     "fullName": "<%= ownerName %>",
     "friendlyName": "<%= moduleName %> Module",
-    "packageName": "<%= namespace %>_<%= moduleName %>",
+    "packageName": "<%= namespaceRoot %>_<%= moduleName %>",
     "owner": {
       "name": "<%= ownerName %>",
       "organization": "<%= companyName %>",
@@ -13,10 +13,10 @@
       "email": "<%= emailAddress %>"
     },
     "module": {
-      "packageName": "<%= namespace %>_<%= moduleName %>",
-      "folderName": "<%= namespace %>/<%= moduleName %>",
+      "packageName": "<%= namespaceRoot %>_<%= moduleName %>",
+      "folderName": "<%= namespaceRoot %>/<%= moduleName %>",
       "azureCompatible": "true",
-      "iconFile": "DesktopModules\\MVC\\<%= namespace %>\\Images\\logo.png"
+      "iconFile": "DesktopModules\\MVC\\<%= namespaceRoot %>\\Images\\logo.png"
     },
     "tempPath": "./package",
     "packagesPath": "./_Packages",

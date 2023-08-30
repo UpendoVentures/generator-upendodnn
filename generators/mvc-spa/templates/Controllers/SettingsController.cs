@@ -11,7 +11,7 @@ namespace <%= fullNamespace %>.Controllers
 {
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
     [DnnHandleError]
-    public class SettingsController : <%= extensionName %>ModuleControllerBase
+    public class SettingsController : <%= friendlyName %>ModuleControllerBase
     {
         /// <summary>
         /// 

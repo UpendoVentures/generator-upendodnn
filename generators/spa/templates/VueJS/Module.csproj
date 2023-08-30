@@ -92,8 +92,8 @@
     <Content Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="<%= moduleName %>.dnn" />
-    <Content Include="<%= moduleName %>_Symbols.dnn">
+    <Content Include="<%= friendlyName %>.dnn" />
+    <Content Include="<%= friendlyName %>_Symbols.dnn">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
@@ -106,7 +106,7 @@
     <Content Include="Scripts\common.js" />
     <Compile Include="Data\Item.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Data\<%= moduleName %>Context.cs" />
+    <Compile Include="Data\<%= friendlyName %>Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

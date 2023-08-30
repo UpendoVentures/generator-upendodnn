@@ -1,10 +1,10 @@
  {
-  "name":"<%= extensionName %>", 
+  "name":"<%= friendlyName %>", 
   "version":"01.00.00", 
   "description":"<%= extensionDescription %>", 
   "dnnModule": {
     "fullName":"<%= fullNamespace %>", 
-    "friendlyName":"<%= extensionName %> Extension for DNN", 
+    "friendlyName":"<%= friendlyName %> Extension for DNN", 
     "packageName":"<%= fullNamespace %>", 
     "owner": {
       "name":"<%= ownerName %>", 
@@ -14,16 +14,16 @@
     }, 
     "module": {
       "packageName":"<%= fullNamespace %>", 
-      "folderName":"<%= extensionName %>", 
+      "folderName":"<%= friendlyName %>", 
       "azureCompatible":"true", 
       "iconFile":
-        "DesktopModules\\<%= extensionName %>\\Images\\logo.png"
+        "DesktopModules\\<%= friendlyName %>\\Images\\logo.png"
     }, 
     "tempPath":"./package", 
     "packagesPath":"./_Packages", 
     "pathToAssemblies":"./bin", 
     "pathToScripts":"./Providers/DataProviders/SqlDataProvider", 
-    "pathToPublish":"./bin/_PublishedWebsites/<%= extensionName %>", 
+    "pathToPublish":"./bin/_PublishedWebsites/<%= friendlyName %>", 
     "pathToSupplementaryFiles":"./", 
     "excludeFilter":[
       "gulpfile.js", 

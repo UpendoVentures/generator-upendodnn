@@ -23,9 +23,9 @@ module.exports = class extends DnnGeneratorBase {
         }
       },
       {
-        when: !this.options.name,
+        when: !this.options.friendlyName,
         type: 'input',
-        name: 'name',
+        name: 'friendlyName',
         message: 'What is the name of your library?',
         default: this.appname, /*to-do: figure out if we want to populate and actually use this later */
         validate: str => {
@@ -47,19 +47,19 @@ module.exports = class extends DnnGeneratorBase {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date();
       if (this.options.companyName.endsWith(" -f")) {
-        props.namespace = this.options.companyName.replace(" -f", "");
+        props.namespaceRoot = this.options.companyName.replace(" -f", "");
       }
       else {
-        props.namespace = this._pascalCaseName(this.options.companyName);
+        props.namespaceRoot = this._pascalCaseName(this.options.companyName);
       }
       if (props.name.endsWith(" -f")) {
-        props.extensionName = props.name.replace(" -f", "");
+        props.friendlyName = props.friendlyName.replace(" -f", "");
       }
       else {
-        props.extensionName = this._pascalCaseName(props.name);
+        props.friendlyName = this._pascalCaseName(props.friendlyName);
       }
       props.extensionType = "Libraries";
-      props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.extensionName;
+      props.fullNamespace = props.namespaceRoot + "." + props.extensionType + "." + props.friendlyName;
       props.guid = this._generateGuid();
 
       this.props = props;
@@ -72,8 +72,8 @@ module.exports = class extends DnnGeneratorBase {
     // mod: this follows the Upendo development/solution pattern
     this.destinationRoot("Libraries/");
 
-    let namespace = this.props.namespace;
-    let extensionName = this.props.extensionName;
+    let namespaceRoot = this.props.namespaceRoot;
+    let friendlyName = this.props.friendlyName;
     let currentDate = this.props.currentDate;
     let fullNamespace = this.props.fullNamespace;
 
@@ -81,15 +81,14 @@ module.exports = class extends DnnGeneratorBase {
       ownerName: this.options.ownerName,
       companyName: this.options.companyName,
       currentDate: this.props.currentDate,
-      namespace: namespace,
-      extensionName: extensionName,
+      namespaceRoot: namespaceRoot,
       extensionType: this.props.extensionType,
-      moduleFriendlyName: this.props.name, /* NOT USED */
+      friendlyName: this.props.friendlyName,
       msBuildVersion: this.props.msBuildVersion, 
       extensionDescription: this.props.extensionDescription,
       companyUrl: this.options.companyUrl,
       emailAddress: this.options.emailAddress,
-      currentYear: currentDate.getFullYear(), /* NOT USED */
+      currentYear: currentDate.getFullYear(),
       version: '1.0.0',
       extensionType: this.props.extensionType, 
       fullNamespace: this.props.fullNamespace, 
@@ -98,49 +97,49 @@ module.exports = class extends DnnGeneratorBase {
 
     this.fs.copyTpl(
       this.templatePath('../../common/packaging/**'),
-      this.destinationPath(extensionName + '/'),
+      this.destinationPath(friendlyName + '/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('../../common/src-library/**'),
-      this.destinationPath(extensionName + '/'),
+      this.destinationPath(friendlyName + '/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('../../common/properties/**'),
-      this.destinationPath(extensionName + '/Properties/'),
+      this.destinationPath(friendlyName + '/Properties/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Example.cs'),
-      this.destinationPath(extensionName + '/Example.cs'),
+      this.destinationPath(friendlyName + '/Example.cs'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('manifest.dnn'),
-      this.destinationPath(extensionName + '/' + extensionName + '.dnn'),
+      this.destinationPath(friendlyName + '/' + friendlyName + '.dnn'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('symbols.dnn'),
-      this.destinationPath(extensionName + '/' + extensionName + '_Symbols.dnn'),
+      this.destinationPath(friendlyName + '/' + friendlyName + '_Symbols.dnn'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('library.csproj'),
-      this.destinationPath(extensionName + '/' + fullNamespace + '.csproj'),
+      this.destinationPath(friendlyName + '/' + fullNamespace + '.csproj'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('library.sln'),
-      this.destinationPath(extensionName + '/' + fullNamespace + '.sln'),
+      this.destinationPath(friendlyName + '/' + fullNamespace + '.sln'),
       template
     );
   }

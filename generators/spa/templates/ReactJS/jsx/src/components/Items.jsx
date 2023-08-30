@@ -4,7 +4,7 @@ const moduleId = window.getmoduleId();
 const serviceFramework = window.$.ServicesFramework(moduleId);
 const token = serviceFramework.getAntiForgeryValue();
 const tabId = serviceFramework.getTabId();
-const baseUrl ="/DesktopModules/<%= moduleName %>/API/";
+const baseUrl ="/DesktopModules/<%= friendlyName %>/API/";
 
 const Items = () => {
     const [modal, setModal] = useState(false);

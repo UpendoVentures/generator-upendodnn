@@ -10,19 +10,19 @@ browserSync.init({
     serveStatic: ["dist"],
     rewriteRules: [
         {
-            match: new RegExp("/DesktopModules/<%= namespace %>/<%= moduleName %>/Resources/scripts/app-bundle.js"),
+            match: new RegExp("/DesktopModules/<%= namespaceRoot %>/<%= friendlyName %>/Resources/scripts/app-bundle.js"),
             fn: function () {
                 return "/Resources/scripts/app-bundle.js";
             }
         },
         {
-            match: new RegExp("/DesktopModules/<%= namespace %>/<%= moduleName %>/Resources/scripts/edit-bundle.js"),
+            match: new RegExp("/DesktopModules/<%= namespaceRoot %>/<%= friendlyName %>/Resources/scripts/edit-bundle.js"),
             fn: function () {
                 return "/Resources/scripts/edit-bundle.js";
             }
         },
         {
-            match: new RegExp("/DesktopModules/<%= namespace %>/<%= moduleName %>/Resources/scripts/settings-bundle.js"),
+            match: new RegExp("/DesktopModules/<%= namespaceRoot %>/<%= friendlyName %>/Resources/scripts/settings-bundle.js"),
             fn: function () {
                 return "/Resources/scripts/settings-bundle.js";
             }

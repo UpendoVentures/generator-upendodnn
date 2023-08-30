@@ -29,7 +29,7 @@ using Hotcakes.Commerce.Dnn.Workflow;
 
 namespace <%= fullNamespace %>.HccPaymentMethod
 {
-    public class <%= extensionName %>CustomWorkflowFactory : DnnWorkflowFactory
+    public class <%= friendlyName %>CustomWorkflowFactory : DnnWorkflowFactory
     {
         protected override Task[] LoadThirdPartyCheckoutSelectedTasks()
         {
@@ -37,7 +37,7 @@ namespace <%= fullNamespace %>.HccPaymentMethod
             {
                 new StartPaypalExpressCheckout(),
                 new StartMonerisCheckout(),
-                new Start<%= extensionName %>PaymentMethodCheckout()
+                new Start<%= friendlyName %>PaymentMethodCheckout()
             };
         }
     }

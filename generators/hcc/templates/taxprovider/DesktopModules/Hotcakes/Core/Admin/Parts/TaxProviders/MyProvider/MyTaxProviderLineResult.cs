@@ -33,7 +33,7 @@ namespace <%= fullNamespace %>.TaxProvider
     ///     tax provider for differenet products in cart
     /// </summary>
     [Serializable]
-    public class <%= extensionName %>TaxProviderLineResult : ITaxProviderLineResult
+    public class <%= friendlyName %>TaxProviderLineResult : ITaxProviderLineResult
     {
         public string No { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿<<%= openDirective %> Control Language="C#" AutoEventWireup="true" CodeBehind="Edit.ascx.cs" Inherits="<%= fullNamespace %>.HccPaymentMethod.Edit" <%= closeDirective %>>
 <h1>
-    <asp:Label runat="server" resourcekey="<%= extensionName %>PaymentMethodOptions" />
+    <asp:Label runat="server" resourcekey="<%= friendlyName %>PaymentMethodOptions" />
 </h1>
 <div class="hcForm">
     <div class="hcFormItemHor">

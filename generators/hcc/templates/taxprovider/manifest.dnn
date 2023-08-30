@@ -2,7 +2,7 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>" type="Module" version="01.00.00">
-      <friendlyName> Hotcakes Commerce <%= extensionName %> Tax Provider</friendlyName>
+      <friendlyName> Hotcakes Commerce <%= friendlyName %> Tax Provider</friendlyName>
       <iconFile>DesktopModules/Hotcakes/Core/Images/hcc-logo.png</iconFile>
       <description>
         <![CDATA[<p><%= extensionDescription %></p>]]>

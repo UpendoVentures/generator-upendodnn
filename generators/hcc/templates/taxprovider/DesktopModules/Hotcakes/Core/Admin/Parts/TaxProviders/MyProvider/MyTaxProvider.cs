@@ -44,13 +44,13 @@ namespace <%= fullNamespace %>.TaxProvider
     ///     business logic seperately on different class
     /// </summary>
     [Serializable]
-    public class <%= extensionName %>TaxProvider : ITaxProvider
+    public class <%= friendlyName %>TaxProvider : ITaxProvider
     {
-        public <%= extensionName %>TaxProviderSettings settings;
+        public <%= friendlyName %>TaxProviderSettings settings;
 
-        public <%= extensionName %>TaxProvider()
+        public <%= friendlyName %>TaxProvider()
         {
-            settings = new <%= extensionName %>TaxProviderSettings();
+            settings = new <%= friendlyName %>TaxProviderSettings();
         }
 
         public TaxProviderSettings Basesettings
@@ -69,7 +69,7 @@ namespace <%= fullNamespace %>.TaxProvider
                 var companyCode = string.Empty;
                 var docCode = order.CustomProperties.GetProperty("hcc", TaxProviderPropertyName);
 
-                var hccAvaTax = <%= extensionName %>TaxProviderGateWay(hccContext.CurrentStore);
+                var hccAvaTax = <%= friendlyName %>TaxProviderGateWay(hccContext.CurrentStore);
                 var result = hccAvaTax.CancelTax(companyCode, docCode, DocumentType.SalesInvoice);
 
                 if (!result.Success)
@@ -151,7 +151,7 @@ namespace <%= fullNamespace %>.TaxProvider
                 var applyVATRules = hccContext.CurrentStore.Settings.ApplyVATRules;
                 var lines = ConvertOrderLines(order, orderService, applyVATRules, hccContext.CurrentStore.Id);
 
-                var hccAvaTax = <%= extensionName %>TaxProviderGateWay(hccContext.CurrentStore);
+                var hccAvaTax = <%= friendlyName %>TaxProviderGateWay(hccContext.CurrentStore);
 
                 var result = hccAvaTax.GetTax(DocumentType.SalesInvoice, companyCode, order.bvin,
                     originationAddress, destinationAddress, lines, order.TotalOrderDiscounts,
@@ -177,7 +177,7 @@ namespace <%= fullNamespace %>.TaxProvider
                     }
                     else
                     {
-                        var note = "<%= extensionName %>TaxProvider - Commit Tax Failed (POST):";
+                        var note = "<%= friendlyName %>TaxProvider - Commit Tax Failed (POST):";
 
                         foreach (var m in result.Messages)
                         {
@@ -192,7 +192,7 @@ namespace <%= fullNamespace %>.TaxProvider
 
                         orderService.Orders.Update(order);
 
-                        EventLog.LogEvent("<%= extensionName %>TaxProvider", note, EventLogSeverity.Error);
+                        EventLog.LogEvent("<%= friendlyName %>TaxProvider", note, EventLogSeverity.Error);
                     }
                 }
 
@@ -250,7 +250,7 @@ namespace <%= fullNamespace %>.TaxProvider
                 var applyVATRules = hccContext.CurrentStore.Settings.ApplyVATRules;
                 var lines = ConvertOrderLines(order, orderService, applyVATRules, hccContext.CurrentStore.Id);
 
-                var hccTaxProvider = <%= extensionName %>TaxProviderGateWay(hccContext.CurrentStore);
+                var hccTaxProvider = <%= friendlyName %>TaxProviderGateWay(hccContext.CurrentStore);
 
                 var result = hccTaxProvider.GetTax(DocumentType.SalesOrder, companyCode, order.bvin,
                     originAddress, destinationAddress, lines, order.TotalOrderDiscounts,
@@ -287,7 +287,7 @@ namespace <%= fullNamespace %>.TaxProvider
 
         public string ProviderName
         {
-            get { return "<%= extensionName %>"; }
+            get { return "<%= friendlyName %>"; }
         }
 
         public int SortIndex
@@ -299,7 +299,7 @@ namespace <%= fullNamespace %>.TaxProvider
         {
             try
             {
-                var hccTaxProvider = <%= extensionName %>TaxProviderGateWay(hccContext.CurrentStore);
+                var hccTaxProvider = <%= friendlyName %>TaxProviderGateWay(hccContext.CurrentStore);
                 var hccResult = hccTaxProvider.TestConnection();
 
                 return hccResult.Success;
@@ -311,21 +311,21 @@ namespace <%= fullNamespace %>.TaxProvider
             return false;
         }
 
-        private <%= extensionName %>TaxProviderGateway <%= extensionName %>TaxProviderGateWay(Store appStore)
+        private <%= friendlyName %>TaxProviderGateway <%= friendlyName %>TaxProviderGateWay(Store appStore)
         {
-            return new <%= extensionName %>TaxProviderGateway(settings.TaxProviderProp1, settings.TaxProviderProp2);
+            return new <%= friendlyName %>TaxProviderGateway(settings.TaxProviderProp1, settings.TaxProviderProp2);
         }
 
         #region Custom Order properties
 
         public string TaxProviderPropertyName
         {
-            get { return "<%= extensionName %>TaxProviderTaxCommitted"; }
+            get { return "<%= friendlyName %>TaxProviderTaxCommitted"; }
         }
 
         public string TaxProviderGetTaxCountPropertyName
         {
-            get { return "<%= extensionName %>TaxProviderGetTaxCount"; }
+            get { return "<%= friendlyName %>TaxProviderGetTaxCount"; }
         }
 
         #endregion

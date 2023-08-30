@@ -29,7 +29,7 @@ using Hotcakes.Commerce.Payment;
 namespace <%= fullNamespace %>.HccPaymentMethod
 {
     [Serializable]
-    public class <%= extensionName %>PaymentMethod : PaymentMethod
+    public class <%= friendlyName %>PaymentMethod : PaymentMethod
     {
         public override string MethodId
         {
@@ -38,7 +38,7 @@ namespace <%= fullNamespace %>.HccPaymentMethod
 
         public override string MethodName
         {
-            get { return "<%= extensionName %>"; }
+            get { return "<%= friendlyName %>"; }
         }
 
         public override int SortIndex

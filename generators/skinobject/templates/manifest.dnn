@@ -2,9 +2,9 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>" type="SkinObject" version="01.00.00">
-      <friendlyName><%= extensionName %></friendlyName>
+      <friendlyName><%= friendlyName %></friendlyName>
       <description><%= extensionDescription %></description>
-      <iconFile>~/DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
+      <iconFile>~/DesktopModules/<%= friendlyName %>/Images/logo.png</iconFile>
       <owner>
         <name><%= ownerName %></name>
         <organization><%= companyName %></organization>
@@ -31,7 +31,7 @@
 
         <component type="ResourceFile">
           <resourceFiles>
-            <basePath>DesktopModules/<%= extensionName %></basePath>
+            <basePath>DesktopModules/<%= friendlyName %></basePath>
             <resourceFile>
               <name>Resources.zip</name>
             </resourceFile>
@@ -41,7 +41,7 @@
         <component type="SkinObject">
             <moduleControl>
               <controlKey>View</controlKey>
-              <controlSrc>DesktopModules/<%= extensionName %>/View.ascx</controlSrc>
+              <controlSrc>DesktopModules/<%= friendlyName %>/View.ascx</controlSrc>
               <supportsPartialRendering>False</supportsPartialRendering>
             </moduleControl>
         </component>

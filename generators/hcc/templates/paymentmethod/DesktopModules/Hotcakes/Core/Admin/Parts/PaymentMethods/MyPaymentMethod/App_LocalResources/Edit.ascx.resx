@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="<%= extensionName %>PaymentMethodOptions.Text" xml:space="preserve">
-    <value><%= extensionName %> Payment Method Options</value>
+  <data name="<%= friendlyName %>PaymentMethodOptions.Text" xml:space="preserve">
+    <value><%= friendlyName %> Payment Method Options</value>
   </data>
   <data name="Password.Text" xml:space="preserve">
     <value>Password</value>

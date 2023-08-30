@@ -2,7 +2,7 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>" type="Module" version="01.00.00">
-      <friendlyName><%= extensionName %> Module</friendlyName>
+      <friendlyName><%= friendlyName %> Module</friendlyName>
       <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
       <iconFile>DesktopModules/MVC/<%= fullNamespace %>/Images/logo.png</iconFile>
       <owner>
@@ -36,13 +36,13 @@
 
         <component type="Module">
           <desktopModule>
-            <moduleName><%= extensionName %> Module</moduleName>
+            <moduleName><%= friendlyName %> Module</moduleName>
             <foldername><%= fullNamespace %></foldername>
-            <businessControllerClass><%= fullNamespace %>.Components.<%= extensionName %>Controller, <%= fullNamespace %></businessControllerClass>
+            <businessControllerClass><%= fullNamespace %>.Components.<%= friendlyName %>Controller, <%= fullNamespace %></businessControllerClass>
             <supportedFeatures />
             <moduleDefinitions>
               <moduleDefinition>
-                <friendlyName><%= extensionName %> Module</friendlyName>
+                <friendlyName><%= friendlyName %> Module</friendlyName>
                 <defaultCacheTime>0</defaultCacheTime>
                 <moduleControls>
                   <moduleControl>
@@ -59,7 +59,7 @@
                     <controlKey>Edit</controlKey>
                     <controlSrc><%= fullNamespace %>.Controllers/Example/Edit.mvc</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle>Edit <%= extensionName %> Content</controlTitle>
+                    <controlTitle>Edit <%= friendlyName %> Content</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
@@ -70,7 +70,7 @@
                     <controlKey>Settings</controlKey>
                     <controlSrc><%= fullNamespace %>.Controllers/Settings/Settings.mvc</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle><%= extensionName %> Settings</controlTitle>
+                    <controlTitle><%= friendlyName %> Settings</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
@@ -84,7 +84,7 @@
             <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
             <processorCommand>UpgradeModule</processorCommand>
             <attributes>
-              <businessControllerClass><%= fullNamespace %>.Components.<%= extensionName %>Controller, <%= fullNamespace %></businessControllerClass>
+              <businessControllerClass><%= fullNamespace %>.Components.<%= friendlyName %>Controller, <%= fullNamespace %></businessControllerClass>
               <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
               <upgradeVersionsList>01.00.00</upgradeVersionsList>
             </attributes>

@@ -12,7 +12,7 @@ using Dnn.PersonaBar.Library.Model;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Users;
 
-namespace <%= namespace %>.<%= moduleName %>.PersonaBar.MenuControllers.AdminMenuController
+namespace <%= namespaceRoot %>.<%= friendlyName %>.PersonaBar.MenuControllers.AdminMenuController
 {
     public class AdminMenuController : IMenuItemController
     {

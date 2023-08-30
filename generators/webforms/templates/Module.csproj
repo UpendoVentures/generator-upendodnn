@@ -146,10 +146,10 @@
     <Content Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
     <Content Include="Edit.ascx" />
     <Content Include="License.txt" />
-    <Content Include="<%= extensionName %>.dnn">
+    <Content Include="<%= friendlyName %>.dnn">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="<%= extensionName %>_Symbols.dnn">
+    <Content Include="<%= friendlyName %>_Symbols.dnn">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Module.build">

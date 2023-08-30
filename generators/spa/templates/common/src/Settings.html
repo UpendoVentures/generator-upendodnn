@@ -1,7 +1,7 @@
 ﻿[JavaScript:{ jsname: "JQuery" }]
 [JavaScript:{ path: "~/Resources/Shared/scripts/dnn.jquery.js"}]
-[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/dist/Resources/scripts/common.js"}]
-[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/dist/Resources/scripts/QuickSettings.js"}]
+[JavaScript:{ path: "~/DesktopModules/<%= friendlyName %>/dist/Resources/scripts/common.js"}]
+[JavaScript:{ path: "~/DesktopModules/<%= friendlyName %>/dist/Resources/scripts/QuickSettings.js"}]
 
 <div id="QuickSettings-[ModuleContext:ModuleId]" class="dnnForm">
     <label for="Description">Show table columns:</label>
@@ -20,7 +20,7 @@
     jQuery(function ($) {
         var moduleId = parseInt("[ModuleContext:ModuleId]");
         var element = 'QuickSettings-[ModuleContext:ModuleId]';
-        var quickSettings = new <%= moduleName %>Settings.quickSettings(element, moduleId);
+        var quickSettings = new <%= friendlyName %>Settings.quickSettings(element, moduleId);
         quickSettings.init();
     });
 </script>

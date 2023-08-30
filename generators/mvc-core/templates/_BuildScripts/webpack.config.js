@@ -37,7 +37,7 @@ module.exports = (env, argv) => {
                 }
             }),
             new CopyWebpackPlugin([
-                { from: "./<%= moduleName %>.dnn", to: "../../<%= moduleName %>.dnn" },
+                { from: "./<%= friendlyName %>.dnn", to: "../../<%= friendlyName %>.dnn" },
                 { from: "./App_LocalResources", to: "../../App_LocalResources" },
                 { from: "./src/Resources", to: "../../Resources", ignore: [ "*.scss" ] },
                 { from: "./bin/*.*", to: "../../", ignore: [ "Dnn*", "DotNetNuke*", "System*", "Microsoft*", "Newtonsoft*", "*.deps.json" ] },

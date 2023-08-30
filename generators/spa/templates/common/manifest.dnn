@@ -2,9 +2,9 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>" type="Module" version="<%= version %>">
-      <friendlyName><%= moduleName %></friendlyName>
+      <friendlyName><%= friendlyName %></friendlyName>
       <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
-      <iconFile>~/DesktopModules/<%= moduleName %>/Images/logo.png</iconFile>
+      <iconFile>~/DesktopModules/<%= friendlyName %>/Images/logo.png</iconFile>
       <owner>
         <name><%= ownerName %></name>
         <organization><%= companyName %></organization>
@@ -21,7 +21,7 @@
 
         <component type="Script">
           <scripts>
-            <basePath>DesktopModules\<%= moduleName %></basePath>
+            <basePath>DesktopModules\<%= friendlyName %></basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name><%= version %>.SqlDataProvider</name>
@@ -37,12 +37,12 @@
 
         <component type="Module">
           <desktopModule>
-            <moduleName><%= moduleName %></moduleName>
-            <foldername><%= moduleName %></foldername>
+            <moduleName><%= friendlyName %></moduleName>
+            <foldername><%= friendlyName %></foldername>
             <businessControllerClass><%= fullNamespace %>.Controllers.BusinessController, <%= fullNamespace %></businessControllerClass>
-						<supportedFeatures>
-							<supportedFeature type="Portable" />
-						</supportedFeatures>
+			<supportedFeatures>
+				<supportedFeature type="Portable" />
+			</supportedFeatures>
             <supportedFeatures />
             <moduleDefinitions>
               <moduleDefinition>
@@ -52,18 +52,18 @@
                   <moduleControl>
                     <controlKey>
                     </controlKey>
-                    <controlSrc>DesktopModules/<%= moduleName %>/dist/View.html</controlSrc>
+                    <controlSrc>DesktopModules/<%= friendlyName %>/dist/View.html</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle><%= moduleName %> SPA</controlTitle>
+                    <controlTitle><%= friendlyName %> SPA</controlTitle>
                     <controlType>View</controlType>
                     <iconFile />
                     <helpUrl />
                   </moduleControl>
                   <moduleControl>
                     <controlKey>QuickSettings</controlKey>
-                    <controlSrc>DesktopModules/<%= moduleName %>/dist/Settings.html</controlSrc>
+                    <controlSrc>DesktopModules/<%= friendlyName %>/dist/Settings.html</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle><%= moduleName %> Settings</controlTitle>
+                    <controlTitle><%= friendlyName %> Settings</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
@@ -108,7 +108,7 @@
         
         <component type="ResourceFile">
           <resourceFiles>
-            <basePath>DesktopModules/<%= moduleName %></basePath>
+            <basePath>DesktopModules/<%= friendlyName %></basePath>
             <resourceFile>
               <name>Resources.zip</name>
             </resourceFile>

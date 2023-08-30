@@ -33,7 +33,7 @@ namespace <%= fullNamespace %>.TaxProvider
     {
         public override void LoadData()
         {
-            var settings = new <%= extensionName %>TaxProviderSettings();
+            var settings = new <%= friendlyName %>TaxProviderSettings();
             settings.Merge(HccApp.CurrentStore.Settings.TaxProviderSettingsGet(ProviderId));
 
             txtProviderProp1.Text = settings.TaxProviderProp1;
@@ -42,7 +42,7 @@ namespace <%= fullNamespace %>.TaxProvider
 
         public override void SaveData()
         {
-            var settings = new <%= extensionName %>TaxProviderSettings();
+            var settings = new <%= friendlyName %>TaxProviderSettings();
 
             settings.Merge(HccApp.CurrentStore.Settings.TaxProviderSettingsGet(ProviderId));
 
@@ -56,7 +56,7 @@ namespace <%= fullNamespace %>.TaxProvider
 
         protected void lnkTestConnection_Click(object sender, EventArgs e)
         {
-            var settings = new <%= extensionName %>TaxProviderSettings();
+            var settings = new <%= friendlyName %>TaxProviderSettings();
 
             settings.Merge(HccApp.CurrentStore.Settings.TaxProviderSettingsGet(ProviderId));
 

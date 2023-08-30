@@ -31,7 +31,7 @@ namespace <%= fullNamespace %>.HccCreditCardGateway
     {
         public override void LoadData()
         {
-            var settings = new <%= extensionName %>Settings();
+            var settings = new <%= friendlyName %>Settings();
             settings.Merge(HccApp.CurrentStore.Settings.PaymentSettingsGet(GatewayId));
 
             txtUserName.Text = settings.UserName;
@@ -40,7 +40,7 @@ namespace <%= fullNamespace %>.HccCreditCardGateway
 
         public override void SaveData()
         {
-            var settings = new <%= extensionName %>Settings();
+            var settings = new <%= friendlyName %>Settings();
             settings.Merge(HccApp.CurrentStore.Settings.PaymentSettingsGet(GatewayId));
 
             settings.UserName = txtUserName.Text.Trim();

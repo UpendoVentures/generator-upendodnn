@@ -9,7 +9,7 @@ using <%= fullNamespace %>.Data;
 namespace <%= fullNamespace %>.Controllers
 {
     [DnnHandleError]
-    public class ExampleController : <%= extensionName %>ModuleControllerBase
+    public class ExampleController : <%= friendlyName %>ModuleControllerBase
     {
         public ActionResult Index()
         {

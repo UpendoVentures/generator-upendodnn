@@ -1,7 +1,6 @@
-﻿
-<<%= openDirective %> Control Language="C#" AutoEventWireup="true" CodeBehind="Edit.ascx.cs" Inherits="<%= fullNamespace %>.HccGiftCardGateway.Edit" <%= closeDirective %>>
+﻿<<%= openDirective %> Control Language="C#" AutoEventWireup="true" CodeBehind="Edit.ascx.cs" Inherits="<%= fullNamespace %>.HccGiftCardGateway.Edit" <%= closeDirective %>>
 <h1>
-    <asp:Label runat="server" resourcekey="<%= extensionName %>Options" />
+    <asp:Label runat="server" resourcekey="<%= friendlyName %>Options" />
 </h1>
 <div class="hcForm">
     <div class="hcFormItemHor">

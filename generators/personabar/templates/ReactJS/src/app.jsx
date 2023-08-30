@@ -7,7 +7,7 @@ import Root from "./containers/Root";
 
 let store = configureStore();
 
-const appContainer = document.getElementById("<%= moduleName %>-container");
+const appContainer = document.getElementById("<%= friendlyName %>-container");
 render(
     <Provider store={store}>
         <Root />

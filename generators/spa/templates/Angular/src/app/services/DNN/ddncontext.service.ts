@@ -15,7 +15,7 @@ export class DnnContextService {
     private _properties: any = {};
 
     constructor() {
-        const MODULE = '<%= moduleName %>';
+        const MODULE = '<%= friendlyName %>';
         if (window && window[MODULE]) {
             this._properties = window[MODULE];
         }

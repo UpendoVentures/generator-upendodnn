@@ -4,9 +4,9 @@
 <!-- production version, optimized for size and speed -->
 <!--[JavaScript:{ path: "https://cdn.jsdelivr.net/npm/vue@2"}]-->
 [JavaScript:{ path: "~/Resources/Shared/scripts/dnn.jquery.js"}]
-[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/scripts/ItemView.js"}]
+[JavaScript:{ path: "~/DesktopModules/<%= friendlyName %>/scripts/ItemView.js"}]
 
-[ModuleAction:{controlKey : "Edit", securityAccessLevel : "Edit",  titleKey: "EditModule", localResourceFile: "~/DesktopModules/<%= moduleName %>/App_LocalResources/View.resx" }]
+[ModuleAction:{controlKey : "Edit", securityAccessLevel : "Edit",  titleKey: "EditModule", localResourceFile: "~/DesktopModules/<%= friendlyName %>/App_LocalResources/View.resx" }]
 
 <div id="vue-app-wrapper-[ModuleContext:ModuleId]">
     <div id="app-[ModuleContext:ModuleId]">
@@ -85,7 +85,7 @@
 
 <script language="javascript" type="text/javascript">
     jQuery(function ($) {
-        <%= moduleName %>.InitApp("[ModuleContext:ModuleId]", '[ModuleContext:EditMode]' === 'True');
+        <%= friendlyName %>.InitApp("[ModuleContext:ModuleId]", '[ModuleContext:EditMode]' === 'True');
     });
 
 </script>

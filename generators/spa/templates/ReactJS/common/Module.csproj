@@ -93,11 +93,11 @@
     <Content Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="<%= moduleName %>.dnn" />
+    <Content Include="<%= friendlyName %>.dnn" />
     <Content Include="Module.build">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="<%= moduleName %>_Symbols.dnn">
+    <Content Include="<%= friendlyName %>_Symbols.dnn">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
@@ -126,7 +126,7 @@
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Data\Item.cs" />
-    <Compile Include="Data\<%= moduleName %>Context.cs" />  
+    <Compile Include="Data\<%= friendlyName %>Context.cs" />  
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\logo.png" />

@@ -34,9 +34,9 @@ namespace <%= fullNamespace %>.TaxProvider
     ///     to communicate with external tax provider and perform the different operation
     /// </summary>
     [Serializable]
-    public class <%= extensionName %>TaxProviderGateway
+    public class <%= friendlyName %>TaxProviderGateway
     {
-        public <%= extensionName %>TaxProviderGateway(string prop1, string prop2)
+        public <%= friendlyName %>TaxProviderGateway(string prop1, string prop2)
         {
             Prop1 = prop1;
             Prop2 = prop2;
@@ -52,7 +52,7 @@ namespace <%= fullNamespace %>.TaxProvider
 
         public string ProviderGatewayName
         {
-            get { return "<%= extensionName %>Provider"; }
+            get { return "<%= friendlyName %>Provider"; }
         }
 
         public string ProviderID
@@ -62,7 +62,7 @@ namespace <%= fullNamespace %>.TaxProvider
 
         public ITaxProviderResult CancelTax(string companyCode, string docCode, DocumentType docType)
         {
-            var result = new <%= extensionName %>TaxProviderResult();
+            var result = new <%= friendlyName %>TaxProviderResult();
 
             // Write down business logic here to cancel the tax.
 
@@ -83,7 +83,7 @@ namespace <%= fullNamespace %>.TaxProvider
 
         public ITaxProviderResult CommitTax(string companyCode, string docCode, DocumentType docType)
         {
-            var result = new <%= extensionName %>TaxProviderResult();
+            var result = new <%= friendlyName %>TaxProviderResult();
 
             // Write down business logic here to commit the tax.
 
@@ -106,7 +106,7 @@ namespace <%= fullNamespace %>.TaxProvider
             BaseAddress originationAddress, BaseAddress destinationAddress, List<Line> items, decimal orderDiscount,
             string customerCode, string currencyCode, bool taxExempt, string taxExemptionNumber, bool applyVATRules)
         {
-            var result = new <%= extensionName %>TaxProviderResult();
+            var result = new <%= friendlyName %>TaxProviderResult();
 
             // Write down business logic here to get the tax.
 
@@ -131,7 +131,7 @@ namespace <%= fullNamespace %>.TaxProvider
                 {
                     if (i < 2)
                     {
-                        var lineResult = new <%= extensionName %>TaxProviderLineResult
+                        var lineResult = new <%= friendlyName %>TaxProviderLineResult
                         {
                             No = "abc",
                             TaxRate = 10,
@@ -154,7 +154,7 @@ namespace <%= fullNamespace %>.TaxProvider
         public ITaxProviderResult PostTax(string companyCode, string docCode, DocumentType docType, decimal totalAmount,
             decimal totalTax)
         {
-            var result = new <%= extensionName %>TaxProviderResult();
+            var result = new <%= friendlyName %>TaxProviderResult();
 
             // Write down business logic here to post the tax .
             var suceed = false;
@@ -176,7 +176,7 @@ namespace <%= fullNamespace %>.TaxProvider
 
         public ITaxProviderResult TestConnection()
         {
-            var result = new <%= extensionName %>TaxProviderResult();
+            var result = new <%= friendlyName %>TaxProviderResult();
 
             // Write down business logic here to test the tax provider settings .
             var suceed = false;

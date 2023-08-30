@@ -15,12 +15,12 @@ using System.Collections.Generic;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Search;
 
-namespace <%= namespace%>.Modules.<%= moduleName %>.Components
+namespace <%= namespaceRoot %>.Modules.<%= friendlyName %>.Components
 {
 
     /// -----------------------------------------------------------------------------
     /// <summary>
-    /// The Controller class for <%= moduleName %>
+    /// The Controller class for <%= friendlyName %>
     /// 
     /// The FeatureController class is defined as the BusinessController in the manifest file (.dnn)
     /// DotNetNuke will poll this class to find out which Interfaces the class implements. 
@@ -40,8 +40,8 @@ namespace <%= namespace%>.Modules.<%= moduleName %>.Components
     public class FeatureController //: IPortable, ISearchable, IUpgradeable
     {
 
-    public const string MODULENAME = "<%= moduleName %>";
-    public const string BASEMODULEPATH = @"/DesktopModules/<%= namespace%>/<%= moduleName %>";
+    public const string MODULENAME = "<%= friendlyName %>";
+    public const string BASEMODULEPATH = @"/DesktopModules/<%= namespaceRoot %>/<%= friendlyName %>";
 
     #region Optional Interfaces
 

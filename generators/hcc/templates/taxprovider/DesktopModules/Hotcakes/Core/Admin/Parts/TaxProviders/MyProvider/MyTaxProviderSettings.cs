@@ -34,7 +34,7 @@ namespace <%= fullNamespace %>.TaxProvider
     ///     from provider
     /// </summary>
     [Serializable]
-    public class <%= extensionName %>TaxProviderSettings : TaxProviderSettings
+    public class <%= friendlyName %>TaxProviderSettings : TaxProviderSettings
     {
         public string TaxProviderProp1
         {

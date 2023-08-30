@@ -8,5 +8,5 @@ ReactDOM.render(
 			<Hello name="I am a react module edit page!" />
 		</div>
 	</div>,
-  document.getElementById("<%= namespace.toLowerCase() %><%= moduleName %>Edit")
+  document.getElementById("<%= namespaceRoot.toLowerCase() %><%= friendlyName %>Edit")
 );

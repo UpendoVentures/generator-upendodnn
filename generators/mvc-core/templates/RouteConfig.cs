@@ -8,14 +8,14 @@
 */
 using DotNetNuke.Web.Mvc.Routing;
 
-namespace <%= namespace%>.Modules.<%= moduleName %>
+namespace <%= namespaceRoot %>.Modules.<%= friendlyName %>
 {
     public class RouteConfig : IMvcRouteMapper
     {
         public void RegisterRoutes(IMapRoute mapRouteManager)
         {
-            mapRouteManager.MapRoute("<%= namespace%>.Modules.<%= moduleName %>", "<%= namespace%>.Modules.<%= moduleName %>", "{controller}/{action}", new[]
-            {"<%= namespace%>.Modules.<%= moduleName %>.Controllers"});
+            mapRouteManager.MapRoute("<%= namespaceRoot %>.Modules.<%= friendlyName %>", "<%= namespaceRoot %>.Modules.<%= friendlyName %>", "{controller}/{action}", new[]
+            {"<%= namespaceRoot %>.Modules.<%= friendlyName %>.Controllers"});
         }
     }
 }

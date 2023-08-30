@@ -2,7 +2,7 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>" type="Library" version="01.00.00">
-      <friendlyName><%= extensionName %> Scheduled Job</friendlyName>
+      <friendlyName><%= friendlyName %> Scheduled Job</friendlyName>
       <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
       <owner>
         <name><%= ownerName %></name>

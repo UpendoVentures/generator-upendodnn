@@ -50,7 +50,7 @@ module.exports = (env, argv) => {
                 }
             }),
             new CopyWebpackPlugin([
-                { from: "./<%= moduleName %>.dnn", to: "../../<%= moduleName %>.dnn" },
+                { from: "./<%= friendlyName %>.dnn", to: "../../<%= friendlyName %>.dnn" },
                 { from: "./App_LocalResources", to: "../../App_LocalResources" },
                 { from: "./src/Resources", to: "../../Resources", ignore: [ "*.scss" ] },
                 { from: "./src/scripts", to: "../../scripts" },
@@ -61,8 +61,8 @@ module.exports = (env, argv) => {
             new HtmlWebpackPlugin({
                 inject: false,
                 environment: process.env.NODE_ENV,
-                template: path.resolve("./src/<%= moduleName %>.html"),
-                filename: "../../<%= moduleName %>.html"
+                template: path.resolve("./src/<%= friendlyName %>.html"),
+                filename: "../../<%= friendlyName %>.html"
             }),
             new HtmlWebpackPlugin({
                 inject: false,

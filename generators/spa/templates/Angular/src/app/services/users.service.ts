@@ -9,7 +9,7 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UsersService {
-  private baseUrl = 'DesktopModules/<%= moduleName %>/API/User/';  // URL to web api
+  private baseUrl = 'DesktopModules/<%= friendlyName %>/API/User/';  // URL to web api
   constructor(private http: HttpClient) {}
 
   /** GET users from the server */

@@ -9,7 +9,7 @@ using System.Net.Http;
 
 namespace <%= fullNamespace %>.Services
 {
-    [SupportedModules("<%= moduleName %>")]
+    [SupportedModules("<%= friendlyName %>")]
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
     public class UserController : DnnApiController
     {

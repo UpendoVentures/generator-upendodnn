@@ -4,7 +4,7 @@
   "description":"<%= extensionDescription %>", 
   "dnnModule": {
     "fullName":"<%= fullNamespace %>", 
-    "friendlyName":"<%= extensionName %> Module", 
+    "friendlyName":"<%= friendlyName %> Module", 
     "packageName":"<%= fullNamespace %>", 
     "owner": {
       "name":"<%= ownerName %>", 
@@ -23,7 +23,7 @@
     "packagesPath":"./_Packages", 
     "pathToAssemblies":"./bin", 
     "pathToScripts":"./Providers/DataProviders/SqlDataProvider", 
-    "pathToPublish":"./bin/_PublishedWebsites/<%= extensionName %>", 
+    "pathToPublish":"./bin/_PublishedWebsites/<%= friendlyName %>", 
     "pathToSupplementaryFiles":"./", 
     "excludeFilter":[
       "gulpfile.js", 
