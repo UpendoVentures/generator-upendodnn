@@ -1,3 +1,5 @@
 node_modules
 coverage
 .vscode/
+.vs/
+launch.json
