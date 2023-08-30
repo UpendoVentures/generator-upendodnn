@@ -91,40 +91,40 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\Edit.ascx" />
+    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= friendlyName %>\Edit.ascx" />
     <Content Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\Edit.ascx.cs">
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= friendlyName %>\Edit.ascx.cs">
       <DependentUpon>Edit.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\Edit.ascx.designer.cs">
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= friendlyName %>\Edit.ascx.designer.cs">
       <DependentUpon>Edit.ascx</DependentUpon>
     </Compile>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\<%= extensionName %>CustomWorkflowFactory.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\<%= extensionName %>PaymentMethod.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\Start<%= extensionName %>PaymentMethodCheckout.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\<%= extensionName %>PaymentMethodSettings.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\<%= extensionName %>PaymentMethodCheckoutController.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= friendlyName %>\<%= friendlyName %>CustomWorkflowFactory.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= friendlyName %>\<%= friendlyName %>PaymentMethod.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= friendlyName %>\Start<%= friendlyName %>PaymentMethodCheckout.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= friendlyName %>\<%= friendlyName %>PaymentMethodSettings.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= friendlyName %>\<%= friendlyName %>PaymentMethodCheckoutController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Portals\_default\HotcakesViews\_default\Views\<%= extensionName %>PaymentMethodCheckout\App_LocalResources\Controller.resx" />
-    <Content Include="Portals\_default\HotcakesViews\_default\Views\<%= extensionName %>PaymentMethodCheckout\App_LocalResources\Index.cshtml.resx" />
+    <Content Include="Portals\_default\HotcakesViews\_default\Views\<%= friendlyName %>PaymentMethodCheckout\App_LocalResources\Controller.resx" />
+    <Content Include="Portals\_default\HotcakesViews\_default\Views\<%= friendlyName %>PaymentMethodCheckout\App_LocalResources\Index.cshtml.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Portals\_default\HotcakesViews\_default\Views\<%= extensionName %>PaymentMethodCheckout\Index.cshtml" />
+    <Content Include="Portals\_default\HotcakesViews\_default\Views\<%= friendlyName %>PaymentMethodCheckout\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= extensionName %>\App_LocalResources\Edit.ascx.resx" />
+    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\PaymentMethods\<%= friendlyName %>\App_LocalResources\Edit.ascx.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
     <ItemGroup>
-    <None Include="<%= extensionName %>.dnn" />
-    <None Include="<%= extensionName %>_Symbols.dnn" />
+    <None Include="<%= friendlyName %>.dnn" />
+    <None Include="<%= friendlyName %>_Symbols.dnn" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReadMe.txt" />

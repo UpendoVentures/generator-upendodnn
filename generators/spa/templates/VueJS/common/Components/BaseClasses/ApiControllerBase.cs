@@ -9,9 +9,9 @@ namespace <%= fullNamespace %>.Components.BaseClasses
 {
     public class ApiControllerBase : DnnApiController
     {
-        private const string DBCONTEXT_KEY = "<%= moduleName %>Context_Instance";
+        private const string DBCONTEXT_KEY = "<%= friendlyName %>Context_Instance";
 
-        public <%= moduleName %>Context DbCtx
+        public <%= friendlyName %>Context DbCtx
         {
             get
             {
@@ -24,26 +24,26 @@ namespace <%= fullNamespace %>.Components.BaseClasses
         /// </summary>
         /// <param name="createNewInstance"></param>
         /// <returns></returns>
-        protected <%= moduleName %>Context GetContext(bool createNewInstance = false)
+        protected <%= friendlyName %>Context GetContext(bool createNewInstance = false)
         {
             // if a new instance is requested: return one
-            if (createNewInstance) return new <%= moduleName %>Context();
+            if (createNewInstance) return new <%= friendlyName %>Context();
 
             // get a reference to the HttpContext
             var ctx = Request.Properties["MS_HttpContext"] as HttpContextWrapper;
 
-            <%= moduleName %>Context retval = null;
+            <%= friendlyName %>Context retval = null;
             // se if we have one in the HttpContext already
             if (ctx.Items[DBCONTEXT_KEY] == null)
             {
-                retval = new <%= moduleName %>Context();
+                retval = new <%= friendlyName %>Context();
                 // store in HttpContext
                 ctx.Items[DBCONTEXT_KEY] = retval;
             }
             else
             {
                 // get from HttpContext
-                retval = (<%= moduleName %>Context)ctx.Items[DBCONTEXT_KEY];
+                retval = (<%= friendlyName %>Context)ctx.Items[DBCONTEXT_KEY];
             }
 
             return retval;
@@ -57,7 +57,7 @@ namespace <%= fullNamespace %>.Components.BaseClasses
             // dispose of stored DbContext
             if (ctx.Items[DBCONTEXT_KEY] != null)
             {
-                var dbctx = (<%= moduleName %>Context)ctx.Items[DBCONTEXT_KEY];
+                var dbctx = (<%= friendlyName %>Context)ctx.Items[DBCONTEXT_KEY];
                 dbctx.Dispose();
             }
 

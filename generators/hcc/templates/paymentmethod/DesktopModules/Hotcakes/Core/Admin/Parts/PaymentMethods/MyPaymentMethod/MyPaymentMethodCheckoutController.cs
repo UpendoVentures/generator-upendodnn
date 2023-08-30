@@ -42,15 +42,15 @@ namespace <%= fullNamespace %>.HccPaymentMethod
     ///     You have to be directed to the page that contains this view after payment processing
     /// </summary>
     [Serializable]
-    public class <%= extensionName %>PaymentMethodCheckoutController : BaseStoreController
+    public class <%= friendlyName %>PaymentMethodCheckoutController : BaseStoreController
     {
         [NonCacheableResponseFilter]
         public ActionResult Index()
         {
             // Here you can parse response from payment provider if you used hosted pay page scenario
 
-            var settings = new <%= extensionName %>PaymentMethodSettings();
-            var methodSettings = HccApp.CurrentStore.Settings.MethodSettingsGet(<%= extensionName %>PaymentMethod.Id());
+            var settings = new <%= friendlyName %>PaymentMethodSettings();
+            var methodSettings = HccApp.CurrentStore.Settings.MethodSettingsGet(<%= friendlyName %>PaymentMethod.Id());
             settings.Merge(methodSettings);
 
             var model = new CheckoutViewModel {CurrentOrder = HccApp.OrderServices.CurrentShoppingCart()};
@@ -129,7 +129,7 @@ namespace <%= fullNamespace %>.HccPaymentMethod
             var orderTransaction = new OrderTransaction
             {
                 Success = true,
-                MethodId = <%= extensionName %>PaymentMethod.Id(),
+                MethodId = <%= friendlyName %>PaymentMethod.Id(),
                 OrderId = model.CurrentOrder.bvin,
                 Amount = model.CurrentOrder.TotalGrandAfterStoreCredits(HccApp.OrderServices),
                 Action = ActionType.ThirdPartyPayMethodCharge,

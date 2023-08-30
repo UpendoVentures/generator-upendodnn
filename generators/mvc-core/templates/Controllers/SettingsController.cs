@@ -11,7 +11,7 @@ using System.Web.Mvc;
 using DotNetNuke.Security;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 
-namespace <%= namespace%>.Modules.<%= moduleName %>.Controllers
+namespace <%= namespace%>.Modules.<%= friendlyName %>.Controllers
 {
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
     [DnnHandleError]

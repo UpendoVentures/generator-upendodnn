@@ -82,22 +82,22 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= extensionName %>\Edit.ascx" />
+    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= friendlyName %>\Edit.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= extensionName %>\Edit.ascx.cs">
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= friendlyName %>\Edit.ascx.cs">
       <DependentUpon>Edit.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= extensionName %>\Edit.ascx.designer.cs">
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= friendlyName %>\Edit.ascx.designer.cs">
       <DependentUpon>Edit.ascx</DependentUpon>
     </Compile>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= extensionName %>\<%= extensionName %>.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= extensionName %>\<%= extensionName %>Settings.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= friendlyName %>\<%= friendlyName %>.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= friendlyName %>\<%= friendlyName %>Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= extensionName %>\App_LocalResources\Edit.ascx.resx" />
+    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\CreditCardGateways\<%= friendlyName %>\App_LocalResources\Edit.ascx.resx" />
   </ItemGroup>
    <ItemGroup>
     <Content Include="License.txt" />
@@ -108,8 +108,8 @@
     <None Include="packages.config" />
   </ItemGroup>
     <ItemGroup>
-    <None Include="<%= extensionName %>.dnn" />
-    <None Include="<%= extensionName %>_Symbols.dnn" />
+    <None Include="<%= friendlyName %>.dnn" />
+    <None Include="<%= friendlyName %>_Symbols.dnn" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReadMe.txt" />

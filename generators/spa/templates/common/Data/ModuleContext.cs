@@ -7,9 +7,9 @@ using DotNetNuke.Framework.Providers;
 
 namespace <%= fullNamespace %>.Data
 {
-    public class <%= moduleName %>Context: DbContext
+    public class <%= friendlyName %>Context: DbContext
     {
-        public <%= moduleName %>Context()
+        public <%= friendlyName %>Context()
             : base("name=SiteSqlServer")
         {
         }
@@ -18,7 +18,7 @@ namespace <%= fullNamespace %>.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            string moduleQualifier = "<%= moduleName %>_";
+            string moduleQualifier = "<%= friendlyName %>_";
             // get the dnn data provider configuration
             ProviderConfiguration pc = ProviderConfiguration.GetProviderConfiguration("data");
             // Read the configuration specific information for this provider

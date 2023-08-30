@@ -130,13 +130,13 @@
     <Content Include="Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="<%= extensionName %>.dnn">
+    <Content Include="<%= friendlyName %>.dnn">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Module.build">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="<%= extensionName %>_Symbols.dnn">
+    <Content Include="<%= friendlyName %>_Symbols.dnn">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
@@ -274,7 +274,7 @@
     <Folder Include="Scripts\ng\services\" />
   </ItemGroup>
   <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''"><%= msBuildVersion %>.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

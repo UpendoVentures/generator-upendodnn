@@ -130,7 +130,7 @@
     <value>Are you sure you want to delete this Item</value>
   </data>
   <data name="ControlTitle_edit.Text" xml:space="preserve">
-    <value>Edit Control for <%= moduleName %></value>
+    <value>Edit Control for <%= friendlyName %></value>
   </data>
   <data name="DeleteItem.Text" xml:space="preserve">
     <value>Delete</value>

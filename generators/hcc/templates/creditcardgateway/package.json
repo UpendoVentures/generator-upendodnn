@@ -1,16 +1,16 @@
  {
   "name":"<%= fullNamespace %>", 
   "version":"01.00.00", 
-  "description":"<%= description %>", 
+  "description":"<%= extensionDescription %>", 
   "dnnModule": {
     "fullName":"<%= fullNamespace %>", 
-    "friendlyName":"<%= extensionName %> Module", 
+    "friendlyName":"<%= friendlyName %> Module", 
     "packageName":"<%= fullNamespace %>", 
     "owner": {
-      "name":"<%= namespace %>", 
+      "name":"<%= ownerName %>", 
       "organization":"<%= namespace %>", 
-      "url":"<%= companyUrl %>.org", 
-      "email":"<%= emailAddy %>"
+      "url":"<%= companyUrl %>", 
+      "email":"<%= emailAddress %>"
     }, 
     "module": {
       "packageName":"<%= fullNamespace %>", 
@@ -23,7 +23,7 @@
     "packagesPath":"./_Packages", 
     "pathToAssemblies":"./bin", 
     "pathToScripts":"./Providers/DataProviders/SqlDataProvider", 
-    "pathToPublish":"./bin/_PublishedWebsites/<%= extensionName %>", 
+    "pathToPublish":"./bin/_PublishedWebsites/<%= friendlyName %>", 
     "pathToSupplementaryFiles":"./", 
     "excludeFilter":[
       "gulpfile.js", 

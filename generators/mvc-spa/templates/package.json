@@ -1,22 +1,22 @@
 {
-  "name": "MyCompany.Modules.Mvc",
+  "name": "<%= friendlyName %>",
   "version": "01.00.00",
-  "description": "MVC module template.",
+  "description": "<%= extensionDescription %>",
   "dnnModule": {
-    "fullName": "MyCompany.Modules.Mvc",
-    "friendlyName": "Mvc Module",
-    "packageName": "MyCompany.Modules.Mvc",
+    "fullName": "<%= ownerName %>",
+    "friendlyName": "<%= friendlyName %> Module",
+    "packageName": "<%= namespaceRoot %>_<%= friendlyName %>",
     "owner": {
-      "name": "MyCompany",
-      "organization": "MyCompany",
-      "url": "https://example.com.org",
-      "email": "me@example.com"
+      "name": "<%= ownerName %>",
+      "organization": "<%= companyName %>",
+      "url": "<%= companyUrl %>",
+      "email": "<%= emailAddress %>"
     },
     "module": {
-      "packageName": "MyCompany.Modules.Mvc",
-      "folderName": "MyCompany.Modules.Mvc",
+      "packageName": "<%= namespaceRoot %>_<%= friendlyName %>",
+      "folderName": "<%= namespaceRoot %>/<%= friendlyName %>",
       "azureCompatible": "true",
-      "iconFile": "DesktopModules\\MVC\\MyCompany.Modules.Mvc\\Images\\logo.png"
+      "iconFile": "DesktopModules\\MVC\\<%= namespaceRoot %>\\Images\\logo.png"
     },
     "tempPath": "./package",
     "packagesPath": "./_Packages",

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "<%= moduleName %>": {
+    "<%= friendlyName %>": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -71,7 +71,7 @@
               "path": "./webpack.config.js",
               "replaceDuplicatePlugins": true
             },
-            "outputPath": "../../Website/DesktopModules/<%= moduleName %>/dist",
+            "outputPath": "../../Website/DesktopModules/<%= friendlyName %>/dist",
             "index": "",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

@@ -66,23 +66,22 @@ module.exports = class extends Generator {
         message: 'What type of project would you like to scaffold?',
         choices: [
           solutionChoice,
-          { name: 'Module: Webforms', value: 'webforms' },
-          { name: 'Module: MVC', value: 'mvc' },
-          { name: 'Module: MVC+SPA', value: 'mvc-spa' },
-          /*{ name: 'Module: MVC, .NET Core', value: 'mvc-core' },*/
-          { name: 'Module: SPA', value: 'spa' },
-          { name: 'Persona Bar', value: 'personabar' },
-          { name: 'Skin Object', value: 'skinobject' },
+          { name: 'Authentication Provider', value: 'auth-provider' },
           { name: 'Library', value: 'library' },
           { name: 'Library: Scheduled Job', value: 'library-scheduledjob' },
-          { name: 'Authentication Provider', value: 'auth-provider' },
+          { name: 'Module: MVC', value: 'mvc' },
+          { name: 'Module: MVC+SPA', value: 'mvc-spa' },
+          { name: 'Module: SPA', value: 'spa' },
+          { name: 'Module: Webforms', value: 'webforms' },
+          { name: 'Persona Bar', value: 'personabar' },
+          { name: 'Skin Object', value: 'skinobject' },
           { name: 'Hotcakes Commerce Extension', value: 'hcc' }
         ]
       },
       {
-        when: !this.options.yourName,
+        when: !this.options.ownerName,
         type: 'input',
-        name: 'yourName',
+        name: 'ownerName',
         message: 'What\'s your first and last name (surname)?',
         store: true,
         validate: str => {
@@ -90,10 +89,10 @@ module.exports = class extends Generator {
         }
       },
       {
-        when: !this.options.company,
+        when: !this.options.companyName,
         type: 'input',
-        name: 'company',
-        message: 'Namespace for your solution (Usually a company name, such as \'Upendo\' if you were Upendo Ventures)?',
+        name: 'companyName',
+        message: 'Namespace root for your solution (Usually a company name, such as \'Upendo\' if you were Upendo Ventures)?',
         store: true,
         validate: str => {
           return str.length > 0;
@@ -110,9 +109,9 @@ module.exports = class extends Generator {
         }
       },
       {
-        when: !this.options.emailAddy,
+        when: !this.options.emailAddress,
         type: 'input',
-        name: 'emailAddy',
+        name: 'emailAddress',
         message: 'Your e-mail address:',
         store: true,
         validate: str => {
@@ -130,10 +129,10 @@ module.exports = class extends Generator {
   composing() {
     const options = {
       projType: this.props.value,
-      yourName: this.props.yourName,
-      company: this.props.company,
+      ownerName: this.props.ownerName,
+      companyName: this.props.companyName,
       companyUrl: this.props.companyUrl,
-      emailAddy: this.props.emailAddy
+      emailAddress: this.props.emailAddress
     };
 
     this.composeWith(require.resolve('../' + this.props.projType), options);

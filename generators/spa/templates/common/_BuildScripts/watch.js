@@ -19,7 +19,7 @@ const srcDir = "dist/**";
 const binDir = './bin';
 let destAssemblyDir = `${pkg.dnn.dnnRoot}/bin/`;
 // eslint-disable-next-line prettier/prettier
-let destModuleDir = `${pkg.dnn.dnnRoot}/DesktopModules/<%= namespace %>/<%= moduleName %>/Resources`;
+let destModuleDir = `${pkg.dnn.dnnRoot}/DesktopModules/<%= namespaceRoot %>/<%= friendlyName %>/Resources`;
 
 const moduleWatcher = chokidar.watch(srcDir, {
   ignoreInitial: true,

@@ -1,17 +1,17 @@
-var <%= moduleName %> = <%= moduleName %> || {};
+var <%= friendlyName %> = <%= friendlyName %> || {};
 
-<%= moduleName %>.services = {}; // we need a service reference for each module
+<%= friendlyName %>.services = {}; // we need a service reference for each module
 
-<%= moduleName %>.InitApp = function (moduleid, editmode) {
+<%= friendlyName %>.InitApp = function (moduleid, editmode) {
     // create the service object for this module
     var svc = {
         moduleid: moduleid,
-        baseUrl: "/DesktopModules/<%= moduleName %>/API/",
+        baseUrl: "/DesktopModules/<%= friendlyName %>/API/",
         framework: $.ServicesFramework(moduleid)
     };
 
     // add the service to the object containg all services in case multiple modules are placed on the page
-    <%= moduleName %>.services[`svc-${moduleid}`] = svc;
+    <%= friendlyName %>.services[`svc-${moduleid}`] = svc;
 
     new Vue({
         el: `#app-${moduleid}`,
@@ -46,19 +46,19 @@ var <%= moduleName %> = <%= moduleName %> || {};
         methods: {
             loadItems() {
                 var self = this;
-                <%= moduleName %>.GetItemList(moduleid, function (data) {
+                <%= friendlyName %>.GetItemList(moduleid, function (data) {
                     self.items = data;
                 });
             },
             loadUsers() {
                 var self = this;
-                <%= moduleName %>.GetUserList(moduleid, function (data) {
+                <%= friendlyName %>.GetUserList(moduleid, function (data) {
                     self.users = data;
                 });
             },
             loadSettings() {
                 var self = this;
-                <%= moduleName %>.LoadSettings(moduleid, function (data) {
+                <%= friendlyName %>.LoadSettings(moduleid, function (data) {
                     console.log(data);
                     self.settings.itemId = data.itemId == "true" ? true: false;
                     self.settings.description = data.description == "true" ? true : false;
@@ -71,7 +71,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
             },
             saveChanges() {
                 var self = this;
-                <%= moduleName %>.SaveItem(moduleid,
+                <%= friendlyName %>.SaveItem(moduleid,
                     {
                         itemId: self.item.itemId,
                         name: self.item.name,
@@ -108,7 +108,7 @@ var <%= moduleName %> = <%= moduleName %> || {};
             deleteItem(itemId) {
                 var self = this;
                 if (confirm("Do you want to remove this item?")) {
-                    <%= moduleName %>.DeleteItem(moduleid, itemId, function () {
+                    <%= friendlyName %>.DeleteItem(moduleid, itemId, function () {
                         self.loadItems();
                     });
                 }     
@@ -123,9 +123,9 @@ var <%= moduleName %> = <%= moduleName %> || {};
 }
 
 
-<%= moduleName %>.GetItemList = function (moduleid, onDone) {
+<%= friendlyName %>.GetItemList = function (moduleid, onDone) {
     // get the service for this module from the services object
-    var svc = <%= moduleName %>.services[`svc-${moduleid}`];
+    var svc = <%= friendlyName %>.services[`svc-${moduleid}`];
     var jqXHR = $.ajax({
         url: svc.baseUrl + "Item/GetList",
         beforeSend: svc.framework.setModuleHeaders,
@@ -137,9 +137,9 @@ var <%= moduleName %> = <%= moduleName %> || {};
     });
 }
 
-<%= moduleName %>.SaveItem = function (moduleid, editItem, onDone, onFail) {
+<%= friendlyName %>.SaveItem = function (moduleid, editItem, onDone, onFail) {
     // get the service for this module from the services object
-    var svc = <%= moduleName %>.services[`svc-${moduleid}`];
+    var svc = <%= friendlyName %>.services[`svc-${moduleid}`];
     var ajaxMethod = "POST";
     var restUrl = svc.baseUrl + "Item/Save";   
     var jqXHR = $.ajax({
@@ -157,9 +157,9 @@ var <%= moduleName %> = <%= moduleName %> || {};
     });
 };
 
-<%= moduleName %>.DeleteItem = function (moduleid, itemId, onDone, onFail) {
+<%= friendlyName %>.DeleteItem = function (moduleid, itemId, onDone, onFail) {
     // get the service for this module from the services object
-    var svc = <%= moduleName %>.services[`svc-${moduleid}`];
+    var svc = <%= friendlyName %>.services[`svc-${moduleid}`];
     var restUrl = svc.baseUrl + "Item/Delete?itemId=" + itemId;
     var jqXHR = $.ajax({
         method: "DELETE",
@@ -174,9 +174,9 @@ var <%= moduleName %> = <%= moduleName %> || {};
     });
 };
 
-<%= moduleName %>.GetUserList = function (moduleid, onDone) {
+<%= friendlyName %>.GetUserList = function (moduleid, onDone) {
     // get the service for this module from the services object
-    var svc = <%= moduleName %>.services[`svc-${moduleid}`];
+    var svc = <%= friendlyName %>.services[`svc-${moduleid}`];
     // need to calculate a different Url for User service
     var restUrl = svc.baseUrl + "/User/GetList";
     var jqXHR = $.ajax({
@@ -192,9 +192,9 @@ var <%= moduleName %> = <%= moduleName %> || {};
     });
 };
 
-<%= moduleName %>.LoadSettings = function (moduleid, onDone) {
+<%= friendlyName %>.LoadSettings = function (moduleid, onDone) {
     // get the service for this module from the services object
-    var svc = <%= moduleName %>.services[`svc-${moduleid}`];
+    var svc = <%= friendlyName %>.services[`svc-${moduleid}`];
     // need to calculate a different Url for User service
     var restUrl = svc.baseUrl + "/Settings/LoadSettings";
     var jqXHR = $.ajax({

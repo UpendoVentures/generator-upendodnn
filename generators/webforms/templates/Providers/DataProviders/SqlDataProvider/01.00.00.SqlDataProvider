@@ -2,7 +2,7 @@
 
 INSTALL SQL PROVIDER SCRIPT
 
-<%= extensionName %> Extension for DNN
+<%= friendlyName %> Extension for DNN
 
 Release Notes:
  - This script does this

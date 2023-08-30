@@ -29,7 +29,7 @@ using Hotcakes.Payment;
 namespace <%= fullNamespace %>.HccPaymentMethod
 {
     [Serializable]
-    public class <%= extensionName %>PaymentMethodSettings : MethodSettings
+    public class <%= friendlyName %>PaymentMethodSettings : MethodSettings
     {
         public string UserName
         {

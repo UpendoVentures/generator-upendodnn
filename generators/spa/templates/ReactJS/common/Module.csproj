@@ -93,11 +93,11 @@
     <Content Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="<%= moduleName %>.dnn" />
+    <Content Include="<%= friendlyName %>.dnn" />
     <Content Include="Module.build">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="<%= moduleName %>_Symbols.dnn">
+    <Content Include="<%= friendlyName %>_Symbols.dnn">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
@@ -126,7 +126,7 @@
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Data\Item.cs" />
-    <Compile Include="Data\<%= moduleName %>Context.cs" />  
+    <Compile Include="Data\<%= friendlyName %>Context.cs" />  
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\logo.png" />
@@ -135,11 +135,11 @@
     <Content Include="ReleaseNotes.txt" />
   </ItemGroup>
   <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''"><%= msBuildVersion %>.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v<%= msBuildVersion %>.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion).0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">

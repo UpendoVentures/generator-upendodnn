@@ -17,8 +17,8 @@ namespace <%= fullNamespace %>
 {
     public static class Constants
     {
-        public const string ModuleName = "<%= moduleName %>";
-        public const string ModuleFolderName = "<%= moduleName %>";
+        public const string ModuleName = "<%= friendlyName %>";
+        public const string ModuleFolderName = "<%= friendlyName %>";
 
         public const string ModuleProperties = "moduleproperties";
         public const string ALLOW_INDEX = "AllowIndex";

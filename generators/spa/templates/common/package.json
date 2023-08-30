@@ -1,33 +1,33 @@
 {
-  "name": "<%= moduleName %>",
+  "name": "<%= friendlyName %>",
   "version": "01.00.00",
-  "description": "<%= description %>",
+  "description": "<%= extensionDescription %>",
   "dnn": {
     "localhost": "<%= localhost %>",
     "dnnRoot": "<%= dnnRoot %>"
   },
   "dnnModule": {
-    "fullName": "<%= namespace %>.<%= moduleName %>",
-    "friendlyName": "<%= moduleName %> Module",
-    "packageName": "<%= namespace %>_<%= moduleName %>",
+    "fullName": "<%= namespaceRoot %>.<%= friendlyName %>",
+    "friendlyName": "<%= friendlyName %> Module",
+    "packageName": "<%= namespaceRoot %>_<%= friendlyName %>",
     "owner": {
-      "name": "<%= moduleName %>",
-      "organization": "<%= namespace %>",
-      "url": "<%= companyUrl %>.org",
-      "email": "<%= emailAddy %>"
+      "name": "<%= ownerName %>",
+      "organization": "<%= companyName %>",
+      "url": "<%= companyUrl %>",
+      "email": "<%= emailAddress %>"
     },
     "module": {
-      "packageName": "<%= namespace %>_<%= moduleName %>",
-      "folderName": "<%= namespace %>/<%= moduleName %>",
+      "packageName": "<%= namespaceRoot %>_<%= friendlyName %>",
+      "folderName": "<%= namespaceRoot %>/<%= friendlyName %>",
       "azureCompatible": "true",
       "iconFile":
-        "DesktopModules\\<%= namespace %>\\<%= moduleName %>\\Resources\\img\\extension.png"
+        "DesktopModules\\<%= namespaceRoot %>\\<%= friendlyName %>\\Resources\\img\\extension.png"
     },
     "tempPath": "./package",
     "packagesPath": "./_Packages",
     "pathToAssemblies": "./bin",
     "pathToScripts": "./Providers/DataProviders/SqlDataProvider",
-    "pathToPublish": "./bin/_PublishedWebsites/<%= moduleName %>",
+    "pathToPublish": "./bin/_PublishedWebsites/<%= friendlyName %>",
     "pathToSupplementaryFiles": "./",
     "excludeFilter": [
       "gulpfile.js",

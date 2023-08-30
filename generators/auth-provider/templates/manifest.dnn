@@ -2,16 +2,16 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>" type="Auth_System" version="<%= version %>">
-      <friendlyName><%= extensionName %></friendlyName>
+      <friendlyName><%= friendlyName %></friendlyName>
       <description>
-        <![CDATA[<p><%= description %></p>]]>
+        <![CDATA[<p><%= extensionDescription %></p>]]>
       </description>
-      <iconFile>DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
+      <iconFile>DesktopModules/<%= friendlyName %>/Images/logo.png</iconFile>
       <owner>
-        <name><%= yourName %></name>
-        <organization><%= company %></organization>
+        <name><%= ownerName %></name>
+        <organization><%= companyName %></organization>
         <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
-        <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
+        <email><![CDATA[<a href="mailto:<%= emailAddress %>" target="_blank"><%= emailAddress %></a>]]></email>
       </owner>
       <license src="License.txt" />
       <releaseNotes src="ReleaseNotes.txt" />
@@ -23,10 +23,10 @@
       
         <component type="AuthenticationSystem">
           <authenticationService>
-            <type><%= type %></type>
-            <settingsControlSrc>DesktopModules/<%= extensionName %>/Settings.ascx</settingsControlSrc>
-            <loginControlSrc>DesktopModules/<%= extensionName %>/Login.ascx</loginControlSrc>
-            <logoffControlSrc>DesktopModules/<%= extensionName %>/Logoff.ascx</logoffControlSrc>
+            <type><%= authTypeName %></type>
+            <settingsControlSrc>DesktopModules/<%= friendlyName %>/Settings.ascx</settingsControlSrc>
+            <loginControlSrc>DesktopModules/<%= friendlyName %>/Login.ascx</loginControlSrc>
+            <logoffControlSrc>DesktopModules/<%= friendlyName %>/Logoff.ascx</logoffControlSrc>
           </authenticationService>
         </component>
 
@@ -42,7 +42,7 @@
 
         <component type="ResourceFile">
           <resourceFiles>
-            <basePath>DesktopModules\<%= extensionName %></basePath>
+            <basePath>DesktopModules\<%= friendlyName %></basePath>
             <resourceFile>
               <name>Resources.zip</name>
             </resourceFile>

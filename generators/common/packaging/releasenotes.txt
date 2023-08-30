@@ -1,5 +1,5 @@
 ﻿
-<h2><%= extensionName %> <%= extensionType %> Extension for DNN</h2>
+<h2><%= friendlyName %> <%= extensionType %> Extension for DNN</h2>
 <p>Version 01.00.00</p>
 <ul>
 	<li>First update</li>

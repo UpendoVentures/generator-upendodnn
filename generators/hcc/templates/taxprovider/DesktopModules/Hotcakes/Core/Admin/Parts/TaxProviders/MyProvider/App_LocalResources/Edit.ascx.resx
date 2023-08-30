@@ -124,7 +124,7 @@
     <value />
   </data>
   <data name="NewTaxProviderOption.Text" xml:space="preserve">
-    <value><%= extensionName %> Tax Provider</value>
+    <value><%= friendlyName %> Tax Provider</value>
   </data>
   <data name="TaxProviderConnectionFail.Text" xml:space="preserve">
     <value>Connection test failed</value>

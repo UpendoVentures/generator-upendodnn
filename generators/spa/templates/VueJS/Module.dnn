@@ -1,16 +1,14 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="<%= fullNamespace %>" type="Module" version="00.00.01">
-      <friendlyName><%= moduleName %></friendlyName>
-      <description>
-        <![CDATA[<p><%= description %></p>]]>
-      </description>
-      <iconFile>DesktopModules/<%= moduleName %>/Images/logo.png</iconFile>
+    <package name="<%= fullNamespace %>" type="Module" version="01.00.00">
+      <friendlyName><%= friendlyName %></friendlyName>
+      <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
+      <iconFile>DesktopModules/<%= friendlyName %>/Images/logo.png</iconFile>
       <owner>
-        <name><%= yourName %></name>
-        <organization><%= company %></organization>
+        <name><%= ownerName %></name>
+        <organization><%= companyName %></organization>
         <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
-        <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
+        <email><![CDATA[<a href="mailto:<%= emailAddress %>" target="_blank"><%= emailAddress %></a>]]></email>
       </owner>
       <license src="License.txt"></license>
       <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
@@ -21,23 +19,23 @@
       <components>
         <component type="Script">
           <scripts>
-            <basePath>DesktopModules\<%= moduleName %></basePath>
+            <basePath>DesktopModules\<%= friendlyName %></basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>00.00.01.SqlDataProvider</name>
-              <version>00.00.01</version>
+              <name>01.00.00.SqlDataProvider</name>
+              <version>01.00.00</version>
             </script>
             <script type="UnInstall">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>Uninstall.SqlDataProvider</name>
-              <version>00.00.01</version>
+              <version>01.00.00</version>
             </script>
           </scripts>
         </component>
 
         <component type="ResourceFile">
           <resourceFiles>
-            <basePath>DesktopModules/<%= moduleName %></basePath>
+            <basePath>DesktopModules/<%= friendlyName %></basePath>
             <resourceFile>
               <name>Resources.zip</name>
             </resourceFile>
@@ -46,20 +44,20 @@
 
         <component type="Module">
           <desktopModule>
-            <moduleName><%= moduleName %></moduleName>
-            <foldername><%= moduleName %></foldername>
+            <moduleName><%= friendlyName %></moduleName>
+            <foldername><%= friendlyName %></foldername>
             <businessControllerClass><%= fullNamespace %>.Components.FeatureController</businessControllerClass>
             <supportedFeatures>
 							<supportedFeature type="Portable" />
 						</supportedFeatures>
             <moduleDefinitions>
               <moduleDefinition>
-                <friendlyName><%= moduleName %></friendlyName>
+                <friendlyName><%= friendlyName %></friendlyName>
                 <defaultCacheTime>0</defaultCacheTime>
                 <moduleControls>
                   <moduleControl>
                     <controlKey />
-                    <controlSrc>DesktopModules/<%= moduleName %>/View.html</controlSrc>
+                    <controlSrc>DesktopModules/<%= friendlyName %>/View.html</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle />
                     <controlType>View</controlType>
@@ -69,9 +67,9 @@
                   </moduleControl>
                   <moduleControl>
                     <controlKey>QuickSettings</controlKey>
-                    <controlSrc>DesktopModules/<%= moduleName %>/Settings.html</controlSrc>
+                    <controlSrc>DesktopModules/<%= friendlyName %>/Settings.html</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle><%= moduleName %> Settings</controlTitle>
+                    <controlTitle><%= friendlyName %> Settings</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />

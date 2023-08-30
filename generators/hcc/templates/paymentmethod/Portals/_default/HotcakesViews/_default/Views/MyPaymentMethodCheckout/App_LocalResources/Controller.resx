@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ErrorOccured.Text" xml:space="preserve">
-    <value>An error occurred during the checkout with <%= extensionName %> Payment</value>
+    <value>An error occurred during the checkout with <%= friendlyName %> Payment</value>
   </data>
   <data name="InternalErrorOccured.Text" xml:space="preserve">
     <value>An internal error occured while attempting to place your order. Please contact the store owner directly to complete your order.</value>

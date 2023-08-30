@@ -2,9 +2,9 @@
 @using DotNetNuke.Web.Mvc.Helpers
 
 @{
-    ClientResourceManager.RegisterStyleSheet(Dnn.DnnPage, "~/DesktopModules/MVC/<%= namespace %>/<%= moduleName %>/Resources/bootstrap/css/bootstrap.min.css");
-    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~/DesktopModules/MVC/<%= namespace %>/<%= moduleName %>/Resources/bootstrap/js/bootstrap.min.js", 50);
-    ClientResourceManager.RegisterStyleSheet(Dnn.DnnPage, "~/DesktopModules/MVC/<%= namespace %>/<%= moduleName %>/Resources/module.css");
+    ClientResourceManager.RegisterStyleSheet(Dnn.DnnPage, "~/DesktopModules/MVC/<%= namespaceRoot %>/<%= friendlyName %>/Resources/bootstrap/css/bootstrap.min.css");
+    ClientResourceManager.RegisterScript(Dnn.DnnPage, "~/DesktopModules/MVC/<%= namespaceRoot %>/<%= friendlyName %>/Resources/bootstrap/js/bootstrap.min.js", 50);
+    ClientResourceManager.RegisterStyleSheet(Dnn.DnnPage, "~/DesktopModules/MVC/<%= namespaceRoot %>/<%= friendlyName %>/Resources/module.css");
 }
 
 @{

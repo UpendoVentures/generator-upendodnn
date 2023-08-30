@@ -5,7 +5,7 @@ using <%= fullNamespace %>.Components;
 
 namespace <%= fullNamespace %>
 {
-    public partial class View : <%= extensionName %>ModuleBase
+    public partial class View : <%= friendlyName %>ModuleBase
     {
 
         protected void Page_Load(object sender, EventArgs e)

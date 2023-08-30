@@ -2,15 +2,13 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>" type="Library" version="01.00.00">
-      <friendlyName><%= extensionName %> Library</friendlyName>
-      <description>
-		<![CDATA[<p><%= description %></p>]]>
-	  </description>
+      <friendlyName><%= friendlyName %> Library</friendlyName>
+      <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
       <owner>
-        <name><%= yourName %></name>
-        <organization><%= company %></organization>
+        <name><%= ownerName %></name>
+        <organization><%= companyName %></organization>
         <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
-        <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
+        <email><![CDATA[<a href="mailto:<%= emailAddress %>" target="_blank"><%= emailAddress %></a>]]></email>
       </owner>
       <license src="License.txt" />
       <releaseNotes src="ReleaseNotes.txt" />

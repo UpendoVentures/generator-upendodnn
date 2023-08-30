@@ -13,7 +13,7 @@ describe('generator-dnn:mvc', () => {
         name: 'TestMVC',
         description: 'Test Build Module',
         companyUrl: 'upendoventures.com',
-        emailAddy: 'solutions@upendoventures.com'
+        emailAddress: 'solutions@upendoventures.com'
       });
   });
 

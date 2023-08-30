@@ -31,7 +31,7 @@ namespace <%= fullNamespace %>.HccPaymentMethod
     {
         public override void LoadData()
         {
-            var settings = new <%= extensionName %>PaymentMethodSettings();
+            var settings = new <%= friendlyName %>PaymentMethodSettings();
             settings.Merge(HccApp.CurrentStore.Settings.MethodSettingsGet(MethodId));
 
             txtUserName.Text = settings.UserName;
@@ -40,7 +40,7 @@ namespace <%= fullNamespace %>.HccPaymentMethod
 
         public override void SaveData()
         {
-            var settings = new <%= extensionName %>PaymentMethodSettings();
+            var settings = new <%= friendlyName %>PaymentMethodSettings();
             settings.Merge(HccApp.CurrentStore.Settings.MethodSettingsGet(MethodId));
 
             settings.UserName = txtUserName.Text.Trim();

@@ -1223,8 +1223,8 @@
     <None Include="packages.config" />
   </ItemGroup>
     <ItemGroup>
-    <None Include="<%= extensionName %>.dnn" />
-    <None Include="<%= extensionName %>_Symbols.dnn" />
+    <None Include="<%= friendlyName %>.dnn" />
+    <None Include="<%= friendlyName %>_Symbols.dnn" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReadMe.txt" />

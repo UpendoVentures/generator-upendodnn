@@ -35,11 +35,11 @@ namespace <%= fullNamespace %>.HccGiftCardGateway
     ///     You are free to use your data access layer or any other service to store/retrive giftcard information
     /// </summary>
     [Serializable]
-    public class <%= extensionName %> : GiftCardGateway
+    public class <%= friendlyName %> : GiftCardGateway
     {
-        public <%= extensionName %>()
+        public <%= friendlyName %>()
         {
-            Settings = new <%= extensionName %>Settings();
+            Settings = new <%= friendlyName %>Settings();
             GiftCards = new List<GiftCardData>();
 
             var giftCard = new GiftCardData
@@ -53,7 +53,7 @@ namespace <%= fullNamespace %>.HccGiftCardGateway
 
         public override string Name
         {
-            get { return "<%= extensionName %>"; }
+            get { return "<%= friendlyName %>"; }
         }
 
         public override string Id
@@ -66,7 +66,7 @@ namespace <%= fullNamespace %>.HccGiftCardGateway
             get { return false; }
         }
 
-        public <%= extensionName %>Settings Settings { get; set; }
+        public <%= friendlyName %>Settings Settings { get; set; }
 
         public override MethodSettings BaseSettings
         {
@@ -90,7 +90,7 @@ namespace <%= fullNamespace %>.HccGiftCardGateway
             }
             else
             {
-                t.Result.Messages.Add(new Message("<%= extensionName %> Transaction Failed", "FAILED", MessageType.Error));
+                t.Result.Messages.Add(new Message("<%= friendlyName %> Transaction Failed", "FAILED", MessageType.Error));
                 t.Result.Messages.Add(new Message("<Error Description>", "<Error Code>", MessageType.Error));
                 t.Result.Succeeded = false;
             }
@@ -111,7 +111,7 @@ namespace <%= fullNamespace %>.HccGiftCardGateway
             }
             else
             {
-                t.Result.Messages.Add(new Message("<%= extensionName %> Transaction Failed", "FAILED", MessageType.Error));
+                t.Result.Messages.Add(new Message("<%= friendlyName %> Transaction Failed", "FAILED", MessageType.Error));
                 t.Result.Messages.Add(new Message("<Error Description>", "<Error Code>", MessageType.Error));
                 t.Result.Succeeded = false;
             }

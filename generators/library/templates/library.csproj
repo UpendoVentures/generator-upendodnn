@@ -87,8 +87,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="<%= extensionName %>.dnn" />
-    <None Include="<%= extensionName %>_Symbols.dnn" />
+    <None Include="<%= friendlyName %>.dnn" />
+    <None Include="<%= friendlyName %>_Symbols.dnn" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="Library.Build" />

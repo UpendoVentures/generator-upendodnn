@@ -3,15 +3,13 @@
   <packages>
     <package name="<%= fullNamespace %>" type="Module" version="01.00.00">
       <iconFile>DesktopModules/Hotcakes/Core/Images/hcc-logo.png</iconFile>
-      <friendlyName>Hotcakes Commerce <%= extensionName %>  Payment Method</friendlyName>
-      <description>
-        <![CDATA[<p><%= description %></p>]]>
-      </description>
+      <friendlyName>Hotcakes Commerce <%= friendlyName %>  Payment Method</friendlyName>
+      <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
       <owner>
-        <name><%= namespace %></name>
-        <organization><%= namespace %></organization>
+        <name><%= ownerName %></name>
+        <organization><%= companyName %></organization>
         <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
-        <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
+        <email><![CDATA[<a href="mailto:<%= emailAddress %>" target="_blank"><%= emailAddress %></a>]]></email>
       </owner>
       <license src="License.txt" />
       <releaseNotes src="ReleaseNotes.txt" />

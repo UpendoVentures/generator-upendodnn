@@ -83,40 +83,40 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
    <ItemGroup>
-    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= extensionName %>\Edit.ascx" />
-    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= extensionName %>\MessageBox.ascx" />
+    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= friendlyName %>\Edit.ascx" />
+    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= friendlyName %>\MessageBox.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= extensionName %>\Edit.ascx.cs">
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= friendlyName %>\Edit.ascx.cs">
       <DependentUpon>Edit.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= extensionName %>\Edit.ascx.designer.cs">
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= friendlyName %>\Edit.ascx.designer.cs">
       <DependentUpon>Edit.ascx</DependentUpon>
     </Compile>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= extensionName %>\MessageBox.ascx.cs">
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= friendlyName %>\MessageBox.ascx.cs">
       <DependentUpon>MessageBox.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= extensionName %>\MessageBox.ascx.designer.cs">
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= friendlyName %>\MessageBox.ascx.designer.cs">
       <DependentUpon>MessageBox.ascx</DependentUpon>
     </Compile>
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= extensionName %>\<%= extensionName %>.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= extensionName %>\<%= extensionName %>Gateway.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= extensionName %>\<%= extensionName %>LineResult.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= extensionName %>\<%= extensionName %>Result.cs" />
-    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= extensionName %>\<%= extensionName %>Settings.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= friendlyName %>\<%= friendlyName %>.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= friendlyName %>\<%= friendlyName %>Gateway.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= friendlyName %>\<%= friendlyName %>LineResult.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= friendlyName %>\<%= friendlyName %>Result.cs" />
+    <Compile Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= friendlyName %>\<%= friendlyName %>Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= extensionName %>\App_LocalResources\Edit.ascx.resx" />
+    <Content Include="DesktopModules\Hotcakes\Core\Admin\Parts\TaxProviders\<%= friendlyName %>\App_LocalResources\Edit.ascx.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
     <ItemGroup>
-    <None Include="<%= extensionName %>.dnn" />
-    <None Include="<%= extensionName %>_Symbols.dnn" />
+    <None Include="<%= friendlyName %>.dnn" />
+    <None Include="<%= friendlyName %>_Symbols.dnn" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReadMe.txt" />

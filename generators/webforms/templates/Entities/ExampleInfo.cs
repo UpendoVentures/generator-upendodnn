@@ -7,7 +7,7 @@ namespace <%= fullNamespace %>.Entities
 {
     [TableName("<%= objectPrefix %>_Example")]
     [PrimaryKey("ItemId", AutoIncrement = true)]
-    [Cacheable("<%= extensionName %>Info", CacheItemPriority.Default, 20)]
+    [Cacheable("<%= friendlyName %>Info", CacheItemPriority.Default, 20)]
     [Scope("ModuleId")]
     public class ExampleInfo : IExampleInfo
     {

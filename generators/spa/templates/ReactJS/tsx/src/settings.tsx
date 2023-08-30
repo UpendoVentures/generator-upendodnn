@@ -8,5 +8,5 @@ ReactDOM.render(
 			<Hello name="I am the react modules settings page!" />
 		</div>
 	</div>,
-  document.getElementById("<%= namespace.toLowerCase() %><%= moduleName %>Settings")
+  document.getElementById("<%= namespaceRoot.toLowerCase() %><%= friendlyName %>Settings")
 );

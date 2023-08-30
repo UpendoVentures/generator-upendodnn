@@ -2,14 +2,14 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>" type="Module" version="<%= version %>">
-      <friendlyName><%= moduleName %></friendlyName>
-      <description><![CDATA[<p><%= description %></p>]]></description>
-      <iconFile>~/DesktopModules/<%= moduleName %>/Images/logo.png</iconFile>
+      <friendlyName><%= friendlyName %></friendlyName>
+      <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
+      <iconFile>~/DesktopModules/<%= friendlyName %>/Images/logo.png</iconFile>
       <owner>
-        <name><%= yourName %></name>
-        <organization><%= company %></organization>
+        <name><%= ownerName %></name>
+        <organization><%= companyName %></organization>
         <url><%= companyUrl %></url>
-        <email><![CDATA[<a href="mailto:<%= emailAddy %>"><%= emailAddy %></a>]]></email>
+        <email><![CDATA[<a href="mailto:<%= emailAddress %>"><%= emailAddress %></a>]]></email>
       </owner>
       <license src="License.txt" />
       <releaseNotes src="ReleaseNotes.txt" />
@@ -21,7 +21,7 @@
 
         <component type="Script">
           <scripts>
-            <basePath>DesktopModules\<%= moduleName %></basePath>
+            <basePath>DesktopModules\<%= friendlyName %></basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name><%= version %>.SqlDataProvider</name>
@@ -37,33 +37,33 @@
 
         <component type="Module">
           <desktopModule>
-            <moduleName><%= moduleName %></moduleName>
-            <foldername><%= moduleName %></foldername>
+            <moduleName><%= friendlyName %></moduleName>
+            <foldername><%= friendlyName %></foldername>
             <businessControllerClass><%= fullNamespace %>.Controllers.BusinessController, <%= fullNamespace %></businessControllerClass>
-						<supportedFeatures>
-							<supportedFeature type="Portable" />
-						</supportedFeatures>
+			<supportedFeatures>
+				<supportedFeature type="Portable" />
+			</supportedFeatures>
             <supportedFeatures />
             <moduleDefinitions>
               <moduleDefinition>
-                <friendlyName><%= moduleFriendlyName %></friendlyName>
+                <friendlyName><%= friendlyName %></friendlyName>
                 <defaultCacheTime>-1</defaultCacheTime>
                 <moduleControls>
                   <moduleControl>
                     <controlKey>
                     </controlKey>
-                    <controlSrc>DesktopModules/<%= moduleName %>/dist/View.html</controlSrc>
+                    <controlSrc>DesktopModules/<%= friendlyName %>/dist/View.html</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle><%= moduleName %> SPA</controlTitle>
+                    <controlTitle><%= friendlyName %> SPA</controlTitle>
                     <controlType>View</controlType>
                     <iconFile />
                     <helpUrl />
                   </moduleControl>
                   <moduleControl>
                     <controlKey>QuickSettings</controlKey>
-                    <controlSrc>DesktopModules/<%= moduleName %>/dist/Settings.html</controlSrc>
+                    <controlSrc>DesktopModules/<%= friendlyName %>/dist/Settings.html</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle><%= moduleName %> Settings</controlTitle>
+                    <controlTitle><%= friendlyName %> Settings</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
@@ -108,7 +108,7 @@
         
         <component type="ResourceFile">
           <resourceFiles>
-            <basePath>DesktopModules/<%= moduleName %></basePath>
+            <basePath>DesktopModules/<%= friendlyName %></basePath>
             <resourceFile>
               <name>Resources.zip</name>
             </resourceFile>

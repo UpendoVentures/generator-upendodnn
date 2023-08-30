@@ -2,7 +2,7 @@
 [JavaScript:{ jsname: "Knockout" }]
 [JavaScript:{ path: "~/Resources/Shared/scripts/dnn.jquery.js"}]
 [JavaScript:{ path: "~/Resources/Shared/Scripts/jquery/jquery.hoverIntent.min.js"}]
-[JavaScript:{ path: "~/DesktopModules/<%= moduleName %>/scripts/ItemEdit.js"}]
+[JavaScript:{ path: "~/DesktopModules/<%= friendlyName %>/scripts/ItemEdit.js"}]
 
 <div id="Item-[ModuleContext:ModuleId]">
     <div class="dnnForm dnnEditBasicSettings" id="dnnEditBasicSettings">
@@ -41,7 +41,7 @@
 
             var localizedSettings = {};
 
-            var viewmodel = new <%= moduleName %>.itemViewModel(moduleId, localizedSettings);
+            var viewmodel = new <%= friendlyName %>.itemViewModel(moduleId, localizedSettings);
             viewmodel.init();
 
             ko.applyBindings(viewmodel, $("#Item-" + moduleId)[0]);

@@ -12,29 +12,29 @@ module.exports = class extends DnnGeneratorBase {
         name: 'hccType',
         message: 'Which Hotcakes Commerce extension point do you want to build?',
         choices: [
-          { name: 'Order Workflow', value: 'workflow' },
           { name: 'Action Delegate Integration', value: 'actiondelegate' },
           { name: 'Credit Card Gateway', value: 'creditcardgateway' },
           { name: 'Gift Card Gateway', value: 'giftcardgateway' },
+          { name: 'Order Workflow', value: 'workflow' },
           { name: 'Payment Method', value: 'paymentmethod' },
           { name: 'Tax Provider', value: 'taxprovider' },
           { name: 'Viewset', value: 'viewset' },          
         ]
       },
       {
-        when: !this.options.name,
+        when: !this.options.friendlyName,
         type: 'input',
-        name: 'name',
+        name: 'friendlyName',
         message: 'What is the name of your Hotcakes Commerce extension point?',
-        default: this.appname,
+        default: this.appname, /*to-do: figure out if we want to populate and actually use this later */
         validate: str => {
           return str.length > 0;
         }
       },
       {
-        when: !this.options.description,
+        when: !this.options.extensionDescription,
         type: 'input',
-        name: 'description',
+        name: 'extensionDescription',
         message: 'Describe your Hotcakes Commerce extension point:',
         validate: str => {
           return str.length > 0;
@@ -45,20 +45,20 @@ module.exports = class extends DnnGeneratorBase {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date();
-      if (this.options.company.endsWith(" -f")) {
-        props.namespace = this.options.company.replace(" -f", "");
+      if (this.options.companyName.endsWith(" -f")) {
+        props.namespaceRoot = this.options.companyName.replace(" -f", "");
       }
       else {
-        props.namespace = this._pascalCaseName(this.options.company);
+        props.namespaceRoot = this._pascalCaseName(this.options.companyName);
       }
-      if (props.name.endsWith(" -f")) {
-        props.extensionName = props.name.replace(" -f", "");
+      if (props.friendlyName.endsWith(" -f")) {
+        props.friendlyName = props.friendlyName.replace(" -f", "");
       }
       else {
-        props.extensionName = this._pascalCaseName(props.name);
+        props.friendlyName = this._pascalCaseName(props.friendlyName);
       }
       props.extensionType = "Hotcakes";
-      props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.extensionName;
+      props.fullNamespace = props.namespaceRoot + "." + props.extensionType + "." + props.friendlyName;
       props.guid = this._generateGuid();
       props.openDirective = "%@";
       props.closeDirective = "%";
@@ -71,8 +71,8 @@ module.exports = class extends DnnGeneratorBase {
       chalk.white("Creating Hotcakes Commerce extension point.")
     );
 
-    let namespace = this.props.namespace;
-    let extensionName = this.props.extensionName;
+    let namespaceRoot = this.props.namespaceRoot;
+    let friendlyName = this.props.friendlyName;
     let currentDate = this.props.currentDate;
     let fullNamespace = this.props.fullNamespace;
     let hccType = this.props.hccType;
@@ -99,18 +99,18 @@ module.exports = class extends DnnGeneratorBase {
     }
 
     let template = {
-      yourName: this.options.yourName,
-      company: this.options.company,
-      namespace: namespace,
-      extensionName: extensionName,
-      moduleFriendlyName: this.props.name,
-      description: this.props.description,
+      ownerName: this.options.ownerName,
+      companyName: this.options.companyName,
+      currentDate: this.props.currentDate,
+      namespaceRoot: namespaceRoot,
+      extensionType: this.props.extensionType,
+      friendlyName: this.props.friendlyName,
+      msBuildVersion: this.props.msBuildVersion, 
+      extensionDescription: this.props.extensionDescription,
       companyUrl: this.options.companyUrl,
-      emailAddy: this.options.emailAddy,
+      emailAddress: this.options.emailAddress,
       currentYear: currentDate.getFullYear(),
       version: '1.0.0',
-      menuLinkName: this.props.menuLinkName,
-      parentMenu: this.props.parentMenu,
       extensionType: this.props.extensionType,
       fullNamespace: this.props.fullNamespace,
       guid: this.props.guid,
@@ -120,13 +120,13 @@ module.exports = class extends DnnGeneratorBase {
 
     this.fs.copyTpl(
       this.templatePath('../../common/packaging-hcc/**'),
-      this.destinationPath(extensionName + '/'),
+      this.destinationPath(friendlyName + '/'),
       template
     );
     if (hccType == "workflow" || hccType == "actiondelegate") {
     this.fs.copyTpl(
       this.templatePath('../../common/src-library-hcc/**'),
-      this.destinationPath(extensionName + '/'),
+      this.destinationPath(friendlyName + '/'),
       template
     );
     }
@@ -140,13 +140,13 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/Tasks/**'),
-        this.destinationPath(extensionName + '/Tasks/'),
+        this.destinationPath(friendlyName + '/Tasks/'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/MyWorkflow.cs'),
-        this.destinationPath(extensionName + '/MyWorkflow.cs'),
+        this.destinationPath(friendlyName + '/MyWorkflow.cs'),
         template
       );
     }
@@ -154,19 +154,19 @@ module.exports = class extends DnnGeneratorBase {
     if (hccType == "actiondelegate") {
       this.fs.copyTpl(
         this.templatePath(hccType + '/MyCartIntegration.cs'),
-        this.destinationPath(extensionName + '/MyCartIntegration.cs'),
+        this.destinationPath(friendlyName + '/MyCartIntegration.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/MyCheckoutIntegration.cs'),
-        this.destinationPath(extensionName + '/MyCheckoutIntegration.cs'),
+        this.destinationPath(friendlyName + '/MyCheckoutIntegration.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/MyProductIntegration.cs'),
-        this.destinationPath(extensionName + '/MyProductIntegration.cs'),
+        this.destinationPath(friendlyName + '/MyProductIntegration.cs'),
         template
       );
     }
@@ -175,31 +175,31 @@ module.exports = class extends DnnGeneratorBase {
    
     this.fs.copyTpl(
       this.templatePath(hccType + '/ReadMe.txt'),
-      this.destinationPath(extensionName + '/ReadMe.txt'),
+      this.destinationPath(friendlyName + '/ReadMe.txt'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath(hccType + '/extension.csproj'),
-      this.destinationPath(extensionName + '/' + fullNamespace + '.csproj'),
+      this.destinationPath(friendlyName + '/' + fullNamespace + '.csproj'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath(hccType + '/extension.sln'),
-      this.destinationPath(extensionName + '/' + fullNamespace + '.sln'),
+      this.destinationPath(friendlyName + '/' + fullNamespace + '.sln'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath(hccType + '/manifest.dnn'),
-      this.destinationPath(extensionName + '/' + extensionName + '.dnn'),
+      this.destinationPath(friendlyName + '/' + friendlyName + '.dnn'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath(hccType + '/symbols.dnn'),
-      this.destinationPath(extensionName + '/' + extensionName + '_Symbols.dnn'),
+      this.destinationPath(friendlyName + '/' + friendlyName + '_Symbols.dnn'),
       template
     );
   
@@ -208,56 +208,56 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath('../../common/src-hotcakes-hcc/giftcardgateway/Module.build'),
-        this.destinationPath(extensionName + '/Module.build'),
+        this.destinationPath(friendlyName + '/Module.build'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath('../../common/src-hotcakes-hcc/Properties/AssemblyInfo.cs'),
-        this.destinationPath(extensionName + '/Properties/AssemblyInfo.cs'),
+        this.destinationPath(friendlyName + '/Properties/AssemblyInfo.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/packages.config'),
-        this.destinationPath(extensionName + '/packages.config'),
+        this.destinationPath(friendlyName + '/packages.config'),
         template
       );
 
      
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/Edit.ascx'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/Edit.ascx'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ friendlyName + '/Edit.ascx'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/Edit.ascx.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/Edit.ascx.cs'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ friendlyName + '/Edit.ascx.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/Edit.ascx.designer.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/Edit.ascx.designer.cs'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ friendlyName + '/Edit.ascx.designer.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/MyTestGateway.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/' + extensionName+'.cs'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ friendlyName + '/' + friendlyName+'.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/MyTestGatewaySettings.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/' + extensionName+'Settings.cs'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ friendlyName + '/' + friendlyName+'Settings.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/MyTestGateway/App_LocalResources/Edit.ascx.resx'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ extensionName + '/App_LocalResources/' + 'Edit.ascx.resx'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/GiftCardGateways/'+ friendlyName + '/App_LocalResources/' + 'Edit.ascx.resx'),
         template
       );
     }
@@ -266,94 +266,94 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath('../../common/src-hotcakes-hcc/paymentmethod/Module.build'),
-        this.destinationPath(extensionName + '/Module.build'),
+        this.destinationPath(friendlyName + '/Module.build'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath('../../common/src-hotcakes-hcc/Properties/AssemblyInfo.cs'),
-        this.destinationPath(extensionName + '/Properties/AssemblyInfo.cs'),
+        this.destinationPath(friendlyName + '/Properties/AssemblyInfo.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/packages.config'),
-        this.destinationPath(extensionName + '/packages.config'),
+        this.destinationPath(friendlyName + '/packages.config'),
         template
       );
 
      
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/Edit.ascx'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/Edit.ascx'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ friendlyName + '/Edit.ascx'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/Edit.ascx.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/Edit.ascx.cs'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ friendlyName + '/Edit.ascx.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/Edit.ascx.designer.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/Edit.ascx.designer.cs'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ friendlyName + '/Edit.ascx.designer.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/MyCustomWorkflowFactory.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + 'CustomWorkflowFactory.cs'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ friendlyName + '/' + friendlyName + 'CustomWorkflowFactory.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/MyPaymentMethod.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + 'PaymentMethod.cs'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ friendlyName + '/' + friendlyName + 'PaymentMethod.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/MyPaymentMethodCheckoutController.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + 'PaymentMethodCheckoutController.cs'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ friendlyName + '/' + friendlyName + 'PaymentMethodCheckoutController.cs'),
         template
       );
 
       
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/MyPaymentMethodSettings.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/' + extensionName + 'PaymentMethodSettings.cs'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ friendlyName + '/' + friendlyName + 'PaymentMethodSettings.cs'),
         template
       );
 
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/StartMyPaymentMethodCheckout.cs'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/Start' + extensionName + 'PaymentMethodCheckout.cs'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ friendlyName + '/Start' + friendlyName + 'PaymentMethodCheckout.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/MyPaymentMethod/App_LocalResources/Edit.ascx.resx'),
-        this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ extensionName + '/App_LocalResources/Edit.ascx.resx'),
+        this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/PaymentMethods/'+ friendlyName + '/App_LocalResources/Edit.ascx.resx'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/Portals/_default/HotcakesViews/_default/Views/MyPaymentMethodCheckout/App_LocalResources/Controller.resx'),
-        this.destinationPath(extensionName + '/Portals/_default/HotcakesViews/_default/Views/'+extensionName+'PaymentMethodCheckout/App_LocalResources/Controller.resx'),
+        this.destinationPath(friendlyName + '/Portals/_default/HotcakesViews/_default/Views/'+ friendlyName +'PaymentMethodCheckout/App_LocalResources/Controller.resx'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/Portals/_default/HotcakesViews/_default/Views/MyPaymentMethodCheckout/App_LocalResources/Index.cshtml.resx'),
-        this.destinationPath(extensionName + '/Portals/_default/HotcakesViews/_default/Views/'+extensionName+'PaymentMethodCheckout/App_LocalResources/Index.cshtml.resx'),
+        this.destinationPath(friendlyName + '/Portals/_default/HotcakesViews/_default/Views/'+ friendlyName +'PaymentMethodCheckout/App_LocalResources/Index.cshtml.resx'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/Portals/_default/HotcakesViews/_default/Views/MyPaymentMethodCheckout/Index.cshtml'),
-        this.destinationPath(extensionName + '/Portals/_default/HotcakesViews/_default/Views/'+extensionName+'PaymentMethodCheckout/Index.cshtml'),
+        this.destinationPath(friendlyName + '/Portals/_default/HotcakesViews/_default/Views/'+ friendlyName +'PaymentMethodCheckout/Index.cshtml'),
         template
       );
     }
@@ -362,92 +362,92 @@ module.exports = class extends DnnGeneratorBase {
 
         this.fs.copyTpl(
           this.templatePath('../../common/src-hotcakes-hcc/taxprovider/Module.build'),
-          this.destinationPath(extensionName + '/Module.build'),
+          this.destinationPath(friendlyName + '/Module.build'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath('../../common/src-hotcakes-hcc/Properties/AssemblyInfo.cs'),
-          this.destinationPath(extensionName + '/Properties/AssemblyInfo.cs'),
+          this.destinationPath(friendlyName + '/Properties/AssemblyInfo.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/packages.config'),
-          this.destinationPath(extensionName + '/packages.config'),
+          this.destinationPath(friendlyName + '/packages.config'),
           template
         );
 
          
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/Edit.ascx'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/Edit.ascx'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ friendlyName + '/Edit.ascx'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/Edit.ascx.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/Edit.ascx.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ friendlyName + '/Edit.ascx.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/Edit.ascx.designer.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/Edit.ascx.designer.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ friendlyName + '/Edit.ascx.designer.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MessageBox.ascx'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/MessageBox.ascx'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ friendlyName + '/MessageBox.ascx'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MessageBox.ascx.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/MessageBox.ascx.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ friendlyName + '/MessageBox.ascx.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MessageBox.ascx.designer.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/MessageBox.ascx.designer.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ friendlyName + '/MessageBox.ascx.designer.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProvider.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ friendlyName + '/' + friendlyName +'.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProviderGateway.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'Gateway.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ friendlyName + '/' + friendlyName +'Gateway.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProviderLineResult.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'LineResult.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ friendlyName + '/' + friendlyName +'LineResult.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProviderResult.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'Result.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ friendlyName + '/' + friendlyName +'Result.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/MyTaxProviderSettings.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/' + extensionName +'Settings.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ friendlyName + '/' + friendlyName +'Settings.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/MyProvider/App_LocalResources/Edit.ascx.resx'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ extensionName + '/App_LocalResources/Edit.ascx.resx'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/TaxProviders/'+ friendlyName + '/App_LocalResources/Edit.ascx.resx'),
           template
         );
     }
@@ -456,55 +456,55 @@ module.exports = class extends DnnGeneratorBase {
 
         this.fs.copyTpl(
           this.templatePath('../../common/src-hotcakes-hcc/creditcardgateway/Module.build'),
-          this.destinationPath(extensionName + '/Module.build'),
+          this.destinationPath(friendlyName + '/Module.build'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath('../../common/src-hotcakes-hcc/Properties/AssemblyInfo.cs'),
-          this.destinationPath(extensionName + '/Properties/AssemblyInfo.cs'),
+          this.destinationPath(friendlyName + '/Properties/AssemblyInfo.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/packages.config'),
-          this.destinationPath(extensionName + '/packages.config'),
+          this.destinationPath(friendlyName + '/packages.config'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/Edit.ascx'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/Edit.ascx'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ friendlyName + '/Edit.ascx'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/Edit.ascx.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/Edit.ascx.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ friendlyName + '/Edit.ascx.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/Edit.ascx.designer.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/Edit.ascx.designer.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ friendlyName + '/Edit.ascx.designer.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/MyTestGateway.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/' + extensionName+'.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ friendlyName + '/' + friendlyName+'.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/MyTestGatewaySettings.cs'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/' + extensionName+'Settings.cs'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ friendlyName + '/' + friendlyName+'Settings.cs'),
           template
         );
 
         this.fs.copyTpl(
           this.templatePath(hccType + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/MyTestGateway/App_LocalResources/Edit.ascx.resx'),
-          this.destinationPath(extensionName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ extensionName + '/App_LocalResources/' + 'Edit.ascx.resx'),
+          this.destinationPath(friendlyName + '/DesktopModules/Hotcakes/Core/Admin/Parts/CreditCardGateways/'+ friendlyName + '/App_LocalResources/' + 'Edit.ascx.resx'),
           template
         );
     }
@@ -513,32 +513,32 @@ module.exports = class extends DnnGeneratorBase {
 
       this.fs.copyTpl(
         this.templatePath('../../common/src-hotcakes-hcc/viewset/Module.build'),
-        this.destinationPath(extensionName + '/Module.build'),
+        this.destinationPath(friendlyName + '/Module.build'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath('../../common/src-hotcakes-hcc/Properties/AssemblyInfo.cs'),
-        this.destinationPath(extensionName + '/Properties/AssemblyInfo.cs'),
+        this.destinationPath(friendlyName + '/Properties/AssemblyInfo.cs'),
         template
       );
 
       this.fs.copyTpl(
         this.templatePath(hccType + '/packages.config'),
-        this.destinationPath(extensionName + '/packages.config'),
+        this.destinationPath(friendlyName + '/packages.config'),
         template
       );
       this.fs.copyTpl(
         this.templatePath(hccType + "/Controllers/MyCustomViewController.cs"),
-        this.destinationPath(extensionName + '/Controllers/MyCustomViewController.cs'), template
+        this.destinationPath(friendlyName + '/Controllers/MyCustomViewController.cs'), template
       );
       this.fs.copyTpl(
         this.templatePath(hccType + "/Models/MyCustomViewModel.cs"),
-        this.destinationPath(extensionName + '/Models/MyCustomViewModel.cs'), template
+        this.destinationPath(friendlyName + '/Models/MyCustomViewModel.cs'), template
       );
       this.fs.copyTpl(
         this.templatePath(hccType + "/Portals/**/*.*"),
-        this.destinationPath(extensionName + '/Portals'), template
+        this.destinationPath(friendlyName + '/Portals'), template
       );
     }
   }

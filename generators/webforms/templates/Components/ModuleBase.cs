@@ -6,7 +6,7 @@ using DotNetNuke.Framework.JavaScriptLibraries;
 
 namespace <%= fullNamespace %>.Components
 {
-    public abstract class <%= extensionName %>ModuleBase : PortalModuleBase
+    public abstract class <%= friendlyName %>ModuleBase : PortalModuleBase
     {
 
         #region Localization
@@ -36,7 +36,7 @@ namespace <%= fullNamespace %>.Components
         #endregion
 
         #region Event Handlers
-        protected <%= extensionName %>ModuleBase()
+        protected <%= friendlyName %>ModuleBase()
         {
             Load += Page_Load;
         }

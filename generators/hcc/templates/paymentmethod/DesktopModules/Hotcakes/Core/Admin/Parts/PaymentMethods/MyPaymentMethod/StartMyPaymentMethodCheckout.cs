@@ -37,11 +37,11 @@ namespace <%= fullNamespace %>.HccPaymentMethod
     /// <summary>
     ///     This task is used to start processing of order poayment with custom payment method
     /// </summary>
-    public class Start<%= extensionName %>PaymentMethodCheckout : ThirdPartyCheckoutOrderTask
+    public class Start<%= friendlyName %>PaymentMethodCheckout : ThirdPartyCheckoutOrderTask
     {
         public override string PaymentMethodId
         {
-            get { return <%= extensionName %>PaymentMethod.Id(); }
+            get { return <%= friendlyName %>PaymentMethod.Id(); }
         }
 
         public override bool ProcessCheckout(OrderTaskContext context)
@@ -50,7 +50,7 @@ namespace <%= fullNamespace %>.HccPaymentMethod
             {
                 try
                 {
-                    var settings = new <%= extensionName %>PaymentMethodSettings();
+                    var settings = new <%= friendlyName %>PaymentMethodSettings();
                     var methodSettings = context.HccApp.CurrentStore.Settings.MethodSettingsGet(PaymentMethodId);
                     settings.Merge(methodSettings);
 
@@ -66,9 +66,9 @@ namespace <%= fullNamespace %>.HccPaymentMethod
                 }
                 catch (Exception ex)
                 {
-                    EventLog.LogEvent("<%= extensionName %> Custom Checkout", "Exception occurred during call to Moneris: " + ex,
+                    EventLog.LogEvent("<%= friendlyName %> Custom Checkout", "Exception occurred during call to Moneris: " + ex,
                         EventLogSeverity.Error);
-                    context.Errors.Add(new WorkflowMessage("<%= extensionName %> Custom Checkout Error",
+                    context.Errors.Add(new WorkflowMessage("<%= friendlyName %> Custom Checkout Error",
                         GlobalLocalization.GetString("MonerisCheckoutError"), true));
                     return false;
                 }
@@ -84,7 +84,7 @@ namespace <%= fullNamespace %>.HccPaymentMethod
 
         public override Task Clone()
         {
-            return new Start<%= extensionName %>PaymentMethodCheckout();
+            return new Start<%= friendlyName %>PaymentMethodCheckout();
         }
 
         public override string TaskId()
@@ -94,7 +94,7 @@ namespace <%= fullNamespace %>.HccPaymentMethod
 
         public override string TaskName()
         {
-            return "Start <%= extensionName %> Custom Checkout";
+            return "Start <%= friendlyName %> Custom Checkout";
         }
     }
 }

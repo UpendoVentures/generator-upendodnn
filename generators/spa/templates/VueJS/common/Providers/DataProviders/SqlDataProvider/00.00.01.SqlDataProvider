@@ -8,11 +8,11 @@
 /*****                                                  *****/
 /************************************************************/
 
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}<%= moduleName %>_Items]') AND type in (N'U'))
-DROP TABLE {databaseOwner}[{objectQualifier}<%= moduleName %>_Items]
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}<%= friendlyName %>_Items]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}<%= friendlyName %>_Items]
 GO
 
-CREATE TABLE {databaseOwner}{objectQualifier}<%= moduleName %>_Items
+CREATE TABLE {databaseOwner}{objectQualifier}<%= friendlyName %>_Items
     (
     ItemId int NOT NULL IDENTITY (1, 1),
     ItemName nvarchar(MAX) NOT NULL,
@@ -28,8 +28,8 @@ CREATE TABLE {databaseOwner}{objectQualifier}<%= moduleName %>_Items
 GO
 
 
-ALTER TABLE {databaseOwner}{objectQualifier}<%= moduleName %>_Items ADD CONSTRAINT
-    PK_{objectQualifier}<%= moduleName %>_Items PRIMARY KEY CLUSTERED 
+ALTER TABLE {databaseOwner}{objectQualifier}<%= friendlyName %>_Items ADD CONSTRAINT
+    PK_{objectQualifier}<%= friendlyName %>_Items PRIMARY KEY CLUSTERED 
     (
     ItemId
     ) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]

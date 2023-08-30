@@ -2,16 +2,14 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>" type="Module" version="01.00.00">
-      <friendlyName><%= extensionName %></friendlyName>
-      <description>
-        <![CDATA[<p><%= description %></p>]]>
-      </description>
-      <iconFile>DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
+      <friendlyName><%= friendlyName %></friendlyName>
+      <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
+      <iconFile>DesktopModules/<%= friendlyName %>/Images/logo.png</iconFile>
       <owner>
-        <name><%= yourName %></name>
-        <organization><%= company %></organization>
+        <name><%= ownerName %></name>
+        <organization><%= companyName %></organization>
         <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
-        <email><![CDATA[<a href="mailto:<%= emailAddy %>" target="_blank"><%= emailAddy %></a>]]></email>
+        <email><![CDATA[<a href="mailto:<%= emailAddress %>" target="_blank"><%= emailAddress %></a>]]></email>
       </owner>
       <license src="License.txt" />
       <releaseNotes src="ReleaseNotes.txt" />
@@ -22,7 +20,7 @@
       <components>
         <component type="Script">
           <scripts>
-            <basePath>DesktopModules\<%= extensionName %></basePath>
+            <basePath>DesktopModules\<%= friendlyName %></basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>01.00.00.SqlDataProvider</name>
@@ -38,18 +36,18 @@
 
         <component type="Module">
           <desktopModule>
-            <moduleName><%= extensionName %></moduleName>
-            <foldername><%= extensionName %></foldername>
+            <moduleName><%= friendlyName %></moduleName>
+            <foldername><%= friendlyName %></foldername>
             <businessControllerClass><%= fullNamespace %>.Components.FeatureController, <%= fullNamespace %></businessControllerClass>
             <supportedFeatures />
             <moduleDefinitions>
               <moduleDefinition>
-                <friendlyName><%= extensionName %></friendlyName>
+                <friendlyName><%= friendlyName %></friendlyName>
                 <defaultCacheTime>0</defaultCacheTime>
                 <moduleControls>
                   <moduleControl>
                     <controlKey />
-                    <controlSrc>DesktopModules/<%= extensionName %>/View.ascx</controlSrc>
+                    <controlSrc>DesktopModules/<%= friendlyName %>/View.ascx</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle />
                     <controlType>View</controlType>
@@ -59,9 +57,9 @@
                   </moduleControl>
                   <moduleControl>
                     <controlKey>Edit</controlKey>
-                    <controlSrc>DesktopModules/<%= extensionName %>/Edit.ascx</controlSrc>
+                    <controlSrc>DesktopModules/<%= friendlyName %>/Edit.ascx</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle>Edit <%= extensionName %> Content</controlTitle>
+                    <controlTitle>Edit <%= friendlyName %> Content</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
@@ -70,9 +68,9 @@
                   </moduleControl>
                   <moduleControl>
                     <controlKey>Settings</controlKey>
-                    <controlSrc>DesktopModules/<%= extensionName %>/Settings.ascx</controlSrc>
+                    <controlSrc>DesktopModules/<%= friendlyName %>/Settings.ascx</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle><%= extensionName %> Settings</controlTitle>
+                    <controlTitle><%= friendlyName %> Settings</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
@@ -105,7 +103,7 @@
 
         <component type="ResourceFile">
           <resourceFiles>
-            <basePath>DesktopModules\<%= extensionName %></basePath>
+            <basePath>DesktopModules\<%= friendlyName %></basePath>
             <resourceFile>
               <name>Resources.zip</name>
             </resourceFile>

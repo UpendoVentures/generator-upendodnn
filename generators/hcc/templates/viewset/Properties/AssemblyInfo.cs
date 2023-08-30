@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("My Custom Viewset")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("<%= extensionDescription %>")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Hotcakes Commerce, LLC")]
-[assembly: AssemblyProduct("Hotcakes Commerce")]
-[assembly: AssemblyCopyright("Copyright © 2019 Hotcakes Commerce, LLC")]
+[assembly: AssemblyCompany("<%= companyName %>")]
+[assembly: AssemblyProduct("")]
+[assembly: AssemblyCopyright("Copyright © <%= companyName %>, LLC")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

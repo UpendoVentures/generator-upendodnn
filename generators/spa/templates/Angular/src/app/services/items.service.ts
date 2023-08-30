@@ -10,7 +10,7 @@ import { NewItem } from '../interfaces/NewItem';
   providedIn: 'root'
 })
 export class ItemsService {
-  private baseUrl = '/DesktopModules/<%= moduleName %>/API/Item/';  // URL to web api
+  private baseUrl = '/DesktopModules/<%= friendlyName %>/API/Item/';  // URL to web api
   
   constructor(private http: HttpClient) {}
 

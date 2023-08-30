@@ -2,14 +2,14 @@
 <dotnetnuke type="Package" version="6.0">
   <packages>
     <package name="<%= fullNamespace %>_Symbols" type="Library" version="01.00.00">
-      <friendlyName><%= extensionName %> Skin Object Symbols</friendlyName>
-      <description><![CDATA[<%= description %>]]></description>
-      <iconFile>~/DesktopModules/<%= extensionName %>/Images/logo.png</iconFile>
+      <friendlyName><%= friendlyName %> Skin Object Symbols</friendlyName>
+      <description><![CDATA[<%= extensionDescription %>]]></description>
+      <iconFile>~/DesktopModules/<%= friendlyName %>/Images/logo.png</iconFile>
       <owner>
-        <name><%= yourName %></name>
-        <organization><%= company %></organization>
+        <name><%= ownerName %></name>
+        <organization><%= companyName %></organization>
         <url><%= companyUrl %></url>
-        <email><%= emailAddy %></email>
+        <email><%= emailAddress %></email>
       </owner>
       <license src="License.txt" />
       <releaseNotes src="ReleaseNotes.txt" />

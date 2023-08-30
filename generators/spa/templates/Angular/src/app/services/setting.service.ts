@@ -8,7 +8,7 @@ import { Setting } from '../interfaces/Setting';
 })
 export class SettingService {
 
-  private baseUrl = 'DesktopModules/<%= moduleName %>/API/Settings/';  // URL to web api
+  private baseUrl = 'DesktopModules/<%= friendlyName %>/API/Settings/';  // URL to web api
   
   constructor(private http: HttpClient) {}
 

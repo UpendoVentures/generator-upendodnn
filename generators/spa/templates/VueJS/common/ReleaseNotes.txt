@@ -1,10 +1,10 @@
-<h3><%= moduleName %></h3>
+<h3><%= friendlyName %></h3>
 <p class="Contributor">
-	<%= company %> <br />
-	<a href="mailto:<%= emailAddy %>"><%= emailAddy %></a>
+	<%= companyName %> <br />
+	<a href="mailto:<%= emailAddress %>"><%= emailAddress %></a>
 </p>
 <hr/>
 <div class="License">
-	<h3>About the <%= moduleName %></h3>
+	<h3>About the <%= friendlyName %></h3>
 	<p>This module is intended as an example of how to build DNN Modules with VueJS.</p>
 </div>

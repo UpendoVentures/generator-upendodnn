@@ -20,7 +20,7 @@ namespace <%= fullNamespace %>.Services
     /// <remarks>
     /// The SupportModules attribute will require that all API calls set and include module headers, event GET requests. Even Fiddler will return 401 Unauthorized errors.
     /// </remarks>
-    [SupportedModules("<%= extensionName %>")]
+    [SupportedModules("<%= friendlyName %>")]
     public partial class ExampleController : ServiceBase
     {
         /// <summary>

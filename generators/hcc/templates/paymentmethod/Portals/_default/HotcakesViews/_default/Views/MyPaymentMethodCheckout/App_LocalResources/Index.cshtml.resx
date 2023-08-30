@@ -120,7 +120,7 @@
   <data name="GoToCheckout.Text" xml:space="preserve">
     <value>Checkout</value>
   </data>
-  <data name="<%= extensionName %>PaymentMethodCheckout.Text" xml:space="preserve">
-    <value><%= extensionName %> Payment Method Checkout</value>
+  <data name="<%= friendlyName %>PaymentMethodCheckout.Text" xml:space="preserve">
+    <value><%= friendlyName %> Payment Method Checkout</value>
   </data>
 </root>

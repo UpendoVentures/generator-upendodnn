@@ -13,11 +13,30 @@ module.exports = class extends DnnGeneratorBase {
   prompting() {
     const prompts = [
       {
-        when: !this.options.company,
+        when: !this.options.companyName,
         type: 'input',
-        name: 'company',
-        message: 'Namespace for your module (Usually a company name)?',
+        name: 'companyName',
+        message: 'Namespace root for your module (Usually a company name)?',
         store: true,
+        validate: str => {
+          return str.length > 0;
+        }
+      }
+      {
+        when: !this.options.friendlyName,
+        type: 'input',
+        name: 'friendlyName',
+        message: 'What is the name of your webforms module?',
+        default: this.appname, /*to-do: figure out if we want to populate and actually use this later */
+        validate: str => {
+          return str.length > 0;
+        }
+      },
+      {
+        when: !this.options.extensionDescription,
+        type: 'input',
+        name: 'extensionDescription',
+        message: 'Describe your webforms module:',
         validate: str => {
           return str.length > 0;
         }
@@ -31,30 +50,10 @@ module.exports = class extends DnnGeneratorBase {
         validate: str => {
           return str.length > 0 && str.length < 6;
         }
-      },
-      {
-        when: !this.options.name,
-        type: 'input',
-        name: 'name',
-        message: 'What is the name of your webforms module?',
-        default: this.appname,
-        validate: str => {
-          return str.length > 0;
-        }
-      },
-      {
-        when: !this.options.description,
-        type: 'input',
-        name: 'description',
-        message: 'Describe your webforms module:',
-        validate: str => {
-          return str.length > 0;
-        }
       }
     ];
 
     var msBuildVersion = this._getMsBuildVersion();
-
     if (msBuildVersion == "") {
       this.log(chalk.red("YIKES! A valid version of MSBuild was not found! This is a critical error... :("));
     }
@@ -62,20 +61,20 @@ module.exports = class extends DnnGeneratorBase {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       props.currentDate = new Date();
-      if (this.options.company.endsWith(" -f")) {
-        props.namespace = this.options.company.replace(" -f", "");
+      if (this.options.companyName.endsWith(" -f")) {
+        props.namespaceRoot = this.options.companyName.replace(" -f", "");
       }
       else {
-        props.namespace = this._pascalCaseName(this.options.company);
+        props.namespaceRoot = this._pascalCaseName(this.options.companyName);
       }
-      if (props.name.endsWith(" -f")) {
-        props.extensionName = props.name.replace(" -f", "");
+      if (props.friendlyName.endsWith(" -f")) {
+        props.friendlyName = props.friendlyName.replace(" -f", "");
       }
       else {
-        props.extensionName = this._pascalCaseName(props.name);
+        props.friendlyName = this._pascalCaseName(props.friendlyName);
       }
       props.extensionType = "Modules";
-      props.fullNamespace = props.namespace + "." + props.extensionType + "." + props.extensionName;
+      props.fullNamespace = props.namespaceRoot + "." + props.extensionType + "." + props.friendlyName;
       props.guid = this._generateGuid();
       props.openDirective = "%@";
       props.closeDirective = "%";
@@ -91,114 +90,113 @@ module.exports = class extends DnnGeneratorBase {
     // mod: this follows the Upendo development/solution pattern
     this.destinationRoot("Modules/");
 
-    let namespace = this.props.namespace;
-    let extensionName = this.props.extensionName;
+    let namespaceRoot = this.props.namespaceRoot;
+    let friendlyName = this.props.friendlyName;
     let currentDate = this.props.currentDate;
     let fullNamespace = this.props.fullNamespace;
 
     let template = {
-      yourName: this.options.yourName,
-      company: this.options.company,
-      namespace: namespace,
-      extensionName: extensionName,
-      moduleFriendlyName: this.props.name,
-      description: this.props.description,
+      ownerName: this.options.ownerName,
+      companyName: this.options.companyName,
+      currentDate: this.props.currentDate,
+      namespaceRoot: namespaceRoot,
+      extensionType: this.props.extensionType,
+      friendlyName: this.props.friendlyName,
+      extensionDescription: this.props.extensionDescription,
       companyUrl: this.options.companyUrl,
-      emailAddy: this.options.emailAddy,
+      emailAddress: this.options.emailAddress,
       currentYear: currentDate.getFullYear(),
-      version: '1.0.0',
-      menuLinkName: this.props.menuLinkName,
-      parentMenu: this.props.parentMenu,
+      version: '1.0.0', /* NOT USED */
       extensionType: this.props.extensionType,
       fullNamespace: this.props.fullNamespace,
       guid: this.props.guid,
-      openDirective: this.props.openDirective,
-      closeDirective: this.props.closeDirective,
+      openDirective: this.props.openDirective, /* NOT USED */
+      closeDirective: this.props.closeDirective, /* NOT USED */
       objectPrefix: this.props.objectPrefix,
       msBuildVersion: this.props.msBuildVersion
     };
 
     this.fs.copyTpl(
       this.templatePath('../../common/src-webforms/**'),
-      this.destinationPath(extensionName + '/'),
+      this.destinationPath(friendlyName + '/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('../../common/branding/**'),
-      this.destinationPath(extensionName + '/'),
+      this.destinationPath(friendlyName + '/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('../../common/packaging/**'),
-      this.destinationPath(extensionName + '/'),
+      this.destinationPath(friendlyName + '/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('../../common/properties/**'),
-      this.destinationPath(extensionName + '/Properties/'),
+      this.destinationPath(friendlyName + '/Properties/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Components/**'),
-      this.destinationPath(extensionName + '/Components/'),
+      this.destinationPath(friendlyName + '/Components/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Controllers/**'),
-      this.destinationPath(extensionName + '/Controllers/'),
+      this.destinationPath(friendlyName + '/Controllers/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Entities/**'),
-      this.destinationPath(extensionName + '/Entities/'),
+      this.destinationPath(friendlyName + '/Entities/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Providers/**'),
-      this.destinationPath(extensionName + '/Providers/'),
+      this.destinationPath(friendlyName + '/Providers/'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('manifest.dnn'),
-      this.destinationPath(extensionName + '/' + extensionName + '.dnn'),
+      this.destinationPath(friendlyName + '/' + friendlyName + '.dnn'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Module.csproj'),
-      this.destinationPath(extensionName + '/' + fullNamespace + '.csproj'),
+      this.destinationPath(friendlyName + '/' + fullNamespace + '.csproj'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('Module.sln'),
-      this.destinationPath(extensionName + '/' + fullNamespace + '.sln'),
+      this.destinationPath(friendlyName + '/' + fullNamespace + '.sln'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('symbols.dnn'),
-      this.destinationPath(extensionName + '/' + extensionName + '_Symbols.dnn'),
+      this.destinationPath(friendlyName + '/' + friendlyName + '_Symbols.dnn'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('../../common/csproj/NuGet.config'),
-      this.destinationPath(extensionName + '/NuGet.config'),
+      this.destinationPath(friendlyName + '/NuGet.config'),
       template
     );
 
     this.fs.copyTpl(
       this.templatePath('package.json'),
-      this.destinationPath(extensionName + '/package.json'),
+      this.destinationPath(friendlyName + '/package.json'),
       template
     );
 
@@ -219,7 +217,9 @@ module.exports = class extends DnnGeneratorBase {
     };
 
     // Extend package.json file in destination path
-    this.fs.extendJSON(this.destinationPath(extensionName + '/package.json'), pkgJson);
+    this.fs.extendJSON(this.destinationPath(friendlyName + '/package.json'), pkgJson);
+    
+    this.log(chalk.white('Done writing Webforms module files.'));
   }
 
   install() {

@@ -31,7 +31,7 @@ namespace <%= fullNamespace %>.HccGiftCardGateway
     {
         public override void LoadData()
         {
-            var settings = new <%= extensionName %>Settings();
+            var settings = new <%= friendlyName %>Settings();
             settings.Merge(HccApp.CurrentStore.Settings.GiftCardSettingsGet(GatewayId));
 
             txtUserName.Text = settings.UserName;
@@ -40,7 +40,7 @@ namespace <%= fullNamespace %>.HccGiftCardGateway
 
         public override void SaveData()
         {
-            var settings = new <%= extensionName %>Settings();
+            var settings = new <%= friendlyName %>Settings();
             settings.Merge(HccApp.CurrentStore.Settings.GiftCardSettingsGet(GatewayId));
 
             settings.UserName = txtUserName.Text.Trim();

@@ -32,9 +32,9 @@ namespace <%= fullNamespace %>.TaxProvider
     ///     This class is used to return the result back to the sytem.
     ///     So this data can be used then after to update the order
     /// </summary>
-    public class <%= extensionName %>TaxProviderResult : ITaxProviderResult
+    public class <%= friendlyName %>TaxProviderResult : ITaxProviderResult
     {
-        public <%= extensionName %>TaxProviderResult()
+        public <%= friendlyName %>TaxProviderResult()
         {
             Success = false;
             Messages = new List<string>();

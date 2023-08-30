@@ -23,7 +23,7 @@ namespace <%= fullNamespace %>
         public void RegisterRoutes(IMapRoute mapRouteManager)
         {
             mapRouteManager.MapHttpRoute(
-                moduleFolderName: "<%= moduleName %>",
+                moduleFolderName: "<%= friendlyName %>",
                 routeName: "default",
                 url: "{controller}/{action}",
                 namespaces: new[] { "<%= fullNamespace %>.Controllers" });

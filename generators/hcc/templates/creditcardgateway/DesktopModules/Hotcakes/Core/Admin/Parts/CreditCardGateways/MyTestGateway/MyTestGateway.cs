@@ -29,16 +29,16 @@ using Hotcakes.Payment;
 namespace <%= fullNamespace %>.HccCreditCardGateway
 {
     [Serializable]
-    public class <%= extensionName %> : PaymentGateway
+    public class <%= friendlyName %> : PaymentGateway
     {
-        public <%= extensionName %>()
+        public <%= friendlyName %>()
         {
-            Settings = new <%= extensionName %>Settings();
+            Settings = new <%= friendlyName %>Settings();
         }
 
         public override string Name
         {
-            get { return "<%= extensionName %>"; }
+            get { return "<%= friendlyName %>"; }
         }
 
         public override string Id
@@ -46,7 +46,7 @@ namespace <%= fullNamespace %>.HccCreditCardGateway
             get { return "09C46164-E3B4-4ECE-9890-4BFA4FF4A57A"; }
         }
 
-        public <%= extensionName %>Settings Settings { get; set; }
+        public <%= friendlyName %>Settings Settings { get; set; }
 
         public override MethodSettings BaseSettings
         {
@@ -99,7 +99,7 @@ namespace <%= fullNamespace %>.HccCreditCardGateway
             }
             else
             {
-                t.Result.Messages.Add(new Message("<%= extensionName %> " + type + " Transaction Failed", "FAILED",
+                t.Result.Messages.Add(new Message("<%= friendlyName %> " + type + " Transaction Failed", "FAILED",
                     MessageType.Error));
                 t.Result.Messages.Add(new Message("<Error Description>", "<Error Code>", MessageType.Error));
                 t.Result.Succeeded = false;

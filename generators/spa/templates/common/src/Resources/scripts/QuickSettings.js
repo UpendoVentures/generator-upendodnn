@@ -1,13 +1,13 @@
-var <%= moduleName %>Settings = <%= moduleName %>Settings || {};
+var <%= friendlyName %>Settings = <%= friendlyName %>Settings || {};
 
-<%= moduleName %>Settings.quickSettings = function (root, moduleId) {
+<%= friendlyName %>Settings.quickSettings = function (root, moduleId) {
     console.log(moduleId);
     var utils = new common.Utils();
     var alert = new common.Alert();
     var parentSelector = "[id='" + root + "']";
     // Setup your settings service endpoint
     var service = {
-        baseUrl: "/DesktopModules/<%= moduleName %>/API/",
+        baseUrl: "/DesktopModules/<%= friendlyName %>/API/",
         framework: $.ServicesFramework(moduleId),
         controller: "Settings"
     }
