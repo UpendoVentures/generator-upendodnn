@@ -21,17 +21,7 @@ module.exports = class extends DnnGeneratorBase {
         validate: str => {
           return str.length > 0;
         }
-      },
-      {
-        when: !this.options.objectPrefix,
-        type: 'input',
-        name: 'objectPrefix',
-        message: 'What would be a good abbreviation for that (e.g., abc for Awesome Beverages Company)?',
-        store: true,
-        validate: str => {
-          return str.length > 0 && str.length < 6;
-        }
-      },
+      }
       {
         when: !this.options.friendlyName,
         type: 'input',
@@ -50,11 +40,20 @@ module.exports = class extends DnnGeneratorBase {
         validate: str => {
           return str.length > 0;
         }
+      },
+      {
+        when: !this.options.objectPrefix,
+        type: 'input',
+        name: 'objectPrefix',
+        message: 'What would be a good abbreviation for that (e.g., abc for Awesome Beverages Company)?',
+        store: true,
+        validate: str => {
+          return str.length > 0 && str.length < 6;
+        }
       }
     ];
 
     var msBuildVersion = this._getMsBuildVersion();
-
     if (msBuildVersion == "") {
       this.log(chalk.red("YIKES! A valid version of MSBuild was not found! This is a critical error... :("));
     }
@@ -219,6 +218,8 @@ module.exports = class extends DnnGeneratorBase {
 
     // Extend package.json file in destination path
     this.fs.extendJSON(this.destinationPath(friendlyName + '/package.json'), pkgJson);
+    
+    this.log(chalk.white('Done writing Webforms module files.'));
   }
 
   install() {

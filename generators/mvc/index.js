@@ -23,16 +23,6 @@ module.exports = class extends DnnGeneratorBase {
         }
       },
       {
-        when: !this.options.objectPrefix,
-        type: 'input',
-        name: 'objectPrefix',
-        message: 'What would be a good abbreviation for that (e.g., abc for Awesome Beverages Company)?',
-        store: true,
-        validate: str => {
-          return str.length > 0 && str.length < 6;
-        }
-      },
-      {
         when: !this.options.friendlyName,
         type: 'input',
         name: 'friendlyName',
@@ -49,6 +39,16 @@ module.exports = class extends DnnGeneratorBase {
         message: 'Describe your module:',
         validate: str => {
           return str.length > 0;
+        }
+      },
+      {
+        when: !this.options.objectPrefix,
+        type: 'input',
+        name: 'objectPrefix',
+        message: 'What would be a good abbreviation for that (e.g., abc for Awesome Beverages Company)?',
+        store: true,
+        validate: str => {
+          return str.length > 0 && str.length < 6;
         }
       }
     ];
@@ -68,7 +68,7 @@ module.exports = class extends DnnGeneratorBase {
       else {
         props.namespaceRoot = this._pascalCaseName(this.options.companyName);
       }
-      if (props.name.endsWith(" -f")) {
+      if (props.friendlyName.endsWith(" -f")) {
         props.friendlyName = props.friendlyName.replace(" -f", "");
       }
       else {

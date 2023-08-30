@@ -12,9 +12,9 @@ module.exports = class extends DnnGeneratorBase {
         name: 'spaType',
         message: 'What language do you want your SPA Module to use?',
         choices: [
+          { name: 'Angular', value: 'Angular' },
           { name: 'ReactJS', value: 'ReactJS' },
-          { name: 'VueJS', value: 'VueJS' },
-          { name: 'Angular', value: 'Angular' }
+          { name: 'VueJS', value: 'VueJS' }
         ]
       },
       {
@@ -25,19 +25,9 @@ module.exports = class extends DnnGeneratorBase {
         name: 'langType',
         message: 'What Script Language do you want to use?',
         choices: [
-          { name: 'TypeScript (tsx)', value: 'tsx' },
-          { name: 'ECMAScript (jsx)', value: 'jsx' }
+          { name: 'ECMAScript (jsx)', value: 'jsx' },
+          { name: 'TypeScript (tsx)', value: 'tsx' }
         ]
-      },
-      {
-        when: !this.options.companyName,
-        type: 'input',
-        name: 'companyName',
-        message: 'Namespace root for your SPA module (Usually a company name)?',
-        store: true,
-        validate: str => {
-          return str.length > 0;
-        }
       },
       {
         when: !this.options.friendlyName,
@@ -54,6 +44,16 @@ module.exports = class extends DnnGeneratorBase {
         type: 'input',
         name: 'extensionDescription',
         message: 'Describe your SPA module:',
+        validate: str => {
+          return str.length > 0;
+        }
+      },
+      {
+        when: !this.options.companyName,
+        type: 'input',
+        name: 'companyName',
+        message: 'Namespace root for your SPA module (Usually a company name)?',
+        store: true,
         validate: str => {
           return str.length > 0;
         }

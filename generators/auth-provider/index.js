@@ -23,16 +23,6 @@ module.exports = class extends DnnGeneratorBase {
         }
       },
       {
-        when: !this.options.objectPrefix,
-        type: 'input',
-        name: 'objectPrefix',
-        message: 'What would be a good abbreviation for that (e.g., abc for Awesome Beverages Company)?',
-        store: true,
-        validate: str => {
-          return str.length > 0 && str.length < 6;
-        }
-      },
-      {
         when: !this.options.friendlyName,
         type: 'input',
         name: 'friendlyName',
@@ -52,6 +42,16 @@ module.exports = class extends DnnGeneratorBase {
         }
       },
       {
+        when: !this.options.objectPrefix,
+        type: 'input',
+        name: 'objectPrefix',
+        message: 'What would be a good abbreviation for that (e.g., abc for Awesome Beverages Company)?',
+        store: true,
+        validate: str => {
+          return str.length > 0 && str.length < 6;
+        }
+      },
+      {
         when: !this.options.authTypeName,
         type: 'input',
         name: 'authTypeName',
@@ -63,7 +63,6 @@ module.exports = class extends DnnGeneratorBase {
     ];
 
     var msBuildVersion = this._getMsBuildVersion();
-
     if (msBuildVersion == "") {
       this.log(chalk.red("YIKES! A valid version of MSBuild was not found! This is a critical error... :("));
     }
@@ -77,7 +76,7 @@ module.exports = class extends DnnGeneratorBase {
       else {
         props.namespaceRoot = this._pascalCaseName(this.options.companyName);
       }
-      if (props.name.endsWith(" -f")) {
+      if (props.friendlyName.endsWith(" -f")) {
         props.friendlyName = props.friendlyName.replace(" -f", "");
       }
       else {
@@ -89,6 +88,7 @@ module.exports = class extends DnnGeneratorBase {
       props.openDirective = "%@";
       props.closeDirective = "%";
       props.msBuildVersion = msBuildVersion;
+      props.authTypeName = props.authTypeName;
 
       this.props = props;
     });
@@ -103,6 +103,7 @@ module.exports = class extends DnnGeneratorBase {
     let namespaceRoot = this.props.namespaceRoot;
     let currentDate = this.props.currentDate;
     let fullNamespace = this.props.fullNamespace;
+    let friendlyName = this.props.friendlyName;
 
     let template = {
       ownerName: this.options.ownerName,

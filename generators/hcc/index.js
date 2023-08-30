@@ -12,10 +12,10 @@ module.exports = class extends DnnGeneratorBase {
         name: 'hccType',
         message: 'Which Hotcakes Commerce extension point do you want to build?',
         choices: [
-          { name: 'Order Workflow', value: 'workflow' },
           { name: 'Action Delegate Integration', value: 'actiondelegate' },
           { name: 'Credit Card Gateway', value: 'creditcardgateway' },
           { name: 'Gift Card Gateway', value: 'giftcardgateway' },
+          { name: 'Order Workflow', value: 'workflow' },
           { name: 'Payment Method', value: 'paymentmethod' },
           { name: 'Tax Provider', value: 'taxprovider' },
           { name: 'Viewset', value: 'viewset' },          
@@ -51,7 +51,7 @@ module.exports = class extends DnnGeneratorBase {
       else {
         props.namespaceRoot = this._pascalCaseName(this.options.companyName);
       }
-      if (props.name.endsWith(" -f")) {
+      if (props.friendlyName.endsWith(" -f")) {
         props.friendlyName = props.friendlyName.replace(" -f", "");
       }
       else {
