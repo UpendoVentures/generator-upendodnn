@@ -46,7 +46,7 @@
             <supportedFeatures />
             <moduleDefinitions>
               <moduleDefinition>
-                <friendlyName><%= moduleFriendlyName %></friendlyName>
+                <friendlyName><%= friendlyName %></friendlyName>
                 <defaultCacheTime>-1</defaultCacheTime>
                 <moduleControls>
                   <moduleControl>

@@ -8,7 +8,7 @@
     "packageName":"<%= fullNamespace %>", 
     "owner": {
       "name":"<%= ownerName %>", 
-      "organization":"<%= namespace %>", 
+      "organization":"<%= companyName %>", 
       "url":"<%= companyUrl %>", 
       "email":"<%= emailAddress %>"
     }, 

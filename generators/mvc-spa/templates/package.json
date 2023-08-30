@@ -1,11 +1,11 @@
 {
-  "name": "MyCompany.Modules.Mvc",
+  "name": "<%= friendlyName %>",
   "version": "01.00.00",
   "description": "<%= extensionDescription %>",
   "dnnModule": {
     "fullName": "<%= ownerName %>",
-    "friendlyName": "<%= moduleName %> Module",
-    "packageName": "<%= namespaceRoot %>_<%= moduleName %>",
+    "friendlyName": "<%= friendlyName %> Module",
+    "packageName": "<%= namespaceRoot %>_<%= friendlyName %>",
     "owner": {
       "name": "<%= ownerName %>",
       "organization": "<%= companyName %>",
@@ -13,8 +13,8 @@
       "email": "<%= emailAddress %>"
     },
     "module": {
-      "packageName": "<%= namespaceRoot %>_<%= moduleName %>",
-      "folderName": "<%= namespaceRoot %>/<%= moduleName %>",
+      "packageName": "<%= namespaceRoot %>_<%= friendlyName %>",
+      "folderName": "<%= namespaceRoot %>/<%= friendlyName %>",
       "azureCompatible": "true",
       "iconFile": "DesktopModules\\MVC\\<%= namespaceRoot %>\\Images\\logo.png"
     },

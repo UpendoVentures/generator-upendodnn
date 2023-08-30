@@ -121,7 +121,7 @@
     <value><%= friendlyName %> Basic Settings</value>
   </data>
   <data name="ControlTitle_settings.Text" xml:space="preserve">
-    <value><%= moduleFriendlyName %> Settings</value>
+    <value><%= friendlyName %> Settings</value>
   </data>
   <data name="lblSetting.Help" xml:space="preserve">
     <value>Enter any date/time value here.</value>

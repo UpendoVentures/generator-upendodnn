@@ -30,7 +30,7 @@ module.exports = class DnnGeneratorBase extends Generator {
   _createSolutionFromTemplate() {
     this.log(chalk.white('Creating sln.'));
     let namespace = this._getNamespace();
-    var folderPath = this.destinationPath(this.props.moduleName);
+    var folderPath = this.destinationPath(this.props.friendlyName);
     return this.spawnCommandSync('dotnet', [
       'new',
       'sln',
@@ -44,15 +44,15 @@ module.exports = class DnnGeneratorBase extends Generator {
   _addProjectToSolution() {
     let namespace = this._getNamespace();
     this.log(chalk.white('Adding project to sln.'));
-    if (this.props.extensionName == undefined) {
-      this.props.extensionName = this.props.moduleName;
+    if (this.props.friendlyName == undefined) {
+      this.props.friendlyName = this.options.friendlyName;
     }
     this.destinationRoot();
     this.spawnCommandSync('dotnet', [
       'sln',
       this.destinationPath('..'),
       'add',
-      this.destinationPath(`${this.props.extensionName}/${namespace}.csproj`)
+      this.destinationPath(`${this.props.friendlyName}/${namespace}.csproj`)
     ]);
   }
 
@@ -72,11 +72,11 @@ module.exports = class DnnGeneratorBase extends Generator {
   _installDependencies() {
     if (!this.options.noinstall) {
       let hasYarn = this._hasYarn();
-      if (this.props.extensionName == undefined) {
-        this.props.extensionName = this.props.moduleName;
+      if (this.props.friendlyName == undefined) {
+        this.props.friendlyName = this.options.friendlyName;
       }
       this.destinationRoot();
-      var path = this.destinationPath(this.props.extensionName);      
+      var path = this.destinationPath(this.props.friendlyName);      
       console.log("Installing npm dependencies in " + path);
       if (hasYarn) {
         this.spawnCommandSync('yarn', ['install'], { cwd: path })
@@ -90,46 +90,50 @@ module.exports = class DnnGeneratorBase extends Generator {
   _restoreSolution() {
     this.log(chalk.white('Running dotnet restore.'));
     let namespace = this._getNamespace();
-    if (this.props.extensionName == undefined) {
-      this.props.extensionName = this.props.moduleName;
+    if (this.props.friendlyName == undefined) {
+      this.props.friendlyName = this.options.friendlyName;
     }
     this.destinationRoot();
-    var path = this.destinationPath(this.props.extensionName);
+    var path = this.destinationPath(this.props.friendlyName);
     this.spawnCommandSync('dotnet', ['restore', namespace + ".csproj"], { cwd: path });
   }
 
-  _copyCommon(namespace, moduleName) {
+  _copyCommon(namespaceRoot, friendlyName) {
     this.fs.copyTpl(
       this.templatePath('../../gulp/*.js'),
-      this.destinationPath(moduleName + '/_BuildScripts/gulp/'),
+      this.destinationPath(friendlyName + '/_BuildScripts/gulp/'),
       {
-        namespace: namespace,
-        moduleName: moduleName
+        namespaceRoot: namespaceRoot,
+        friendlyName: friendlyName
       }
     );
   }
 
   _getNamespace() {
-    let namespace = this.props.namespace;
+    let namespaceRoot = this.props.namespaceRoot;
     if (this.props.extensionType != undefined && this.props.extensionType != "") {
-      namespace = namespace + "." + this.props.extensionType;
+      namespaceRoot = namespaceRoot + "." + this.props.extensionType;
     }
-    if (this.props.extensionName == undefined) this.props.extensionName = this.props.moduleName;
-    namespace = namespace + "." + this.props.extensionName;
-    return namespace;
+    if (this.props.extensionName == undefined) {
+      this.props.extensionName = this.props.friendlyName;
+    }
+    namespaceRoot = namespaceRoot + "." + this.props.extensionName;
+    return namespaceRoot;
   }
 
   _defaultInstall() {
     if (!this.options.noinstall) {
       let hasYarn = this._hasYarn();
-      if (this.props.extensionName == undefined) this.props.extensionName = this.props.moduleName;
-      process.chdir(this.props.extensionName);
+      if (this.props.friendlyName == undefined) { 
+        this.props.friendlyName = this.options.friendlyName;
+      }
+      process.chdir(this.props.friendlyName);
       this.installDependencies({ npm: !hasYarn, bower: false, yarn: hasYarn });
     }
   }
 
   _writeJsConfig() {
-    this.fs.extendJSON(this.destinationPath(this.props.moduleName + '/jsconfig.json'), {
+    this.fs.extendJSON(this.destinationPath(this.props.friendlyName + '/jsconfig.json'), {
       compilerOptions: {
         target: 'es6',
         module: 'commonjs',
@@ -140,7 +144,7 @@ module.exports = class DnnGeneratorBase extends Generator {
   }
 
   _writeTsConfig() {
-    this.fs.extendJSON(this.destinationPath(this.props.moduleName + '/tsconfig.json'), {
+    this.fs.extendJSON(this.destinationPath(this.props.friendlyName + '/tsconfig.json'), {
       compilerOptions: {
         module: 'es6',
         target: 'es6',
@@ -157,7 +161,7 @@ module.exports = class DnnGeneratorBase extends Generator {
   }
 
   _writeBabelRc() {
-    this.fs.extendJSON(this.destinationPath(this.props.moduleName + '/.babelrc'), {
+    this.fs.extendJSON(this.destinationPath(this.props.friendlyName + '/.babelrc'), {
       presets: ['@babel/preset-env', '@babel/preset-react'],
       plugins: [
         '@babel/plugin-transform-object-assign',
@@ -175,11 +179,11 @@ module.exports = class DnnGeneratorBase extends Generator {
     if (!this._hasYarn()) return;
 
     const workspaceJson = {
-      name: this.props.namespace,
+      name: this.props.namespaceRoot,
       version: '1.0.0',
       description: 'Project workspace',
       private: true,
-      workspaces: [this.props.moduleName],
+      workspaces: [this.props.friendlyName],
       scripts: {
         // eslint-disable-next-line prettier/prettier
         'test': 'lerna run test',
@@ -207,7 +211,7 @@ module.exports = class DnnGeneratorBase extends Generator {
     const lernaJson = {
       lerna: '3.8.4',
       npmClient: 'yarn',
-      packages: [this.props.moduleName],
+      packages: [this.props.friendlyName],
       version: '1.0.0'
     };
 

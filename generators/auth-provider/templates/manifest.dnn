@@ -23,7 +23,7 @@
       
         <component type="AuthenticationSystem">
           <authenticationService>
-            <type><%= type %></type>
+            <type><%= authTypeName %></type>
             <settingsControlSrc>DesktopModules/<%= friendlyName %>/Settings.ascx</settingsControlSrc>
             <loginControlSrc>DesktopModules/<%= friendlyName %>/Login.ascx</loginControlSrc>
             <logoffControlSrc>DesktopModules/<%= friendlyName %>/Logoff.ascx</logoffControlSrc>

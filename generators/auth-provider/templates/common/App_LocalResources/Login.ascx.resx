@@ -121,7 +121,7 @@
     <value>Login</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
-    <value><%= type %></value>
+    <value><%= authTypeName %></value>
   </data>
   <data name="InvalidVerificationCode.Text" xml:space="preserve">
     <value>Invalid verification code.</value>

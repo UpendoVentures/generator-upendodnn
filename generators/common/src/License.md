@@ -1,7 +1,7 @@
 License
 =======
 
-Copyright (c) <%= currentYea %>
+Copyright (c) <%= currentYear %>
 
 All rights reserved.
 

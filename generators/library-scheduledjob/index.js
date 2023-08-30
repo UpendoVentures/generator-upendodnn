@@ -52,7 +52,7 @@ module.exports = class extends DnnGeneratorBase {
       else {
         props.namespaceRoot = this._pascalCaseName(this.options.companyName);
       }
-      if (props.name.endsWith(" -f")) {
+      if (props.friendlyName.endsWith(" -f")) {
         props.friendlyName = props.friendlyName.replace(" -f", "");
       }
       else {
