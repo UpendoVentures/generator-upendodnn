@@ -21,7 +21,7 @@ module.exports = class extends DnnGeneratorBase {
         validate: str => {
           return str.length > 0;
         }
-      }
+      },
       {
         when: !this.options.friendlyName,
         type: 'input',

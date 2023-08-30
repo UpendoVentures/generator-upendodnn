@@ -23,10 +23,10 @@
 
   <ItemGroup>
     <PackageReference Include="Dnn.PersonaBar.Library" Version="1.5.0.193" />    
-    <PackageReference Include="DotNetNuke.Core" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web.Client" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web.Mvc" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Core" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.Web" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.Web.Client" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.Web.Mvc" Version="<%= dnnBuildVersionShort %>" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.3" />
     <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.3" />
