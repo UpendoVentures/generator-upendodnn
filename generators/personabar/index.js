@@ -1,6 +1,8 @@
 'use strict';
 const DnnGeneratorBase = require('../lib/DnnGeneratorBase');
 const chalk = require('chalk');
+const constants = require('../lib/Constants');
+const { removeLeadingZeros } = require('../lib/versionUtil'); 
 
 module.exports = class extends DnnGeneratorBase {
   prompting() {
@@ -69,6 +71,10 @@ module.exports = class extends DnnGeneratorBase {
       else {
         props.friendlyName = this._pascalCaseName(props.friendlyName);
       }
+      props.dnnBuildVersion = constants.DNN_BUILD_VERSION;
+      props.dnnBuildVersionShort = removeLeadingZeros(constants.DNN_BUILD_VERSION);
+      props.hccBuildVersion = constants.HCC_BUILD_VERSION;
+      props.hccBuildVersionShort = removeLeadingZeros(constants.HCC_BUILD_VERSION);
 
       this.props = props;
     });
@@ -96,7 +102,11 @@ module.exports = class extends DnnGeneratorBase {
       currentYear: currentDate.getFullYear(),
       version: '1.0.0',
       menuLinkName: this.props.menuLinkName, /* NOT USED */
-      parentMenu: this.props.parentMenu
+      parentMenu: this.props.parentMenu,
+      dnnBuildVersion: this.props.dnnBuildVersion,
+      dnnBuildVersionShort: this.props.dnnBuildVersionShort,
+      hccBuildVersion: this.props.hccBuildVersion,
+      hccBuildVersionShort: this.props.hccBuildVersionShort
     };
 
     // Do all regular copies

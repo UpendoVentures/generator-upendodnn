@@ -1,6 +1,8 @@
 'use strict';
 const DnnGeneratorBase = require('../lib/DnnGeneratorBase');
 const chalk = require('chalk');
+const constants = require('../lib/Constants');
+const { removeLeadingZeros } = require('../lib/versionUtil'); 
 
 module.exports = class extends DnnGeneratorBase {
   constructor(args, opts) {
@@ -89,6 +91,10 @@ module.exports = class extends DnnGeneratorBase {
       props.closeDirective = "%";
       props.msBuildVersion = msBuildVersion;
       props.authTypeName = props.authTypeName;
+      props.dnnBuildVersion = constants.DNN_BUILD_VERSION;
+      props.dnnBuildVersionShort = removeLeadingZeros(constants.DNN_BUILD_VERSION);
+      props.hccBuildVersion = constants.HCC_BUILD_VERSION;
+      props.hccBuildVersionShort = removeLeadingZeros(constants.HCC_BUILD_VERSION);
 
       this.props = props;
     });
@@ -124,7 +130,11 @@ module.exports = class extends DnnGeneratorBase {
       openDirective: this.props.openDirective,
       closeDirective: this.props.closeDirective,
       objectPrefix: this.props.objectPrefix,
-      msBuildVersion: this.props.msBuildVersion
+      msBuildVersion: this.props.msBuildVersion,
+      dnnBuildVersion: this.props.dnnBuildVersion,
+      dnnBuildVersionShort: this.props.dnnBuildVersionShort,
+      hccBuildVersion: this.props.hccBuildVersion,
+      hccBuildVersionShort: this.props.hccBuildVersionShort
     };
 
     this.fs.copyTpl(

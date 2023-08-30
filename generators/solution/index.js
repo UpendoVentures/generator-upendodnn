@@ -1,5 +1,6 @@
 'use strict';
 const Generator = require('yeoman-generator');
+const constants = require('../lib/Constants');
 const chalk = require('chalk');
 const uuid = require('uuid-v4');
 const pascalCase = require('pascal-case');
@@ -33,6 +34,8 @@ module.exports = class extends Generator {
       props.currentDate = new Date();
       props.solutionGuid = uuid();
       props.companyName = pascalCase(this.options.companyName);
+      props.dnnBuildVersion = constants.DNN_BUILD_VERSION;
+      props.hccBuildVersion = constants.HCC_BUILD_VERSION;
 
       this.props = props;
     });
@@ -41,7 +44,11 @@ module.exports = class extends Generator {
   writing() {
     this.log(chalk.white('Creating solution structure.'));
 
-    this.fs.copy(this.templatePath('Build/**'), this.destinationPath('Build/'));
+    this.fs.copyTpl(this.templatePath('Build/**'), this.destinationPath('Build/'),
+    {
+      dnnBuildVersion: this.props.dnnBuildVersion,
+      hccBuildVersion: this.props.hccBuildVersion
+    });
 
     this.fs.copy(this.templatePath('References/**'), this.destinationPath('References/'));
 

@@ -2,8 +2,8 @@
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <DnnVersion>09.08.00</DnnVersion>
-    <HccVersion>03.06.00</HccVersion>
+    <DnnVersion><%= dnnBuildVersion %></DnnVersion>
+    <HccVersion><%= hccBuildVersion %></HccVersion>
     <ReferencesPath>..\..\References</ReferencesPath>
     <DnnReferencePath>$(ReferencesPath)\DNN\$(DnnVersion)</DnnReferencePath>
     <HccReferencePath>$(ReferencesPath)\HotcakesCommerce\$(HccVersion)</HccReferencePath>
@@ -38,13 +38,14 @@
   </PropertyGroup>
   <Import Project="..\..\Build\SolutionReferences.targets" />
   <ItemGroup>
-    <PackageReference Include="DotNetNuke.Core" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web.Mvc" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web.Client" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.WebApi" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Abstractions" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.Core" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.Instrumentation" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.Web" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.Web.Mvc" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.Web.Client" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.WebApi" Version="<%= dnnBuildVersionShort %>" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.3" />
   </ItemGroup>
