@@ -1,0 +1,7 @@
+D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\Modules\Vue3JS\bin\Newtonsoft.Json.dll
+D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\Modules\Vue3JS\obj\Debug\Module.csproj.CoreCompileInputs.cache
+D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\Modules\Vue3JS\obj\Debug\Module.csproj.CopyComplete
+D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\Modules\Vue3JS\bin\Module.dll
+D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\Modules\Vue3JS\bin\Module.pdb
+D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\Modules\Vue3JS\obj\Debug\Module.dll
+D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\Modules\Vue3JS\obj\Debug\Module.pdb
