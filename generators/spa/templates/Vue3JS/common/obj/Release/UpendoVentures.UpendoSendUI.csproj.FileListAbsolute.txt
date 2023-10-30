@@ -1,0 +1,13 @@
+D:\Trabajo\NTSPRINT\bin\UpendoVentures.UpendoSendUI.dll
+D:\Trabajo\NTSPRINT\bin\UpendoVentures.UpendoSendUI.pdb
+D:\Trabajo\NTSPRINT\DNN Modules\Upendo-SendUI\obj\Release\UpendoVentures.UpendoSendUI.csproj.CoreCompileInputs.cache
+D:\Trabajo\NTSPRINT\DNN Modules\Upendo-SendUI\obj\Release\UpendoVentures.UpendoSendUI.dll
+D:\Trabajo\NTSPRINT\DNN Modules\Upendo-SendUI\obj\Release\UpendoVentures.UpendoSendUI.pdb
+D:\Trabajo\NTSPRINT\DNN Modules\Upendo-SendUI\obj\Release\UpendoVentures.UpendoSendUI.csproj.AssemblyReference.cache
+D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\bin\UpendoVentures.UpendoSendUI.dll
+D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\bin\UpendoVentures.UpendoSendUI.pdb
+D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\Modules\Upendo-SendUI\obj\Release\UpendoVentures.UpendoSendUI.csproj.CoreCompileInputs.cache
+D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\Modules\Upendo-SendUI\obj\Release\UpendoVentures.UpendoSendUI.dll
+D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\Modules\Upendo-SendUI\obj\Release\UpendoVentures.UpendoSendUI.pdb
+D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\Modules\Upendo-SendUI\obj\Release\UpendoVentures.UpendoSendUI.csproj.CopyComplete
+D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\Modules\Upendo-SendUI\obj\Release\UpendoVentures.UpendoSendUI.csproj.AssemblyReference.cache
