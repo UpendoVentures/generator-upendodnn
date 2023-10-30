@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="windows-1252"?>
+
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="$(ImportPath)" Condition=" '$(ImportPath)' != '' "/>
+	<Import Project="MSBuild.Community.Tasks.Targets" />
+	<PropertyGroup>
+		<ModulePath><%= friendlyName %></ModulePath>
+		<DNNFileName><%= friendlyName %></DNNFileName>
+		<PackageName><%= fullNamespace %></PackageName>
+		<Extension>zip</Extension>
+	</PropertyGroup>
+	<Target Name="ReadVariables">
+		<Message Text="MSBuildDnnPath is now $(MSBuildDnnPath)" Importance="high" />
+		<Message Text="MSBuildDnnPath set to $([MSBuild]::MakeRelative($(MSBuildProjectDirectory), $([MSBuild]::Escape($(MSBuildProjectDirectory)\..\..\..\Website))))" Importance="high" />
+	</Target>
+	<Target Name="PackageModule" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<XmlRead Prefix="n"
+						Namespace="http://schemas.microsoft.com/developer/msbuild/2003"
+						XPath="dotnetnuke/packages/package[1]/@version"
+						XmlFileName="$(DNNFileName).dnn">
+			<Output TaskParameter="Value" PropertyName="Version" />
+		</XmlRead>
+
+		<ItemGroup>
+			<InstallInclude Include="**\*.cshtml" Exclude="packages\**" />
+			<InstallInclude Include="**\*.ascx" Exclude="packages\**" />
+			<InstallInclude Include="**\*.asmx" Exclude="packages\**" />
+			<InstallInclude Include="**\*.css" Exclude="packages\**;client-app\**" />
+			<InstallInclude Include="**\*.html" Exclude="packages\**;client-app\**" />
+			<InstallInclude Include="**\*.htm" Exclude="packages\**;client-app\**" />
+			<InstallInclude Include="**\*.resx" Exclude="packages\**;client-app\**" />
+			<InstallInclude Include="**\*.aspx" Exclude="packages\**" />
+			<InstallInclude Include="**\*.js" Exclude="packages\**;client-app\**" />
+			<InstallInclude Include="**\*.txt"  Exclude="**\obj\**;**\_ReSharper*\**;packages\**;**\.git\**;client-app\**;" />
+			<InstallInclude Include="**\images\**" Exclude="packages\**;client-app\**" />
+		</ItemGroup>
+
+		<CreateItem Include="$(DNNFileName).dnn">
+			<Output TaskParameter="Include" ItemName="PackageManifestFiles" />
+		</CreateItem>
+
+		<CreateItem Include="**\License.txt">
+			<Output TaskParameter="Include" ItemName="PackageTxtFiles" />
+		</CreateItem>
+
+		<CreateItem Include="**\ReleaseNotes.txt">
+			<Output TaskParameter="Include" ItemName="PackageTxtFiles" />
+		</CreateItem>
+
+
+		<CreateItem Include="**\*.sqldataprovider">
+			<Output TaskParameter="Include" ItemName="SqlDataProviderFiles" />
+		</CreateItem>
+
+		<Copy SourceFiles="$(MSBuildDnnPath)\bin\$(AssemblyName).dll" DestinationFolder="$(MSBuildProjectDirectory)\Package\bin"/>
+		<Copy SourceFiles="@(SqlDataProviderFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package\%(RecursiveDir)" />
+		<Copy SourceFiles="@(PackageManifestFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package" />
+		<Copy SourceFiles="@(PackageTxtFiles)" DestinationFolder="$(MSBuildProjectDirectory)\Package" />
+
+
+		<!-- create the INSTALL RESOURCES.ZIP file -->
+		<Copy SourceFiles="@(InstallInclude)" DestinationFolder="$(MSBuildProjectDirectory)\ResourcesZip\%(RecursiveDir)" />
+
+		<CreateItem Include="$(MSBuildProjectDirectory)\ResourcesZip\**\*.*">
+			<Output TaskParameter="Include" ItemName="ResourcesContent" />
+		</CreateItem>
+
+		<Zip Files="@(ResourcesContent)" WorkingDirectory="$(MSBuildProjectDirectory)\ResourcesZip" ZipFileName="Resources.$(Extension)" />
+		<Copy SourceFiles="$(MSBuildProjectDirectory)\Resources.$(Extension)" DestinationFolder="package/" />
+
+		<CreateItem Include="$(MSBuildProjectDirectory)\Package\**\*.*">
+			<Output TaskParameter="Include" ItemName="OutputContent" />
+		</CreateItem>
+		<!-- Create the Install package -->
+		<Zip Files="@(OutputContent)" WorkingDirectory="$(MSBuildProjectDirectory)\Package" ZipFileName="$(PackageName)_$(Version)_Install.$(Extension)" />
+		<!-- Copy the Install package to the Packages folder -->
+		<Copy SourceFiles="$(MSBuildProjectDirectory)\$(PackageName)_$(Version)_Install.$(Extension)" DestinationFolder="$(MSBuildProjectDirectory)\..\..\Website\Install\Module\" />
+
+		<RemoveDir Directories ="$(MSBuildProjectDirectory)\Package" />
+		<RemoveDir Directories ="$(MSBuildProjectDirectory)\ResourcesZip" />
+		<Delete Files="$(MSBuildProjectDirectory)\Resources.Zip" />
+		<Delete Files="$(MSBuildProjectDirectory)\$(PackageName)_$(Version)_Install.$(Extension)" />
+	</Target>
+	<Target Name="DeployModule">
+		<!-- Copy assemblies and Debug Info to DNN Bin Dir -->
+		<Message  Text="Copy assemblies and Debug Info to DNN on $(MSBuildDnnPath)" Importance="high"></Message>
+		<Copy SourceFiles="$(OutputPath)$(AssemblyName).pdb;
+					             $(OutputPath)$(AssemblyName).dll;"
+			  DestinationFolder="$(MSBuildDnnPath)\bin"/>
+
+		<CreateItem Include="$(WebsitePath)\DesktopModules\<%= friendlyName %>\**;">
+			<Output TaskParameter="Include" ItemName="deleteFiles" />
+		</CreateItem>
+		<Delete ContinueOnError="true" Files="@(deleteFiles)"></Delete>
+
+		<ItemGroup>
+			<InstallInclude Include="**\*.dnn" Exclude="packages\**" />
+			<InstallInclude Include="**\*.cshtml" Exclude="packages\**" />
+			<InstallInclude Include="**\*.ascx" Exclude="packages\**" />
+			<InstallInclude Include="**\*.asmx" Exclude="packages\**" />
+			<InstallInclude Include="**\*.aspx" Exclude="packages\**" />
+		</ItemGroup>
+		<Copy SourceFiles="@(InstallInclude)" DestinationFolder="$(WebsitePath)\DesktopModules\<%= friendlyName %>\%(RecursiveDir)" />
+
+	</Target>
+	<Target Name="PackageAndDeploy">
+		<CallTarget Targets="ReadVariables"/>
+		<CallTarget Targets="DeployModule"/>
+		<CallTarget Targets="PackageModule"/>
+	</Target>
+
+	<Target Name="BuildVueClientApp">
+		<Exec Command="npm install" WorkingDirectory="client-app"></Exec>
+		<Exec Condition="$(Configuration) == 'Debug'" Command="npm run-script build-client-dev" />
+		<Exec Condition="$(Configuration) == 'Release'" Command="npm run-script build-client" />
+	</Target>
+
+</Project>
