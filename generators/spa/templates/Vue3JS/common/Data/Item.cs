@@ -8,15 +8,13 @@ namespace <%= fullNamespace %>.Data
     /// <summary>
     /// Class representing an item in the application.
     /// </summary>
-    [PrimaryKey("Id", AutoIncrement = true)]
-    [Scope("ModuleId")]
     public partial class Item
     {
         /// <summary>
         /// Gets or sets the unique identifier of the item.
         /// </summary>
         [Key]
-        public int Id { get; set; }
+        public int ItemId { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the item.
