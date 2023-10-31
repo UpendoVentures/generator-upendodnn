@@ -14,8 +14,8 @@ module.exports = class extends DnnGeneratorBase {
         choices: [
           { name: 'Angular', value: 'Angular' },
           { name: 'ReactJS', value: 'ReactJS' },
-          { name: 'VueJS', value: 'VueJS' },
-          { name: 'Vue3JS', value: 'Vue3JS' }
+          { name: 'Vue 2', value: 'VueJS' },
+          { name: 'Vue 3', value: 'Vue3JS' }
         ]
       },
       {
