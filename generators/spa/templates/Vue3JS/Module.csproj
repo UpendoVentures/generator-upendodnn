@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -48,45 +47,26 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\<%= fullNamespace %>.xml</DocumentationFile>
   </PropertyGroup>
+  <Import Project="..\..\Build\SolutionReferences.targets" />
   <ItemGroup>
-    <Reference Include="DotNetNuke">
-      <HintPath>_external\DotNetNuke.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DotNetNuke.Web">
-      <HintPath>_external\DotNetNuke.Web.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DotNetNuke.WebUtility">
-      <HintPath>_external\DotNetNuke.WebUtility.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
+    <PackageReference Include="DotNetNuke.Core" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Web" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Web.Client" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.8.0" />
+    <PackageReference Include="DotNetNuke.WebApi" Version="9.8.0" />
+    <PackageReference Include="EntityFramework" Version="6.0.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Net.Http" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>_external\System.Net.Http.Formatting.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>_external\System.Web.Http.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>_external\System.Web.Http.WebHost.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -94,7 +74,17 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\View.resx">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\BaseClasses\ApiControllerBase.cs" />
@@ -108,7 +98,6 @@
     <Compile Include="Services\ViewModels\ModuleConfigModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BuildScripts\MSBuild.Community.Tasks.dll" />
     <Content Include="client-app\babel.config.js" />
     <Content Include="client-app\public\favicon.ico" />
     <Content Include="client-app\public\index.html" />
@@ -123,16 +112,6 @@
     <Content Include="Providers\DataProviders\SqlDataProvider\01.00.00.SqlDataProvider" />
     <Content Include="ReleaseNotes.txt" />
     <Content Include="client-app\src\router.js" />
-    <Content Include="_external\DotNetNuke.dll" />
-    <Content Include="_external\DotNetNuke.Web.dll" />
-    <Content Include="_external\DotNetNuke.WebUtility.dll" />
-    <Content Include="_external\System.Net.Http.Formatting.dll" />
-    <Content Include="_external\System.Web.Http.dll" />
-    <Content Include="_external\System.Web.Http.WebHost.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="BuildScripts\ModulePackage.targets" />
-    <Content Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\View.resx" />
@@ -157,10 +136,6 @@
     <Content Include="client-app\jsconfig.json" />
     <Content Include="client-app\package-lock.json" />
     <Content Include="client-app\package.json" />
-    <Content Include="client-app\README.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="client-app\src\components\HomeItem.vue" />
@@ -169,10 +144,13 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="<%= friendlyName %>.dnn" />
+    <Content Include="<%= friendlyName %>.dnn"></Content>
     <Content Include="<%= friendlyName %>_Symbols.dnn">
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Module.build" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''"><%= msBuildVersion %>.0</VisualStudioVersion>
@@ -189,9 +167,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="BuildScripts\ModulePackage.Targets" />
+  <Import Project="Module.Build" />
   <Target Name="BeforeBuild" DependsOnTargets="BuildVueClientApp">
-  </Target>
-  <Target Name="AfterBuild" DependsOnTargets="PackageAndDeploy">
   </Target>
 </Project>
