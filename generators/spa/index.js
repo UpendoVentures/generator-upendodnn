@@ -14,8 +14,8 @@ module.exports = class extends DnnGeneratorBase {
         choices: [
           { name: 'Angular', value: 'Angular' },
           { name: 'ReactJS', value: 'ReactJS' },
-          { name: 'Vue 2', value: 'VueJS' },
-          { name: 'Vue 3', value: 'Vue3JS' }
+          { name: 'Vue 2', value: 'Vue 2' },
+          { name: 'Vue 3', value: 'Vue 3' }
         ]
       },
       {
@@ -100,7 +100,7 @@ module.exports = class extends DnnGeneratorBase {
     this.destinationRoot("Modules/");
 
     let spaType = this.props.spaType;
-    let spaPath = spaType === "ReactJS" ? `${this.props.spaType}/${this.props.langType}` : `${this.props.spaType}/`;
+    let spaPath = spaType === "ReactJS" ? `${this.props.spaType}/${this.props.langType}` : spaType === "Vue 2" ? "VueJS/" : spaType === "Vue 3" ? "Vue3JS/" : `${this.props.spaType}/`;
 
     let namespaceRoot = this.props.namespaceRoot;
     let friendlyName = this.props.friendlyName;
@@ -390,7 +390,7 @@ module.exports = class extends DnnGeneratorBase {
         launchJson.configurations.push(launchJsonConfig);
         this.fs.extendJSON(launchJsonPath, launchJson);
       }
-    } else if (spaType === "VueJS") {
+    } else if (spaType === "Vue 2") {
       this.fs.copyTpl(
         this.templatePath(spaPath + 'Module.csproj'),
         this.destinationPath(friendlyName + '/' + fullNamespace + '.csproj'),
@@ -426,7 +426,7 @@ module.exports = class extends DnnGeneratorBase {
         this.destinationPath(friendlyName + '/Images'),
         template
       );
-    } else if (spaType === "Vue3JS") {
+    } else if (spaType === "Vue 3") {
       this.fs.copyTpl(
         this.templatePath(spaPath + 'Module.csproj'),
         this.destinationPath(friendlyName + '/' + fullNamespace + '.csproj'),
