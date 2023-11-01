@@ -87,15 +87,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\BaseClasses\ApiControllerBase.cs" />
-    <Compile Include="Components\Common.cs" />
     <Compile Include="Components\FeatureController.cs" />
     <Compile Include="Constants\ModuleConstants.cs" />
     <Compile Include="Data\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ResxController.cs" />
     <Compile Include="Services\ServiceRouteMapper.cs" />
-    <Compile Include="Services\ViewModels\ModuleConfigModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="client-app\babel.config.js" />
