@@ -1,7 +1,0 @@
-D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\Modules\Vue3JS\obj\Release\Module.csproj.CoreCompileInputs.cache
-D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\Modules\Vue3JS\obj\Release\Module.csproj.CopyComplete
-D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\bin\Module.dll
-D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\bin\Module.pdb
-D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\Modules\Vue3JS\obj\Release\Module.csproj.AssemblyReference.cache
-D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\Modules\Vue3JS\obj\Release\Module.dll
-D:\Trabajo\NTSPRINT\Extension Generator Upendo DNN\Modules\Vue3JS\obj\Release\Module.pdb
