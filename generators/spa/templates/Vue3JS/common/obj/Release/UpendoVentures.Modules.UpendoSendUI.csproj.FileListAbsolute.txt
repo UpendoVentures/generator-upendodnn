@@ -1,7 +1,0 @@
-D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\bin\UpendoVentures.Modules.UpendoSendUI.dll
-D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\bin\UpendoVentures.Modules.UpendoSendUI.pdb
-D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\Modules\UpendoVentures.Modules.UpendoSendUI\obj\Release\UpendoVentures.Modules.UpendoSendUI.csproj.CoreCompileInputs.cache
-D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\Modules\UpendoVentures.Modules.UpendoSendUI\obj\Release\UpendoVentures.Modules.UpendoSendUI.csproj.CopyComplete
-D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\Modules\UpendoVentures.Modules.UpendoSendUI\obj\Release\UpendoVentures.Modules.UpendoSendUI.dll
-D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\Modules\UpendoVentures.Modules.UpendoSendUI\obj\Release\UpendoVentures.Modules.UpendoSendUI.pdb
-D:\Trabajo\NTSPRINT\DNN Modules\Upendo-Send\Modules\UpendoVentures.Modules.UpendoSendUI\obj\Release\UpendoVentures.Modules.UpendoSendUI.csproj.AssemblyReference.cache
