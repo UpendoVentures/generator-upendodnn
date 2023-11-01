@@ -1,10 +1,9 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Web;
 using DotNetNuke.Security;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.Web.Api;
-using <%= fullNamespace %>.Components.BaseClasses;
 using Newtonsoft.Json.Linq;
 using System.Web.Http;
 using System.Xml;
@@ -17,8 +16,8 @@ namespace <%= fullNamespace %>.Services
     /// </summary>
     [SupportedModules(ModuleConstants.SupportedModules)]
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
-    public class ResxController : ApiControllerBase
-    {
+    public class ResxController : DnnApiController
+{
         /// <summary>
         /// Retrieves localized resource strings from a .resx file.
         /// </summary>
