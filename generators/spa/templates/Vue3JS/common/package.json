@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "build-client": "cd ./client-app && npm run build",
+    "build-client-dev": "cd ./client-app && npm run build-dev",
+    "build-settings": "cd ./settings-app && npm run build",
+    "build-settings-dev": "cd ./settings-app && npm run build-dev"
+  },
+  "module": {
+    "packageName": "<%= fullNamespace %>",
+    "folderName": "<%= fullNamespace %>",
+    "azureCompatible": "true",
+    "iconFile": "DesktopModules\\<%= friendlyName %>\\Images\\logo.png"
+  }
+}
