@@ -4,10 +4,12 @@ namespace <%= fullNamespace %>.Data
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
     /// Class representing an item in the application.
     /// </summary>
+    [Table("<%= friendlyName %>_Items")]
     public partial class Item
     {
         /// <summary>
