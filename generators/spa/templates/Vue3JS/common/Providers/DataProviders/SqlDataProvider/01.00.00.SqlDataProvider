@@ -1,4 +1,49 @@
 ﻿/************************************************************/
-/***** Data Provider *****/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must  *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
 /************************************************************/
 
+-- Check if the table exists and drop it if it does
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}<%= friendlyName %>_Items]') AND type in (N'U'))
+DROP TABLE {databaseOwner}[{objectQualifier}<%= friendlyName %>_Items]
+GO
+
+-- Create the table
+CREATE TABLE {databaseOwner}{objectQualifier}<%= friendlyName %>_Items
+    (
+    ItemId int NOT NULL IDENTITY (1, 1),
+    ItemName nvarchar(MAX) NOT NULL,
+    ItemDescription nvarchar(MAX) NOT NULL,
+    AssignedUserId int NULL,
+    ModuleId int NOT NULL,
+    CreatedOnDate datetime NOT NULL,
+    CreatedByUserId int NOT NULL,
+    LastModifiedOnDate datetime NOT NULL,
+    LastModifiedByUserId int NOT NULL
+    )  ON [PRIMARY]
+     TEXTIMAGE_ON [PRIMARY]
+GO
+
+-- Add primary key constraint
+ALTER TABLE {databaseOwner}{objectQualifier}<%= friendlyName %>_Items ADD CONSTRAINT
+    PK_{objectQualifier}<%= friendlyName %>_Items PRIMARY KEY CLUSTERED 
+    (
+    ItemId
+    ) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+
+-- Insert a sample record
+INSERT INTO {databaseOwner}{objectQualifier}<%= friendlyName %>_Items
+(ItemName, ItemDescription, AssignedUserId, ModuleId, CreatedOnDate, CreatedByUserId, LastModifiedOnDate, LastModifiedByUserId)
+VALUES
+('Sample Item', 'This is a sample item description.', 1, 1, GETDATE(), 1, GETDATE(), 1);
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/
