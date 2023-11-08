@@ -93,6 +93,11 @@
               <path>bin</path>
               <version><%= version %></version>
             </assembly>
+            <assembly>
+              <name>Dapper.dll</name>
+              <path>bin</path>
+              <version>2.0.151</version>
+            </assembly>
           </assemblies>
         </component>
       </components>
