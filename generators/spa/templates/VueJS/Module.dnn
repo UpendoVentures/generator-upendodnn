@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="<%= fullNamespace %>" type="Module" version="01.00.00">
+    <package name="<%= fullNamespace %>" type="Module" version="<%= version %>">
       <friendlyName><%= friendlyName %></friendlyName>
       <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
       <iconFile>DesktopModules/<%= friendlyName %>/Images/logo.png</iconFile>
@@ -22,13 +22,13 @@
             <basePath>DesktopModules\<%= friendlyName %></basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>01.00.00.SqlDataProvider</name>
-              <version>01.00.00</version>
+              <name><%= version %>.SqlDataProvider</name>
+              <version><%= version %></version>
             </script>
             <script type="UnInstall">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>Uninstall.SqlDataProvider</name>
-              <version>01.00.00</version>
+              <version><%= version %></version>
             </script>
           </scripts>
         </component>
