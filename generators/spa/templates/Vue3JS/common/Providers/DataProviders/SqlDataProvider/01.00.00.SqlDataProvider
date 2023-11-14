@@ -25,8 +25,7 @@ CREATE TABLE {databaseOwner}{objectQualifier}<%= friendlyName %>_Items
     CreatedByUserId int NOT NULL,
     LastModifiedOnDate datetime NOT NULL,
     LastModifiedByUserId int NOT NULL
-    )  ON [PRIMARY]
-     TEXTIMAGE_ON [PRIMARY]
+    )
 GO
 
 -- Add primary key constraint
@@ -34,7 +33,7 @@ ALTER TABLE {databaseOwner}{objectQualifier}<%= friendlyName %>_Items ADD CONSTR
     PK_{objectQualifier}<%= friendlyName %>_Items PRIMARY KEY CLUSTERED 
     (
     ItemId
-    ) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+    ) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 
 GO
 
