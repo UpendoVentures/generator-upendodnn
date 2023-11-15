@@ -10,13 +10,20 @@
 <script setup>
 import { inject, ref, } from 'vue';
 import axios from "axios";
+import ItemIterator from "@/components/ItemIterator.vue";
 
+// Injected dependencies
 const resx = inject("resx");
 const dnnConfig = inject("dnnConfig");
+
+// Reactive references
 const items = ref([]);
+
+// Variables
 const url = new URL(window.location.href);
 const baseUrl = `${url.origin}/API/<%= fullNamespace %>/Items`;
 
+// Functions
 const fetchItems = async () => {
     var url = `${baseUrl}/GetAll`;
     let axiosConfig = {
@@ -87,17 +94,7 @@ function deleteItem(item) {
         console.log(error);
     });
 }
-fetchItems();
-</script>
 
-<script>
-import ItemIterator from "@/components/ItemIterator.vue";
-export default {
-    components: { ItemIterator },
-    data() {
-        return {};
-    },
-    mounted() { },
-    methods: {},
-};
+// Executed methods during the component's mounting phase
+fetchItems();// Initial fetching of items
 </script>
