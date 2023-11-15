@@ -58,52 +58,53 @@
 </template>
 
 <script setup>
-import { inject, } from 'vue';
+import { inject, defineProps, ref, getCurrentInstance } from 'vue';
+
+// Injecting language resources
 const resx = inject("resx");
-</script >
 
-<script>
-export default {
-    props: {
-        items: {
-            type: Array,
-            default: () => []
-        },
-    },
-    components: {},
-    data() {
-        return {
-            showModal: false,
-            dataModel: {
-                ItemName: '',
-                ItemDescription: '',
-            },
-        };
-    },
-    mounted() { },
-    methods: {
-        addItem() {
-            this.showModal = true;
-        },
-        editItem(item) {
+// Defining received props
+const { items } = defineProps({
+    items: {
+        type: Array,
+        default: () => []
+    }
+});
 
-            this.dataModel = item;
-            this.showModal = true;
-        },
-        closeModal() {
-            this.showModal = false;
-            this.dataModel = {
-                ItemName: '',
-                ItemDescription: '',
-            };
-        },
-        saveItem() {
-            this.$emit('save', this.dataModel);
-            this.closeModal();
-        },
-        deleteItem(item) {
-            this.$emit('deleteItem', item);
-        },
-    },
-};
+// Getting the instance for emitting events
+const { emit } = getCurrentInstance();
+
+// Reactive references
+const showModal = ref(false);
+const dataModel = ref({
+    ItemName: '',
+    ItemDescription: '',
+});
+
+// Functions
+function addItem() {
+    showModal.value = true;
+}
+
+function editItem(item) {
+    dataModel.value = { ...item };
+    showModal.value = true;
+}
+
+function closeModal() {
+    showModal.value = false;
+    dataModel.value = {
+        ItemName: '',
+        ItemDescription: '',
+    };
+}
+
+function saveItem() {
+    emit('save', dataModel.value);
+    closeModal();
+}
+
+function deleteItem(item) {
+    emit('deleteItem', item);
+}
 </script>
