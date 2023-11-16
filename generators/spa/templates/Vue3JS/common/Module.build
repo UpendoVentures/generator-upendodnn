@@ -53,6 +53,9 @@
   </Target>
   <Target Name="BuildVueClientApp">
     <Message  Text="Performing VueJS build." Importance="high"></Message>
+    <Exec Command="npm install" WorkingDirectory="client-app" />
+	  <Exec Condition="$(Configuration) == 'Debug'" Command="npm run-script build-client-dev" />
+	  <Exec Condition="$(Configuration) == 'Release'" Command="npm run-script build-client" />
     <CreateItem Include="$(FullModulePath)\Scripts\client-app\**;">
       <Output TaskParameter="Include" ItemName="deleteVueFiles" />
     </CreateItem>
