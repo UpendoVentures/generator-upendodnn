@@ -123,8 +123,14 @@
   <data name="AddItem.Text" xml:space="preserve">
     <value>Add Item</value>
   </data>
+  <data name="AreYouSure.Text" xml:space="preserve">
+    <value>Are you sure you want to delete this item? This action can not be undone</value>
+  </data>
   <data name="Close.Text" xml:space="preserve">
     <value>Close</value>
+  </data>
+  <data name="Confirm.Text" xml:space="preserve">
+    <value>Confirm</value>
   </data>
   <data name="Description.Text" xml:space="preserve">
     <value>Description:</value>
