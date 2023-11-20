@@ -1,10 +1,9 @@
-﻿[JavaScript:{ jsname: "JQuery" }]
-[JavaScript:{ path: "https://unpkg.com/vue@3", priority: 0}]
+﻿[JavaScript:{ path: "https://unpkg.com/vue@3/dist/vue.global.prod.js", priority: 0}]
 [CSS:{ path: "module.css"}]
 
 <div id="Items-[ModuleContext:ModuleId]">
     <div id="app-[ModuleContext:ModuleId]"
-         class="appUpendoSendUI"
+         class="appModule"
          data-moduleid="[ModuleContext:ModuleId]"
          data-tabid="[ModuleContext:TabId]"
          data-editmode="[ModuleContext:EditMode]"
@@ -14,4 +13,40 @@
 <script type="text/javascript" src="/DesktopModules/<%= friendlyName %>/scripts/client-app/js/chunk-vendors.js"></script>
 <script type="text/javascript" src="/DesktopModules/<%= friendlyName %>/scripts/client-app/js/app.js"></script>
 <script language="javascript" type="text/javascript">
+</script>
+<script type="text/javascript">
+    // This script manages the behavior of module loading and window reloads based on the number of module loads.
+    window.onload = function () {
+        var moduleLoads = parseInt(sessionStorage.getItem('moduleLoads')) || 0;
+
+        // Increment the load count if it's less than 2.
+        if (moduleLoads < 2) {
+            sessionStorage.setItem('moduleLoads', moduleLoads + 1);
+        }
+
+        // Re-fetch the module load count from sessionStorage.
+        moduleLoads = parseInt(sessionStorage.getItem('moduleLoads')) || 0;
+
+        // If the load count reaches 2, increment it and reload the window.
+        if (moduleLoads == 2) {
+            sessionStorage.setItem('moduleLoads', moduleLoads + 1);
+            window.location.reload();
+        }
+
+        // Find the 'app' element based on its ID.
+        var app = document.getElementById('app-[ModuleContext:ModuleId]');
+
+        // Check if the 'app' element exists.
+        if (app) {
+            var dataModuleid = app.getAttribute("data-moduleid");
+            var sessionmoduleid = parseInt(sessionStorage.getItem('moduleid'));
+            moduleLoads = parseInt(sessionStorage.getItem('moduleLoads')) || 0;
+
+            // Verify if sessionmoduleid exists and differs from dataModuleid.
+            if (sessionmoduleid != null && sessionmoduleid != dataModuleid) {
+                sessionStorage.setItem('moduleLoads', 2);
+                sessionStorage.setItem('moduleid', dataModuleid);
+            }
+        }
+    };
 </script>
