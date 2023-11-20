@@ -9,3 +9,6 @@
 .display_none {
     display: none !important;
 }
+#addEditMovil, #deleteModal {
+    margin-top: 100px;
+}
