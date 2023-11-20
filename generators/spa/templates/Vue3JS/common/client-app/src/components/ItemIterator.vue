@@ -19,7 +19,7 @@
                         <button type="button" class="btn btn-primary" @click="editItem(item)">
                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                         </button>
-                        <button type="button" class="btn btn-danger" @click="deleteItem(item)">
+                        <button type="button" class="btn btn-danger" @click="confirmDeleteItem(item)">
                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                         </button>
                     </td>
@@ -27,7 +27,7 @@
             </tbody>
         </table>
         <!-- Add Item Modal -->
-        <div v-if="showModal" class="modal fade in" id="myModal"
+        <div v-if="showModal" class="modal fade in" id="addEditMovil"
             :class="{ 'display_block': showModal, 'display_none': !showModal }">
             <div class="modal-dialog d-flex align-items-center justify-content-center">
                 <div class="modal-content">
@@ -54,6 +54,25 @@
                 </div>
             </div>
         </div>
+        <!-- Confirm Delete Modal -->
+        <div v-if="showConfirmDelete" class="modal fade in" id="deleteModal"
+            :class="{ 'display_block': showConfirmDelete, 'display_none': !showConfirmDelete }">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="form-container">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h4 class="text-danger">{{ resx.AreYouSure }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" @click="closeModal">{{ resx.Close }}</button>
+                        <button type="button" class="btn btn-danger" @click="deleteItem">{{ resx.Confirm }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -76,6 +95,7 @@ const { emit } = getCurrentInstance();
 
 // Reactive references
 const showModal = ref(false);
+const showConfirmDelete = ref(false);
 const dataModel = ref({
     ItemName: '',
     ItemDescription: '',
@@ -93,6 +113,7 @@ function editItem(item) {
 
 function closeModal() {
     showModal.value = false;
+    showConfirmDelete.value = false;
     dataModel.value = {
         ItemName: '',
         ItemDescription: '',
@@ -104,7 +125,13 @@ function saveItem() {
     closeModal();
 }
 
-function deleteItem(item) {
-    emit('deleteItem', item);
+function confirmDeleteItem(item) {
+    dataModel.value = { ...item };
+    showConfirmDelete.value = true;
+}
+
+function deleteItem() {
+    emit('deleteItem', dataModel.value);
+    closeModal();
 }
 </script>
