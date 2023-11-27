@@ -4,7 +4,7 @@ import { getResx } from "./assets/api";
 import router from './router';
 import store from './store/index';
 
-const allAppElements = document.getElementsByClassName("appUpendoSendUI");
+const allAppElements = document.getElementsByClassName("appModule");
 const app = createApp(App);
 app.use(router)
 app.use(store)
