@@ -10,8 +10,7 @@ using DotNetNuke.Security;
 
 namespace <%= fullNamespace %>.Services
 {
-    [SupportedModules(ModuleConstants.SupportedModules)]
-    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
+    [Authorize]
     public class ItemsController : DnnApiController
     {
         private readonly ItemsRepository _itemRepository;
