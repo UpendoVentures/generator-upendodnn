@@ -1,11 +1,13 @@
 ﻿export
     function getConfig(dnnConfig, onSuccess) {
-    doFetch(dnnConfig, `${dnnConfig.apiBaseUrl}/Item/GetConfig`, undefined, undefined, onSuccess);
+    const url = new URL(window.location.href);
+    doFetch(dnnConfig, `${url.origin}/Item/GetConfig`, undefined, undefined, onSuccess);
 }
 export
     function getResx(dnnConfig, filename, onSuccess) {
+    const url = new URL(window.location.href);
     doFetch(dnnConfig,
-        `${dnnConfig.apiBaseUrl}API/<%= fullNamespace %>/Resx/GetResx?filename=${filename}`,
+        `${url.origin}/API/<%= fullNamespace %>/Resx/GetResx?filename=${filename}`,
         undefined,
         undefined,
         onSuccess);
@@ -15,12 +17,7 @@ function doFetch(dnnConfig, url, setOptions, data, onSuccess) {
     let options = {
         method: 'GET',
         // headers go here
-        headers: {
-            'Content-Type': 'application/json',
-            moduleid: dnnConfig.moduleId,
-            tabid: dnnConfig.tabId,
-            RequestVerificationToken: dnnConfig.rvt
-        },
+        headers: { 'Content-Type': 'application/json', },
         body: data ? JSON.stringify(data) : null
     }
     if (setOptions) {
