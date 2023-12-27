@@ -9,6 +9,11 @@
 .display_none {
     display: none !important;
 }
+
 #addEditMovil, #deleteModal {
     margin-top: 100px;
+}
+
+.ml20{
+    margin-left: 20px !important;
 }
