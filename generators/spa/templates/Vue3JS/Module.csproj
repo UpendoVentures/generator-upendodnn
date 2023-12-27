@@ -135,6 +135,8 @@
     <Content Include="client-app\package.json" />
     <Content Include="client-app\src\components\HomeItem.vue" />
     <Content Include="client-app\src\components\ItemIterator.vue" />
+    <Content Include="client-app\src\components\AboutItem.vue" />
+    <Content Include="client-app\src\components\ItemDetails.vue" />
     <Content Include="client-app\src\router.js" />
   </ItemGroup>
   <ItemGroup>
