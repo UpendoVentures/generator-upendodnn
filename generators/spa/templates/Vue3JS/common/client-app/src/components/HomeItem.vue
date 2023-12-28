@@ -2,6 +2,8 @@
     <div class="mx-3">
         <div class="text-center">
             <h2>{{ resx.Welcome }}</h2>
+            <router-link :to="`${url.pathname}/details`">Details</router-link>
+            <router-link :to="`${url.pathname}/about`" class="ml20">AboutItem</router-link>
         </div>
         <ItemIterator :items="items" @save="save" @deleteItem="deleteItem" />
     </div>
