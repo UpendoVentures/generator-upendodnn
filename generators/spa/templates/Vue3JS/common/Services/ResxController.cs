@@ -14,7 +14,7 @@ namespace <%= fullNamespace %>.Services
     /// <summary>
     /// Controller for retrieving localized resource strings.
     /// </summary>
-    [Authorize]
+    [DnnAuthorize]
     public class ResxController : DnnApiController
     {
         /// <summary>
