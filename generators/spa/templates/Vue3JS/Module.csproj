@@ -126,6 +126,7 @@
     <Content Include="client-app\public\favicon.ico" />
     <Content Include="client-app\public\index.html" />
     <Content Include="client-app\src\assets\api.js" />
+    <Content Include="client-app\src\assets\utils.js" />
     <Content Include="client-app\src\main.js" />
     <Content Include="client-app\src\plugins\index.js" />
     <Content Include="client-app\src\store\index.js" />
