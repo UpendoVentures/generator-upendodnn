@@ -10,7 +10,9 @@ using DotNetNuke.Security;
 
 namespace <%= fullNamespace %>.Services
 {
-    [DnnAuthorize]
+    [SupportedModules("<%= friendlyName %>")]
+    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
+    [ValidateAntiForgeryToken]
     public class ItemsController : DnnApiController
     {
         private readonly ItemsRepository _itemRepository;
