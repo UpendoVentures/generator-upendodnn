@@ -31,7 +31,13 @@ const fetchItems = async () => {
     let axiosConfig = {
         method: 'get',
         url: url,
-        headers: { 'Content-Type': 'application/json', }
+        headers: {
+            'Content-Type': 'application/json',
+            moduleid: dnnConfig.moduleId,
+            tabid: dnnConfig.tabId,
+            RequestVerificationToken: dnnConfig.rvt,
+        },
+        withCredentials: true
     };
     axios({
         ...axiosConfig
@@ -44,14 +50,19 @@ const fetchItems = async () => {
     });
 };
 function save(item) {
-    console.log(item);
     item.ModuleId = dnnConfig.moduleId;
     var url = item.ItemId != null ? `${baseUrl}/Update` : `${baseUrl}/Create`;
     let axiosConfig = {
         method: item.ItemId != null ? 'put' : 'post',
         url: url,
         data: item,
-        headers: { 'Content-Type': 'application/json', }
+        headers: {
+            'Content-Type': 'application/json',
+            moduleid: dnnConfig.moduleId,
+            tabid: dnnConfig.tabId,
+            RequestVerificationToken: dnnConfig.rvt
+        },
+        withCredentials: true,
     };
     axios({
         ...axiosConfig
@@ -69,7 +80,12 @@ function deleteItem(item) {
     let axiosConfig = {
         method: 'delete',
         url: url,
-        headers: { 'Content-Type': 'application/json', }
+        headers: {
+            'Content-Type': 'application/json',
+            moduleid: dnnConfig.moduleId,
+            tabid: dnnConfig.tabId,
+            RequestVerificationToken: dnnConfig.rvt
+        },
     };
     axios({
         ...axiosConfig
