@@ -1,4 +1,9 @@
-﻿export
+﻿export function antiForgeryToken() {
+    const service = window?.$?.ServicesFramework?.();
+    return service?.getAntiForgeryValue() || '';
+}
+
+export
     function getConfig(dnnConfig, onSuccess) {
     const url = new URL(window.location.href);
     doFetch(dnnConfig, `${url.origin}/Item/GetConfig`, undefined, undefined, onSuccess);
@@ -17,8 +22,14 @@ function doFetch(dnnConfig, url, setOptions, data, onSuccess) {
     let options = {
         method: 'GET',
         // headers go here
-        headers: { 'Content-Type': 'application/json', },
-        body: data ? JSON.stringify(data) : null
+        headers: {
+            'Content-Type': 'application/json',
+            moduleid: dnnConfig.moduleId,
+            tabid: dnnConfig.tabId,
+            RequestVerificationToken: antiForgeryToken(),
+        },
+        body: data ? JSON.stringify(data) : null,
+        credentials: 'include'
     }
     if (setOptions) {
         options = { ...options, ...setOptions }

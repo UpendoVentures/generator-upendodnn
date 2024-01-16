@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { getResx } from "./assets/api";
+import { getResx, antiForgeryToken } from "./assets/api";
 import router from './router';
 import store from './store/index';
 
@@ -17,7 +17,7 @@ function getResxPromise(dnnConfig, resxKey) {
     });
 }
 
-function setApp() {
+document.addEventListener("DOMContentLoaded", function setApp() {
     for (var i = 0; i < allAppElements.length; i++) {
         const thisAppElm = allAppElements[i];
         const dnnConfig = {
@@ -25,7 +25,7 @@ function setApp() {
             moduleId: Number(thisAppElm.getAttribute("data-moduleid")),
             editMode: thisAppElm.getAttribute("data-editmode").toLowerCase() === "true",
             apiBaseUrl: thisAppElm.getAttribute("data-apibaseurl"),
-            rvt: window.$("input[name='__RequestVerificationToken']").val()
+            rvt: antiForgeryToken()
         };
 
         if (window.dtCallBacks === undefined) {
@@ -42,5 +42,4 @@ function setApp() {
             })
             .catch(error => { console.log(error); });
     }
-}
-setApp();
+});
