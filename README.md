@@ -142,6 +142,9 @@ Say hi to Will at [DNN Summit](https://www.dnnsummit.org/) and [DNN-Connect](htt
 [Awesome Sponsors Accepted Here](https://github.com/sponsors/UpendoVentures)  
 
 ## Upgrading  
+
+### Upgrading the Generator for Future Projects  
+
 Upgrading the generator is actually quite easy, and the instruction is the same for any and all other generators you might have installed.  Just run the following command:  
 
 ```bash  
@@ -155,6 +158,8 @@ In other cases, you may be able to simply re-execute the following command to up
 ```bash  
 npm install -g generator-upendodnn  
 ```  
+
+### Upgrading Existing Projects/Solutions  
 
 However, upgrading your existing projects may or may not be more involved.  If you want to take advantage of the build process updates, you will at least need to update the build files.  
 
