@@ -56,7 +56,7 @@
     <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.8.0" />
     <PackageReference Include="DotNetNuke.WebApi" Version="9.8.0" />
     <PackageReference Include="EntityFramework" Version="6.0.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Net.Http" />
