@@ -1,0 +1,52 @@
+<dotnetnuke type="Package" version="5.0">
+    <packages>
+        <package name="<%= fullNamespace %>" type="PersonaBar" version="<%= version %>">
+            <friendlyName><%= friendlyName %></friendlyName>
+            <description><![CDATA[<p><%= extensionDescription %></p>]]></description>
+            <iconFile>~/DesktopModules/Admin/Dnn.PersonaBar/Modules/<%= fullNamespace %>/images/logo.png</iconFile>
+             <owner>
+                <name><%= ownerName %></name>
+                <organization><%= companyName %></organization>
+                <url><![CDATA[<a href="<%= companyUrl %>" target="_blank"><%= companyUrl %></a>]]></url>
+                <email><![CDATA[<a href="mailto:<%= emailAddress %>" target="_blank"><%= emailAddress %></a>]]></email>
+            </owner>
+            <license src="License.txt"></license>
+            <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+            <dependencies>
+                <dependency type="CoreVersion">09.00.00</dependency>
+                <dependency type="ManagedPackage" version="01.00.00">Dnn.PersonaBar.UI</dependency>
+            </dependencies>
+            <azureCompatible>true</azureCompatible>
+            <components>
+                <component type="ResourceFile">
+                    <resourceFiles>
+                        <basePath>DesktopModules/admin/Dnn.PersonaBar/Modules/<%= fullNamespace %></basePath>
+                        <resourceFile>
+                            <name>Resources.zip</name>
+                        </resourceFile>
+                    </resourceFiles>
+                </component>
+                <component type="Assembly">
+                    <assemblies>
+                        <assembly>
+                            <name><%= fullNamespace %>.dll</name>
+                            <path>bin</path>
+                        </assembly>
+                    </assemblies>
+                </component>
+            
+              <component type="PersonaBarMenu">
+                    <menu>
+                        <identifier><%= fullNamespace %></identifier>
+                        <moduleName><%= friendlyName %></moduleName>
+                        <resourceKey>nav_<%= friendlyName %></resourceKey>
+                        <path><%= friendlyName %></path>
+                        <mobileSupport>true</mobileSupport>
+                        <parent><%= parentMenu %></parent>
+                        <order>1</order>
+                    </menu>
+                </component>
+            </components>
+        </package>
+    </packages>
+</dotnetnuke>
