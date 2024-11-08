@@ -22,7 +22,7 @@
       <Views Include="*.ascx;" />
       <ResourceFiles Include="admin/personabar/App_LocalResources/*.resx" />
       <Images Include="admin/personabar/Images/**/*.*" />
-      <JsFiles Include="admin/personabar/Scripts/**/*.*" Exclude="client-app/**" />
+      <JsFiles Include="admin/personabar/Scripts/**/*.*" />
       <Styles Include="admin/personabar/css/**/*.*" />
 
       <Resources Include="@(Manifest);@(TextFiles);@(SourceFiles);@(Views);@(ResourceFiles);@(Images);@(JsFiles);@(Styles);@(DataProvider)" />
