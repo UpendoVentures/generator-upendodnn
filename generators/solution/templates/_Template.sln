@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Files", "Build Files"
 		Build\Helpers.targets = Build\Helpers.targets
 		Build\LibraryPackage.targets = Build\LibraryPackage.targets
 		Build\ModulePackage.targets = Build\ModulePackage.targets
+		Build\PersonaBarPackage.targets = Build\PersonaBarPackage.targets
 		Build\SkinPackage.targets = Build\SkinPackage.targets
 		Build\SolutionReferences.targets = Build\SolutionReferences.targets
 	EndProjectSection
