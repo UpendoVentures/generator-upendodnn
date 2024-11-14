@@ -42,7 +42,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    this.log(chalk.white('Creating solution structure.'));
+    this.log(chalk.white('Creating your new solution structure.'));
 
     this.fs.copyTpl(this.templatePath('Build/**'), this.destinationPath('Build/'),
     {

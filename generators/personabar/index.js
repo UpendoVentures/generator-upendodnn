@@ -80,7 +80,7 @@ module.exports = class extends DnnGeneratorBase {
   }
 
   writing() {
-    this.log(chalk.white(`Creating ${this.props.pbType} Persona Bar Module.`));
+    this.log(chalk.white(`Creating your new ${this.props.pbType} Persona Bar extension project.`));
 
     this.destinationRoot("Modules/");
 

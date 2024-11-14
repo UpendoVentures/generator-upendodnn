@@ -51,7 +51,7 @@ module.exports = class extends DnnGeneratorBase {
   }
 
   writing() {
-    this.log(chalk.white('Creating MVC (.NET Core) Module.'));
+    this.log(chalk.white('Creating your new MVC (.NET Core) module project.'));
 
     // mod: this follows the Upendo development/solution pattern
     this.destinationRoot("Modules/");
