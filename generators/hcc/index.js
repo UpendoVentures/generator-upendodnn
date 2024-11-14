@@ -75,7 +75,7 @@ module.exports = class extends DnnGeneratorBase {
 
   writing() {
     this.log(
-      chalk.white("Creating Hotcakes Commerce extension point.")
+      chalk.white("Creating your new Hotcakes Commerce extension point project.")
     );
 
     let namespaceRoot = this.props.namespaceRoot;

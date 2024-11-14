@@ -101,7 +101,7 @@ module.exports = class extends DnnGeneratorBase {
   }
 
   writing() {
-    this.log(chalk.white('Creating Authentication Provider.'));
+    this.log(chalk.white('Creating your new Authentication Provider project.'));
 
     // mod: this follows the Upendo development/solution pattern
     this.destinationRoot("Modules/");

@@ -73,7 +73,7 @@ module.exports = class extends DnnGeneratorBase {
   }
 
   writing() {
-    this.log(chalk.white('Creating Class Library.'));
+    this.log(chalk.white('Creating your new DLL/Library project.'));
 
     // mod: this follows the Upendo development/solution pattern
     this.destinationRoot("Libraries/");

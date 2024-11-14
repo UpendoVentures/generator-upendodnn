@@ -90,7 +90,7 @@ module.exports = class extends DnnGeneratorBase {
   }
 
   writing() {
-    this.log(chalk.white('Creating MVC Module.'));
+    this.log(chalk.white('Creating your new MVC module project.'));
 
     // mod: this follows the Upendo development/solution pattern
     this.destinationRoot("Modules/");
