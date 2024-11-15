@@ -5,7 +5,7 @@
                 localResourceFile: "~/DesktopModules/<%= friendlyName %>/App_LocalResources/View.resx"
 }]
 <base href="[ModuleProperties:rawurl]">
-<<%= namespaceRoot.toLowerCase() %>-<%= friendlyName.toLowerCase() %> data-moduleid="[ModuleContext:ModuleId]"></<%= namespaceRoot.toLowerCase() %>-<%= friendlyName.toLowerCase() %>>
+<<%= namespaceRoot.toLowerCase() %>-<%= friendlyName.toLowerCase() %> data-moduleid="[ModuleContext:ModuleId]" data-anti-forgery-token="[AntiForgeryToken:true]"></<%= namespaceRoot.toLowerCase() %>-<%= friendlyName.toLowerCase() %>>
 <script>
     window["<%= friendlyName %>"] = [ModuleProperties:All]
 </script>
