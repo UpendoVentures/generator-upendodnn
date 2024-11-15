@@ -10,7 +10,8 @@ using System.Net.Http;
 namespace <%= fullNamespace %>.Services
 {
     [SupportedModules("<%= friendlyName %>")]
-    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
+    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
+    [ValidateAntiForgeryToken]
     public class UserController : DnnApiController
     {
         public UserController() { }
