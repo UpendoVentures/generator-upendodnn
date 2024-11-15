@@ -17,7 +17,8 @@ using <%= fullNamespace %>.ViewModels;
 namespace <%= fullNamespace %>.Controllers
 {
     [SupportedModules("<%= friendlyName %>")]
-    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
+    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
+    [ValidateAntiForgeryToken]
 
     public class ItemController : ApiControllerBase
     {
