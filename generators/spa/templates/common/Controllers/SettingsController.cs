@@ -27,7 +27,8 @@ using static <%= fullNamespace %>.Constants;
 namespace <%= fullNamespace %>.Controllers
 {
     [SupportedModules("<%= friendlyName %>")]
-    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
+    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
+    [ValidateAntiForgeryToken]
     public class SettingsController : DnnApiController
     {
         public SettingsController() { }
