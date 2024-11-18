@@ -26,7 +26,8 @@ using <%= fullNamespace %>.Services.ViewModels;
 namespace <%= fullNamespace %>.Services
 {
     [SupportedModules("<%= friendlyName %>")]
-    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
+    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
+    [ValidateAntiForgeryToken]
     public class SettingsController : DnnApiController
     {
         public SettingsController() { }

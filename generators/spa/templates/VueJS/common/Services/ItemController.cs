@@ -18,6 +18,7 @@ namespace <%= fullNamespace %>.Services
 {
     [SupportedModules("<%= friendlyName %>")]
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
+    [ValidateAntiForgeryToken]
     public class ItemController : ApiControllerBase
     {
         public ItemController() { }

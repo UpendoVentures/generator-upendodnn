@@ -4,7 +4,11 @@
                 titleKey: "EditModule",
                 localResourceFile: "~/DesktopModules/<%= friendlyName %>/App_LocalResources/View.resx"
 }]
-<div id="<%= namespaceRoot.toLowerCase() %><%= friendlyName %>" data-moduleid="[ModuleContext:ModuleId]"></div>
+<div id="<%= namespaceRoot.toLowerCase() %><%= friendlyName %>" 
+     data-moduleid="[ModuleContext:ModuleId]"
+     data-tabid="[ModuleContext:TabId]"
+     data-editmode="[ModuleContext:EditMode]"
+     data-anti-forgery-token="[AntiForgeryToken:true]"></div>
 <script language="javascript" type="text/javascript">
     function getmoduleId(){
         return '[ModuleContext:ModuleId]';

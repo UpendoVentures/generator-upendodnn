@@ -17,6 +17,7 @@ namespace <%= fullNamespace %>.Controllers
 {
     [SupportedModules(FeatureController.MODULENAME)]
     [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.View)]
+    [ValidateAntiForgeryToken]
     public class DataController : DnnApiController
     {
         /// <summary>s
