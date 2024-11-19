@@ -1,6 +1,6 @@
 {
   "name": "generator-upendodnn",
-  "version": "1.13.1",
+  "version": "1.13.0",
   "description": "Scaffolds DNN extensions, including Modules (Webforms, SPA, and MVC), Persona Bar, Skin Object, Library, Scheduler, and Hotcakes Commerce projects (based on the generator built by Matt Rutledge).",
   "homepage": "https://github.com/UpendoVentures/generator-upendodnn#readme",
   "author": {
@@ -93,7 +93,7 @@
     "registry": "http://registry.npmjs.org/"
   },
   "resolutions": {
-    "**/**/got": "11.8.5",
+    "**/**/got": "11.8.6",
     "**/**/semver-regex": "3.1.4",
     "**/**/yargs-parser": "13.1.2",
     "**/**/mem": "4.0.0",
