@@ -50,13 +50,13 @@
   <Import Project="..\..\Build\SolutionReferences.targets" />
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.15" />
-    <PackageReference Include="DotNetNuke.Core" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web.Client" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.WebApi" Version="9.8.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="DotNetNuke.Core" Version="9.11.0" />
+    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.11.0" />
+    <PackageReference Include="DotNetNuke.Web" Version="9.11.0" />
+    <PackageReference Include="DotNetNuke.Web.Client" Version="9.11.0" />
+    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.10.2" />
+    <PackageReference Include="DotNetNuke.WebApi" Version="9.11.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Net.Http" />
