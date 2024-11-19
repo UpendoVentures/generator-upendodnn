@@ -48,13 +48,13 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 <ItemGroup>
-    <PackageReference Include="DotNetNuke.Core" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Abstractions" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.DependencyInjection" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web" Version="9.8.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />        
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
+    <PackageReference Include="DotNetNuke.Core" Version="9.11.0" />
+    <PackageReference Include="DotNetNuke.Abstractions" Version="9.11.0" />
+    <PackageReference Include="DotNetNuke.DependencyInjection" Version="9.11.0" />
+    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.11.0" />
+    <PackageReference Include="DotNetNuke.Web" Version="9.11.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.11.0" />        
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.11.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
