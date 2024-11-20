@@ -52,7 +52,6 @@
     <PackageReference Include="DotNetNuke.Web" Version="<%= dnnBuildVersionShort %>" />
     <PackageReference Include="DotNetNuke.Web.Mvc" Version="<%= dnnBuildVersionShort %>" />
     <PackageReference Include="DotNetNuke.Web.Client" Version="<%= dnnBuildVersionShort %>" />
-    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.10.2" />
     <PackageReference Include="DotNetNuke.WebApi" Version="<%= dnnBuildVersionShort %>" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />

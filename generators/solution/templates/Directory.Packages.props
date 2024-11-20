@@ -4,7 +4,6 @@
     <PackageVersion Include="DotNetNuke.Instrumentation" Version="9.2.1.533" Pin="true" />
     <PackageVersion Include="DotNetNuke.Web" Version="9.2.1.533" Pin="true" />
     <PackageVersion Include="DotNetNuke.Web.Client" Version="9.2.1.533" Pin="true" />
-    <PackageVersion Include="DotNetNuke.Web.Deprecated" Version="9.2.1.533" Pin="true" />
     <PackageVersion Include="DotNetNuke.WebApi" Version="9.2.1.533" Pin="true" />
     <PackageVersion Include="Microsoft.AspNet.WebApi.Client" Version="4.0.20710.0" />
     <PackageVersion Include="Microsoft.Net.Http" version="2.0.20710.0" />
