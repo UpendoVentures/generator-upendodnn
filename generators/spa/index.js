@@ -2,6 +2,8 @@
 const DnnGeneratorBase = require('../lib/DnnGeneratorBase');
 const chalk = require('chalk');
 const fs = require('fs');
+const constants = require('../lib/Constants');
+const { removeLeadingZeros } = require('../lib/versionUtil'); 
 
 module.exports = class extends DnnGeneratorBase {
   prompting() {
@@ -86,7 +88,8 @@ module.exports = class extends DnnGeneratorBase {
       props.fullNamespace = props.namespaceRoot + "." + props.extensionType + "." + props.friendlyName;
       props.guid = this._generateGuid();
       props.msBuildVersion = msBuildVersion;
-
+      props.dnnBuildVersion = constants.DNN_BUILD_VERSION;
+      props.dnnBuildVersionShort = removeLeadingZeros(constants.DNN_BUILD_VERSION);
       this.props = props;
     });
   }
@@ -125,7 +128,9 @@ module.exports = class extends DnnGeneratorBase {
       guid: this.props.guid,
       localhost: this.options.dnnHost,
       dnnRoot: this.options.dnnRoot,
-      msBuildVersion: this.props.msBuildVersion
+      msBuildVersion: this.props.msBuildVersion,
+      dnnBuildVersion: this.props.dnnBuildVersion,
+      dnnBuildVersionShort: this.props.dnnBuildVersionShort
     };
 
     if (spaType === "ReactJS") {

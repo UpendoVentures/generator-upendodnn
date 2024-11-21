@@ -27,8 +27,8 @@
     <PackageReference Include="DotNetNuke.Web" Version="<%= dnnBuildVersionShort %>" />
     <PackageReference Include="DotNetNuke.Web.Client" Version="<%= dnnBuildVersionShort %>" />
     <PackageReference Include="DotNetNuke.Web.Mvc" Version="<%= dnnBuildVersionShort %>" />
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.3" />
-    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.3" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
     <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.3" />
     <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.3" />
     <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />

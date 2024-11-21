@@ -45,13 +45,12 @@
   </PropertyGroup>
   <Import Project="..\..\Build\SolutionReferences.targets" />
   <ItemGroup>
-    <PackageReference Include="DotNetNuke.Core" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Instrumentation" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web.Client" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="9.8.0" />
-    <PackageReference Include="DotNetNuke.WebApi" Version="9.8.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="DotNetNuke.Core" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.Instrumentation" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.Web" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.Web.Client" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="DotNetNuke.WebApi" Version="<%= dnnBuildVersionShort %>" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Hotcakes.Commerce">

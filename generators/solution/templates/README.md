@@ -31,7 +31,7 @@ The previous version was not adhering to known best practices and as a result, i
 ## Solution  
 The solution currently expects to be in the following environment, but you can update that to be any version you'd like, provided all extensions will be compatible:  
 
-- DNN:  09.08.00  
+- DNN:  09.11.00  
 - Hotcakes Commerce:  03.06.00  
 - SQL:  2017+  
 

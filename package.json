@@ -93,7 +93,7 @@
     "registry": "http://registry.npmjs.org/"
   },
   "resolutions": {
-    "**/**/got": "11.8.5",
+    "**/**/got": "11.8.6",
     "**/**/semver-regex": "3.1.4",
     "**/**/yargs-parser": "13.1.2",
     "**/**/mem": "4.0.0",

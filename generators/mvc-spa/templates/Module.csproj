@@ -52,14 +52,13 @@
     <PackageReference Include="DotNetNuke.Web" Version="<%= dnnBuildVersionShort %>" />
     <PackageReference Include="DotNetNuke.Web.Mvc" Version="<%= dnnBuildVersionShort %>" />
     <PackageReference Include="DotNetNuke.Web.Client" Version="<%= dnnBuildVersionShort %>" />
-    <PackageReference Include="DotNetNuke.Web.Deprecated" Version="<%= dnnBuildVersionShort %>" />
     <PackageReference Include="DotNetNuke.WebApi" Version="<%= dnnBuildVersionShort %>" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.1.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
     <PackageReference Include="Microsoft.AspNet.Razor" Version="3.1.2" />
     <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.1.2" />
     <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />
-    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.3" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Hotcakes.Commerce">
